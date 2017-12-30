@@ -9,7 +9,7 @@ gem 'solidus'
 gem 'solidus_auth_devise'
 gem 'aws-sdk', '< 2.0'
 gem 'solidus_slider', github: 'samanmohamadi/solidus_slider'
-
+gem "jquery-slick-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
