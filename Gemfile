@@ -5,10 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "paperclip", "~> 5.1.0"
+gem "paperclip", ">= 5.0"
+gem "aws-sdk", ">= 2.0"
+
 gem 'solidus'
 gem 'solidus_auth_devise'
-gem 'aws-sdk', '< 2.0'
 gem 'solidus_slider', github: 'samanmohamadi/solidus_slider'
 gem "jquery-slick-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
