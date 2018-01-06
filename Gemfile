@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "paperclip", "~> 5.1.0"
-gem 'aws-sdk', '~> 2.3'
+gem "aws-sdk", "< 2.0"
 gem 'aws-sdk-v1'
 
 gem 'solidus'
