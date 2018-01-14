@@ -1,6 +1,19 @@
-<nav id="top-nav-bar" class="columns ten">
-  <ul id="nav-bar" class="inline" data-hook>
-    <li id="search-bar" data-hook>
+<nav id="top-nav-bar" class="columns ten" style="text-align: left;">
+  <ul id="nav-bar" class="inline" data-hook style="display: inline-flex;">
+
+    <li id="search-bar"  data-hook>
+      
+    </li>
+     <li id="link-to-cart" data-hook>
+      <noscript>
+        <%= link_to Spree.t(:cart), spree.cart_path %>
+      </noscript>
+      &nbsp;
+    </li>
+    <li>
+    	<figure id="logo" class="columns three" data-hook><%= logo %></figure>
+    </li>
+     <li >
       <%= render partial: 'spree/shared/search' %>
     </li>
   </ul>

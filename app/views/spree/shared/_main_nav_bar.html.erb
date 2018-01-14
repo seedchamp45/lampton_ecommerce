@@ -1,12 +1,31 @@
-<nav class="columns sixteen">
+<nav class="columns sixteen" style="background-color: rgb(94,94,94)">
   <ul id="main-nav-bar" class="inline" data-hook>
-    <li id="home-link" data-hook><%= link_to Spree.t(:home), spree.root_path %></li>
-    <li id="link-to-cart" data-hook>
-      <noscript>
-        <%= link_to Spree.t(:cart), spree.cart_path %>
-      </noscript>
-      &nbsp;
-    </li>
+<!--     <li id="home-link" data-hook><%= link_to Spree.t(:home), spree.root_path %></li> -->
+  <li>
+    ABOUT
+  </li>
+   <li>
+    SMART HOME
+  </li>
+   <li>
+    LIGHTING
+  </li>
+   <li>
+    LAMP DECORATION
+  </li>
+   <li>
+    NEWS & MEDIA
+  </li>
+   <li>
+    BLOG
+  </li>
+  <li>
+    CONTACT US
+  </li>
+  <li>
+    SUPPORT
+  </li>
+    
   </ul>
   <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
 </nav>

@@ -9,10 +9,10 @@
 </head>
 <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
 
-  <div class="container">
+
 
     <%= render partial: 'spree/shared/header' %>
-
+  <div class="container">
     <div id="wrapper" class="row" data-hook>
 
       <%= taxon_breadcrumbs(@taxon) %>
@@ -31,9 +31,15 @@
     <%= render partial: 'spree/shared/footer' %>
 
   </div>
+
   <script>
   $( window ).load(function() {
     $('.scroller').slick({
+       dots: true,
+  infinite: true,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear'
     });
   });
   </script>
