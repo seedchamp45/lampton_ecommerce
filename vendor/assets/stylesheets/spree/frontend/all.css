@@ -7,4 +7,17 @@
  *= require_self
  *= require_tree .
  *= require slick
+ *= require index
+ *= require index2
+ *= require application
+ *= require bootstrap.min
+ *= require bootstrap
+ *= require bootstrap-reboot.min
+ *= require bootstrap-reboot
+ *= require bootstrap-grid.min
+ *= require bootstrap-grid
+ *= require bootstrap-dropdownhover.min
+ *= require bootstrap-4-hover-navbar
+ *= require animate.min
+ *= require animate
 */

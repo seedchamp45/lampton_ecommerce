@@ -1,20 +1,292 @@
 <nav id="top-nav-bar" class="columns ten" style="text-align: left; margin: auto 10%;">
-  <ul id="nav-bar" class="inline" data-hook style="display: inline-flex;">
+    <div id="myNav" class="overlay d-lg-none">
+      <!--popup sub -->
+      <div id="layout_sub_menu_popup">
+        <div class="m1">
+          <a href="javascript:void(0)" class="closebtn txt_menu_popup d-flex justify-content-start pl-3" id="back_popup">< back</a>
+          <a href="javascript:void(0)" class="closebtn txt_menu_popup d-flex justify-content-end" id="close_btn2">&times;</a>
+          <div class="pop_menu_txt pl-3 pt-5 pb-3">
+            <div class="line_popup"></div>
+          </div>
+        </div>
 
-    <li id="search-bar"  data-hook>
-      
-    </li>
-     <li id="link-to-cart" data-hook>
-      <noscript>
-        <%= link_to Spree.t(:cart), spree.cart_path %>
-      </noscript>
-      &nbsp;
-    </li>
-    <li>
-    	<figure id="logo" class="columns three" data-hook><%= logo %></figure>
-    </li>
-     <li >
-      <%= render partial: 'spree/shared/search' %>
-    </li>
-  </ul>
+        <div >
+          <div class="pop_sub_menu" id="menu_3_1">
+            <div class="pop_menu_txt">Place</div>
+            <div class="pop_menu_txt">Residence</div>
+            <div class="pop_menu_txt">Office</div>
+            <div class="pop_menu_txt">Industrial</div>
+            <div class="pop_menu_txt">Outdoor</div>
+            <div class="pl-3 pb-1"><div class="line_popup"></div></div>
+          </div>
+
+          <div class="pop_sub_menu" id="menu_3_2">
+            <div class="pop_menu_txt">แยกตามชนิด</div>
+            <div class="pop_menu_txt">Bulb</div>
+            <div class="pop_menu_txt">MR16</div>
+            <div class="pop_menu_txt">Downlight</div>
+            <div class="pop_menu_txt">High watt</div>
+            <div class="pop_menu_txt">Ceiling lamp</div>
+            <div class="pop_menu_txt">Street light</div>
+            <div class="pop_menu_txt">Flashlight</div>
+            <div class="pop_menu_txt">Panel light</div>
+            <div class="pop_menu_txt">Motion lamp</div>
+            <div class="pop_menu_txt">Flood light</div>
+            <div class="pl-3 pb-1"><div class="line_popup"></div></div>
+          </div>
+
+          <div class="pop_sub_menu" id="menu_3_3">
+            <div class="pop_menu_txt">ขั้ว</div>
+            <div class="pop_menu_txt">F27</div>
+            <div class="pop_menu_txt">E14</div>
+            <div class="pop_menu_txt">GU5.3</div>
+            <div class="pop_menu_txt">E40</div>
+            <div class="pop_menu_txt">ต่อไฟตรง</div>
+            <div class="pl-3 pb-1"><div class="line_popup"></div></div>
+          </div>
+
+          <div class="pop_sub_menu" id="media">
+            <div class="pop_menu_txt">media</div>
+            <div class="pop_menu_txt">TVC</div>
+            <div class="pop_menu_txt">PR</div>
+            <div class="pop_menu_txt">Interviews</div>
+            <div class="pl-3 pb-1"><div class="line_popup"></div></div>
+          </div>
+        </div>
+      </div>
+      <!--popup sub -->
+
+      <!--popup main -->
+      <div id="layout_menu_popup">
+        <div id="head_menu_mobile">
+          <div>
+            <div class="col_pop_m1"> </div>
+            <div class="col_pop_m2">
+              <a href="javascript:void(0)" class="closebtn txt_menu_popup d-flex justify-content-end" id="close_btn">&times;</a>
+            </div>
+          </div>
+         <div class="pop_menu_txt p-3">
+           Login  |  Register
+           <div class="line_popup"></div>
+         </div>
+        </div>
+        <div class="overlay-content pl-2 pr-2" id="head_body_mobile" >
+          <div id="accordion">
+            <!--1-->
+            <div class="menu_1">
+              <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-1" aria-expanded="false" aria-controls="sub-pop-1">About</div>
+
+              <div id="sub-pop-1" aria-labelledby="sub-pop-1"  class="panel-collapse collapse" data-parent="#accordion">
+                <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                  <li>Company Profile</li>
+                  <li>Vision & Mission</li>
+                  <li>Certificate</li>
+                  <li>Awards</li>
+                </ul>
+                <div class="line_popup2 p2"></div>
+              </div>
+            </div>
+            <!--1-->
+
+            <!--2-->
+            <div class="menu_2">
+              <div class="pop_menu_txt p-2">Smart Home</div>
+            </div>
+            <!--2-->
+            
+            <!--3-->
+            <div class="menu_3">
+              <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-2" aria-expanded="false">Lighting</div>
+          
+               <div id="sub-pop-2" class=" collapse" data-parent="#accordion" aria-labelledby="lighting-pop" >
+                <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                  <li>Smart Function </li>
+                  <li> 
+                    <div class="l_sub1_pop select_sub s_icon" id="menu_3_1">Place</div> 
+                  </li>
+                  <li class="list_menu_sub_pop">
+                    <div class="l_sub1_pop select_sub s_icon" id="menu_3_2">แยกตามชนิด</div>
+                  </li>
+                  <li class="list_menu_sub_pop">
+                    <div class="l_sub1_pop select_sub s_icon" id="menu_3_3">ขั้ว</div>
+                  </li>
+                  <li >ip</li>
+                </ul>
+                <div class="line_popup2 p2"></div>
+              </div>
+            </div>
+            <!--3-->
+
+            <!--4-->
+            <div class="menu_4">
+               <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-4" >Lamp-Decoration</div>
+
+                <div id="sub-pop-4" class="collapse" data-parent="#accordion">
+                  <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                    <li>Lamptan Bright Studio</li>
+                    <li>Modern</li>
+                    <li>Loft</li>
+                    <li>American Vintage</li>
+                    <li>Chinese Modren</li>
+                    <li>Outdoor</li>
+                    <li>Style guide</li>
+                  </ul>
+                  <div class="line_popup2 p2"></div>
+                </div>
+            </div>
+            <!--4-->
+
+            <!--5-->
+             <div class="menu_5">
+              <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-5"  >News & Media</div>
+
+              <div id="sub-pop-5" class="collapse" data-parent="#accordion">
+                <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                  <li>News</li>
+                  <li>
+                    <div class="l_sub1_pop select_sub s_icon" id="menu_5_1"> Media</div> 
+                  </li>
+                  <li>CSR</li>
+                </ul>
+                <div class="line_popup2 p2"></div>
+              </div>
+            </div>
+            <!--5-->
+
+            <!--6-->
+            <div class="menu_6">
+              <div class="pop_menu_txt p-2">Blog</div>
+            </div>
+            <!--6-->
+            
+            <!--7-->
+            <div class="menu_7">
+              <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-7" >Contact us</div>
+
+              <div id="sub-pop-7" class="collapse" data-parent="#accordion">
+                <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                  <li>Head office</li>
+                  <li>Our Client</li>
+                  <li>Agent</li>
+                </ul>
+                <div class="line_popup2 p2"></div>
+              </div>
+            </div>
+            <!--7-->
+            
+            <!--8-->
+            <div class="menu_8">
+              <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-8">Support</div>
+              <div id="sub-pop-8" class="collapse" data-parent="#accordion">
+                <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                  <li>FAQ</li>
+                  <li>DIY</li>
+                  <li>Catalog</li>
+                  <li>Manual</li>
+                  <li>Lampton Style guide</li>
+                </ul>
+              </div>
+            </div>
+            <!--8-->
+          </div>
+        </div>
+        <div class="footer pl-3" id="head_footer_mobile">
+            <div class="line_popup p2"></div>
+            <div class="pop_menu_txt pt-2">
+            th  |  en
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--menu mobile-->
+    <!--popup main-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white d-md-none nav_mobile">
+          <div class="col-3 d-flex justify-content-start">
+            <div class="i_i_text" id="bu_menu">MENU</div> 
+          </div>
+          <div class="col-6 d-flex justify-content-center align-items-center">
+            <img class="img-fluid" src="assets/images/logo.png"> 
+          </div>
+          <div class="col-3 d-flex align-items-center justify-content-end">
+             <img class="img-fluid " src="assets/images/cart.png"/> 0
+          </div>
+    </nav>
+    <!-- mobile-->
+
+
+    <!-- web-->
+    <!--header web-->
+    <header class="d-none d-md-block">          
+      <div class="container ">
+        <div class="row  ">
+          <div class="col col-sm-5 col-md-5 col-lg-5 col-xl-5  d-flex align-items-center d-flex justify-content-start md_no_padding ">
+            <ul class="nav i_ml_head">
+              <li class="nav-item head_bar_between_left d-flex align-items-center h_text">
+                MY ACCOUNT
+              </li>
+              <li class="nav-item head_bar_between_left d-flex align-items-center h_text">
+                <img class="img-fluid" src="assets/images/cart.png"/> 0
+              </li>
+              <li class="nav-item head_bar_between_left d-flex align-items-center h_text">
+                CONFIRM PAYMENY
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 d-flex align-items-center justify-content-center">
+            <img class="mt-1 img-fluid" src="assets/images/logo.png">    
+          </div>
+           <div class="col col-sm-5 col-md-5 col-lg-5 col-xl-5  d-flex justify-content-end md_no_padding">
+              <ul class="nav ">
+                <li class="nav-item head_icon d-flex align-items-center">
+                  <img class="img-fluid" src="assets/images/facebook.png"/>
+                </li>
+                <li class="nav-item head_icon d-flex align-items-center">
+                  <img class="img-fluid" src="assets/images/instagram.png"/>
+                </li>
+                <li class="nav-item head_icon d-flex align-items-center">
+                  <img class="img-fluid" src="assets/images/youtube.png"/>
+                </li>
+                <li class="nav-item  head_bar_between m_i_lr_1 d-flex align-items-center">
+                 <input type="text" class="form-control form-control-sm in_search" id="colFormLabelSm">
+                </li>
+                <li class="nav-item head_bar_between d-flex align-items-center h_text">
+                  TH / EN 
+                </li>
+                
+              </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--header web-->
+    
+
+    <!--menu web-->
+    <section id="menu" >
+      <div class="container-fluid  pt-3 no_padding d-none d-md-block">
+          <ul class="nav justify-content-center menu_bar">
+            <li class="nav-item menu1 down_down_head">
+              <a class="nav-link active d-flex justify-content-center h_text_menu " id="1" href="#" >About</a>
+            </li>
+            <li class="nav-item menu1 d-flex justify-content-center ">
+              <a class="nav-link h_text_menu " href="#" >Smart Home</a>
+            </li>
+            <li class="nav-item menu1 down_down_head">
+               <a class="nav-link h_text_menu down_down_head" href="#" id="2">Lighting</a>
+            </li>
+            <li class="nav-item menu1">
+              <a class="nav-link h_text_menu down_down_head" href="#" id="3">Lamp-Decoration</a>
+            </li>
+            <li class="nav-item menu1">
+              <a class="nav-link h_text_menu down_down_head" href="#" id="4"> News & Media</a>
+            </li>
+            <li class="nav-item menu1">
+              <a class="nav-link h_text_menu down_down_head" href="#" id="5">Contact us</a>
+            </li>
+            <li class="nav-item  menu1">
+              <a class="nav-link h_text_menu down_down_head" href="#"  id="6" >Support</a>
+            </li>
+          </ul>
+      </div>
+    </section>
 </nav>

@@ -9,3 +9,10 @@
 //= require spree/frontend
 //= require_tree .
 //= require jquery.slick
+//= require bootstrap-4-hover-navbar
+//= require bootstrap-dropdownhover
+//= require bootstrap-dropdownhover.min
+//= require bootstrap
+//= require index
+//= require cable
+//= require application
