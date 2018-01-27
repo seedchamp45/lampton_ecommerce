@@ -20,6 +20,7 @@ module LamptonEcommerce
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
     end
+    config.assets.initialize_on_precompile = true
     config.assets.precompile += ['index.css']
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
