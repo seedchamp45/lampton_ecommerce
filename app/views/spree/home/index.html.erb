@@ -1,36 +1,223 @@
-<% if Spree::Slide.published.count > 0 %>
-  <section id="slideshow">
-    <ul class="slide">
-    	<div class="scroller">
-      		<% Spree::Slide.published.location("carousel_home").order('position ASC').each do |s| %>
-        		<li>
-          		<h1><%= s.slide_caption %></h1>
-          		<%= link_to image_tag(s.slide_image.url), url_for(s.link_url) %>
-        		</li>
-      		<% end %>
-      	</div>
-    </ul>
-  </section>
-<% end %>
-
-<% if Spree::Slide.published.count > 0 %>
-  <section id="slideshow">
-    <ul class="slide">
-      <div class="scroller">
-          <% Spree::Slide.published.location("carousel_product_review").order('position ASC').each do |s| %>
-            <li>
-              <h1><%= s.slide_caption %></h1>
-              <%= link_to image_tag(s.slide_image.url), url_for(s.link_url) %>
-            </li>
-          <% end %>
+        <!--carousel_banner-->
+    <div class="parent d-none d-md-block">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag("banner.JPG", :alt => "logo", :class => "d-block w-100") %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag("banner.JPG", :alt => "logo", :class => "d-block w-100") %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag("banner.JPG", :alt => "logo", :class => "d-block w-100") %>
+          </div>
         </div>
-    </ul>
-  </section>
-<% end %>
+      </div>
+      <!--sub 1-->
+      <div class="element" id="sub_menu_web_1">
+        <div id="bg_sub_menu_web">
+          <div class="container-fluid " id="sub_menu_web">
+            <div class="row">
+              <div class="col-md-1 col-lg-1 col-xl-2"></div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex justify-content-center">
+                <ul class="pop_li_disc">
+                  <li class="h_s_title_menu_txt mb-4">about </li>
+                  <li> 
+                    <div> <div class="h_s_title_menu_txt">Place</div>
+                      <div>
+                        <div class="h_s_menu_txt">Residence</div>
+                        <div class="h_s_menu_txt">Office</div>
+                        <div class="h_s_menu_txt">Industrial</div>
+                        <div class="h_s_menu_txt">Outdoor</div>
+                      </div>
+                    </div> 
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-4 col-lg-4 col-xl-4 d-flex justify-content-center">
+                <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                  <li> 
+                    <div >
+                      <div class="h_s_title_menu_txt">แยกตามชนิด</div>
+                      <div>
+                        <div class="h_s_menu_txt">Bulb</div>
+                        <div class="h_s_menu_txt">MR16</div>
+                        <div class="h_s_menu_txt">Downlight</div>
+                        <div class="h_s_menu_txt">High watt</div>
+                        <div class="h_s_menu_txt">Ceiling lamp</div>
+                        <div class="h_s_menu_txt">Street light</div>
+                        <div class="h_s_menu_txt">Flashlight</div>
+                        <div class="h_s_menu_txt">Panel light</div>
+                        <div class="h_s_menu_txt">Motion lamp</div>
+                        <div class="h_s_menu_txt">Flood light</div>
+                      </div>
+                    </div> 
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex justify-content-center">
+                <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                  <li class="h_s_title_menu_txt mb-4"> ขั้ว</li>
+                  <li> 
+                    <div class="h_s_title_menu_txt" >ip
+                        <div class="h_s_menu_txt">F27</div>
+                        <div class="h_s_menu_txt">E14</div>
+                        <div class="h_s_menu_txt">GU5.3</div>
+                        <div class="h_s_menu_txt">E40</div>
+                        <div class="h_s_menu_txt">ต่อไฟตรง</div>
+                    </div> 
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-1 col-lg-1 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--sub 1-->
 
-<div data-hook="homepage_products">
-  <% cache(cache_key_for_products) do %>
-    <%= render partial: 'spree/shared/products', locals: { products: @products } %>
-  <% end %>
+      <!--sub 2-->
+      <div class="element" id="sub_menu_web_2">
+        <div id="bg_sub_menu_web">
+          <div class="container-fluid " id="sub_menu_web">
+            <div class="row">
+              <div class="col-md-1 col-lg-1 col-xl-2"></div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex justify-content-center">
+                <ul class="pop_li_disc">
+                  <li class="h_s_title_menu_txt mb-4">Smart Function </li>
+                  <li> 
+                    <div> <div class="h_s_title_menu_txt">Place</div>
+                      <div>
+                        <div class="h_s_menu_txt">Residence</div>
+                        <div class="h_s_menu_txt">Office</div>
+                        <div class="h_s_menu_txt">Industrial</div>
+                        <div class="h_s_menu_txt">Outdoor</div>
+                      </div>
+                    </div> 
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-4 col-lg-4 col-xl-4 d-flex justify-content-center">
+                <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                  <li> 
+                    <div >
+                      <div class="h_s_title_menu_txt">แยกตามชนิด</div>
+                      <div>
+                        <div class="h_s_menu_txt">Bulb</div>
+                        <div class="h_s_menu_txt">MR16</div>
+                        <div class="h_s_menu_txt">Downlight</div>
+                        <div class="h_s_menu_txt">High watt</div>
+                        <div class="h_s_menu_txt">Ceiling lamp</div>
+                        <div class="h_s_menu_txt">Street light</div>
+                        <div class="h_s_menu_txt">Flashlight</div>
+                        <div class="h_s_menu_txt">Panel light</div>
+                        <div class="h_s_menu_txt">Motion lamp</div>
+                        <div class="h_s_menu_txt">Flood light</div>
+                      </div>
+                    </div> 
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex justify-content-center">
+                <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                  <li class="h_s_title_menu_txt mb-4"> ขั้ว</li>
+                  <li> 
+                    <div class="h_s_title_menu_txt" >ip
+                        <div class="h_s_menu_txt">F27</div>
+                        <div class="h_s_menu_txt">E14</div>
+                        <div class="h_s_menu_txt">GU5.3</div>
+                        <div class="h_s_menu_txt">E40</div>
+                        <div class="h_s_menu_txt">ต่อไฟตรง</div>
+                    </div> 
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-1 col-lg-1 col-xl-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--sub 2-->
+    </div>
+    <!--carousel_banner-->
+
+    <!--smarthome-->
+    <section id="smart_home">
+      <div class="container i_cn_smarthome">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <%= image_tag("smart_home.JPG", :alt => "logo", :class => "img-fluid") %>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--Lighting  Lamp-->
+    <section id="decoration_lighting">
+     <div class="container i_cn_li_lamp">
+      <div class="row ">
+
+
+
+        <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
+          <%= image_tag("decoration_mobile.JPG", :alt => "logo", :class => "img-fluid d-lg-none  w-100", :id => "decoration_mobile") %>
+          <%= image_tag("decoration.JPG", :alt => "logo", :class => "img-fluid d-none d-lg-block" , :id => "decoration_img") %>
+        </div>
+
+        <div class="col-6 col-sm-6 col-md-6 col-lg-8 col-xl-8 ">
+          <%= image_tag("lighting_mobile.JPG", :alt => "logo", :class => "img-fluid d-none w-100", :id =>"decoration_mobile") %>
+          <%= image_tag("lighting.JPG", :alt => "logo", :class => "img-fluid d-none d-lg-block", :id => "decoration_img") %>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Lighting  Lamp-->
+
+    <section id="highlight">
+      <div class="container">
+        <div class="i_txt_title d-flex justify-content-center">Highlight</div>
+
+        <div class="row i_buttom">
+          <div class="embed-responsive embed-responsive-1by1 ">
+           <!-- <iframe class="embed-responsive-item" src="index8.html" ></iframe> -->
+         </div>
+       </div>
+     </div>
+   </section>
+
+   <!--carousel_banner_2-->
+   <section id="carousel_banner_2">
+    <div class="container d-flex align-items-center justify-content-center">
+      <div class="row">
+       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+         <%= image_tag("lamptan_bright_studio.JPG", :alt => "logo", :class => "img-fluid") %>
+      </div> 
+    </div>
+  </div>
+</section>
+<!--carousel_banner_2-->
+
+<!--your_self-->
+<section id="your_self">
+  <div class="container i_cn_lampton_diy">
+    <div class="row ">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
+        <div class="i_txt_title d-flex justify-content-center">do it yourself</div>
+      </div>
+    </div>
+    <div class="row i_buttom">
+     <div class="embed-responsive embed-responsive-16by9 ">
+      <!--  <iframe class="embed-responsive-item" src="index9.html" ></iframe> -->
+     </div>
+
+   </div>
+   <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center "><button type="button" class="btn btn-outline-dark about_button btn-md strong btn_tb">LOAD MORE</button></div>
+  </div>
 </div>
-
+</section>

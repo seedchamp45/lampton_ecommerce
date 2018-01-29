@@ -7,6 +7,11 @@
 <head data-hook="inside_head">
   <%= render partial: 'spree/shared/head' %>
   <%= stylesheet_link_tag "index" %>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 </head>
 <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
   <%= render partial: 'header/header' %>
@@ -15,14 +20,14 @@
     <div id="wrapper" class="row" data-hook>
       <%= taxon_breadcrumbs(@taxon) %>
       <%= render partial: 'spree/shared/sidebar' if content_for? :sidebar %>
-      <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
+      <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook style="width: auto;">
         <%= flash_messages %>
         <%= yield %>
       </div>
       <%= yield :templates %>
     </div>
    </div>
-   
+
     <%= render partial: 'footer/footer' %>
 
   <script>
@@ -36,5 +41,9 @@
    });
   });
   </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
 </body>
 </html>

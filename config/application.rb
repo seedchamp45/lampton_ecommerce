@@ -22,6 +22,7 @@ module LamptonEcommerce
     end
     config.assets.initialize_on_precompile = true
     config.assets.precompile += ['index.css']
+    config.assets.precompile += ['index.js']
     config.assets.precompile += ['.css', '.js'] 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
