@@ -7,15 +7,19 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <%= image_tag("banner.JPG", :alt => "logo", :class => "d-block w-100") %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag("banner.JPG", :alt => "logo", :class => "d-block w-100") %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag("banner.JPG", :alt => "logo", :class => "d-block w-100") %>
-          </div>
+          <% if Spree::Slide.published.count > 0 %>
+            <% Spree::Slide.published.location("home_banner") .order('position ASC').each_with_index do |s, index| %>
+              <% if index == 0 %>
+                <div class="carousel-item active">
+                  <%= image_tag(s.image, :alt => "logo", :class => "d-block w-100") %>
+                </div>
+                <% else %>
+                <div class="carousel-item">
+                  <%= image_tag(s.image, :alt => "logo", :class => "d-block w-100") %>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
         </div>
       </div>
       <!--sub 1-->
@@ -161,14 +165,10 @@
     <section id="decoration_lighting">
      <div class="container i_cn_li_lamp">
       <div class="row ">
-
-
-
         <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
           <%= image_tag("decoration_mobile.JPG", :alt => "logo", :class => "img-fluid d-lg-none  w-100", :id => "decoration_mobile") %>
           <%= image_tag("decoration.JPG", :alt => "logo", :class => "img-fluid d-none d-lg-block" , :id => "decoration_img") %>
         </div>
-
         <div class="col-6 col-sm-6 col-md-6 col-lg-8 col-xl-8 ">
           <%= image_tag("lighting_mobile.JPG", :alt => "logo", :class => "img-fluid d-none w-100", :id =>"decoration_mobile") %>
           <%= image_tag("lighting.JPG", :alt => "logo", :class => "img-fluid d-none d-lg-block", :id => "decoration_img") %>
