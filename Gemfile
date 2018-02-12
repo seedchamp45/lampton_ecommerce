@@ -12,7 +12,6 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'solidus'
 gem 'solidus_auth_devise'
 gem 'solidus_slider', github: 'samanmohamadi/solidus_slider'
-gem "jquery-slick-rails"
 gem 'searchkick'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -1,0 +1,2 @@
+module SmarthomeHelper
+end

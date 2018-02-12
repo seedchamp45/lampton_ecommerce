@@ -7,6 +7,6 @@
                                 @taxons.map {|t| [t.name, t.id]},
                                 @taxon ? @taxon.id : params[:taxon]), 'aria-label' => 'Taxon' %> -->
    <% end %> 
-   <%= search_field_tag :keywords, params[:keywords], placeholder: Spree.t(:search) %>
+   <%= search_field_tag :keywords, params[:keywords], placeholder: Spree.t(:search), class: 'typeahead'%>
   <%= submit_tag Spree.t(:search), name: nil %> 
 <% end %>

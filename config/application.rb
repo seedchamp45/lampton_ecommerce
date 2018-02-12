@@ -24,6 +24,7 @@ module LamptonEcommerce
     config.assets.precompile += ['index.css']
     config.assets.precompile += ['index.js']
     config.assets.precompile += ['.css', '.js'] 
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
