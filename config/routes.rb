@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'smarthome/smarthome' => 'smarthome#smarthome' 
-  
+  get '/smarthome' => 'smarthome#smarthome'
 
   get 'vission_mission/vissionmission'
 
