@@ -15,9 +15,9 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'spree/frontend/all' %>
+  <%= stylesheet_link_tag "spree/frontend/all" %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "index" %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"> 
     </head>
 
     <body>
@@ -135,7 +135,10 @@
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                       <div class="card no_border ">
                         <div class="text-center">
-                          <img class="card-img-top i_cn_lampton_diy_img smart_home_card_img " src="assets/images/Smoke-L.jpg" alt="text">
+                           <% Spree::Product.available.where(:name => "test1").order('position ASC').each_with_index do |s, index| %>
+                            <%= image_tag s.display_image.attachment(:product), itemprop: "card-img-top i_cn_lampton_diy_img smart_home_card_img" %>
+                            <% end %>
+                         
                         </div>
                         <div class="card-body smart_home_card_padding ">
                           <p class="card-title smart_home_txt_title_card  d-flex justify-content-center">smoke detector</p>
@@ -147,7 +150,9 @@
 
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                       <div class="card no_border">
-                        <img class="card-img-top i_cn_lampton_diy_img smart_home_card_img" src="assets/images/Gas-L.jpg" alt="text">
+                        <% Spree::Product.available.where(:name => "test2").order('position ASC').each_with_index do |s, index| %>
+                            <%= image_tag s.display_image.attachment(:product), itemprop: "card-img-top i_cn_lampton_diy_img smart_home_card_img" %>
+                            <% end %>
                         <div class="card-body smart_home_card_padding ">
                           <p class="card-title smart_home_txt_title_card  d-flex justify-content-center">smoke detector</p>
                           <p class="smart_home_card_txt_price d-flex justify-content-center">฿ 3,500</p>
@@ -304,9 +309,6 @@
 
 
 </section>
- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
 </body>
 </html>
