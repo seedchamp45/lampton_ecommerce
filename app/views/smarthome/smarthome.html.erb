@@ -1,3 +1,49 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+<html>
+  <head data-hook="inside_head">
+    <%= favicon_link_tag 'favicon.ico' %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="My custom spree store">
+    <title><%= content_for?(:title) ? yield(:title) : "My title" %></title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'spree/frontend/all' %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "index" %>
+
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+
+<body>
+    <%= render partial: 'header/header' %>
+
+    <section id="smart_home">
+
+    
+            <%= link_to "smarthome", @smarthome do %>
+            <%= image_tag("smart_home.JPG", :alt => "logo", :class => "img-fluid carousel-head") %>
+            <% end %>
+
+
+
+    </section>
+    <% Spree::Product.available.order('position ASC').each_with_index do |s, index| %>
+           
+                <div class="carousel-item active">
+                    <%= image_tag s.display_image.attachment(:product), itemprop: "image" %>
+                </div>
+                
+             
+            <% end %>
  <section id="body">
       <div class="container">
         <div class="row smart_home_top">
@@ -31,6 +77,9 @@
                     <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                       <div class="card no_border ">
                         <div class="text-center">
+           
+            
+  
                           <img class="card-img-top i_cn_lampton_diy_img smart_home_card_img " src="assets/images/Motion-L.jpg" alt="text">
                         </div>
                         <div class="card-body smart_home_card_padding ">
@@ -258,3 +307,6 @@
 
 
     </section>
+
+     </body>
+</html>
