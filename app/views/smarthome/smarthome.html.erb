@@ -64,7 +64,7 @@
               <!--left card-->
 
               <div class="row">
-                  <% Spree::Product.available.where(:name => "test3").order('position ASC').each_with_index do |s, index| %>
+                  <% Spree::Product.available.where(:name => "test2").order('position ASC').each_with_index do |s, index| %>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                  <div class="card no_border">
                   <%= image_tag s.display_image.attachment(:product), itemprop: "card-img-top i_cn_lampton_diy_img smart_home_card_img" %>
@@ -77,7 +77,7 @@
                 </div>
                      <% end %>
               </div>
-              <% Spree::Product.available.where(:name => "test4").order('position ASC').each_with_index do |s, index| %>
+              <% Spree::Product.available.where(:name => "test3").order('position ASC').each_with_index do |s, index| %>
               <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <div class="card no_border">
                   <%= image_tag s.display_image.attachment(:product), itemprop: "card-img-top i_cn_lampton_diy_img smart_home_card_img" %>
