@@ -221,7 +221,7 @@
                 <div class="card about_card no_padding">
                   <%= image_tag s.display_image.attachment(:product), itemprop: "card-img-top i_cn_lampton_diy_img smart_home_card_img" , :class => "card-img-top i_cn_lampton_diy_img"%>
                   <div class="card-body about_card_body">
-                    <p class="card-text i_highlight_txt d-flex justify-content-center">smart motion semsor</p>
+                    <p class="card-text i_highlight_txt d-flex justify-content-center"><%= link_to s.name, product_path(s) %></p>
                   </div>
                 </div>
               </div>
