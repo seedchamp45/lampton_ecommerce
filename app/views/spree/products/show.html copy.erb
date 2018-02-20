@@ -1,4 +1,56 @@
+<% cache [I18n.locale, current_pricing_options, @product] do %>
+  <div data-hook="product_show" itemscope itemtype="http://schema.org/Product">
+    <% @body_id = 'product-details' %>
 
+    <div class="columns six alpha" data-hook="product_left_part">
+      <div class="row" data-hook="product_left_part_wrap">
+
+        <div id="product-images" data-hook="product_images">
+          <div id="main-image" data-hook>
+            <%= render partial: 'image' %>
+          </div>
+          <div id="thumbnails" data-hook>
+            <%= render partial: 'thumbnails' %>
+          </div>
+        </div>
+
+        <div data-hook="product_properties">
+          <%= render partial: 'properties' %>
+        </div>
+
+        <p> eiei </p>
+
+        <div data-hook="promotions">
+          <%= render partial: 'promotions' %>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="columns ten omega" data-hook="product_right_part">
+      <div class="row" data-hook="product_right_part_wrap">
+
+        <div id="product-description" data-hook="product_description">
+
+          <h1 class="product-title" itemprop="name"><%= @product.name %></h1>
+
+          <div itemprop="description" data-hook="description">
+            <%= product_description(@product) rescue Spree.t(:product_has_no_description) %>
+          </div>
+
+          <div id="cart-form" data-hook="cart_form">
+            <%= render partial: 'cart_form' %>
+          </div>
+
+        </div>
+
+        <%= render partial: 'taxons' %>
+
+      </div>
+    </div>
+
+  </div>
+<% end %>
 
 <div class="bar_menu_de">
       <div class="container">
@@ -35,26 +87,19 @@
                         </ol>
                         <div class="carousel-inner">
                           <div class="carousel-item active">
-                            <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "d-block w-100") %>
-
-
-                        
+                            <img class="d-block w-100" data-src="" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" data-holder-rendered="true">
                           </div>
                           <div class="carousel-item  ">
-                            <%= image_tag("products/LED_A60.jpg", :alt => "logo", :class => "d-block w-100") %>
-                        
+                            <img class="d-block w-100" data-src="" src="assets/images/products/LED A60.jpg" data-holder-rendered="true">
                           </div>
                           <div class="carousel-item ">
-                            <%= image_tag("products/LED_Dewy_ora.jpg", :alt => "logo", :class => "d-block w-100") %>
-                        
+                            <img class="d-block w-100" data-src=""  src="assets/images/products/LED Dewy_ora.jpg" data-holder-rendered="true">
                           </div>
                       <div class="carousel-item ">
-                            <%= image_tag("products/LED_Mercury.jpg", :alt => "logo", :class => "d-block w-100") %>
-                        
+                            <img class="d-block w-100" data-src=""  src="assets/images/products/LED Mercury.jpg" data-holder-rendered="true">
                           </div>
                           <div class="carousel-item ">
-                            <%= image_tag("products/LED_Smart_Emergency_10w_MT33.jpg", :alt => "logo", :class => "d-block w-100") %>
-                           
+                            <img class="d-block w-100" data-src=""  src="assets/images/products/LED Smart Emergency_10w_MT.jpg" data-holder-rendered="true">
                           </div>
                         </div>
                         <!--<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -79,31 +124,23 @@
                         
                           <ul class="products-img-small h-100 " id="img_small">
                              <li class="product_arrow"><div class="arrow_top mouse_click" id="arrow_top">&#708;</div></li>
-                        <li id="img_small_1" >
-                            <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "product_de_img_small mouse_img_small") %>
-                            </li>
+                        <li id="img_small_1" ><img class="product_de_img_small" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" class="mouse_img_small" ></li>
                         <li id="img_small_2" >
-                          <%= image_tag("products/LED_A60.jpg", :alt => "logo", :class => "product_de_img_small") %>
-                          </li>
+                          <img class="product_de_img_small" src="assets/images/products/LED A60.jpg"></li>
                         <li id="img_small_3">
-                          <%= image_tag("products/LED_Dewy_ora.jpg", :alt => "logo", :class => "product_de_img_small") %>
-                         
+                          <img class="product_de_img_small " src="assets/images/products/LED Dewy_ora.jpg" >
                         </li>
                         <li id="img_small_4">
-                            <%= image_tag("products/LED_Mercury.jpg", :alt => "logo", :class => "product_de_img_small") %>
-                          
+                          <img class="product_de_img_small" src="assets/images/products/LED Mercury.jpg" >
                         </li>
                         <li id="img_small_5">
-                          <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "product_de_img_small") %>
-                          
+                          <img class="product_de_img_small" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" >
                         </li>
                         <li id="img_small_6">
-                           <%= image_tag("products/LED_A60.jpg", :alt => "logo", :class => "product_de_img_small") %>
-                          
+                          <img class="product_de_img_small" src="assets/images/products/LED A60.jpg">
                         </li>
                         <li id="img_small_7">
-                           <%= image_tag("products/LED_Dewy_ora.jpg", :alt => "logo", :class => "product_de_img_small") %>
-                        
+                          <img class="product_de_img_small" src="assets/images/products/LED Dewy_ora.jpg">
                         </li>
                         <li class="product_arrow">
                           <div class="arrow_top mouse_click" id="arrow_bottom">&#709;</div>
@@ -115,12 +152,11 @@
                       <!--left img -small-->
                       <!--img big center-->
                           <td class="no_padding">
-                               <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "no_padding img-fluid", :id => "product_img_big") %>
-                           
+                            
+                            <img class="img-fluid no_padding" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" id="product_img_big"  style="width: 100%;";>
                             
                         <p class="sale_pop">
-                            <%= image_tag("products/bg_sale_pop.png", :alt => "logo", :class => "img-sale-product") %>
-                       </p>
+                        <img class="img-sale-product" src="assets/images/products/bg_sale_pop.png"></p>
                         <p class="text_sale">20%</p>
                           </td>
                           <!--img big center-->
@@ -184,20 +220,16 @@
                       <ul class="products_details_ul_bu">
                         <li>
                           <button type="button" class="btn btn-white products_button btn-md  products_bu_li_details ">
-                             <%= image_tag("products/heart.png", :alt => "logo", :class => "products_de_icon_bu") %>
-                          
+                          <img class="products_de_icon_bu" src="assets/images/products/heart.png"> 
                          WISHLIST</button>
                         </li>
                         <li>
                           <button type="button" class="btn btn-white products_button btn-md  products_bu_li_details ">
-                                <%= image_tag("products/compare.png", :alt => "logo", :class => "products_de_icon_bu") %>
-                           COMPARE</button>
+                          <img class="products_de_icon_bu" src="assets/images/products/compare.png"> COMPARE</button>
                         </li>
                         <li>
                           <button type="button" class="btn btn-white products_button btn-md  products_bu_li_details ">
-                            <%= image_tag("products/facebook.png", :alt => "logo", :class => "products_de_icon_bu") %>
-
-                        
+                          <img class="products_de_icon_bu" src="assets/images/products/facebook.png">
                          SHARE</button>
                         </li>
                       </ul>
@@ -214,14 +246,12 @@
                 <!--desktop-->
                 <div class="d-none d-md-block  row">
                   <div class="col-md-12 col-xl-12 col-lg-12 d-flex justify-content-around">
-                    <div class="arrow_left mouse_click_details d-flex align-items-center" id="arrow_top"></div>
-                    <%= image_tag("products/facebook.png", :alt => "logo", :class => "products_de_icon_bu") %>
-                    <%= image_tag("products/product_detail_img_1.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1") %>
-                    <%= image_tag("products/product_detail_img_2.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1") %>
-                    <%= image_tag("products/product_detail_img_3.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1") %>
-                    <%= image_tag("products/product_detail_img_4.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1") %>
-                    <%= image_tag("products/product_detail_img_5.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1") %>
-                  
+                    <div class="arrow_left mouse_click_details d-flex align-items-center" id="arrow_top"><</div>
+                    <img class="img-fluid product_img_details_gallery" id="img_1" src="assets/images/products/product_detail_img_1.png">
+                    <img class="img-fluid product_img_details_gallery" id="img_2" src="assets/images/products/product_detail_img_2.png">
+                    <img class="img-fluid product_img_details_gallery" id="img_3" src="assets/images/products/product_detail_img_3.png">
+                    <img class="img-fluid product_img_details_gallery" id="img_4" src="assets/images/products/product_detail_img_4.png">
+                    <img class="img-fluid product_img_details_gallery" id="img_5" src="assets/images/products/product_detail_img_5.png">
                     <div class="arrow_right mouse_click_details d-flex align-items-center" id="arrow_top">></div>
                   </div>
                 </div>
@@ -231,7 +261,7 @@
               <div class="d-none d-md-block col-md-2 col-xl-2 col-lg-2">
                 <div class=" product_title_recommender text-center mb-3">RECOMMENDER PRODUCTS</div>
                 <div class="product_recommender text-center">
-                  <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "img-fluid product_img_recommender mouse_img_small") %>
+                  <img class="img-fluid product_img_recommender" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" class="mouse_img_small " >
                   
                   
                   
@@ -239,23 +269,20 @@
                   <!--<div class="product_price_recommender d-inline"></div>-->
                 </div>
                 <div class="product_recommender text-center d-block">
-                   <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "img-fluid product_img_recommender mouse_img_small") %>
+                  <img class="img-fluid product_img_recommender" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" class="mouse_img_small" >
                   <p class="sale_pop_detail">
-                    <%= image_tag("products/bg_sale_pop.png", :alt => "logo", :class => "img-sale-detail-product") %>
+                    <img class="img-sale-detail-product" src="assets/images/products/bg_sale_pop.png">
                   </p>
                   <p class="text_sale_detail">20%</p>
                   <div class="product_text_recommender">LED Ultra Slim Circle <div class="product_price_recommender d-inline">฿ 500</div></div>
                 </div>
                 <div class="product_recommender text-center">
-                  <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "img-fluid product_img_recommender mouse_img_small") %>
-
+                  <img class="img-fluid product_img_recommender" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" class="mouse_img_small" >
 
                   <div class="product_text_recommender">LED Ultra Slim Circle <div class="product_price_recommender d-inline">฿ 432</div></div>
                 </div>
                 <div class="product_recommender text-center">
-                    <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "img-fluid product_img_recommender mouse_img_small") %>
-
-                 
+                  <img class="img-fluid product_img_recommender" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" class="mouse_img_small" >
                   <div class="product_text_recommender">LED Ultra Slim Circle <div class="product_price_recommender d-inline">฿ 432</div></div>
                 </div>
               </div>
@@ -272,12 +299,12 @@
         <div class="container" id>
           <div class="row">
             <div class="col-12 col-md-12 col-xl-12 col-lg-12 d-flex justify-content-around">
-                    <div class="arrow_left mouse_click_details d-flex align-items-center" id="arrow_top"></div>
-                    <%= image_tag("products/product_detail_img_1.png", :alt => "logo", :class => "img-fluid product_img_details_gallery") %>
-                    <%= image_tag("products/product_detail_img_2.png", :alt => "logo", :class => "img-fluid product_img_details_gallery") %>
-                    <%= image_tag("products/product_detail_img_3.png", :alt => "logo", :class => "img-fluid product_img_details_gallery") %>
-                    <%= image_tag("products/product_detail_img_4.png", :alt => "logo", :class => "img-fluid product_img_details_gallery") %>
-                    <%= image_tag("products/product_detail_img_5.png", :alt => "logo", :class => "img-fluid product_img_details_gallery") %>
+                    <div class="arrow_left mouse_click_details d-flex align-items-center" id="arrow_top"><</div>
+                    <img class="img-fluid product_img_details_gallery" id="img_1" src="assets/images/products/product_detail_img_1.png">
+                    <img class="img-fluid product_img_details_gallery" id="img_1" src="assets/images/products/product_detail_img_2.png">
+                    <img class="img-fluid product_img_details_gallery" id="img_1" src="assets/images/products/product_detail_img_3.png">
+                    <img class="img-fluid product_img_details_gallery" id="img_1" src="assets/images/products/product_detail_img_4.png">
+                    <img class="img-fluid product_img_details_gallery" id="img_1" src="assets/images/products/product_detail_img_5.png">
                     <div class="arrow_right mouse_click_details d-flex align-items-center" id="arrow_top">></div>
             </div>
           </div>
@@ -303,8 +330,8 @@
             <div class="col-md-12 col-xl-12 col-lg-12">
               <div class="products_details_title">Specification</div>
               <div class="products_details_body text-center">
-                  <%= image_tag("products/specification.jpg", :alt => "logo", :class => "img-70") %>
-           
+                  <img class="img-70"
+                  src="assets/images/products/specification.jpg">
               </div>
             </div>
           </div>
@@ -319,8 +346,8 @@
               <div class="product_details collapsed" data-toggle="collapse" data-target="#product_details_2" aria-expanded="false" id="brochure"> Brochure<i class="chevron fa fa-fw" id="brochure"></i></div>
                 <div class="collapse" id="product_details_2" data-parent="#product_menu">
                     <div class="products_details_body text-center">
-                <%= image_tag("products/brochure.jpg", :alt => "logo", :class => "img-30 mr-4") %>
-          
+                <img class="img-30 mr-4"
+                  src="assets/images/products/brochure.jpg">
                   <button type="button" class="btn btn-white products_button btn-lg  products_bu_details orange_bg ml-4">ADD TO CART</button>
                 </div>
                 </div>
@@ -339,9 +366,11 @@
               <div class="product_details collapsed" data-toggle="collapse" data-target="#product_details_1" aria-expanded="false"  id="manual_guide"> Manual guide<i class="chevron fa fa-fw" ></i></div>
                 <div class="collapse" id="product_details_1" data-parent="#product_menu">
                     <div class="products_details_body text-center">
-                  <%= image_tag("products/manual-guide-1.jpg", :alt => "logo", :class => "img-30 mr-4") %>
-                  <%= image_tag("products/manual-guide-2.jpg", :alt => "logo", :class => "img-30 mr-4") %>
-                
+                  <img class="img-30 mr-4"
+                    src="assets/images/products/manual-guide-1.jpg">
+                  <img class="img-30 mr-4"
+                    src="assets/images/products/
+                    manual-guide-2.jpg">  
                 </div>
                 </div>
             </div>
@@ -359,8 +388,7 @@
             <div class="col-12 col-md-12 col-xl-12 col-lg-12 d-flex justify-content-around">
 
               <div class="card_product ml-lg-1 product_card">
-                <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "card-img-top i_cn_lampton_diy_img img-fluid") %>
-            
+                <img class="card-img-top i_cn_lampton_diy_img img-fluid" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" alt="Card image cap">
                 <div class="card-body products_card_body">
                   <p class="card-title about_txt products_detail_title_re_text">LED Ultra Slim Circle</p>
                   <p class="card-text products_detail_re_text_body">ชุดโคมไฟ LED อัจฉริยะ เป็นได้ทั้งโคมไฟเพื่อตกแต่งให้แสงสว่างและไฟฉุกเฉิน</p>
@@ -375,8 +403,7 @@
                 <img class="card-img-top i_cn_lampton_diy_img img-fluid" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" alt="Card image cap">
                 <div class="card-body products_card_body card_details">
                   <p class="sale_pop">
-                  <%= image_tag("products/bg_sale_pop.png", :alt => "logo", :class => "img-sale-product") %>
-                  </p>
+                  <img class="img-sale-product" src="assets/images/products/bg_sale_pop.png"></p>
                   <p class="text_sale">20%</p>
                   <p class="card-title about_txt products_detail_title_re_text">LED Ultra Slim Circle</p>
                   <p class="card-text products_detail_re_text_body">ชุดโคมไฟ LED อัจฉริยะ เป็นได้ทั้งโคมไฟเพื่อตกแต่งให้แสงสว่างและไฟฉุกเฉิน</p>
