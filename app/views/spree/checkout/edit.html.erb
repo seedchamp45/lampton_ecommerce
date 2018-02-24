@@ -43,7 +43,9 @@
                               Phone #2: 0863731329
                             </li>
                           </ul>
+                           <%= link_to "companyptofile", @companyptofile do %>
                           <button class="btn1 w-100 bg_bu_orange">SEND TO THIS ADDRESS</button>
+                          <% end %>
                           <p class="check_out_exit">
                             <%= image_tag("close2.png", :alt => "logo", :class => "img-close2" ) %>
                            
@@ -84,7 +86,9 @@
                               Phone #2: 0863731329
                             </li>
                           </ul>
+                           <%= link_to "companyptofile", @companyptofile do %>
                           <button class="btn1 w-100 bg_bu_orange">SEND TO THIS ADDRESS</button>
+                           <% end %>
                           <p class="check_out_exit">
                              <%= image_tag("close2.png", :alt => "logo", :class => "img-close2" ) %>
                             <div class="check_text_edit">Edit</div>
@@ -127,7 +131,8 @@
                           </ul>
                           
                           <p class="check_out_add">
-                            <img class="img-close2" src="assets/images/add.png">
+                            <%= image_tag("add.png", :alt => "logo", :class => "img-close2") %>
+                            
                             <div class="check_text_add">เพิ่มที่อยู่จัดส่ง</div>
                           </p>
                         </td>

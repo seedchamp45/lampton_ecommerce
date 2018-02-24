@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'vission_mission/vissionmission'
 
-  get 'company_profile/companyptofile'
+  get 'checkout/companyptofile' => 'company_profile#companyptofile'
 
   get 'certificate/certificate'
 
