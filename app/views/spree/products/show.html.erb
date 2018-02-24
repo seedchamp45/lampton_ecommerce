@@ -118,9 +118,9 @@
                         <!--left img -small-->
                         <!--img big center-->
                         <td class="no_padding">
-
+                          <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "no_padding img-fluid", :id => "product_img_big", :size => "430x421") %>
                           
-                         <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "no_padding img-fluid", :id => "product_img_big") %>
+                        
 
 
                          <p class="sale_pop">
@@ -138,7 +138,7 @@
                 <!--desktop-->
                 <div class="products_text_title">LED VINTAGE GLOBE</div>
                 <div class="d-inline">
-                  <div class="d-none d-md-block products_text_price">฿ 450 
+                  <div class="d-none d-md-block products_text_price">฿ <%= @product.price %> 
                     <sub class="products_price_full">฿ 540 </sub>
                   </div>
                 </div>
@@ -423,7 +423,7 @@
               <div class="d-flex justify-content-center">
                 <ul class="product_ul_model">
                   <li class="w-25 p-3">
-                    <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "d-block w-100") %>
+                    <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "d-block w-100") %>
                    
                   </li>
                   <li class="w-75">
@@ -442,7 +442,7 @@
                           </div>
                         </td>
                         <td class="text-right "> 
-                          <div class="text_bold mt-md-0mt-lg-3">฿ 300</div>
+                          <div class="text_bold mt-md-0mt-lg-3">฿ <%= @product.price %> </div>
                         </td>
                       </tr>
                       <tr>

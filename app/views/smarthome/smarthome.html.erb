@@ -59,7 +59,7 @@
         <div class="row smart_home_top">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="row">
-              <% Spree::Product.available.where(:name => "test1").order('position ASC').each_with_index do |s, index| %>
+              <% Spree::Product.available.where(:name => "test2").order('position ASC').each_with_index do |s, index| %>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <div class="card no_border ">
                     <div class="text-center">
@@ -122,7 +122,7 @@
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <div class="row">
-                <% Spree::Product.available.where(:name => "test1").order('position ASC').each_with_index do |s, index| %>
+                <% Spree::Product.available.where(:name => "test3").order('position ASC').each_with_index do |s, index| %>
                   <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <div class="card no_border ">
                       <div class="text-center">
@@ -141,7 +141,7 @@
                   </div>
                 <% end %>
 
-                <% Spree::Product.available.where(:name => "test1").order('position ASC').each_with_index do |s, index| %>
+                <% Spree::Product.available.where(:name => "test4").order('position ASC').each_with_index do |s, index| %>
                   <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <div class="card no_border ">
                       <div class="text-center">
