@@ -1,0 +1,71 @@
+<h3><%= Spree.t(:order_summary) %></h3>
+
+<table data-hook="order_summary table line_top line_coll">
+  <tbody>
+   <tr>
+    <td class="payment_text_small w-50 line_top">PRODUCTS</td>
+    <td class="payment_text_small w-25 text-center line_top">QTY</td>
+    <td class="payment_text_small w-25 text-right line_top">PRICE</td>
+  </tr>
+  <tr>
+    <td colspan="3"><div class="line_top w-100"></div></td>
+  </tr>
+  <tr >
+    <td class="payment_text_middle text_bold">Lamptan LED Blub 6W Daylight-3 Pack / Pack 1EA </td>
+    <td class="text-center">1</td>
+    <td class="text-right">$ 210</td>
+  </tr>
+  <tr data-hook="item_total">
+    <td><strong><%= Spree.t(:item_total) %>:</strong></td>
+    <td><strong><%= order.display_item_total.to_html %></strong></td>
+  </tr>
+
+  <% if order.line_item_adjustments.nonzero.exists? %>
+  <tbody data-hook="order_details_promotion_adjustments">
+    <% order.line_item_adjustments.nonzero.promotion.eligible.group_by(&:label).each do |label, adjustments| %>
+    <tr class="total">
+      <td><%= label %></td>
+      <td><%= Spree::Money.new(adjustments.sum(&:amount), currency: order.currency).to_html %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  <% end %>
+
+  <tbody data-hook="order_details_tax_adjustments">
+    <tr>
+      <td class="payment_text_small w-50 line_top">PRODUCTS</td>
+      <td class="payment_text_small w-25 text-center line_top">QTY</td>
+      <td class="payment_text_small w-25 text-right line_top">PRICE</td>
+    </tr>
+    <tr>
+      <td colspan="3"><div class="line_top w-100"></div></td>
+    </tr>
+
+    <tr>
+      <td colspan="3"><div class="line_top_orange w-100"></div></td>
+    </tr>
+
+    <tr>
+      <td class=" before_subtotal"><div class=" payment_text_middle text_bold">Hanging Lamp</div><p class="payment_text_small orange">* สินค้าประเภทโคมไฟจะมีเจ้าหน้าที่
+        ติดต่อกลับภายหลัง</p></td>
+        <td class="text-center">1</td>
+        <td class="text-right ">$ 2000</td>
+      </tr>
+
+      <tr class="mt-4">
+       <td colspan="2" class="line_top payment_text_middle"><div class="text_bold">Subtotal </div><div>Minimum order free</div></td>
+       <td class="text-right line_top">฿ 2,210<div>Free</div></td>
+     </tr>
+     <tr class="">
+       <td colspan="2" class="line_top payment_text_middle line_top "><div class="text_bold">Shipping : EMS </div><div>ศุกร์ 5, อังคาร, 9 ม.ค. 2018</div></td>
+       <td class="text-right line_top">฿ 75</td>
+     </tr>
+     <tr class=" sum">
+       <td class="payment_text_middle"><div class="text_bold">Grand Total</div><div>(VAT incl. if any)</div></td>
+       <td colspan="2" class="text-right payment_text_big orange text_bold">฿ 2,285</td>
+     </tr>
+   </table>
+ </tbody>
+</table>
+
+

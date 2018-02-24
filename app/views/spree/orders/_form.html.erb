@@ -1,16 +1,45 @@
 <% order = order_form.object %>
 <%= render 'spree/shared/error_messages', target: order %>
-<table id="cart-detail" data-hook>
-  <thead>
-    <tr data-hook="cart_items_headers">
-      <th class="cart-item-description-header" colspan="2"><%= Spree.t(:item) %></th>
-      <th class="cart-item-price-header"><%= Spree.t(:price) %></th>
-      <th class="cart-item-quantity-header"><%= Spree.t(:qty) %></th>
-      <th class="cart-item-total-header"><%= Spree.t(:total) %></th>
-      <th class="cart-item-delete-header"></th>
-    </tr>
-  </thead>
-  <tbody id="line_items" data-hook>
+
+
+
+
+
+
+  <div class="bg_details_products">
+      <div class="bg_products_white1">
+        <div class="container" id="body_detail">
+          <div class="row">
+            <div class="col-md-10 col-xl-10 col-lg-10 ">
+              
+            </div>
+            
+          </div>
+          
+          
+        </div>
+      </div>
+
+      <div class=" ">
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-12 col-xl-12 col-lg-12 bg_products_white">
+              <div class="row">
+                <div class="col-md-12 col-xl-12 col-lg-12  d-flex justify-content-center">
+                  
+                  <table class="cart_table">
+                    <thead>
+                        <tr>
+                          <th scope="col" class="cart_c_1" colspan="2">My Shopping Cart</th>
+                         
+                          <th scope="col" class="cart_c_3 text-center">Price</th>
+                          <th scope="col" class="cart_c_4">Quantity</th>
+                          <th scope="col" class="cart_c_5"></th>
+                        </tr>
+                     </thead>
+                    <!--1-->
+
+                     <tbody id="line_items" data-hook>
     <%= render partial: 'spree/orders/line_item', collection: order.line_items, locals: { order_form: order_form } %>
   </tbody>
   <% if order.adjustments.nonzero.exists? || order.line_item_adjustments.nonzero.exists? || order.shipment_adjustments.nonzero.exists? || order.shipments.any? %>
@@ -21,9 +50,96 @@
     </tr>
     <%= render "spree/orders/adjustments" %>
   <% end %>
-  <tr class="cart-total">
-    <td colspan="4" align='right'><h5><%= Spree.t(:total) %></h5></th>
-    <td colspan><h5><%= order.display_total %></h5></td>
-    <td></td>
-  </tr>
-</table>
+
+
+                    
+                      </table>
+                  
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 col-xl-12 col-lg-12  d-flex justify-content-center">
+                  
+                  <table class="cart_table2">
+                    <thead>
+                        <tr>
+                          <th scope="col" class="cart_c_1" colspan="3"></th>
+                         
+                          <th scope="col" class="cart_c_4" colspan="2"></th>
+                        </tr>
+                     </thead>
+                     <tr>
+                      <td colspan="3">
+                        <div class="mr-4">
+                              <button type="button" class="btn   btn-lg  products_modal_bu d-inline"  data-dismiss="modal">DISCOUNT COUPON CODE </button>
+                                
+                              </div>
+                            </td>
+                            <td colspan="2" class="text-right">
+                        <div class="mr-4" >
+                                <div class="d-inline ">Total :</div>
+                                <div class="d-inline text_orange cart_text_price"><%= order.display_item_total %></div>
+                              </div>
+                            </td>
+                     </tr>
+
+                     <tr>
+                      <td colspan="3">
+                        <div class="mt-4">
+                                <div class="cart_text_continue"> CONTINUE SHOPPING</div>
+                              </div>
+                            </td>
+                            <td colspan="2" class="text-right">
+                              <%= button_tag class: 'mt-4 btn btn-white  btn-lg  products_modal_bu orange_bg d-inline', id: 'checkout-link', name: 'checkout' do %>
+              Proceed to checkout
+            <% end %>
+                        
+                            </td>
+                     </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-xl-12 col-lg-12 bg_products_white ">
+              <div class="row cart_pl cart_pr">
+                <div class="col-md-6 col-xl-6 col-lg-6 cart_t_pr">
+                  <div class="cart_title_text cart_title_text_p_b">คุณจะได้รับสินค้าเมื่อไร่ ?</div> 
+                  <div>ช่วงเวลาประมาณในการจัดส่งสินค้า คือ ระยะเวลาที่สินค้าของคุณ  จะถูกจัดส่งไปยังที่อยู่ของคุณ กระบวนการนี้รวมถึงช่วงเวลาในการ
+                  ตรวจสอบคำสั่งซื้อ การดำเนินการจัดการสินค้า และรวมถึง
+                  ช่วงเวลาในการขนส่ง เราจะแจ้งรายละเอียดเกี่ยวกับวันที่สินค้า
+                  ของคุณจะได้รับการจัดส่งในระหว่างการชำระเงิน</div>
+                </div>
+                <div class="col-md-6 col-xl-6 col-lg-6 ">
+                  <div class="cart_title_text cart_title_text_p_b">คุณสามารถชำระเงินได้ด้วยวิธีใดบ้าง ?</div>
+                  <div>
+                    เรามีวิธีการชำระเงินให้คุณได้เลือกใช้ดังต่อไปนี้ การเก็บเงินปลายทาง (Cash on Delivery) , บัตรเครดิต (Credit Card) , บัตรเดบิต (Debit Card) , PayPal 
+                  </div>
+                </div>
+              </div>
+              <div class="row cart_pl cart_pr mt-4">
+                <div class="col-md-6 col-xl-6 col-lg-6">
+                  <div class="cart_title_text cart_title_text_p_b">วิธีการชำระเงิน</div> 
+                  <div>
+                     <%= image_tag("logo_left.png", :alt => "logo", :class => "img-fluid no_padding") %>
+              
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-6 col-lg-6">
+                  <div class="cart_title_text cart_title_text_p_b">Delivery Services</div>
+
+                  <div>
+                    <%= image_tag("logo_right.png", :alt => "logo", :class => "img-fluid no_padding mt-2") %>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      
+      
+    </div>

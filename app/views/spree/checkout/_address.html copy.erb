@@ -1,7 +1,40 @@
-<div id="checkout" data-hook>
-  <%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
+<div class="columns alpha six" data-hook="billing_fieldset_wrapper">
+  <fieldset id="billing" data-hook>
+    <%= form.fields_for :bill_address do |bill_form| %>
+      <legend align="center"><%= Spree.t(:billing_address) %></legend>
+      <%= render partial: 'spree/address/form', locals: { form: bill_form, address_type: 'billing', address: @order.bill_address } %>
+    <% end %>
+  </fieldset>
+</div>
 
- <div class="bg_details_products">
+<div class="columns omega six" data-hook="shipping_fieldset_wrapper">
+  <fieldset id="shipping" data-hook>
+    <%= form.fields_for :ship_address do |ship_form| %>
+      <legend align="center"><%= Spree.t(:shipping_address) %></legend>
+      <p class="field checkbox" data-hook="use_billing">
+        <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address? %>
+        <%= label_tag :order_use_billing, Spree.t(:use_billing_address), id: 'use_billing' %>
+      </p>
+      <%= render partial: 'spree/address/form', locals: { form: ship_form, address_type: 'shipping', address: @order.ship_address } %>
+    <% end %>
+  </fieldset>
+</div>
+<hr class="clear" />
+
+<div class="form-buttons" data-hook="buttons">
+  <%= submit_tag Spree.t(:save_and_continue), class: 'continue button primary' %>
+  <% if try_spree_current_user %>
+    <span data-hook="save_user_address">
+      &nbsp; &nbsp;
+      <%= check_box_tag 'save_user_address', '1', try_spree_current_user.respond_to?(:persist_order_address) %>
+      <%= label_tag :save_user_address, Spree.t(:save_my_address) %>
+    </span>
+  <% end %>
+</div>
+
+
+
+<div class="bg_details_products">
   <div class="container">
     <div class="row">
       <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -45,8 +78,7 @@
                           </ul>
                           <button class="btn1 w-100 bg_bu_orange">SEND TO THIS ADDRESS</button>
                           <p class="check_out_exit">
-                            <%= image_tag("close2.png", :alt => "logo", :class => "img-close2" ) %>
-                           
+                            <img class="img-close2" src="assets/images/close2.png">
                             <div class="check_text_edit">Edit</div>
                           </p>
                           
@@ -86,7 +118,7 @@
                           </ul>
                           <button class="btn1 w-100 bg_bu_orange">SEND TO THIS ADDRESS</button>
                           <p class="check_out_exit">
-                             <%= image_tag("close2.png", :alt => "logo", :class => "img-close2" ) %>
+                            <img class="img-close2" src="assets/images/close2.png">
                             <div class="check_text_edit">Edit</div>
                           </p>
                         </td>
@@ -369,9 +401,7 @@
                   </div>
                     
                 <div class="check_text_title mt-5">DELIVERY SERVICE</div>
-                <div class="text-center">
-                  <%= image_tag("logo_right.png", :alt => "logo", :class => "mg-fluid no_padding mt-2" ) %>
-                  
+                <div class="text-center"><img class="img-fluid no_padding mt-2" src="assets/images/logo_right.png">
                     </div>
               </div>
             </div>
@@ -383,13 +413,3 @@
     
   </div>
 </div>
-</div>
-
-<script>
-Spree.current_order_id = "<%= @order.number %>"
-Spree.current_order_token = "<%= @order.guest_token %>"
-</script>
-
-<% if I18n.locale != :en %>
-  <%= javascript_include_tag 'jquery.validate/localization/messages_' + I18n.locale.to_s.downcase.gsub('-', '') %>
-<% end %>
