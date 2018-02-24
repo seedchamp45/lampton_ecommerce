@@ -136,7 +136,7 @@
 
               <div class="col-12 col-md-5 col-xl-5 col-lg-5 no_padding col-padding padding_mobile">
                 <!--desktop-->
-                <div class="products_text_title">LED VINTAGE GLOBE</div>
+                <div class="products_text_title"><%= @product.name %></div>
                 <div class="d-inline">
                   <div class="d-none d-md-block products_text_price">฿ <%= @product.price %> 
                     <sub class="products_price_full">฿ 540 </sub>
@@ -171,7 +171,7 @@
 
 
                   <div class="line_full"></div>
-                  <div class="products_details_text mt-2">รายแรกจากแลมป์ตั้น ด้วยการผสมผสาน LED กับดีไซน์ที่โดดเด่น ด้วยกลิ่นอายสไตล์โมเดิร์นคลาสสิคแต่ยังคงความสวยงามให้ดูเหมือนหลอดไส้ในสมัยก่อน คงความเป็นเอกลักษณ์ที่ไม่เหมือนใคร เหมาะสำหรับการใช้งานทั่วไป ประดับตกแต่งสถานที่ต่างๆ ที่ต้องการความสวยงามสไตล์วินเทจย้อนยุค</div>
+                  <div class="products_details_text mt-2">  <%= product_description(@product) rescue Spree.t(:product_has_no_description) %></div>
                   <div class="line_full"></div>
                   <div class="d-none d-md-block"><div class="d-inline mb-2 ">
                     <ul class="pagination pagination-md ">
@@ -222,11 +222,11 @@
                     <div class="col-md-12 col-xl-12 col-lg-12 d-flex justify-content-around">
                       <div class="arrow_left mouse_click_details d-flex align-items-center" id="arrow_top"></div>
                       
-                      <%= image_tag("products/product_detail_img_1.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1") %>
-                      <%= image_tag("products/product_detail_img_2.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1") %>
-                      <%= image_tag("products/product_detail_img_3.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1") %>
-                      <%= image_tag("products/product_detail_img_4.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1") %>
-                      <%= image_tag("products/product_detail_img_5.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1") %>
+                      <%= image_tag("products/product_detail_img_1.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1"  , :size => "100x100") %>
+                      <%= image_tag("products/product_detail_img_2.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1" , :size => "100x100") %>
+                      <%= image_tag("products/product_detail_img_3.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1" , :size => "100x100") %>
+                      <%= image_tag("products/product_detail_img_4.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1", :size => "100x100") %>
+                      <%= image_tag("products/product_detail_img_5.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1", :size => "100x100") %>
 
                       <div class="arrow_right mouse_click_details d-flex align-items-center" id="arrow_top">></div>
                     </div>
