@@ -6,13 +6,13 @@
 
     <% ship_form.object.shipping_rates.each do |rate| %>
 
-    <% if rate.name == 'ไปรษณีย์ไทย' %>
+  
 
     <!--left -->
     <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6  pl-5">
 
       <table class="w-75 mt-5">
-
+          <% if rate.name == 'ไปรษณีย์ไทย' %>
         <!--left shipping ( ไปรษณีย์ไทย)-->
         <tr>
 
@@ -78,12 +78,12 @@
     <!--left shipping -->
     <!--right shipping -->
     <% end %>
-     <% if rate.name == 'KERRY' %>
+
     <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6  pl-5">
       <div class="check_text_title"></div>
       <table class="w-75 mt-5">
         <!--right shipping   (KERRY)-->
-       
+        <% if rate.name == 'KERRY' %>
         <tr>
 
           <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
