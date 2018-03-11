@@ -82,7 +82,7 @@
         <div class="check_text_title"></div>
         <table class="w-75 mt-5">
           <!--right shipping   (KERRY)-->
-    
+          <% if rate.name == 'KERRY' %>
           <tr>
             
             <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
@@ -103,7 +103,7 @@
 
             </td>
           </tr>
-        
+          <% end %>
           <!--right shipping   (KERRY)-->
           <!--right shipping   LINE MAN-->
                <% if rate.name == 'LINE MAN' %>
