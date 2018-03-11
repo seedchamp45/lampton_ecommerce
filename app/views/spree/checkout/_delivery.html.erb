@@ -3,6 +3,7 @@
   <div class="check_text_title  pt-5">SHIPPING</div>
   <div class="row">
     <%= form.fields_for :shipments do |ship_form| %>
+    <% if ship_form.object.stock_location_id == 1 %>
     <% ship_form.object.shipping_rates.each do |rate| %>
 
     <% if rate.name == 'ไปรษณีย์ไทย' %>
@@ -82,10 +83,10 @@
       <div class="check_text_title"></div>
       <table class="w-75 mt-5">
         <!--right shipping   (KERRY)-->
-
+        <% if rate.name == 'KERRY' %>
         <tr>
 
-          <td></td>
+          <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
           <td>KERRY : ฿45</td>
         </tr>
         <tr>
@@ -103,7 +104,7 @@
 
           </td>
         </tr>
-  
+        <% end %>
         <!--right shipping   (KERRY)-->
         <!--right shipping   LINE MAN-->
         <% if rate.name == 'LINE MAN' %>
@@ -135,6 +136,7 @@
   </div>
 </div>
 
+<% end %>  
 <% end %>  
 <% end %>
 <% end %>
