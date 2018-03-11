@@ -9,12 +9,12 @@
 
     <!--left -->
     <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6  pl-5">
-      
+
       <table class="w-75 mt-5">
-        
+
         <!--left shipping ( ไปรษณีย์ไทย)-->
         <tr>
-          
+
           <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
 
           <td>ไปรษณีย์ไทย</td>
@@ -22,7 +22,7 @@
         <tr>
           <td></td>
           <td>
-           
+
             <ul class="ul_check_out2 mt-4 mb-5">
               <li>
                 <div class="d-inline-block align-top">
@@ -62,10 +62,10 @@
               <li class="text-center">
                 <div class="d-inline-block">
                   <p class="check_out_text">ส่งแบบเร่งด่วน ภายใน 24 ชั่วโมง</p>
-                  
+
                 </div>
               </li>
-              
+
             </ul>
 
           </td>
@@ -77,22 +77,22 @@
     <!--left shipping -->
     <!--right shipping -->
     <% end %>
-    
+
     <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6  pl-5">
       <div class="check_text_title"></div>
       <table class="w-75 mt-5">
         <!--right shipping   (KERRY)-->
-        <% if rate.name == 'KERRY' %>
+
         <tr>
-          
-          <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
+
+          <td></td>
           <td>KERRY : ฿45</td>
         </tr>
         <tr>
           <td></td>
           <td>
             <ul class="ul_check_out2 mt-4  mb-kerry">
-              
+
               <li>
                 <div class="d-inline-block">
                   <p class="check_out_text">จัดส่งแบบเร่งด่วน วันศุกร์, 5-วันจันทร์,8 ม.ค.2018</p>
@@ -103,12 +103,12 @@
 
           </td>
         </tr>
-        <% end %>
+  
         <!--right shipping   (KERRY)-->
         <!--right shipping   LINE MAN-->
         <% if rate.name == 'LINE MAN' %>
         <tr>
-         
+
           <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
           <td >LINE MAN: ฿50</td>
         </tr>
@@ -119,15 +119,15 @@
               <li class="text-center">
                 <div class="d-inline-block">
                   <p class="check_out_text">จัดส่งแบบเร่งด่วน ภายใน 24 ชั่วโมง</p>
-                  
+
                 </div>
               </li>
-              
+
             </ul>
 
           </td>
         </tr>
-        
+
         <!--right shipping   LINE MAN-->
       </table>
     </div>
