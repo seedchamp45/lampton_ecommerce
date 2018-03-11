@@ -8,7 +8,7 @@ Spree.config do |config|
   config.currency = "THB"
 
   # from address for transactional emails
-  config.mails_from = "store@example.com"
+  config.mails_from = "kittipol.idas@gmail.com"
 
   Spree::SocialConfig[:path_prefix] = 'member' # for /member/auth/:provider
   Spree::SocialConfig[:path_prefix] = 'profile' # for /profile/auth/:provider
