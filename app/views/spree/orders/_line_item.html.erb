@@ -34,12 +34,7 @@
   </td>
   <td class="cart_c_4"> 
     <ul class="pagination pagination-md ">
-      <li class="page-item ">
-        <a class="page-link product_count_add" href="#" tabindex="-1">+</a>
-      </li>
-      <li class="page-item product_count">  <%= line_item.quantity %></li>
-      <li class="page-item">
-        <a class="page-link product_count_add" href="#">-</a></li>
+           <%= item_form.number_field :quantity, min: 0, class: "line_item_quantity", size: 5 %>
       </ul>
     </td>
     <td class="cart_c_5">
