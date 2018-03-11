@@ -21,21 +21,21 @@
 
             <p class="field" id=<%="#{address_id}firstname" %>>
               <%= form.label :firstname, Spree.t(:first_name), :class =>"my-1 ml-3 check_text_body" %><span class="required">*</span><br />
-              <%= form.text_field :firstname, class: 'required form-control mx-sm-3', autocomplete: address_type + ' given-name' %>
+              <%= form.text_field :firstname, class: 'form-control mx-sm-3', autocomplete: address_type + ' given-name' %>
             </p>
           </div>
 
           <div class="form-group w-75">
             <p class="field" id=<%="#{address_id}lastname" %>>
-              <%= form.label :lastname, Spree.t(:last_name) , :class =>"my-1 ml-3 check_text_body"%><span class="required">*</span><br />
+              <%= form.label :lastname, Spree.t(:last_name) , :class =>"my-1 ml-3 check_text_body"%><span class="">*</span><br />
               <%= form.text_field :lastname, class: 'form-control mx-sm-3', autocomplete: address_type + ' family-name' %>
             </p>
           </div>
 
           <div class="form-group w-75">
             <p class="field" id=<%="#{address_id}address1" %>>
-              <%= form.label :address1, Spree.t(:street_address), :class =>"my-1 ml-3 check_text_body" %><span class="required">*</span><br />
-              <%= form.text_field :address1, class: 'required form-control mx-sm-3', autocomplete: address_type + ' address-line1' %>
+              <%= form.label :address1, Spree.t(:street_address), :class =>"my-1 ml-3 check_text_body" %><span class="">*</span><br />
+              <%= form.text_field :address1, class: ' form-control mx-sm-3', autocomplete: address_type + ' address-line1' %>
             </p>
 
 
@@ -46,7 +46,7 @@
 
             <p class="field" id=<%="#{address_id}zipcode" %>>
               <%= form.label :zipcode, Spree.t(:zip), :class =>"my-1 ml-3 check_text_body" %><% if address.require_zipcode? %><span class="required">*</span><% end %><br />
-              <%= form.text_field :zipcode, class: "#{'required' if address.require_zipcode?} form-control mx-sm-3", autocomplete: address_type + ' postal-code' %>
+              <%= form.text_field :zipcode, class: "#{'' if address.require_zipcode?} form-control mx-sm-3", autocomplete: address_type + ' postal-code' %>
             </p>
 
           </div>
@@ -63,7 +63,7 @@
       <div class="ml-5">
         <div class="form-group w-75 check_text_body" >
          <p class="field" id=<%="#{address_id}country" %>>
-          <%= form.label :country_id, Spree.t(:country) %><span class="required">*</span><br />
+          <%= form.label :country_id, Spree.t(:country) %><span class="">*</span><br />
           <span id=<%="#{address_id}country-selection" %>>
             <%= form.collection_select :country_id, available_countries, :id, :name, {},
             class: '',
@@ -104,7 +104,7 @@
                         %>
                       </span>
                       <noscript>
-                        <%= form.text_field :state_name, class: 'required form-control', autocomplete: address_type + ' address-level1' %>
+                        <%= form.text_field :state_name, class: ' form-control', autocomplete: address_type + ' address-level1' %>
                       </noscript>
                     </p>
                     <% end %>
@@ -115,7 +115,7 @@
                    <label class="my-1 check_text_body" for="inlineFormCustomSelectPref ">Mobile Number</label>
                    <ul class="payment_ul_credit">
                     <li><input type="text" class="form-control   d-inline-block inputclass" placeholder="+66"></li>
-                    <li>  <%= form.phone_field :phone, class: "#{'required' if address.require_phone?}", autocomplete: address_type + ' home tel' %></li>
+                    <li>  <%= form.phone_field :phone, class: "#{'' if address.require_phone?}", autocomplete: address_type + ' home tel' %></li>
                   </ul>
                 </div>
 
