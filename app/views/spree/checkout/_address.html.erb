@@ -1,35 +1,145 @@
-<div class="columns alpha six" data-hook="billing_fieldset_wrapper">
-  <fieldset id="billing" data-hook>
-    <%= form.fields_for :bill_address do |bill_form| %>
-      <legend align="center"><%= Spree.t(:billing_address) %></legend>
-      <%= render partial: 'spree/address/form', locals: { form: bill_form, address_type: 'billing', address: @order.bill_address } %>
-    <% end %>
-  </fieldset>
-</div>
+<div class="row">
+  <div class="col col-sm-12 col-md-8 col-lg-8 col-xl-8">
+    <div id="select_shipping">
+      <div class="check_text_title">SELECT A SHIPPING ADDRESS</div>
+      <!--line-->
+      <div class="line_full"></div>
+      <!--line-->
+      <div class="body_choose">
+        <div class="row"> 
+         <% Spree::Address.where(:id => spree_current_user.id).limit(5).each_with_index do |s, index| %>
+         <div class="col col-sm-12 col-md-6 col-lg-6 col-xl-6">
+           <table>
+            <tr>
+              <td class="align-top">
+                <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address? %>
+              </td>
+              <td>
+                <ul class="ul_check_out">
+                  <li>
+                    <div class="check_text_title"><%= s.firstname %> <%= s.lastname %></div>
+                  </li>
+                  <li>
+                    <%= s.address1 %>
+                  </li>
+                  <li>
+                    <%= s.city %>
+                  </li>
+                  <li>
+                   <%= s.city %> <%= s.zipcode %>
+                 </li>
+                 <li>
+                   <%= Spree::Country.find_by_id(s.country_id) %>
+                 </li>
+                 <li>
+                   <%= s.phone %> 
+                 </li>
 
-<div class="columns omega six" data-hook="shipping_fieldset_wrapper">
-  <fieldset id="shipping" data-hook>
-    <%= form.fields_for :ship_address do |ship_form| %>
-      <legend align="center"><%= Spree.t(:shipping_address) %></legend>
-      <p class="field checkbox" data-hook="use_billing">
-        <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address? %>
-        <%= label_tag :order_use_billing, Spree.t(:use_billing_address), id: 'use_billing' %>
-      </p>
-      <%= render partial: 'spree/address/form', locals: { form: ship_form, address_type: 'shipping', address: @order.ship_address } %>
-    <% end %>
-  </fieldset>
+               </ul>
+               <button class="btn1 w-100 bg_bu_orange">SEND TO THIS ADDRESS</button>
+
+
+             </td>
+           </tr>
+         </table> 
+       </div> 
+       <% end %>
+     </div>
+   </div>
+ </div>
 </div>
-<hr class="clear" />
+<div class="col col-sm-12 col-md-4 col-lg-4 col-xl-4">
+  <!--order_summary.html-->
+  <div id="checkout-summary" data-hook="checkout_summary_box" class="">
+    <div class="check_text_title">ORDER SUMMARY</div>
+    <!--line--> 
+    <div class="line_full"></div>
+    <!--line--> 
+    <div class="table-responsive mt-3">
+      <table class="table line_top line_coll">
+        <tr>
+          <td class="payment_text_small w-50 line_top">PRODUCTS</td>
+          <td class="payment_text_small w-25 text-center line_top">QTY</td>
+          <td class="payment_text_small w-25 text-right line_top">PRICE</td>
+        </tr>
+        <!--line--> 
+        <tr>
+          <td colspan="3"><div class="line_top w-100"></div></td>
+        </tr>
+        <!--line--> 
+        <% @order.line_items.each do |item| %>
+        <!--1 :name, qty ,price --> 
+
+        <tr >
+          <td class="payment_text_middle text_bold"> <%= item.variant.product.name %> </td>
+          <td class="text-center"><%= item.quantity %></td>
+          <td class="text-right"><%= item.single_money.to_html %></td>
+        </tr>
+        <!--1 :name, qty ,price --> 
+
+        <!--line--> 
+        <tr>
+          <td colspan="3"><div class="line_top_orange w-100"></div></td>
+        </tr>
+        <% end %>
+        <!--line--> 
+
+        <!--2 :name, qty ,price -->
+
+        <!--2 :name, qty ,price -->
+
+        <!--Subtotal-->
+         
+        <tr class="mt-4">
+         <td colspan="2" class="line_top payment_text_middle"><div class="text_bold">Subtotal </div><div>Minimum order free</div></td>
+         <td class="text-right line_top"><%= @order.display_item_total %></td>
+       </tr>
+       <!--Subtotal-->
+       <!--Shipping-->
+      
+       <!--Shipping-->
+       <!--Total-->
+       <tr class=" sum">
+         <td class="payment_text_middle"><div class="text_bold">Grand Total</div><div>Now</div></td>
+         <td colspan="2" class="text-right payment_text_big orange text_bold"><%= @order.display_item_total %></td>
+       </tr>
+       <!--Total-->
+     </table>
+   </div>
+ </div>      
+</div>
+<!--order_summary.html-->
+</div>
+</div>
+<div class="row">
+  <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div id="reciept">
+      <div data-hook="billing_fieldset_wrapper">
+        <fieldset id="billing" data-hook>
+          <%= form.fields_for :bill_address do |bill_form| %>
+          <legend align="center"><%= Spree.t(:billing_address) %></legend>
+          <%= render partial: 'spree/address/form', locals: { form: bill_form, address_type: 'billing', address: @order.bill_address } %>
+          <% end %>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="form-buttons" data-hook="buttons">
   <%= submit_tag Spree.t(:save_and_continue), class: 'continue button primary' %>
   <% if try_spree_current_user %>
-    <span data-hook="save_user_address">
-      &nbsp; &nbsp;
-      <%= check_box_tag 'save_user_address', '1', try_spree_current_user.respond_to?(:persist_order_address) %>
-      <%= label_tag :save_user_address, Spree.t(:save_my_address) %>
-    </span>
+  <span data-hook="save_user_address">
+    &nbsp; &nbsp;
+    <%= check_box_tag 'save_user_address', '1', try_spree_current_user.respond_to?(:persist_order_address) %>
+    <%= label_tag :save_user_address, Spree.t(:save_my_address) %>
+  </span>
   <% end %>
 </div>
+
+
+
+
+
 
 

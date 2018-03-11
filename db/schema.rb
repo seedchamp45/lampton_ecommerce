@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171230080981) do
+ActiveRecord::Schema.define(version: 20180227153453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,16 @@ ActiveRecord::Schema.define(version: 20171230080981) do
     t.datetime "updated_at"
     t.index ["viewable_id"], name: "index_assets_on_viewable_id"
     t.index ["viewable_type", "type"], name: "index_assets_on_viewable_type_and_type"
+  end
+
+  create_table "spree_authentication_methods", id: :serial, force: :cascade do |t|
+    t.string "environment"
+    t.string "provider"
+    t.string "api_key"
+    t.string "api_secret"
+    t.boolean "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spree_calculators", id: :serial, force: :cascade do |t|
@@ -324,6 +334,35 @@ ActiveRecord::Schema.define(version: 20171230080981) do
     t.datetime "updated_at"
     t.index ["order_id", "promotion_id"], name: "index_spree_orders_promotions_on_order_id_and_promotion_id"
     t.index ["promotion_code_id"], name: "index_spree_orders_promotions_on_promotion_code_id"
+  end
+
+  create_table "spree_pages", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.string "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean "show_in_header", default: false, null: false
+    t.boolean "show_in_footer", default: false, null: false
+    t.string "foreign_link"
+    t.integer "position", default: 1, null: false
+    t.boolean "visible", default: true
+    t.string "meta_keywords"
+    t.string "meta_description"
+    t.string "layout"
+    t.boolean "show_in_sidebar", default: false, null: false
+    t.string "meta_title"
+    t.boolean "render_layout_as_partial", default: false
+    t.index ["slug"], name: "index_spree_pages_on_slug"
+  end
+
+  create_table "spree_pages_stores", id: false, force: :cascade do |t|
+    t.integer "store_id"
+    t.integer "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["page_id"], name: "index_spree_pages_stores_on_page_id"
+    t.index ["store_id"], name: "index_spree_pages_stores_on_store_id"
   end
 
   create_table "spree_payment_capture_events", id: :serial, force: :cascade do |t|
@@ -1095,6 +1134,14 @@ ActiveRecord::Schema.define(version: 20171230080981) do
     t.index ["address_id"], name: "index_spree_user_addresses_on_address_id"
     t.index ["user_id", "address_id"], name: "index_spree_user_addresses_on_user_id_and_address_id", unique: true
     t.index ["user_id"], name: "index_spree_user_addresses_on_user_id"
+  end
+
+  create_table "spree_user_authentications", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.string "provider"
+    t.string "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spree_user_stock_locations", id: :serial, force: :cascade do |t|

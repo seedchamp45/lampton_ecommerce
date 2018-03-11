@@ -1,77 +1,313 @@
-<fieldset id="payment" data-hook>
-  <legend align="center"><%= Spree.t(:payment_information) %></legend>
-  <div data-hook="checkout_payment_step">
-    <% if @wallet_payment_sources.present? %>
-      <div class="card_options">
-        <%= radio_button_tag 'use_existing_card', 'yes', true %>
-        <label for="use_existing_card_yes">
-          <%= Spree.t(:use_existing_cc) %>
-        </label>
-        <br/>
-        <%= radio_button_tag 'use_existing_card', 'no' %>
-        <label for="use_existing_card_no">
-          <%= Spree.t(:use_new_cc_or_payment_method) %>
-        </label>
-      </div>
 
-      <div id="existing_cards">
-        <p class="field" data-hook="existing_cards">
-          <table class="existing-credit-card-list">
-            <tbody>
-              <% @wallet_payment_sources.each do |wallet_payment_source| %>
-                <%=
-                  render(
-                    partial: "spree/checkout/existing_payment/#{wallet_payment_source.payment_source.payment_method.partial_name}",
-                    locals: {
-                      wallet_payment_source: wallet_payment_source,
-                      default: wallet_payment_source == @default_wallet_payment_source,
-                    }
-                  )
-                %>
-              <% end %>
-            </tbody>
-          </table>
-        </p>
-      </div>
-    <% end %>
 
-    <div id="payment-method-fields" data-hook>
-      <% @order.available_payment_methods.each do |method| %>
-      <p>
-        <label>
-          <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
-          <%= Spree.t(method.name, scope: :payment_methods, default: method.name) %>
-        </label>
-      </p>
-      <% end %>
+
+
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="bg_white1">
+          <div class="row">
+            <!--left CHOOSE PAYMENT OPTION  --> 
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+              <div class="check_text_title">CHOOSE PAYMENT OPTION</div>
+              <div class="line_full"></div>
+              <div class="payment_body_choose">
+                <!--select payment-->
+                <div > 
+                  <ul class="payment_option">
+                    <li class="payment_input_option register no-margin">
+                      <input type="radio" id="r1" name="payment" value="1" checked/>
+                      <label for="r1"><span></span></label>
+
+                    </li>
+                    
+                    <li> 
+
+
+                      <%= image_tag("payment/direct_bank.png", :alt => "logo", :class => "img-fluid payment_option_img") %></li>
+                    <li><div class="payment_text_option text_bold">Direct Bank <br>Transfer</div></li>
+
+                    <li class="payment_input_option register no-margin"> 
+                      <input type="radio" id="r2" name="payment"  value="2" />
+                      <label for="r2"><span></span>
+                    </li>
+
+                    <li><%= image_tag("payment/credit.png", :alt => "logo", :class => "img-fluid payment_option_img") %></li>
+                    <li><div class="payment_text_option text_bold">Credit or <br>Debit Card</div></li>
+ 
+                    <li class="payment_input_option register no-margin">  
+                      <input type="radio" id="r3" name="payment"  value="3"  />
+                      <label for="r3"><span></span>
+                    </li>
+
+                    <li><%= image_tag("payment/paypal.png", :alt => "logo", :class => "img-fluid payment_option_img") %></li> 
+                    <li><div class="payment_text_option text_bold">PayPal</div></li>
+                  </ul>
+                </div>
+                <!--select payment-->
+                  
+                
+                <div class="payment_body_text" >
+                  <!-- direct_bank -->
+                  <div id="direct_bank">
+                    <div class="w-75 payment_paypal_text">
+                      Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+                    </div>
+                    <div class="mt-4">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col text-center payment_text_option text_bold" class="line_top"></th>
+                            <th scope="col " class="line_top text-center  payment_text_option text_bold">Bank Name</th>
+                             <th scope="col " class="line_top text-center payment_text_option text_bold">Acount Number</th>
+                            <th scope="col" class="line_top text-center  payment_text_option text_bold">Acount Name</th>
+                             <th scope="col text-center" class="line_top"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="payment_va_m"><%= image_tag("payment/logo.png", :alt => "logo", :class => "img-fluid") %>
+
+
+                             </th>
+                            <td class="text-center payment_va_m payment_paypal_text">บ. ABC จำกัด</td>
+                            <td class="text-center payment_va_m payment_paypal_text">010-2-8880-9</td>
+                            <td class="text-center payment_va_m payment_paypal_text">บัญชีออมทรัพย์</td>
+                            <td class="text-center payment_va_m">
+
+                              <%= image_tag("payment/QR_code_for_mobile_English_Wikipedia.jpg", :alt => "logo", :class => "img-fluid") %>
+                             
+                            </td>
+                            
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="mt-4"> 
+                      <ul class="payment_ul_bank">
+                        <li>
+                          <%= image_tag("payment/warn.png", :alt => "logo", :class => "img-fluid") %>
+                         
+                        </li>
+                        <li>
+                          <div class="payment_text_small d-inline ">      กรุณาแจ้งยืนยันการโอนเงินผ่านเมนู “Confirm  Payment” ของเว็บไซต์<br> 
+                            (Please confirm Payment via “Confirm Payment” menu within this website )
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="mt-5 text-center">
+                       <%= submit_tag Spree.t(:save_and_continue), class: 'continue btn btn-white products_button btn-lg  products_bu_details orange_bg' %>
+                   
+                    </div>
+                  </div> 
+                  <!-- direct_bank -->
+
+                  <!--credit  (credit.html)-->
+                  <div id="credit">
+                    <div class="row">
+                      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <ul class="nav w-100">
+                          <li class="w-75">
+                            <div class="payment_credit_text_b">Code Number</div>
+                          </li>
+                          <li class="w-25 text-right">
+
+                             <img class="img-fluid" src="assets/images/card.png">
+                          </li>
+                        </ul>
+                      
+                        <input type="text" class="form-control mt-2 mb-4">
+                      </div>
+                      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="payment_credit_text_b">Name on card</div>
+                        <input type="text" class="form-control mt-2 mb-4">
+                      </div>
+                      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="payment_credit_text_b">Expiry Date</div>
+                        <ul class="payment_ul_credit">
+                          <li><input type="text" class="form-control mt-2 mb-4 d-inline-block inputclass" placeholder="MM"></li>
+                          <li><input type="text" class="form-control mt-2 mb-4 d-inline-block inputclass" placeholder="YY"></li>
+                        </ul>
+                        
+                      </div>
+                      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6 align-self-center">
+                        <div class="payment_terms">Terms & Conditions</div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <ul class="payment_ul_credit">
+                          <li class="mr-2"><input type="checkbox" aria-label="Checkbox for following text input d-inline-block mt-2"></li>
+                          <li><div class="payment_text_middle  d-inline-block"> 
+                          <input type="checkbox" id="b1" name="cc">
+                              <label for="b1"><span></span> Do not save this card for future use</label></div></li>
+                        </ul>
+                         
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                           <%= submit_tag Spree.t(:save_and_continue), class: 'continue btn btn-white products_button btn-lg  products_bu_details orange_bg' %>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <!--credit  (credit.html)--> 
+  
+                  <!--paypal-->
+                  <div id="paypal">
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="payment_paypal_text d-inline text_bold">Please choose a way to pay with PayPal</div>
+                        <div class="payment_paypal_border mt-5">
+                          <div class="mt-lg-4 mb-lg-4 ml-4">
+                            <div class="ml-4"> 
+                              <input type="radio" id="i3" name="paypal"  value="1" />
+                              <label for="i3">
+                                <span></span><div class="payment_paypal_text d-inline text_bold">Using your PayPal account (You need to log into your PayPal)</div>
+                              </label>
+
+                              <div class="ml-4 payment_paypal_text payment_text_middle mb-3">You will need to login to your PayPal account</div>
+                               <div class="payment_paypal_text ml-3">
+                                <input type="checkbox" id="d1" name="cc">
+                              <label for="d1"><span></span>I authorize auto change my Paypal account fot fiture payments</div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mt-5 text-underline">
+                          <a href="">
+                            <%= image_tag("payment/paypal.png", :alt => "logo", :class => "img-fluid mr-3 payment_option_img") %>
+
+                            What is PayPal?</a>
+                        </div>
+                        <div class="payment_paypal_text orange_text mt-3">
+                          Billing information cannot be changed once  the order is placed
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-4">
+                        <%= submit_tag Spree.t(:save_and_continue), class: 'continue btn btn-white products_button btn-lg  products_bu_details orange_bg' %>
+                      </div>
+                    </div>
+                  </div>
+                  <!--paypal-->
+                </div>
+              </div>
+            </div>
+            <!--left CHOOSE PAYMENT OPTION--> 
+            <!--right  ORDER SUMMARY   (order_summary.html) -->
+            <div class="col col-sm-12 col-md-4 col-lg-4 col-xl-4">
+  <!--order_summary.html-->
+  <div id="checkout-summary" data-hook="checkout_summary_box" class="">
+    <div class="check_text_title">ORDER SUMMARY</div>
+    <!--line--> 
+    <div class="line_full"></div>
+    <!--line--> 
+    <div class="table-responsive mt-3">
+      <table class="table line_top line_coll">
+        <tr>
+          <td class="payment_text_small w-50 line_top">PRODUCTS</td>
+          <td class="payment_text_small w-25 text-center line_top">QTY</td>
+          <td class="payment_text_small w-25 text-right line_top">PRICE</td>
+        </tr>
+        <!--line--> 
+        <tr>
+          <td colspan="3"><div class="line_top w-100"></div></td>
+        </tr>
+        <!--line--> 
+        <% @order.line_items.each do |item| %>
+        <!--1 :name, qty ,price --> 
+
+        <tr >
+          <td class="payment_text_middle text_bold"> <%= item.variant.product.name %> </td>
+          <td class="text-center"><%= item.quantity %></td>
+          <td class="text-right"><%= item.single_money.to_html %></td>
+        </tr>
+        <!--1 :name, qty ,price --> 
+
+        <!--line--> 
+        <tr>
+          <td colspan="3"><div class="line_top_orange w-100"></div></td>
+        </tr>
+        <% end %>
+        <!--line--> 
+
+        <!--2 :name, qty ,price -->
+
+        <!--2 :name, qty ,price -->
+
+        <!--Subtotal-->
+         
+        <tr class="mt-4">
+         <td colspan="2" class="line_top payment_text_middle"><div class="text_bold">Subtotal </div><div>Minimum order free</div></td>
+         <td class="text-right line_top"><%= @order.display_item_total %></td>
+       </tr>
+       <!--Subtotal-->
+       <!--Shipping-->
+      
+       <!--Shipping-->
+       <!--Total-->
+       <tr class=" sum">
+         <td class="payment_text_middle"><div class="text_bold">Grand Total</div><div>Now</div></td>
+         <td colspan="2" class="text-right payment_text_big orange text_bold"><%= @order.display_item_total %></td>
+       </tr>
+       <!--Total-->
+     </table>
+   </div>
+ </div>      
+</div>
+              <!--order_summary_body.html-->
+            </div>
+            <!--right  ORDER SUMMARY  (order_summary.html) -->
+          </div>
+        </div>
+      </div>
     </div>
 
-    <ul id="payment-methods" data-hook>
-      <% @order.available_payment_methods.each do |method| %>
-        <li id="payment_method_<%= method.id %>" class="<%= 'last' if method == @order.available_payment_methods.last %>" data-hook>
-          <fieldset>
-            <%= render partial: "spree/checkout/payment/#{method.partial_name}", locals: { payment_method: method } %>
-          </fieldset>
-        </li>
-      <% end %>
-    </ul>
-    <br style="clear:both;" />
-    <p class='field' data-hook='coupon_code'>
-      <%= form.label :coupon_code %><br />
-      <%= form.text_field :coupon_code %>
-      <button type="button" class="button" id="coupon-code-apply-button">
-        <%= Spree.t(:apply_code) %>
-      </button>
+<!--body-->
+<!-- script -->
+ 
+<!-- script -->
+<script type="text/javascript">
+  
+  $(document).ready(function(){
+    
+    $("#credit").hide();
+    $("#direct_bank").show();
+    $("#paypal").hide();
+    $("#ch_bank").attr("src","assets/images/direct bank_2.png");
+    
+  });
 
-    </p>
-    <div id='coupon_status'></div>
+   $('input[type=radio][name=payment]').change(function() {
+    close();
+        if (this.value == '1') {
+            $("#direct_bank").show();
+             $("#credit").hide();
+              $("#paypal").hide();
+            $("#ch_bank").attr("src","assets/images/direct bank_2.png");
+        }
+        else if (this.value == '2') {
+            $("#credit").show();
+             $("#paypal").hide();
+             $("#direct_bank").hide();
+            $("#ch_credit").attr("src","assets/images/credit_2.png");
+        } 
+        else if (this.value == '3') {
+          $("#paypal").show();
+          $("#credit").hide();
+             $("#direct_bank").hide();
+          $("#ch_paypal").attr("src","assets/images/paypal_2.png");
+        }
+      
+    });
 
-  </div>
-</fieldset>
+   function close(){
+    $("#credit").hide();
+    $("#direct_bank").hide();
+    $("#paypal").hide();
 
-<br class="space" />
-
-<div class="form-buttons" data-hook="buttons">
-  <%= submit_tag Spree.t(:save_and_continue), class: 'continue button primary' %>
-  <script>Spree.disableSaveOnClick();</script>
-</div>
+    $("#ch_bank").attr("src","assets/images/direct bank_1.png");
+    $("#ch_credit").attr("src","assets/images/credit_1.png");
+    $("#ch_paypal").attr("src","assets/images/paypal_1.png");
+      
+   }
+   
+</script>

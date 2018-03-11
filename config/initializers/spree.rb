@@ -4,12 +4,15 @@
 Spree.config do |config|
   # Core:
 
-
   # Default currency for new sites
   config.currency = "THB"
 
   # from address for transactional emails
   config.mails_from = "store@example.com"
+
+  Spree::SocialConfig[:path_prefix] = 'member' # for /member/auth/:provider
+  Spree::SocialConfig[:path_prefix] = 'profile' # for /profile/auth/:provider
+  Spree::SocialConfig[:path_prefix] = '' # for /auth/:provider
 
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
@@ -24,7 +27,7 @@ Spree.config do |config|
 
   # Custom logo for the frontend
   # config.logo = "logo/solidus_logo.png"
-  config.logo = "logo/logo_lampton.png"
+
   # Template to use when rendering layout
   # config.layout = "spree/layouts/spree_application"
 
@@ -45,38 +48,6 @@ Spree.config do |config|
   #   server: Rails.env.production? ? 'production' : 'test',
   #   test_mode: !Rails.env.production?
   # )
-
-  if Rails.env.production?
-  attachment_config = {
-    s3_credentials: {
-      access_key_id:     ENV['AWS_ACCESS_KEY_ID'],
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-      bucket:            ENV['S3_BUCKET_NAME'],
-      s3_region: ENV['AWS_REGION']
-    },
-
-    storage:        :s3,
-    s3_headers:     { 'Cache-Control' => 'max-age=31557600' },
-    s3_protocol:    'https',
-    bucket:         ENV['S3_BUCKET_NAME'],
-    url:            ':s3_domain_url',
-
-    styles: {
-      mini:     '48x48>',
-      small:    '100x100>',
-      product:  '240x240>',
-      large:    '600x600>'
-    },
-
-    path:           '/:class/:id/:style/:basename.:extension',
-    default_url:    'noimage/:style.png',
-    default_style:  'product'
-  }
-
-    attachment_config.each do |key, value|
-      Spree::Image.attachment_definitions[:attachment][key.to_sym] = value
-    end
-  end
 end
 
 Spree::Frontend::Config.configure do |config|
@@ -92,6 +63,3 @@ Spree::Api::Config.configure do |config|
 end
 
 Spree.user_class = "Spree::LegacyUser"
-
-
-

@@ -1,94 +1,137 @@
+
+
+
+
+
 <% address_id = address_type.chars.first %>
 <div class="inner" data-hook=<%="#{address_type}_inner" %>>
-  <p class="field" id=<%="#{address_id}firstname" %>>
-    <%= form.label :firstname, Spree.t(:first_name) %><span class="required">*</span><br />
-    <%= form.text_field :firstname, class: 'required', autocomplete: address_type + ' given-name' %>
-  </p>
+  <div class="ml-5 mr-5">
+    <div>  
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"> <div class="check_text_title">Reciept / Tax invoice adress - Tick and Fill in to request for official Tax invoice</div>
+    </div>
+    <div class="line_full"></div>
+    <ul class="nav  ml-5 mt-5 mb-4">
+      <li class="mr-5 ml-3"><div class="check_text_body">Reciept / Tax invoice Adress</div></li>
+      <li class="ml-5 ml-3"><div class="check_text_body">Thailand  |  <div class="text_orange d-inline">International</div></div></li>
+    </ul>
+    <div class="row">
+      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="ml-5">
+          <div class="form-group w-75">
 
-  <p class="field" id=<%="#{address_id}lastname" %>>
-    <%= form.label :lastname, Spree.t(:last_name) %><span class="required">*</span><br />
-    <%= form.text_field :lastname, autocomplete: address_type + ' family-name' %>
-  </p>
+            <p class="field" id=<%="#{address_id}firstname" %>>
+              <%= form.label :firstname, Spree.t(:first_name), :class =>"my-1 ml-3 check_text_body" %><span class="required">*</span><br />
+              <%= form.text_field :firstname, class: 'required form-control mx-sm-3', autocomplete: address_type + ' given-name' %>
+            </p>
+          </div>
 
-  <% if Spree::Config[:company] %>
-    <p class="field" id=<%="#{address_id}company" %>>
-      <%= form.label :company, Spree.t(:company) %><br />
-      <%= form.text_field :company, autocomplete: address_type + ' organization' %>
-    </p>
-  <% end %>
+          <div class="form-group w-75">
+            <p class="field" id=<%="#{address_id}lastname" %>>
+              <%= form.label :lastname, Spree.t(:last_name) , :class =>"my-1 ml-3 check_text_body"%><span class="required">*</span><br />
+              <%= form.text_field :lastname, class: 'form-control mx-sm-3', autocomplete: address_type + ' family-name' %>
+            </p>
+          </div>
 
-  <p class="field" id=<%="#{address_id}address1" %>>
-    <%= form.label :address1, Spree.t(:street_address) %><span class="required">*</span><br />
-    <%= form.text_field :address1, class: 'required', autocomplete: address_type + ' address-line1' %>
-  </p>
+          <div class="form-group w-75">
+            <p class="field" id=<%="#{address_id}address1" %>>
+              <%= form.label :address1, Spree.t(:street_address), :class =>"my-1 ml-3 check_text_body" %><span class="required">*</span><br />
+              <%= form.text_field :address1, class: 'required form-control mx-sm-3', autocomplete: address_type + ' address-line1' %>
+            </p>
 
-  <p class="field" id=<%="#{address_id}address2" %>>
-    <%= form.label :address2, Spree.t(:street_address_2) %><br />
-    <%= form.text_field :address2, autocomplete: address_type + ' address-line2' %>
-  </p>
 
-  <p class="field" id=<%="#{address_id}city" %>>
-    <%= form.label :city, Spree.t(:city) %><span class="required">*</span><br />
-    <%= form.text_field :city, class: 'required', autocomplete: address_type + ' address-level2' %>
-  </p>
+          </div>
 
-  <p class="field" id=<%="#{address_id}country" %>>
-    <%= form.label :country_id, Spree.t(:country) %><span class="required">*</span><br />
-    <span id=<%="#{address_id}country-selection" %>>
-      <%= form.collection_select :country_id, available_countries, :id, :name, {},
-          class: 'required',
-          autocomplete: address_type + ' country-name'
-        %>
-    </span>
-  </p>
+          <div class="form-group w-75">
 
-  <% if Spree::Config[:address_requires_state] %>
-    <p class="field" id=<%="#{address_id}state" %>>
-      <% have_states = !address.country.states.empty? %>
-      <%= form.label :state, Spree.t(:state) %><span class='required' id=<%="#{address_id}state-required"%>>*</span><br/>
 
-      <span class="js-address-fields" style="display: none;">
-        <%=
-          form.collection_select(
-            :state_id, address.country.states, :id, :name,
-            {include_blank: true},
-            {
-              class: have_states ? 'required' : '',
-              style: have_states ? '' : 'display: none;',
-              disabled: !have_states,
-              autocomplete: address_type + ' address-level1'
-            })
-          %>
-        <%=
-          form.text_field(
-            :state_name,
-            class: !have_states ? 'required' : '',
-            style: have_states ? 'display: none;' : '',
-            disabled: have_states,
-            autocomplete: address_type + ' address-level1'
-          )
-        %>
-      </span>
-      <noscript>
-        <%= form.text_field :state_name, class: 'required', autocomplete: address_type + ' address-level1' %>
-      </noscript>
-    </p>
-  <% end %>
+            <p class="field" id=<%="#{address_id}zipcode" %>>
+              <%= form.label :zipcode, Spree.t(:zip), :class =>"my-1 ml-3 check_text_body" %><% if address.require_zipcode? %><span class="required">*</span><% end %><br />
+              <%= form.text_field :zipcode, class: "#{'required' if address.require_zipcode?} form-control mx-sm-3", autocomplete: address_type + ' postal-code' %>
+            </p>
 
-  <p class="field" id=<%="#{address_id}zipcode" %>>
-    <%= form.label :zipcode, Spree.t(:zip) %><% if address.require_zipcode? %><span class="required">*</span><% end %><br />
-    <%= form.text_field :zipcode, class: "#{'required' if address.require_zipcode?}", autocomplete: address_type + ' postal-code' %>
-  </p>
+          </div>
 
-  <p class="field" id=<%="#{address_id}phone" %>>
-    <%= form.label :phone, Spree.t(:phone) %><% if address.require_phone? %><span class="required">*</span><% end %><br />
-    <%= form.phone_field :phone, class: "#{'required' if address.require_phone?}", autocomplete: address_type + ' home tel' %>
-  </p>
+          <div class="form-group w-75">
 
-  <% if Spree::Config[:alternative_shipping_phone] %>
-    <p class="field" id=<%="#{address_id}altphone" %>>
-      <%= form.label :alternative_phone, Spree.t(:alternative_phone) %><br />
-      <%= form.phone_field :alternative_phone, autocomplete: address_type + ' tel' %>
-    </p>
-  <% end %>
-</div>
+           <label class="my-1 ml-3 check_text_body" for="inlineFormCustomSelectPref ">District</label>
+           <%= form.text_field :address2, autocomplete: address_type + ' address-line2', class: "form-control mx-sm-3"%>
+
+         </div>
+       </div>
+     </div>
+     <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+      <div class="ml-5">
+        <div class="form-group w-75 check_text_body" >
+         <p class="field" id=<%="#{address_id}country" %>>
+          <%= form.label :country_id, Spree.t(:country) %><span class="required">*</span><br />
+          <span id=<%="#{address_id}country-selection" %>>
+            <%= form.collection_select :country_id, available_countries, :id, :name, {},
+            class: '',
+              autocomplete: address_type + ' country-name'
+              %>
+            </span>
+          </p>
+        </div>
+        <div class="form-group w-75 check_text_body">
+
+
+
+          <% if Spree::Config[:address_requires_state] %>
+          <p class="field" id=<%="#{address_id}state" %>>
+            <% have_states = !address.country.states.empty? %>
+            <label class="my-1 " for="inlineFormCustomSelectPref ">Provience</label>
+
+            <span class="js-address-fields" style="display: none;">
+              <%=
+              form.collection_select(
+                :state_id, address.country.states, :id, :name, 
+                {include_blank: true},
+                {
+                  class: have_states ? 'required' : ' form-control',
+                    style: have_states ? '' : 'display: none;',
+                    disabled: !have_states,
+                    autocomplete: address_type + ' address-level1'
+                    })
+                    %>
+                    <%=
+                    form.text_field(
+                      :state_name,
+                      class: !have_states ? 'required' : ' form-control',
+                        style: have_states ? 'display: none;' : '',
+                        disabled: have_states,
+                        autocomplete: address_type + ' address-level1'
+                        )
+                        %>
+                      </span>
+                      <noscript>
+                        <%= form.text_field :state_name, class: 'required form-control', autocomplete: address_type + ' address-level1' %>
+                      </noscript>
+                    </p>
+                    <% end %>
+
+                  </div>
+
+                  <div class="form-group w-75">
+                   <label class="my-1 check_text_body" for="inlineFormCustomSelectPref ">Mobile Number</label>
+                   <ul class="payment_ul_credit">
+                    <li><input type="text" class="form-control   d-inline-block inputclass" placeholder="+66"></li>
+                    <li>  <%= form.phone_field :phone, class: "#{'required' if address.require_phone?}", autocomplete: address_type + ' home tel' %></li>
+                  </ul>
+                </div>
+
+                <div class="form-group w-75">
+                 <label class="my-1 check_text_body" for="inlineFormCustomSelectPref ">Tax Code </label>
+
+                 <input type="text" id="tax_code" name="tax_code" class="form-control " placeholder="(Optional)">
+               </div>
+
+               <div class="form-group w-75">
+                 <label class="my-1 check_text_body" for="inlineFormCustomSelectPref ">Head Office / Branch No. <div class="text_orange text_orange_small">A5 digits number with 00000 for Head Office and Branch
+                  no as 00001 and upward</div></label>
+                  <input type="text" id="district" class="form-control" placeholder="District">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

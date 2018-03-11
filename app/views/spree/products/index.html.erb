@@ -1,27 +1,346 @@
-<% content_for :sidebar do %>
-  <div data-hook="homepage_sidebar_navigation">
-    <% if "spree/products" == params[:controller] && @taxon %>
-      <%= render partial: 'spree/shared/filters' %>
-    <% else %>
-      <%= render partial: 'spree/shared/taxonomies' %>
-    <% end %>
+
+
+
+
+<!--header web-->
+
+<!--menu bar web-->
+
+
+<div class="bar_menu_2">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">LIGHTING</li>
+                <!--<li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>-->
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- เมนูข้างบน-->
+
+    <!-- show mobile FILTER and SORT-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="d-md-none  col-sm-12 col-md-12 col-lg-6 col-xl-8">
+          <ul class="nav d-flex justify-content-end w-100">
+            <li class="w-50 text-center">
+              <img class="img-fluid mr-2 product_icon_head" src="assets/images/products/filter.png">
+              <div class="product_text_head">FILTER</div>
+            </li>
+            <li class="w-50 text-center">
+              <img class="img-fluid mr-2 product_icon_head" src="assets/images/products/sort.png">
+              <div class="product_text_head">SORT</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- show mobile FILTER and SORT-->
+
+
+    <div class="container">
+      <div class="row">
+       <!--menu left  โชว์เฉพาะเว็บ -->
+       <div class="d-none d-md-block col-sm-3 col-md-3 col-lg-3 col-xl-3">
+        LIGHTING
+        <div id="product_menu">
+          <div class="menu_left">
+            <!--หัวข้อ-->
+            <div class="product_menu_left " data-toggle="collapse" data-target="#product_menu_1" aria-expanded="false"> Smart Function</div>
+            <!--หัวข้อ-->
+            <div class="line_menu_product"></div>
+          </div>
+          <div class="menu_left">
+            <!--หัวข้อ-->
+            <div class="product_menu_left product_menu_list collapsed" data-toggle="collapse" data-target="#product_menu_2" aria-expanded="false" id="menu_2"> Place <i class="chevron fa fa-fw" ></i></div>
+            <!--หัวข้อ-->
+            <!--หัวข้อ ย่อย-->
+            <div class="collapse" id="product_menu_2" data-parent="#product_menu">
+              <div class="product_sub_menu">Place</div>
+              <div class="product_sub_menu">Residence</div>
+              <div class="product_sub_menu">Office</div>
+              <div class="product_sub_menu">Industrial</div>
+              <div class="product_sub_menu">Outdoor</div>
+            </div>
+            <!--หัวข้อ ย่อย-->
+            <div class="line_menu_product"></div>
+          </div>
+          <div class="menu_left">
+            <!--หัวข้อ-->
+            <div class="product_menu_left product_menu_list collapsed" data-toggle="collapse" data-target="#product_menu_3" id="menu_3" aria-expanded="false"> แยกตามชนิด   <i class="chevron fa fa-fw" ></i></div>
+            <!--หัวข้อ-->
+            <!--หัวข้อ ย่อย-->
+            <div class="collapse" id="product_menu_3" data-parent="#product_menu">
+              <div class="product_sub_menu">Bulb</div>
+              <div class="product_sub_menu">MR16</div>
+              <div class="product_sub_menu">Downlight</div>
+              <div class="product_sub_menu">High watt</div>
+              <div class="product_sub_menu">Ceiling lamp</div>
+              <div class="product_sub_menu">Street light</div>
+              <div class="product_sub_menu">Flashlight</div>
+              <div class="product_sub_menu">Panel light</div>
+              <div class="product_sub_menu">Motion lamp</div>
+              <div class="product_sub_menu">Flood light</div>
+            </div>
+            <!--หัวข้อ ย่อย-->
+            <div class="line_menu_product"></div>
+          </div>
+          <div class="menu_left">
+            <!--หัวข้อ-->
+            <div class="product_menu_left product_menu_list collapsed" data-toggle="collapse" data-target="#product_menu_4" aria-expanded="false" id="menu_4"> ขั้ว <i class="chevron fa fa-fw" ></i></div>
+            <!--หัวข้อ-->
+            <!--หัวข้อ ย่อย-->
+            <div class="collapse" id="product_menu_4" data-parent="#product_menu">
+              <div class="product_sub_menu">F27</div>
+              <div class="product_sub_menu">E14</div>
+              <div class="product_sub_menu">GU5.3</div>
+              <div class="product_sub_menu">E40</div>
+              <div class="product_sub_menu">ต่อไฟตรง</div>
+            </div>
+            <!--หัวข้อ ย่อย-->
+            <div class="line_menu_product"></div>
+          </div>
+
+          <div class="menu_left">
+            <!--หัวข้อ-->
+            <div class="product_menu_left collapsed" data-toggle="collapse" data-target="#product_menu_5" aria-expanded="false"> IP </div>
+            <!--หัวข้อ-->
+            <div class="line_menu_product"></div>
+          </div>
+        </div>
+        <!--menu-->
+      </div>
+      <!--menu left  โชว์เฉพาะเว็บ -->
+      <!--menu left  -->
+
+      <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
+        <!--menu right เมนูด้านขวาบน -->
+        <div class="row d-none d-md-block">
+
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-end ">
+            <ul class="nav d-flex justify-content-end w-50">
+              <li class="w-50">
+                <div class="dropdown w-100 text-center">
+                  <!--หัวข้อหลัก-->
+                  <div class="dropdown-toggle w-100"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid mr-2 product_icon_head" src="assets/images/products/filter.png">
+                    <div class="product_text_head">
+                      FILTER</div>
+                    </div>
+                    <!--หัวข้อหลัก-->
+                    <div class="dropdown-menu w-100 text-center" aria-labelledby="dropdownMenuLink">
+                      <div id="accordion">
+                        <div class="filter_1">
+                          <!--หัวข้อ-->
+                          <div id="heading_filter_1">
+                            <div class="product_sub_title_bar collapsed product_text_head_sub" data-toggle="collapse" data-target="#collapse_filter_1" aria-expanded="false" aria-controls="collapse_filter_1">WATT</div>
+                          </div>
+                          <!--หัวข้อ-->
+                          <!--หัวข้อย่อย-->
+                          <div id="collapse_filter_1" class="collapse" aria-labelledby="heading_filter_1" data-parent="#accordion">
+                            <div class="product_list_sub_sub">
+                              <ul class=" text-left ">
+                                <li class="product_text_head_sub">xxxx</li>
+                                <li class="product_text_head_sub">xxxx</li>
+                                <li class="product_text_head_sub">xxxx</li>
+                                <li class="product_text_head_sub">xxxx</li>
+                                <li class="product_text_head_sub">xxxx</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <!--หัวข้อย่อย-->
+                          <div class="line_filter"></div>
+                        </div>
+                        <div class="filter_2">
+                          <!--หัวข้อ-->
+                          <div class="product_sub_title_bar  collapsed collapse_filter_2 product_text_head_sub" data-toggle="collapse" data-target="#collapse_filter_2" aria-expanded="false" aria-controls="collapse_filter_2">ขั้ว</div>
+                          <!--หัวข้อ-->
+                          <!--หัวข้อย่อย-->
+                          <div id="collapse_filter_2" class="collapse" aria-labelledby="heading_filter_2" data-parent="#accordion">
+                            <div class="product_list_sub_sub">
+                              <ul class=" text-left">
+                                <li class="product_text_head_sub">F27</li>
+                                <li class="product_text_head_sub">E14</li>
+                                <li class="product_text_head_sub">GU5.3</li>
+                                <li class="product_text_head_sub">E40</li>
+                                <li class="product_text_head_sub">ต่อไฟตรง</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <!--หัวข้อย่อย-->
+                          <div class="line_filter"></div>
+                        </div>
+                        
+                        <div class="filter_3">
+
+                          <div class="product_sub_title_bar  collapsed product_text_head_sub" data-toggle="collapse" data-target="#collapse_filter_3" aria-expanded="false" aria-controls="collapse_filter_3">PLACE</div>
+                          <!--หัวข้อย่อย-->
+                          <div id="collapse_filter_3" class="collapse" aria-labelledby="heading_filter_3" data-parent="#accordion">
+                            <div class="product_list_sub_sub">
+                              <ul class=" text-left">
+                                <li class="product_text_head_sub">Residence</li>
+                                <li class="product_text_head_sub">Office</li>
+                                <li class="product_text_head_sub">Industrial</li>
+                                <li class="product_text_head_sub">Outdoor</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <!--หัวข้อย่อย-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="w-30">
+                  <div class="dropdown w-100 text-right">
+                    <!--หัวข้อหลัก-->
+                    <div class="dropdown-toggle w-100" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img class="img-fluid mr-2 product_icon_head" src="assets/images/products/sort.png">
+                      <div class="product_text_head">
+                        SORT</div>
+                        <!--หัวข้อหลัก-->
+                      </div>
+                      <div class="dropdown-menu w-100 text-center" aria-labelledby="dropdownMenuLink1">
+                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="#">BEST SELLER</a>
+                        <div class="line_filter"></div>
+                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="#">RECOMMEND</a>
+                        <div class="line_filter"></div>
+                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="#">RELEVANCE</a>
+                        <div class="line_filter"></div>
+                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="#">PRICE:LOW-HIGH</a>
+                        <div class="line_filter"></div>
+                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="#">PRICE:HIGH-LOW</a>
+                        <div class="line_filter"></div>
+                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="#">DISCOUNT</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+            <!--menu right  -->
+            <div class="row mt-4">
+              
+
+
+              <% if params[:keywords] %>
+
+              <div data-hook="search_results">
+                <% if @products.empty? %>
+                <h6 class="search-results-title"><%= Spree.t(:no_products_found) %></h6>
+                <% else %>
+                <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+                <% end %>
+              </div>
+
+              <% else %>
+
+       
+                <% if @products.any? %>
+
+                <% @products.each do |product| %>
+                <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
+
+                <% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
+                <div class="col-6 col-sm-6  col-md-4 col-lg-4 col-xl-4 no_padding_sm_l" >
+                  <div data-aos="fade-up" data-aos-duration="600" class="aos-init aos-animate">
+                    <div class="card_product ml-lg-1 product_card" >
+                      <div class="item_img">
+                        <%= link_to image_tag(product.display_image.attachment(:small), itemprop: "image"), url, itemprop: 'url' %>
+                      </div>
+                      <div class="card-body products_card_body" >
+                        <div data-aos="zoom-in" data-aos-duration="300" data-aos-delay="100" class="aos-init">
+                         <p class="card-title about_txt products_card_title_txt">
+                          <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
+                        </p>
+                        <p class="card-text products_text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                        <ul class="nav">
+                          <li class="nav-item products_card_footer1 products_text_price no_padding  d-flex align-items-center">
+                            <%= display_price(product) %>
+                          </li>
+                          <!--price-->
+                          <!--button-->
+                          <li class="nav-item products_card_footer2 no_padding d-flex align-items-center"><button type="button" class="btn btn-white products_button  btn-lg btn-block">ADD TO CART</button></li>
+                          <!--button-->
+                        </ul>
+                    
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+
+              <% end %>
+              <% reset_cycle("classes") %>
+            </ul>
+            <% end %>
+
+          </div>
+          <% end %>
+        </div>
+
+
+
+        <!--products-->
+
+        <!--products-->
+
+
+        <div class="row mt-5 mb-5">
+          <!-- แสดงผลจำนวน-->
+          <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 d-flex justify-content-start">Record per page
+            <select class="form-control form-control-sm w-25 ml-1">
+              <option>100</option>
+              <option>200</option>
+              <option>300</option>
+            </select>
+          </div>
+          <!-- แสดงผลจำนวน-->
+          <!--page-->
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 d-flex justify-content-end"><b>1</b> / 2 / 3 / 4 /
+          </div>
+          <!--page-->
+        </div>
+      </div>
+    </div>
+
   </div>
-<% end %>
 
+  <!--about_certificate-->
+  <!--body-->
 
-<% if params[:keywords] %>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ 
 
-  <div data-hook="search_results">
-    <% if @products.empty? %>
-      <h6 class="search-results-title"><%= Spree.t(:no_products_found) %></h6>
-    <% else %>
-      <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
-    <% end %>
-  </div>
+  <script type="text/javascript">
+  $('.product_menu_list').click(function() {
+        //close
+        $('.product_menu_list').css("color", "#000000");
+        $("#"+this.id).css("color", "#f7941d");
+      });
+      /*alert("===1"+$('.product_menu_list').attr('aria-expanded'));
+        if ($('.product_menu_list').attr('aria-expanded') === true) {
+            alert("===");
+          }*/
 
-<% else %>
+          </script>
 
-  <div data-hook="homepage_products">
-    <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
-  </div>
-<% end %>
+     
+          <script>
+          AOS.init({
+            offset: 200,
+            duration: 600,
+            easing: 'ease-in-sine',
+            delay: 100,
+          });
+          </script>

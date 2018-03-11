@@ -75,3 +75,312 @@
   <%= submit_tag Spree.t(:save_and_continue), class: 'continue button primary' %>
   <script>Spree.disableSaveOnClick();</script>
 </div>
+
+
+
+
+
+
+<div class="bg_details_products">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="bg_white1">
+          <div class="row">
+            <!--left CHOOSE PAYMENT OPTION  --> 
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+              <div class="check_text_title">CHOOSE PAYMENT OPTION</div>
+              <div class="line_full"></div>
+              <div class="payment_body_choose">
+                <!--select payment-->
+                <div > 
+                  <ul class="payment_option">
+                    <li class="payment_input_option register no-margin">
+                      <input type="radio" id="r1" name="payment" value="1" checked/>
+                      <label for="r1"><span></span></label>
+
+                    </li>
+                    
+                    <li> <%= image_tag("smart_home/Switch-Photo.jpg", :alt => "logo", :class => "img-fluid blur") %>
+
+
+                      <%= image_tag("payment/direct_bank.png", :alt => "logo", :class => "img-fluid payment_option_img") %></li>
+                    <li><div class="payment_text_option text_bold">Direct Bank <br>Transfer</div></li>
+
+                    <li class="payment_input_option register no-margin"> 
+                      <input type="radio" id="r2" name="payment"  value="2" />
+                      <label for="r2"><span></span>
+                    </li>
+
+                    <li><%= image_tag("payment/credit.png", :alt => "logo", :class => "img-fluid payment_option_img") %></li>
+                    <li><div class="payment_text_option text_bold">Credit or <br>Debit Card</div></li>
+ 
+                    <li class="payment_input_option register no-margin">  
+                      <input type="radio" id="r3" name="payment"  value="3"  />
+                      <label for="r3"><span></span>
+                    </li>
+
+                    <li><%= image_tag("payment/paypal.png", :alt => "logo", :class => "img-fluid payment_option_img") %></li> 
+                    <li><div class="payment_text_option text_bold">PayPal</div></li>
+                  </ul>
+                </div>
+                <!--select payment-->
+                  
+                
+                <div class="payment_body_text" >
+                  <!-- direct_bank -->
+                  <div id="direct_bank">
+                    <div class="w-75 payment_paypal_text">
+                      Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+                    </div>
+                    <div class="mt-4">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col text-center payment_text_option text_bold" class="line_top"></th>
+                            <th scope="col " class="line_top text-center  payment_text_option text_bold">Bank Name</th>
+                             <th scope="col " class="line_top text-center payment_text_option text_bold">Acount Number</th>
+                            <th scope="col" class="line_top text-center  payment_text_option text_bold">Acount Name</th>
+                             <th scope="col text-center" class="line_top"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="payment_va_m"><%= image_tag("payment/logo.png", :alt => "logo", :class => "img-fluid") %>
+
+
+                             </th>
+                            <td class="text-center payment_va_m payment_paypal_text">บ. ABC จำกัด</td>
+                            <td class="text-center payment_va_m payment_paypal_text">010-2-8880-9</td>
+                            <td class="text-center payment_va_m payment_paypal_text">บัญชีออมทรัพย์</td>
+                            <td class="text-center payment_va_m">
+
+                              <%= image_tag("payment/QR_code_for_mobile_English_Wikipedia.jpg", :alt => "logo", :class => "img-fluid") %>
+                             
+                            </td>
+                            
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="mt-4"> 
+                      <ul class="payment_ul_bank">
+                        <li>
+                          <%= image_tag("payment/warn.png", :alt => "logo", :class => "img-fluid") %>
+                         
+                        </li>
+                        <li>
+                          <div class="payment_text_small d-inline ">      กรุณาแจ้งยืนยันการโอนเงินผ่านเมนู “Confirm  Payment” ของเว็บไซต์<br> 
+                            (Please confirm Payment via “Confirm Payment” menu within this website )
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="mt-5 text-center">
+                      <button type="button" class="btn btn-white products_button btn-lg  products_bu_details orange_bg">PLACE YOUR ORDER</button>
+                    </div>
+                  </div> 
+                  <!-- direct_bank -->
+
+                  <!--credit  (credit.html)-->
+                  <div id="credit">
+                    <div class="row">
+                      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <ul class="nav w-100">
+                          <li class="w-75">
+                            <div class="payment_credit_text_b">Code Number</div>
+                          </li>
+                          <li class="w-25 text-right">
+
+                             <img class="img-fluid" src="assets/images/card.png">
+                          </li>
+                        </ul>
+                      
+                        <input type="text" class="form-control mt-2 mb-4">
+                      </div>
+                      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="payment_credit_text_b">Name on card</div>
+                        <input type="text" class="form-control mt-2 mb-4">
+                      </div>
+                      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="payment_credit_text_b">Expiry Date</div>
+                        <ul class="payment_ul_credit">
+                          <li><input type="text" class="form-control mt-2 mb-4 d-inline-block inputclass" placeholder="MM"></li>
+                          <li><input type="text" class="form-control mt-2 mb-4 d-inline-block inputclass" placeholder="YY"></li>
+                        </ul>
+                        
+                      </div>
+                      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6 align-self-center">
+                        <div class="payment_terms">Terms & Conditions</div>
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <ul class="payment_ul_credit">
+                          <li class="mr-2"><input type="checkbox" aria-label="Checkbox for following text input d-inline-block mt-2"></li>
+                          <li><div class="payment_text_middle  d-inline-block"> 
+                          <input type="checkbox" id="b1" name="cc">
+                              <label for="b1"><span></span> Do not save this card for future use</label></div></li>
+                        </ul>
+                         
+                      </div>
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+                        <button type="button" class="btn btn-white products_button btn-lg  products_bu_details orange_bg">PLACE YOUR ORDER</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!--credit  (credit.html)--> 
+  
+                  <!--paypal-->
+                  <div id="paypal">
+                    <div class="row">
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="payment_paypal_text d-inline text_bold">Please choose a way to pay with PayPal</div>
+                        <div class="payment_paypal_border mt-5">
+                          <div class="mt-lg-4 mb-lg-4 ml-4">
+                            <div class="ml-4"> 
+                              <input type="radio" id="i3" name="paypal"  value="1" />
+                              <label for="i3">
+                                <span></span><div class="payment_paypal_text d-inline text_bold">Using your PayPal account (You need to log into your PayPal)</div>
+                              </label>
+
+                              <div class="ml-4 payment_paypal_text payment_text_middle mb-3">You will need to login to your PayPal account</div>
+                               <div class="payment_paypal_text ml-3">
+                                <input type="checkbox" id="d1" name="cc">
+                              <label for="d1"><span></span>I authorize auto change my Paypal account fot fiture payments</div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                        <div class="mt-5 text-underline">
+                          <a href="">
+                            <%= image_tag("payment/paypal.png", :alt => "logo", :class => "img-fluid mr-3 payment_option_img") %>
+
+                            What is PayPal?</a>
+                        </div>
+                        <div class="payment_paypal_text orange_text mt-3">
+                          Billing information cannot be changed once  the order is placed
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center mt-4">
+                        <button type="button" class="btn btn-white products_button btn-lg  products_bu_details orange_bg">PLACE YOUR ORDER</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!--paypal-->
+                </div>
+              </div>
+            </div>
+            <!--left CHOOSE PAYMENT OPTION--> 
+            <!--right  ORDER SUMMARY   (order_summary.html) -->
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+              <!--order_summary_body.html-->
+              <div id="order_summary_body">
+                <div class="check_text_title">ORDER SUMMARY</div>
+                <div class="line_full"></div>
+                <div class="table-responsive mt-3">
+                  <table class="table line_top line_coll">
+                    <tr>
+                      <td class="payment_text_small w-50 line_top">PRODUCTS</td>
+                      <td class="payment_text_small w-25 text-center line_top">QTY</td>
+                      <td class="payment_text_small w-25 text-right line_top">PRICE</td>
+                    </tr>
+                     <tr>
+                      <td colspan="3"><div class="line_top w-100"></div></td>
+                    </tr>
+                    <!--สินค้า-->
+                     <tr >
+                      <td class="payment_text_middle text_bold">Lamptan LED Blub 6W Daylight-3 Pack / Pack 1EA </td>
+                      <td class="text-center">1</td>
+                      <td class="text-right">$ 210</td>
+                    </tr>
+
+                    <!--เส้น-->
+                    <tr>
+                      <td colspan="3"><div class="line_top_orange w-100"></div></td>
+                    </tr>
+                  <!--เส้น-->
+                    <tr>
+                      <td class=" before_subtotal"><div class=" payment_text_middle text_bold">Hanging Lamp</div><p class="payment_text_small orange">* สินค้าประเภทโคมไฟจะมีเจ้าหน้าที่
+                      ติดต่อกลับภายหลัง</p></td>
+                      <td class="text-center">1</td>
+                      <td class="text-right ">$ 2000</td>
+                    </tr>
+                    <!--สินค้า-->
+                  <!--subtotal-->
+                  <tr class="mt-4">
+                     <td colspan="2" class="line_top payment_text_middle"><div class="text_bold">Subtotal </div><div>Minimum order free</div></td>
+                     <td class="text-right line_top">฿ 2,210<div>Free</div></td>
+                  </tr>
+                  <!--subtotal-->
+                  <!--shipping-->
+                  <tr class="">
+                     <td colspan="2" class="line_top payment_text_middle line_top "><div class="text_bold">Shipping : EMS </div><div>ศุกร์ 5, อังคาร, 9 ม.ค. 2018</div></td>
+                     <td class="text-right line_top">฿ 75</td>
+                  </tr>
+                  <!--shipping-->
+                  <!--ราคารวม-->
+                   <tr class=" sum">
+                     <td class="payment_text_middle"><div class="text_bold">Grand Total</div><div>(VAT incl. if any)</div></td>
+                     <td colspan="2" class="text-right payment_text_big orange text_bold">฿ 2,285</td>
+                  </tr>
+                  <!--ราคารวม-->
+                  </table>
+                </div>
+              </div>
+              <!--order_summary_body.html-->
+            </div>
+            <!--right  ORDER SUMMARY  (order_summary.html) -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--body-->
+<!-- script -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/index.css">
+  <script src="assets/js/index.js"></script>
+<!-- script -->
+<script type="text/javascript">
+  
+  $(document).ready(function(){
+    
+      $("#credit").hide();
+    $("#direct_bank").show();
+    $("#paypal").hide();
+    $("#ch_bank").attr("src","assets/images/direct bank_2.png");
+    
+  });
+
+   $('input[type=radio][name=payment]').change(function() {
+    close();
+        if (this.value == '1') {
+            $("#direct_bank").show();
+            $("#ch_bank").attr("src","assets/images/direct bank_2.png");
+        }
+        else if (this.value == '2') {
+            $("#credit").show();
+            $("#ch_credit").attr("src","assets/images/credit_2.png");
+        } 
+        else if (this.value == '3') {
+          $("#paypal").show();
+          $("#ch_paypal").attr("src","assets/images/paypal_2.png");
+        }
+      
+    });
+
+   function close(){
+    $("#credit").hide();
+    $("#direct_bank").hide();
+    $("#paypal").hide();
+
+    $("#ch_bank").attr("src","assets/images/direct bank_1.png");
+    $("#ch_credit").attr("src","assets/images/credit_1.png");
+    $("#ch_paypal").attr("src","assets/images/paypal_1.png");
+      
+   }
+   
+</script>

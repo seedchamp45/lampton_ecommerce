@@ -1,400 +1,48 @@
-<div id="checkout" data-hook>
-  <%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
+  <div class="bg_details_products">
+    <div class="container">
+      <div class="row">
+        <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <div class="bg_white1">
+ 
 
- <div class="bg_details_products">
-  <div class="container">
-    <div class="row">
-      <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        <div class="bg_white1">
-          <div class="row">
-            <!--left--> 
-            <div class="col col-sm-12 col-md-8 col-lg-8 col-xl-8">
-              <div class="check_text_title">SELECT A SHIPPING ADDRESS</div>
-              <div class="line_full"></div>
-              <div class="body_choose">
-                <div class="row"> 
-                  <div class="col col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <table>
-                      <tr>
-                        <td class="align-top">
-                          <input type="checkbox" name="" class="d-inline">
-                        </td>
-                        <td>
-                          <ul class="ul_check_out">
-                            <li>
-                               <div class="check_text_title">ภคกุล เสนีย์วงศ์ ณ อยุธยา</div>
-                            </li>
-                            <li>
-                              23/100 อาคารสรชัย ชั้น 23 ซอยสุขุมวิท 63 ถนนสุขุมวิท คลองเตยเหนือ วัฒนา
-                            </li>
-                            <li>
-                              Bangkok
-                            </li>
-                            <li>
-                              Bangkok 10110
-                            </li>
-                            <li>
-                              THAILAND  
-                            </li>
-                            <li>
-                              Phone #1: 0817402033   
-                            </li>
-                            <li>
-                              Phone #2: 0863731329
-                            </li>
-                          </ul>
-                           <%= link_to "companyptofile", @companyptofile do %>
-                          <button class="btn1 w-100 bg_bu_orange">SEND TO THIS ADDRESS</button>
-                          <% end %>
-                          <p class="check_out_exit">
-                            <%= image_tag("close2.png", :alt => "logo", :class => "img-close2" ) %>
-                           
-                            <div class="check_text_edit">Edit</div>
-                          </p>
-                          
-                        </td>
-                      </tr>
-                    </table>  
-                  </div>
-                  <div class="col col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <table>
-                      <tr>
-                        <td class="align-top">
-                          <input type="checkbox" name="" class="d-inline">
-                        </td>
-                        <td>
-                          <ul class="ul_check_out">
-                            <li>
-                               <div class="check_text_title">ภคกุล เสนีย์วงศ์ ณ อยุธยา</div>
-                            </li>
-                            <li>
-                              23/100 อาคารสรชัย ชั้น 23 ซอยสุขุมวิท 63 ถนนสุขุมวิท คลองเตยเหนือ วัฒนา
-                            </li>
-                            <li>
-                              Bangkok
-                            </li>
-                            <li>
-                              Bangkok 10110
-                            </li>
-                            <li>
-                              THAILAND  
-                            </li>
-                            <li>
-                              Phone #1: 0817402033   
-                            </li>
-                            <li>
-                              Phone #2: 0863731329
-                            </li>
-                          </ul>
-                           <%= link_to "companyptofile", @companyptofile do %>
-                          <button class="btn1 w-100 bg_bu_orange">SEND TO THIS ADDRESS</button>
-                           <% end %>
-                          <p class="check_out_exit">
-                             <%= image_tag("close2.png", :alt => "logo", :class => "img-close2" ) %>
-                            <div class="check_text_edit">Edit</div>
-                          </p>
-                        </td>
-                      </tr>
-                    </table>                       
-                  </div>
-                </div>
-                <div class="row"> 
-                  <div class="col col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <table>
-                      <tr>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <ul class="ul_check_out1 ml-2">
-                            <li>
-                               <div class="check_text_title">ภคกุล เสนีย์วงศ์ ณ อยุธยา</div>
-                            </li>
-                            <li>
-                              23/100 อาคารสรชัย ชั้น 23 ซอยสุขุมวิท 63 ถนนสุขุมวิท คลองเตยเหนือ วัฒนา
-                            </li>
-                            <li>
-                              Bangkok
-                            </li>
-                            <li>
-                              Bangkok 10110
-                            </li>
-                            <li>
-                              THAILAND  
-                            </li>
-                            <li>
-                              Phone #1: 0817402033   
-                            </li>
-                            <li>
-                              Phone #2: 0863731329
-                            </li>
-                          </ul>
-                          
-                          <p class="check_out_add">
-                            <%= image_tag("add.png", :alt => "logo", :class => "img-close2") %>
-                            
-                            <div class="check_text_add">เพิ่มที่อยู่จัดส่ง</div>
-                          </p>
-                        </td>
-                      </tr>
-                    </table>  
-                  </div>
-                </div>
-              </div>
-                
-            </div>
-            <!--left--> 
-            <!--right-->
-            <div class="col col-sm-12 col-md-4 col-lg-4 col-xl-4">
-              ORDER SUMMARY
-              <div class="line_full"></div>
-              <div class="table-responsive mt-3">
-                <table class="table line_top line_coll">
-                  <tr>
-                    <td class="payment_text_small w-50 line_top">PRODUCTS</td>
-                    <td class="payment_text_small w-25 text-center line_top">QTY</td>
-                    <td class="payment_text_small w-25 text-right line_top">PRICE</td>
-                  </tr>
-                   <tr>
-                    <td colspan="3"><div class="line_top w-100"></div></td>
-                  </tr>
-                   <tr >
-                    <td class="payment_text_middle text_bold">Lamptan LED Blub 6W Daylight-3 Pack / Pack 1EA </td>
-                    <td class="text-center">1</td>
-                    <td class="text-right">$ 210</td>
-                  </tr>
-                  <tr>
-                    <td colspan="3"><div class="line_top_orange w-100"></div></td>
-                  </tr>
-                
-                  <tr>
-                    <td class=" before_subtotal"><div class=" payment_text_middle text_bold">Hanging Lamp</div><p class="payment_text_small orange">* สินค้าประเภทโคมไฟจะมีเจ้าหน้าที่
-                  ติดต่อกลับภายหลัง</p></td>
-                    <td class="text-center">1</td>
-                    <td class="text-right ">$ 2000</td>
-                  </tr>
-                
-                <tr class="mt-4">
-                   <td colspan="2" class="line_top payment_text_middle"><div class="text_bold">Subtotal </div><div>Minimum order free</div></td>
-                   <td class="text-right line_top">฿ 2,210<div>Free</div></td>
-                </tr>
-                <tr class="">
-                   <td colspan="2" class="line_top payment_text_middle line_top "><div class="text_bold">Shipping : EMS </div><div>ศุกร์ 5, อังคาร, 9 ม.ค. 2018</div></td>
-                   <td class="text-right line_top">฿ 75</td>
-                </tr>
-                 <tr class=" sum">
-                   <td class="payment_text_middle"><div class="text_bold">Grand Total</div><div>(VAT incl. if any)</div></td>
-                   <td colspan="2" class="text-right payment_text_big orange text_bold">฿ 2,285</td>
-                </tr>
-                </table>
-              </div>
-            </div>
-            <!--right-->
-          </div>
+              <div id="checkout" data-hook>
+                <%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
 
-          <div class="row">
-            <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
-              <div class="ml-5 mr-5">
-                <div>  
-                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"> <div class="check_text_title">Reciept / Tax invoice adress - Tick and Fill in to request for official Tax invoice</div>
-                </div>
-                <div class="line_full"></div>
-                  <ul class="nav  ml-5 mt-5 mb-4">
-                    <li class="mr-5 ml-3"><div class="check_text_body">Reciept / Tax invoice Adress</div></li>
-                    <li class="ml-5 ml-3"><div class="check_text_body">Thailand  |  <div class="text_orange d-inline">International</div></div></li>
-                  </ul>
-                <div class="row">
-                  <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <div class="ml-5">
-                      <div class="form-group w-75">
-                         <label class="my-1 ml-3 check_text_body" for="inlineFormCustomSelectPref">Name</label>
-                          <input type="text" id="name" class="form-control mx-sm-3" placeholder="Your Name">
-                      </div>
 
-                      <div class="form-group w-75">
-                         <label class="my-1 ml-3 check_text_body" for="inlineFormCustomSelectPref">Address</label>
-                          <textarea class="form-control mx-sm-3" placeholder="Address"></textarea>
-                      </div>
 
-                      <div class="form-group w-75">
-                         <label class="my-1 ml-3 check_text_body" for="inlineFormCustomSelectPref">Postcode <div class="d-inline text_orange text_orange_small">We will detect your city and provience</div></label>
-                          <input type="text" id="postcode" class="form-control mx-sm-3" placeholder="Postcode">
-                      </div>
 
-                      <div class="form-group w-75">
-                         <label class="my-1 ml-3 check_text_body" for="inlineFormCustomSelectPref ">District</label>
-                          <input type="text" id="district" class="form-control mx-sm-3" placeholder="District">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <div class="ml-5">
-                      <div class="form-group w-75 check_text_body">
-                         <label class="my-1 " for="inlineFormCustomSelectPref ">Provience</label>
-                        <select class="form-control">
-                          <option>กรุงเทพมหานคร / Bangkok</option>
-                        </select>
-                      </div>
 
-                      <div class="form-group w-75">
-                         <label class="my-1 check_text_body" for="inlineFormCustomSelectPref ">Mubile Number</label>
-                          <ul class="payment_ul_credit">
-                              <li><input type="text" class="form-control   d-inline-block inputclass" placeholder="+66"></li>
-                              <li><input type="text" class="form-control   d-inline-block inputclass" placeholder="Phone Number"></li>
-                            </ul>
-                      </div>
-
-                      <div class="form-group w-75">
-                         <label class="my-1 check_text_body" for="inlineFormCustomSelectPref ">Tax Code </label>
-
-                          <input type="text" id="tax_code" name="tax_code" class="form-control " placeholder="(Optional)">
-                      </div>
-
-                      <div class="form-group w-75">
-                         <label class="my-1 check_text_body" for="inlineFormCustomSelectPref ">Head Office / Branch No. <div class="text_orange text_orange_small">A5 digits number with 00000 for Head Office and Branch
-                          no as 00001 and upward</div></label>
-                          <input type="text" id="district" class="form-control" placeholder="District">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-              <div class="ml-5 mr-5">
-                <div class="line_full"></div>
-                  <div class="check_text_title  pt-5">SHIPPING</div>
-                  <div class="row">
-                    <!--left shipping-->
-                      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6  pl-5">
-                        
-                        <table class="w-75 mt-5">
-                          <tr>
-                            <td><input type="radio" name="exampleRadios" id="exampleRadios1" value="option1" class="radio_1" checked></td>
-                            <td>ไปรษณีย์ไทย</td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td>
-                              <ul class="ul_check_out2 mt-4 mb-5">
-                                <li>
-                                  <div class="d-inline-block align-top">
-                                    <input type="radio" name="register" id="register" value="option1" class="radio_1" checked>
-                                  </div>
-                                  <div class="d-inline-block">
-                                    <p class="check_out_text">ส่งแบบลงทะเบียน: ฿45.00</p>
-                                    <p class="check_out_text">วันศุกร์,5 - วันจันทร์,8 ม.ค. 2018</p>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div class="d-inline-block align-top">
-                                    <input type="radio" name="register" id="register" value="option1" class="radio_1" checked>
-                                  </div>
-                                  <div class="d-inline-block">
-                                    <p class="check_out_text">EMS: ฿75.00</p>
-                                    <p class="check_out_text">วันศุกร์,5 - วันจันทร์,8 ม.ค. 2018</p>
-                                  </div>
-                                </li>
-                              </ul>
-
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td><input type="radio" name="exampleRadios" id="exampleRadios1" value="option1" class="radio_1" checked></td>
-                            <td >LALAMOVE: ฿60</td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td>
-                              <ul class="ul_check_out2 mt-4">
-                                <li class="text-center">
-                                  <div class="d-inline-block">
-                                    <p class="check_out_text">ส่งแบบเร่งด่วน ภายใน 24 ชั่วโมง</p>
-                                    
-                                  </div>
-                                </li>
-                                
-                              </ul>
-
-                            </td>
-                          </tr>
-                        </table>
-                      </div>
-                    <!--left shipping-->
-                    <!--right shipping-->
-                      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6  pl-5">
-                        <div class="check_text_title"></div>
-                        <table class="w-75 mt-5">
-                          <tr>
-                            <td><input type="radio" name="exampleRadios" id="exampleRadios1" value="option1" class="radio_1" checked></td>
-                            <td>KERRY : ฿45</td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td>
-                              <ul class="ul_check_out2 mt-4  mb-kerry">
-                                
-                                <li>
-                                  <div class="d-inline-block">
-                                    <p class="check_out_text">จัดส่งแบบเร่งด่วน วันศุกร์, 5-วันจันทร์,8 ม.ค.2018</p>
-                                  
-                                  </div>
-                                </li>
-                              </ul>
-
-                            </td>
-                          </tr>
-
-                          <tr>
-                            <td><input type="radio" name="exampleRadios" id="exampleRadios1" value="option1" class="radio_1" checked></td>
-                            <td >LINE MAN: ฿50</td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td>
-                              <ul class="ul_check_out2 mt-4">
-                                <li class="text-center">
-                                  <div class="d-inline-block">
-                                    <p class="check_out_text">จัดส่งแบบเร่งด่วน ภายใน 24 ชั่วโมง</p>
-                                    
-                                  </div>
-                                </li>
-                                
-                              </ul>
-
-                            </td>
-                          </tr>
-                        </table>
-                      </div>
-                    <!--right shipping-->
-                  </div>
+                <div  data-hook="checkout_content">
+                  <div data-hook="checkout_form_wrapper">
+                    <%= form_for @order, url: update_checkout_path(@order.state), html: { id: "checkout_form_#{@order.state}" } do |form| %>
                     
-                <div class="check_text_title mt-5">DELIVERY SERVICE</div>
-                <div class="text-center">
-                  <%= image_tag("logo_right.png", :alt => "logo", :class => "mg-fluid no_padding mt-2" ) %>
+                    <%= render @order.state, form: form %>
+                    <% end %>
+                  </div>
                   
-                    </div>
+                </div>
               </div>
+
+
+
+
+
+
+
+
+              <script>
+              Spree.current_order_id = "<%= @order.number %>"
+              Spree.current_order_token = "<%= @order.guest_token %>"
+              </script>
+
+              <% if I18n.locale != :en %>
+              <%= javascript_include_tag 'jquery.validate/localization/messages_' + I18n.locale.to_s.downcase.gsub('-', '') %>
+              <% end %>
+
             </div>
           </div>
         </div>
       </div>
-
     </div>
-    
-  </div>
-</div>
-</div>
 
-<script>
-Spree.current_order_id = "<%= @order.number %>"
-Spree.current_order_token = "<%= @order.guest_token %>"
-</script>
 
-<% if I18n.locale != :en %>
-  <%= javascript_include_tag 'jquery.validate/localization/messages_' + I18n.locale.to_s.downcase.gsub('-', '') %>
-<% end %>
