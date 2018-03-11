@@ -26,173 +26,40 @@
 <body>
   <%= render partial: 'header/header' %>
 
-  <div class="bg_details_products">
-	<div class="container">
-		<div class="row">
-			<div class="col col-sm-12 col-md-12 col-lg-12 col-xl-12">
-				<div class="bg_white1">
-					<div class="row">
-						<!--left--> 
-						<div class="col col-sm-12 col-md-8 col-lg-8 col-xl-8">
-							<div>CHOOSE PAYMENT OPTION</div>
-							<div class="line_full"></div>
-							<div class="body_choose">
-								<div> 
-									<ul class="payment_option">
-										<li class="payment_input_option "> <input type="radio" name="exampleRadios" id="exampleRadios1" value="option1" class="radio_1" checked></li>
-										
-										<li><%= image_tag("payment/direct_bank.png", :alt => "logo", :class => "img-fluid payment_option_img") %></li>
-										<li><div class="payment_text_option text_bold">Direct Bank <br>Transfer</div></li>
-
-
-										<li class="payment_input_option"> <input  type="radio" name="exampleRadios" id="exampleRadios1" value="option1"  class="radio_1"></li>
-										<li>
-											<%= image_tag("payment/credit.png", :alt => "logo", :class => "img-fluid payment_option_img") %>
-										</li>
-										<li><div class="payment_text_option text_bold">Credit or <br>Debit Card</div></li>
-
-										<li class="payment_input_option">  <input type="radio" name="exampleRadios" id="exampleRadios1" value="option1"   class="radio_1"></li>
-										<li><%= image_tag("payment/paypal.png", :alt => "logo", :class => "img-fluid payment_option_img") %></li> 
-										<li><div class="payment_text_option text_bold">PayPal</div></li>
-									</ul>
-								</div>
-								<div class="payment_body_text">
-									<!--<div id="payment">
-										<div class="w-75">
-											Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
-										</div>
-										<div class="mt-4">
-											<table class="table table-bordered">
-											  <thead>
-											    <tr>
-											      <th scope="col text-center" class="line_top"></th>
-											      <th scope="col text-center" class="line_top">Bank Name</th>
-											       <th scope="col text-center" class="line_top">Acount Number</th>
-											      <th scope="col text-center" class="line_top">Acount Name</th>
-											       <th scope="col text-center" class="line_top"></th>
-											    </tr>
-											  </thead>
-											  <tbody>
-											    <tr>
-											      <th scope="row" class="payment_va_m"><img src="assets/images/payment/logo.png" class="img-fluid"></th>
-											      <td class="text-center payment_va_m">บ. ABC จำกัด</td>
-											      <td class="text-center payment_va_m">010-2-8880-9</td>
-											      <td class="text-center payment_va_m">บัญชีออมทรัพย์</td>
-											      <td class="text-center payment_va_m"><img src="assets/images/payment/QR_code_for_mobile_English_Wikipedia.jpg" class="img-fluid"></td>
-											      
-											    </tr>
-											  </tbody>
-											</table>
-										</div>
-										<div class="mt-4"> 
-											<ul class="payment_ul_bank">
-												<li>
-													<img src="assets/images/payment/warn.png" class="img-fluid">
-												</li>
-												<li>
-													<div class="payment_text_small d-inline ">			กรุณาแจ้งยืนยันการโอนเงินผ่านเมนู “Confirm 	Payment” ของเว็บไซต์<br> 
-														(Please confirm Payment via “Confirm Payment” menu within this website )
-													</div>
-												</li>
-											</ul>
-										</div>
-										<div class="mt-5 text-center">
-											<button type="button" class="btn btn-white products_button btn-lg  products_bu_details orange_bg">Place your order</button>
-										</div>
-									</div>-->
-									<!--credit-->
-									<div id="credit">
-										<div class="row">
-											<div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
-												<div class="payment_credit_text_b">Code Number</div>
-												<input type="text" class="form-control mt-2 mb-4">
-											</div>
-											<div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
-												<div class="payment_credit_text_b">Name on card</div>
-												<input type="text" class="form-control mt-2 mb-4">
-											</div>
-											<div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
-												<div class="payment_credit_text_b">Expiry Date</div>
-												<ul class="payment_ul_credit">
-													<li><input type="text" class="form-control mt-2 mb-4 d-inline-block inputclass" placeholder="MM"></li>
-													<li><input type="text" class="form-control mt-2 mb-4 d-inline-block inputclass" placeholder="YY"></li>
-												</ul>
-												
-											</div>
-											<div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6 align-self-center">
-												<div class="payment_terms">Terms & Conditions</div>
-											</div>
-											<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-												<ul class="payment_ul_credit">
-													<li class="mr-2"><input type="checkbox" aria-label="Checkbox for following text input d-inline-block mt-2"></li>
-													<li><div class="payment_text_middle  d-inline-block">   Do not save this card for future use</div></li>
-												</ul>
-												 
-											</div>
-											<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
-												<button type="button" class="btn btn-white products_button btn-lg  products_bu_details orange_bg mt-3">PLACE YOU ORDER</button>
-											</div>
-										</div>
-									</div>
-									<!--credit-->
-								</div>
-							</div>
-						</div>
-						<!--left--> 
-						<!--right-->
-						<div class="col col-sm-12 col-md-4 col-lg-4 col-xl-4">
-							ORDER SUMMARY
-							<div class="line_full"></div>
-							<div class="table-responsive mt-3">
-							  <table class="table line_top line_coll">
-							    <tr>
-							    	<td class="payment_text_small w-50 line_top">PRODUCTS</td>
-							    	<td class="payment_text_small w-25 text-center line_top">QTY</td>
-							    	<td class="payment_text_small w-25 text-right line_top">PRICE</td>
-							    </tr>
-							     <tr>
-							    	<td colspan="3"><div class="line_top w-100"></div></td>
-							    </tr>
-							     <tr >
-							    	<td class="payment_text_middle text_bold">Lamptan LED Blub 6W Daylight-3 Pack / Pack 1EA </td>
-							    	<td class="text-center">1</td>
-							    	<td class="text-right">$ 210</td>
-							    </tr>
-							    <tr>
-							    	<td colspan="3"><div class="line_top_orange w-100"></div></td>
-							    </tr>
-								
-							    <tr>
-							    	<td class=" before_subtotal"><div class=" payment_text_middle text_bold">Hanging Lamp</div><p class="payment_text_small orange">* สินค้าประเภทโคมไฟจะมีเจ้าหน้าที่
-ติดต่อกลับภายหลัง</p></td>
-							    	<td class="text-center">1</td>
-							    	<td class="text-right ">$ 2000</td>
-							    </tr>
-								
-								<tr class="mt-4">
-									 <td colspan="2" class="line_top payment_text_middle"><div class="text_bold">Subtotal </div><div>Minimum order free</div></td>
-									 <td class="text-right line_top">฿ 2,210<div>Free</div></td>
-								</tr>
-								<tr class="">
-									 <td colspan="2" class="line_top payment_text_middle line_top "><div class="text_bold">Shipping : EMS </div><div>ศุกร์ 5, อังคาร, 9 ม.ค. 2018</div></td>
-									 <td class="text-right line_top">฿ 75</td>
-								</tr>
-							   <tr class=" sum">
-									 <td class="payment_text_middle"><div class="text_bold">Grand Total</div><div>(VAT incl. if any)</div></td>
-									 <td colspan="2" class="text-right payment_text_big orange text_bold">฿ 2,285</td>
-								</tr>
-							  </table>
-							</div>
-						</div>
-						<!--right-->
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
+    <section id="about_vision_missions">
+      <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+              <div class="about_txt_title text-uppercase  ">
+                TEST
+              <hr/>
+              </div>
+            </div>
+           
+          </div>
+      </div>
+        <%= image_tag("img_vision.JPG", :alt => "logo", :class => "img-fluid w-100") %>
+    
+      <!--<img src="assets/images/img_vision.JPG" class="img-fluid w-100" />-->
+      <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+              <div class="about_txt about_text_mt_mb ">
+                xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxx xxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxx xxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxx
+                xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx
+                xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx <br>
+                xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxx xxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxx xxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxx
+                xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx
+                xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx<br>
+                xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxx xxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx xxxxxxx xxxxxx xxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxx xxxxxxxxxxxx
+                xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx
+                xxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx<br>
+              </div>
+            </div>
+           
+          </div>
+      </div>
+    </section>
  <%= render partial: 'footer/footer' %>
 <%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
 </body>
