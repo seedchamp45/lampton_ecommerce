@@ -37,7 +37,8 @@
 
     <!--smarthome-->
     <section id="smart_home">
-      <div class="container i_cn_smarthome">
+      <div class="container i_cn_smarthome" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
         <div class="row">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <%= link_to "smarthome", @smarthome do %>
@@ -53,23 +54,27 @@
      <div class="container i_cn_li_lamp">
       <div class="row ">
         <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
+     
           <a href="/products">
           <%= image_tag("decoration_mobile.JPG", :alt => "logo", :class => "img-fluid d-lg-none  w-100", :id => "decoration_mobile") %>
           <%= image_tag("decoration.JPG", :alt => "logo", :class => "img-fluid d-none d-lg-block" , :id => "decoration_img") %>
         </a>
+     
         </div>
+             
          <a href="/products">
         <div class="col-6 col-sm-6 col-md-6 col-lg-8 col-xl-8 ">
           <%= image_tag("lighting_mobile.JPG", :alt => "logo", :class => "img-fluid d-none w-100", :id =>"decoration_mobile") %>
           <%= image_tag("lighting.JPG", :alt => "logo", :class => "img-fluid d-none d-lg-block", :id => "decoration_img") %>
         </a>
+    
         </div>
       </div>
     </div>
   </section>
   <!--Lighting  Lamp-->
 
-  <section id="highlight">
+  <section id="highlight" data-aos="zoom-in">
     <div class="container">
       <div class="i_txt_title d-flex justify-content-center">Highlight</div>
       <div class="container-fluid">
@@ -81,7 +86,7 @@
               <% Spree::Product.available.order('position ASC').limit(5).each_with_index do |s, index| %>
               <div class=" col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
                 <div class="card about_card no_padding">
-                  <%= image_tag s.display_image.attachment(:product), itemprop: "card-img-top i_cn_lampton_diy_img smart_home_card_img" , :class => "card-img-top i_cn_lampton_diy_img"%>
+                  <%= image_tag s.display_image.attachment(:product), itemprop: "card-img-top i_cn_lampton_diy_img smart_home_card_img" , :class => "card-img-top i_cn_lampton_diy_img zoom"%>
                   <div class="card-body about_card_body">
                     <p class="card-text i_highlight_txt d-flex justify-content-center"><%= link_to s.name, product_path(s) %></p>
                   </div>
@@ -135,7 +140,7 @@
    </section>
 
 
-   <section id="your_self">
+   <section id="your_self" data-aos="zoom-in">
     <div class="container i_cn_lampton_diy">
       <div class="row ">
 
