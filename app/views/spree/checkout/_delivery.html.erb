@@ -2,147 +2,147 @@
 <div id="shipping">
   <div class="check_text_title  pt-5">SHIPPING</div>
   <div class="row">
-<%= form.fields_for :shipments do |ship_form| %>
-          <% ship_form.object.shipping_rates.each do |rate| %>
-<%= rate.inspect %>
-                       <% if rate.name == 'ไปรษณีย์ไทย' %>
+    <%= form.fields_for :shipments do |ship_form| %>
+    <% ship_form.object.shipping_rates.each do |rate| %>
+
+    <% if rate.name == 'ไปรษณีย์ไทย' %>
 
     <!--left -->
-      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6  pl-5">
+    <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6  pl-5">
+      
+      <table class="w-75 mt-5">
         
-        <table class="w-75 mt-5">
-  
-          <!--left shipping ( ไปรษณีย์ไทย)-->
-          <tr>
+        <!--left shipping ( ไปรษณีย์ไทย)-->
+        <tr>
+          
+          <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
+
+          <td>ไปรษณีย์ไทย</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+           
+            <ul class="ul_check_out2 mt-4 mb-5">
+              <li>
+                <div class="d-inline-block align-top">
+                  <%= ship_form.radio_button :selected_shipping_rate_id, rate.id %>
+                </div>
+                <div class="d-inline-block">
+                  <p class="check_out_text">ส่งแบบลงทะเบียน: ฿45.00</p>
+                  <p class="check_out_text">วันศุกร์,5 - วันจันทร์,8 ม.ค. 2018</p>
+                </div>
+              </li>
+              <li>
+                <div class="d-inline-block align-top">
+                  <%= ship_form.radio_button :selected_shipping_rate_id, rate.id %>
+                </div>
+                <div class="d-inline-block">
+                  <p class="check_out_text">EMS: ฿75.00</p>
+                  <p class="check_out_text">วันศุกร์,5 - วันจันทร์,8 ม.ค. 2018</p>
+                </div>
+              </li>
+            </ul>
             
-            <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
+          </td>
+        </tr>
+        <!--left shipping ( ไปรษณีย์ไทย)-->
+        <!--left shipping ( LALAMOVE)-->
+        <% end %>
+        <% if rate.name == 'LALAMOVE' %>
+        <tr>
 
-            <td>ไปรษณีย์ไทย</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-         
-              <ul class="ul_check_out2 mt-4 mb-5">
-                <li>
-                  <div class="d-inline-block align-top">
-                    <%= ship_form.radio_button :selected_shipping_rate_id, rate.id %>
-                  </div>
-                  <div class="d-inline-block">
-                    <p class="check_out_text">ส่งแบบลงทะเบียน: ฿45.00</p>
-                    <p class="check_out_text">วันศุกร์,5 - วันจันทร์,8 ม.ค. 2018</p>
-                  </div>
-                </li>
-                <li>
-                  <div class="d-inline-block align-top">
-                    <%= ship_form.radio_button :selected_shipping_rate_id, rate.id %>
-                  </div>
-                  <div class="d-inline-block">
-                    <p class="check_out_text">EMS: ฿75.00</p>
-                    <p class="check_out_text">วันศุกร์,5 - วันจันทร์,8 ม.ค. 2018</p>
-                  </div>
-                </li>
-              </ul>
-            
-            </td>
-          </tr>
-          <!--left shipping ( ไปรษณีย์ไทย)-->
-          <!--left shipping ( LALAMOVE)-->
-           <% end %>
-               <% if rate.name == 'LALAMOVE' %>
-          <tr>
+          <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
+          <td >LALAMOVE: ฿60</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <ul class="ul_check_out2 mt-4">
+              <li class="text-center">
+                <div class="d-inline-block">
+                  <p class="check_out_text">ส่งแบบเร่งด่วน ภายใน 24 ชั่วโมง</p>
+                  
+                </div>
+              </li>
+              
+            </ul>
 
-            <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
-            <td >LALAMOVE: ฿60</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <ul class="ul_check_out2 mt-4">
-                <li class="text-center">
-                  <div class="d-inline-block">
-                    <p class="check_out_text">ส่งแบบเร่งด่วน ภายใน 24 ชั่วโมง</p>
-                    
-                  </div>
-                </li>
-                
-              </ul>
-
-            </td>
-          </tr>
+          </td>
+        </tr>
         
-          <!--left shipping ( LALAMOVE)-->
-        </table>
-      </div>
+        <!--left shipping ( LALAMOVE)-->
+      </table>
+    </div>
     <!--left shipping -->
     <!--right shipping -->
-      <% end %>
-     
-      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6  pl-5">
-        <div class="check_text_title"></div>
-        <table class="w-75 mt-5">
-          <!--right shipping   (KERRY)-->
-          <% if rate.name == 'KERRY' %>
-          <tr>
-            
-            <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
-            <td>KERRY : ฿45</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <ul class="ul_check_out2 mt-4  mb-kerry">
-                
-                <li>
-                  <div class="d-inline-block">
-                    <p class="check_out_text">จัดส่งแบบเร่งด่วน วันศุกร์, 5-วันจันทร์,8 ม.ค.2018</p>
+    <% end %>
+    
+    <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6  pl-5">
+      <div class="check_text_title"></div>
+      <table class="w-75 mt-5">
+        <!--right shipping   (KERRY)-->
+        <% if rate.name == 'KERRY' %>
+        <tr>
+          
+          <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
+          <td>KERRY : ฿45</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <ul class="ul_check_out2 mt-4  mb-kerry">
+              
+              <li>
+                <div class="d-inline-block">
+                  <p class="check_out_text">จัดส่งแบบเร่งด่วน วันศุกร์, 5-วันจันทร์,8 ม.ค.2018</p>
                   
-                  </div>
-                </li>
-              </ul>
+                </div>
+              </li>
+            </ul>
 
-            </td>
-          </tr>
-          <% end %>
-          <!--right shipping   (KERRY)-->
-          <!--right shipping   LINE MAN-->
-               <% if rate.name == 'LINE MAN' %>
-          <tr>
-       
-            <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
-            <td >LINE MAN: ฿50</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <ul class="ul_check_out2 mt-4">
-                <li class="text-center">
-                  <div class="d-inline-block">
-                    <p class="check_out_text">จัดส่งแบบเร่งด่วน ภายใน 24 ชั่วโมง</p>
-                    
-                  </div>
-                </li>
-                
-              </ul>
+          </td>
+        </tr>
+        <% end %>
+        <!--right shipping   (KERRY)-->
+        <!--right shipping   LINE MAN-->
+        <% if rate.name == 'LINE MAN' %>
+        <tr>
+         
+          <td><%= ship_form.radio_button :selected_shipping_rate_id, rate.id %></td>
+          <td >LINE MAN: ฿50</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <ul class="ul_check_out2 mt-4">
+              <li class="text-center">
+                <div class="d-inline-block">
+                  <p class="check_out_text">จัดส่งแบบเร่งด่วน ภายใน 24 ชั่วโมง</p>
+                  
+                </div>
+              </li>
+              
+            </ul>
 
-            </td>
-          </tr>
-   
-          <!--right shipping   LINE MAN-->
-        </table>
-      </div>
+          </td>
+        </tr>
+        
+        <!--right shipping   LINE MAN-->
+      </table>
+    </div>
     <!--right shipping-->
   </div>
 </div>
- 
-       <% end %>  
-    <% end %>
-     <% end %>
+
+<% end %>  
+<% end %>
+<% end %>
 
 <div class="form-buttons" data-hook="buttons">
   <%= submit_tag Spree.t(:save_and_continue), class: 'continue button primary' %>
 </div>
-
+</fieldset>
 <div class="check_text_title mt-5">DELIVERY SERVICE</div>
 <div class="text-center">
   <%= image_tag("logo_right.png", :alt => "logo", :class => "img-fluid no_padding mt-2") %>
