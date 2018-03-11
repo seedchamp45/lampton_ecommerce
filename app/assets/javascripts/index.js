@@ -5,8 +5,6 @@ $(document).ready(function(){
 });
 
 
-
-
  $('#bu_menu').click(function() {
  	$('.carousel-indicators').hide();
  	$('#layout_sub_menu_popup').hide();
@@ -17,6 +15,31 @@ $(document).ready(function(){
  	$('.carousel-indicators').show();
 	close();
 });
+ 
+ /*menu bar web */
+$('#pills-tab > #pills-tab1 >.nav-item > a').hover(function() {
+	
+  $(".tab-content").show();
+  $(this).tab('show');
+});
+
+$('#logo_bar').hover(function() {
+	
+  $(".tab-content").hide()
+});
+
+$("#carouselExampleIndicators").hover(
+  function() {
+  $(".tab-content").hide();
+});
+
+$("#img2").hover(
+  function() {
+  $(".tab-content").hide();
+});
+
+ /*menu bar web */
+
 /* hover*/
 /*
 $( "#bg_sub_menu_web" ).hover(  function() {
@@ -28,7 +51,7 @@ $( "#bg_sub_menu_web" ).hover(  function() {
   	//$(this).remove();
   	alert('out2');
   }
-);*/
+);
 
 $( ".down_down_head" ).hover(  function() {
 	//alert($( this ).children().get( 0 ).id);
@@ -50,16 +73,10 @@ $( ".down_down_head" ).hover(  function() {
 		);
   		//$('#sub_menu_web_'+$( this ).children().get( 0 ).id).hide();
   	}
+	alert('out1');
     //$( this ).find( "span:last" ).remove();
   }
-);
-
-
-
-
-
-
-
+);*/
 
 
 
@@ -78,8 +95,7 @@ $('#back_popup').click(function() {
  $('.select_sub').click(function() {
  	$('#layout_sub_menu_popup').show();
  	$('#layout_menu_popup').hide();
- 	slerct_sub(this.id);
- 	//alert(this.id);
+ 	slerct_sub(this.id); 
  });
 
  function close(){
@@ -93,7 +109,5 @@ $('#back_popup').click(function() {
  }
  
  function close_sub_menu(){
- 	
  	$('.pop_sub_menu').hide();
-
  }
