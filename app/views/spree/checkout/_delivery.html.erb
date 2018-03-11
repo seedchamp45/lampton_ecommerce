@@ -4,7 +4,7 @@
   <div class="row">
 <%= form.fields_for :shipments do |ship_form| %>
           <% ship_form.object.shipping_rates.each do |rate| %>
-   
+<%= rate.inspect %>
                        <% if rate.name == 'ไปรษณีย์ไทย' %>
 
     <!--left -->
@@ -134,6 +134,7 @@
     <!--right shipping-->
   </div>
 </div>
+ 
        <% end %>  
     <% end %>
      <% end %>
