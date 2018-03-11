@@ -10,9 +10,7 @@ Spree.config do |config|
   # from address for transactional emails
   config.mails_from = "kittipol.idas@gmail.com"
 
-  Spree::SocialConfig[:path_prefix] = 'member' # for /member/auth/:provider
-  Spree::SocialConfig[:path_prefix] = 'profile' # for /profile/auth/:provider
-  Spree::SocialConfig[:path_prefix] = '' # for /auth/:provider
+
 
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false

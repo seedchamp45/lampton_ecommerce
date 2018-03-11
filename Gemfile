@@ -13,7 +13,6 @@ gem 'solidus'
 gem 'solidus_auth_devise'
 gem 'solidus_slider', github: 'samanmohamadi/solidus_slider'
 gem 'searchkick'
-gem 'solidus_social', '~> 1.2.0'
 gem 'deface'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
