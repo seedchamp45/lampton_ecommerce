@@ -52,9 +52,10 @@
           </div>
 
           <div class="form-group w-75">
-
-           <label class="my-1 ml-3 check_text_body" for="inlineFormCustomSelectPref ">District</label>
-           <%= form.text_field :address2, autocomplete: address_type + ' address-line2', class: "form-control mx-sm-3"%>
+             <p class="field" id=<%="#{address_id}city" %> >
+    <%= form.label :city, Spree.t(:city) %><span class="required">*</span><br />
+    <%= form.text_field :city, class: '', autocomplete: address_type + ' address-level2' %>
+  </p>
 
          </div>
        </div>
