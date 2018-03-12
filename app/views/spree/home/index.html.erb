@@ -8,7 +8,7 @@
             </ol>
             <div class="carousel-inner">
               <% if Spree::Slide.published.count > 0 %>
-              <% Spree::Slide.published.location("home_banner") .order('position ASC').each_with_index do |s, index| %>
+              <% Spree::Slide.published.location("home_banner").order('position ASC').each_with_index do |s, index| %>
               <% if index == 0 %>
               <div class="carousel-item active">
                 <%= image_tag(s.image, :alt => "logo", :class => "d-block w-100") %>
@@ -83,7 +83,7 @@
           <div class="col-md-12 col-lg-12 col-xl-12 d-none d-md-block">
 
             <div class="row ">
-              <% Spree::Product.available.order('position ASC').limit(5).each_with_index do |s, index| %>
+              <% Spree::Product.available.order('position ASC').limit(4).each_with_index do |s, index| %>
               <div class=" col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
                 <div class="card about_card no_padding">
                   <%= image_tag s.display_image.attachment(:product), itemprop: "card-img-top i_cn_lampton_diy_img smart_home_card_img" , :class => "card-img-top i_cn_lampton_diy_img zoom"%>
@@ -103,7 +103,7 @@
 
             <div class="row ">
               
-               <% Spree::Product.available.order('position ASC').limit(5).each_with_index do |s, index| %>
+               <% Spree::Product.available.order('position ASC').limit(4).each_with_index do |s, index| %>
                <div class="col-6 col-sm-6">
                 <div class="card about_card no_padding">
                   <%= image_tag s.display_image.attachment(:product), itemprop: "card-img-top i_cn_lampton_diy_img smart_home_card_img" , :class => "card-img-top i_cn_lampton_diy_img"%>
