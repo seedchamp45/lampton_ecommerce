@@ -252,7 +252,7 @@
                   <div data-aos="fade-up" data-aos-duration="600" class="aos-init aos-animate">
                     <div class="card_product ml-lg-1 product_card" >
                       <div class="item_img">
-                        <%= link_to image_tag(product.display_image.attachment(:medium), itemprop: "image"), url, itemprop: 'url' %>
+                        <%= link_to image_tag(product.display_image.attachment(:product), itemprop: "image"), url, itemprop: 'url' %>
                       </div>
                       <div class="card-body products_card_body" >
                         <div data-aos="zoom-in" data-aos-duration="300" data-aos-delay="100" class="aos-init">
