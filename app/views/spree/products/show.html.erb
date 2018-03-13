@@ -38,7 +38,7 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "d-block w-100") %>
+                    <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "product_de_img_small mouse_img_small") %>
 
 
 
@@ -155,18 +155,19 @@
                         </div>  
                       </li>
                       <li class="test3">
+
                         <input type="hidden" name="count" id="count" value="1">
                         <div class="d-inline mb-2 ">
                           <ul class="pagination pagination-md mobile_details_top">
                             <li class="page-item ">
-                              <a class="page-link product_count_add plus" href="#" >+</a>
+                              <a class="page-link product_count_add plus">+</a>
                             </li>
                              <% quantity_product = 1 %>
                             <li class="page-item product_count" id="count_show_mobile" data-lat="<%= quantity_product %>">
                           
                             1</li>
                               <li class="page-item">
-                                <a class="page-link product_count_add minus" href="#">-</a></li>
+                                <a class="page-link product_count_add minus" >-</a></li>
                               </ul>
                             </div>
                           </li>
@@ -183,12 +184,12 @@
                         <ul class="pagination pagination-md ">
 
                           <li class="page-item ">
-                            <a class="page-link product_count_add plus" href="#">+</a>
+                            <a class="page-link product_count_add plus" >+</a>
                           </li>
                  
                           <li class="page-item product_count" id="count_show" data-lat="<%= quantity_product %>">1</li>
                           <li class="page-item">
-                            <a class="page-link product_count_add minus" href="#">-</a></li>
+                            <a class="page-link product_count_add minus">-</a></li>
                   
                           </ul>
                         </div>
@@ -217,7 +218,7 @@
                          <% end %>
                        </li>
                        <li>
-                        <button type="button" class="btn btn-white products_button btn-md  products_bu_li_details ">
+                        <button type="button" class="btn btn-white products_button btn-md  products_bu_li_details " data-toggle="modal" data-target="#modalCart2">
                           <%= image_tag("products/compare.png", :alt => "logo", :class => "products_de_icon_bu") %>
                           COMPARE</button>
                         </li>
@@ -534,7 +535,7 @@
                              <%= image_tag s.display_image.attachment(:product) , :class => "img-fluid product_img_recommender mouse_img_small"%>
 
                              <div class="product_model_text"> <%= link_to s.name, product_path(s) %> </div>
-                          <div class="text_orange">฿ <% s.price %></div>
+                          <div class="text_orange">฿ <%= s.price %></div>
                         </li>
                         <% end %>
                        
@@ -559,6 +560,129 @@
 <!--modal -->
 
 
+  <!-- Modal -->
+      <div class="modal fade" id="modalCart2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header product_modal_header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body product_modal_body">
+              <div class="d-flex justify-content-center">
+                <ul class="product_ul_model">
+                  <li class="w-25 p-3">
+                    <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "d-block w-100") %>
+
+                  </li>
+                  <li class="w-75">
+                    <table class="product_tabel_model mt-2">
+                      <tr>
+                        <td colspan="2">
+                          <div class="text_orange">
+                            
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="mt-md-0 mt-lg-3">
+                              <div class="product_model_title"><%= @product.name %></div>
+                            </div>
+                          </td>
+                          <td class="text-right "> 
+                            <div class="text_bold mt-md-0mt-lg-3">฿ <%= @product.price %> </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2"> <div class="line_top_t1_b1"></div></td>
+                        </tr>
+                        <tr >
+                          
+                        </tr>
+                        <tr>
+                          <td class="text-right mt-2" colspan="2">
+                            <div class="mt-4">
+                      
+                           
+
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </li>
+                  </ul>
+                </div>
+                <div class="line_top_t1_b1 d-block"></div>
+                
+
+
+
+
+
+
+
+
+                <% Spree::Product.available.sample(1).each_with_index do |s| %>
+
+
+                <div class="d-flex justify-content-center">
+                <ul class="product_ul_model">
+                  <li class="w-25 p-3">
+                    <%= image_tag( s.display_image.attachment(:product), :alt => "logo", :class => "d-block w-100") %>
+
+                  </li>
+                  <li class="w-75">
+                    <table class="product_tabel_model mt-2">
+                      <tr>
+                        <td colspan="2">
+                          <div class="text_orange">
+                          
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="mt-md-0 mt-lg-3">
+                              <div class="product_model_title"><%= s.name %></div>
+                            </div>
+                          </td>
+                          <td class="text-right "> 
+                            <div class="text_bold mt-md-0mt-lg-3">฿ <%= s.price %> </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2"> <div class="line_top_t1_b1"></div></td>
+                        </tr>
+                        <tr >
+                         
+                        </tr>
+                        <tr>
+                          <td class="text-right mt-2" colspan="2">
+                            <div class="mt-4">
+                              
+
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </li>
+                  </ul>
+                </div>
+
+
+   <% end %>
+
+
+            </div>
+     <!--<div class="modal-footer">
+        <button type="button" class="btn btn-secondary">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>-->
+    </div>
+  </div>
+</div>
 
 
 
