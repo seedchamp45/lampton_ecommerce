@@ -30,7 +30,7 @@
     <% if @product.price_for(current_pricing_options) and !@product.price.nil? %>
       <div data-hook="product_price" class="columns five <%= !@product.has_variants? ? 'alpha' : 'omega' %>">
 
-      
+          <%= number_field_tag :quantity, 1, class: 'title', min: 1 %>
 
         <div class="add-to-cart">
 
