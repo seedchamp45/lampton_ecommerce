@@ -233,7 +233,7 @@
 
               <% if params[:keywords] %>
 
-              <div data-hook="search_results">
+              <div data-hook="search_results" class="product-listings">
                 <% if @products.empty? %>
                 <h6 class="search-results-title"><%= Spree.t(:no_products_found) %></h6>
                 <% else %>

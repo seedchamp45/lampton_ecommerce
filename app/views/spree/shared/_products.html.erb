@@ -22,10 +22,11 @@
 </div>
 
 <% if products.any? %>
-  <ul id="products" class="inline product-listing" style="display: inline-flex;"data-hook>
+  <ul id="products" class="inline product-listing" data-hook>
     <% products.each do |product| %>
       <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
-      <div id="product_<%= product.id %>" class="<%= cycle("alpha", "secondary", "", "omega secondary", name: "classes") %>" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
+      <li>
+      <div id="product_<%= product.id %>" class="<%= cycle("alpha", "secondary", "", "omega secondary", name: "classes") %>" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product" >
         <% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
           
 
@@ -33,7 +34,7 @@
 
 
 
-        <div class="col-12 col-sm-12  col-md-12 col-lg-12 col-xl-12 no_padding_sm_l" >
+        <div class="" >
                   <div data-aos="fade-up" data-aos-duration="600" class="aos-init aos-animate">
                     <div class="card_product ml-lg-1 product_card" >
                       <div class="item_img">
@@ -72,9 +73,11 @@
 
         <% end %>
       </div>
+        </li>
     <% end %>
     <% reset_cycle("classes") %>
   </ul>
+
 <% end %>
 
 <% if paginated_products.respond_to?(:total_pages) %>
