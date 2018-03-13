@@ -9,3 +9,4 @@
 //= require spree/frontend
 //= require jquery-ui
 //= require_tree .
+//= require spree/frontend/solidus_wishlist

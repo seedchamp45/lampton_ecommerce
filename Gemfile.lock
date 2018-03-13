@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/boomerdigital/solidus_wishlist.git
+  revision: 4c2f7635acd89118f1e9de875c4bee39e9d006c4
+  branch: master
+  specs:
+    solidus_wishlist (2.2.0)
+      solidus_core (>= 1.2.0, < 3)
+      solidus_support
+
+GIT
   remote: https://github.com/samanmohamadi/solidus_slider.git
   revision: 6ff2161d49f0c4f120278580fc3f054b7477d695
   specs:
@@ -405,6 +414,7 @@ DEPENDENCIES
   solidus
   solidus_auth_devise
   solidus_slider!
+  solidus_wishlist!
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

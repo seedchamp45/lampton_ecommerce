@@ -188,11 +188,24 @@
                   </div>
                   <div class="d-block "> 
                     <ul class="products_details_ul_bu">
-                      <li>
-                        <button type="button" class="btn btn-white products_button btn-md  products_bu_li_details ">
+                         <li>
+                      <% if spree_current_user %>
+
+    <%= form_for Spree::WishedProduct.new do |f| %>
+      <%= f.hidden_field :variant_id, value: @product.master.id %>
+      <%= f.hidden_field :quantity %>
+ 
+     
+                        <button type="submit" class="btn btn-white products_button btn-md  products_bu_li_details ">
                          <%= image_tag("products/heart.png", :alt => "logo", :class => "products_de_icon_bu") %>
 
                          WISHLIST</button>
+                       
+       
+      </button>
+    <% end %>
+
+<% end %>
                        </li>
                        <li>
                         <button type="button" class="btn btn-white products_button btn-md  products_bu_li_details ">
