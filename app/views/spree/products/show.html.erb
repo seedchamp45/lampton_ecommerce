@@ -236,34 +236,20 @@
                 <!--desktop: right image -->
                 <div class="d-none d-md-block col-md-2 col-xl-2 col-lg-2">
                   <div class=" product_title_recommender text-center mb-3">RECOMMENDER PRODUCTS</div>
-                  <div class="product_recommender text-center">
-                    <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "img-fluid product_img_recommender mouse_img_small") %>
-
-
-
-                    <div class=" product_text_recommender">LED Ultra Slim Circle <div class="product_price_recommender d-inline">฿ 432</div></div>
-                    <!--<div class="product_price_recommender d-inline"></div>-->
-                  </div>
+                  <% Spree::Product.available.order('position ASC').limit(4).each_with_index do |s, index| %>
                   <div class="product_recommender text-center d-block">
-                   <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "img-fluid product_img_recommender mouse_img_small") %>
+                     <%= image_tag s.display_image.attachment(:product) , :class => "img-fluid product_img_recommender mouse_img_small"%>
+                   
                    <p class="sale_pop_detail">
                     <%= image_tag("products/bg_sale_pop.png", :alt => "logo", :class => "img-sale-detail-product") %>
                   </p>
                   <p class="text_sale_detail">20%</p>
-                  <div class="product_text_recommender">LED Ultra Slim Circle <div class="product_price_recommender d-inline">฿ 500</div></div>
+                  <div class="product_text_recommender">  <%= link_to s.name, product_path(s) %> <div class="product_price_recommender d-inline">฿  <%= s.price %></div></div>
                 </div>
-                <div class="product_recommender text-center">
-                  <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "img-fluid product_img_recommender mouse_img_small") %>
+                  <% end %>
 
-
-                  <div class="product_text_recommender">LED Ultra Slim Circle <div class="product_price_recommender d-inline">฿ 432</div></div>
-                </div>
-                <div class="product_recommender text-center">
-                  <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "img-fluid product_img_recommender mouse_img_small") %>
-
-
-                  <div class="product_text_recommender">LED Ultra Slim Circle <div class="product_price_recommender d-inline">฿ 432</div></div>
-                </div>
+                  
+                
               </div>
               <!--desktop: right image -->
             </div>
@@ -327,7 +313,7 @@
                   <div class="products_details_body text-center">
                     <%= image_tag("products/brochure.jpg", :alt => "logo", :class => "img-30 mr-4") %>
 
-                    <button type="button" class="btn btn-white products_button btn-lg  products_bu_details orange_bg ml-4">ADD TO CART</button>
+                  
                   </div>
                 </div>
 

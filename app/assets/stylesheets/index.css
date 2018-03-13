@@ -1239,7 +1239,7 @@
 	}
 
 	input[type="radio"] {
-	    display:none;
+	    display:block;
 	}
 
 	input[type="radio"] + label {
@@ -2893,7 +2893,7 @@
 	}
 
 	input[type="radio"] {
-	    display:none;
+	    display:block;
 	}
 
 	input[type="radio"] + label {
@@ -4378,7 +4378,7 @@
 	}
 
 	input[type="radio"] {
-	    display:none;
+	    display:block;
 	}
 
 	input[type="radio"] + label {
@@ -5898,7 +5898,7 @@
 		}
 
 		input[type="radio"] {
-		    display:none;
+		    display:block;
 		}
 
 		input[type="radio"] + label {
@@ -7895,7 +7895,7 @@
 	}
 
 	input[type="radio"] {
-	    display:none;
+	    display:block;
 	}
 
 	input[type="radio"] + label {
@@ -8402,3 +8402,12 @@ body{
 
 
 
+#smart_home_ct
+{
+	width: 100%;
+}
+
+.carousel-head-img
+{
+	width: 100%;
+}
