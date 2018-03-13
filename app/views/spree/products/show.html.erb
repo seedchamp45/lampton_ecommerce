@@ -83,7 +83,8 @@
                               <ul class="products-img-small h-100 " id="img_small">
                                <li class="product_arrow"><div class="arrow_top mouse_click" id="arrow_top">&#708;</div></li>
                                <li id="img_small_1" >
-                                <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "product_de_img_small mouse_img_small") %>
+                                <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "product_de_img_small mouse_img_small") %>
+                                
                               </li>
                               <li id="img_small_2" >
                                 <%= image_tag("products/LED_A60.jpg", :alt => "logo", :class => "product_de_img_small") %>
