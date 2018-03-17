@@ -1,0 +1,51 @@
+
+<div class="w-75 payment_paypal_text">
+  Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+</div>
+<div class="mt-4">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col text-center payment_text_option text_bold" class="line_top"></th>
+        <th scope="col " class="line_top text-center  payment_text_option text_bold">Bank Name</th>
+        <th scope="col " class="line_top text-center payment_text_option text_bold">Acount Number</th>
+        <th scope="col" class="line_top text-center  payment_text_option text_bold">Acount Name</th>
+        <th scope="col text-center" class="line_top"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row" class="payment_va_m"><%= image_tag("payment/logo.png", :alt => "logo", :class => "img-fluid") %>
+
+
+        </th>
+        <td class="text-center payment_va_m payment_paypal_text">บ. ABC จำกัด</td>
+        <td class="text-center payment_va_m payment_paypal_text">010-2-8880-9</td>
+        <td class="text-center payment_va_m payment_paypal_text">บัญชีออมทรัพย์</td>
+        <td class="text-center payment_va_m">
+
+          <%= image_tag("payment/QR_code_for_mobile_English_Wikipedia.jpg", :alt => "logo", :class => "img-fluid") %>
+
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="mt-4"> 
+  <ul class="payment_ul_bank">
+    <li>
+      <%= image_tag("payment/warn.png", :alt => "logo", :class => "img-fluid") %>
+
+    </li>
+    <li>
+      <div class="payment_text_small d-inline ">      กรุณาแจ้งยืนยันการโอนเงินผ่านเมนู “Confirm  Payment” ของเว็บไซต์<br> 
+        (Please confirm Payment via “Confirm Payment” menu within this website )
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="mt-5 text-center">
+ <%= submit_tag Spree.t(:save_and_continue), class: 'continue btn btn-white products_button btn-lg  products_bu_details orange_bg' %>
+
+</div>

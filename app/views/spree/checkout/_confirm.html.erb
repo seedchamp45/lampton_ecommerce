@@ -16,9 +16,14 @@
       </div>
     <% end %>
 
-    <%= submit_tag Spree.t(:place_order),
+
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+    <%= submit_tag 'กลับสู่หน้าแรก',
       disabled: requires_acceptance,
-      class: "continue button primary #{ 'disabled' if requires_acceptance }" %>
+      class: "continue btn btn-white products_button btn-md products_bu_details orange_bg text_body #{ 'disabled' if requires_acceptance }" %>
+      </div>
+
   <% end %>
 
   <script>Spree.disableSaveOnClick();</script>

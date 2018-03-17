@@ -15,6 +15,7 @@ gem 'solidus_slider', github: 'samanmohamadi/solidus_slider'
 gem 'searchkick'
 gem 'deface'
 gem 'solidus_wishlist', github: 'boomerdigital/solidus_wishlist', branch: 'master'
+gem 'omise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

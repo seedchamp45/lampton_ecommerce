@@ -1,37 +1,61 @@
-<%= image_tag 'credit_cards/credit_card.gif', id: 'credit-card-image' %>
-<% param_prefix = "payment_source[#{payment_method.id}]" %>
+    <% param_prefix = "payment_source[#{payment_method.id}]" %>
+    <div style="display: none;">
+     <%= text_field_tag "#{param_prefix}[name]", "#{@order.billing_firstname} #{@order.billing_lastname}", { id: "name_on_card_#{payment_method.id}", autocomplete: "cc-name" } %>
+   </div>
+   <div id="credit">
+    <div class="row">
+      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        
+       
+        <div class="payment_credit_text_b">Code Number</div>
 
-<p class="field">
-  <%= label_tag "name_on_card_#{payment_method.id}", Spree.t(:name_on_card) %><span class="required">*</span><br />
-  <%= text_field_tag "#{param_prefix}[name]", "#{@order.billing_firstname} #{@order.billing_lastname}", { id: "name_on_card_#{payment_method.id}", autocomplete: "cc-name" } %>
-</p>
+        <ul class="nav w-100">
+          <%= text_field_tag "#{param_prefix}[number]", '', {id: 'card_number', class: 'required cardNumber form-control mt-2 mb-4', size: 19, maxlength: 19, autocomplete: "cc-number", type: "tel"} %>
+          &nbsp;
+          <span id="card_type" style="display:none;">
+            ( <span id="looks_like" ><%= Spree.t(:card_type_is) %> <span id="type"></span></span>
+            <span id="unrecognized"><%= Spree.t(:unrecognized_card_type) %></span>
+            )
+          </span>
+        </ul>
+      </div>
 
-<p class="field" data-hook="card_number">
-  <%= label_tag "card_number", Spree.t(:card_number) %><span class="required">*</span><br />
-  <%= text_field_tag "#{param_prefix}[number]", '', {id: 'card_number', class: 'required cardNumber', size: 19, maxlength: 19, autocomplete: "cc-number", type: "tel"} %>
-  &nbsp;
-  <span id="card_type" style="display:none;">
-    ( <span id="looks_like" ><%= Spree.t(:card_type_is) %> <span id="type"></span></span>
-      <span id="unrecognized"><%= Spree.t(:unrecognized_card_type) %></span>
-    )
-  </span>
-</p>
 
-<p class="field" data-hook="card_expiration">
-  <%= label_tag "card_expiry", Spree.t(:expiration) %><span class="required">*</span><br />
-  <%= text_field_tag "#{param_prefix}[expiry]", '', id: 'card_expiry', class: "required cardExpiry", placeholder: "MM / YY", type: "tel" %>
-</p>
 
-<p class="field" data-hook="card_code">
-  <%= label_tag "card_code", Spree.t(:card_code) %><span class="required">*</span><br />
-  <%= text_field_tag "#{param_prefix}[verification_value]", '', {id: 'card_code', class: 'required cardCode', size: 5, type: "tel", autocomplete: "off"} %>
-  <%= link_to "(#{Spree.t(:what_is_this)})", spree.cvv_path, target: '_blank', "data-hook" => "cvv_link", id: "cvv_link" %>
-</p>
+      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="payment_credit_text_b">Name on card</div>
+        <%= text_field_tag "#{param_prefix}[name]", "#{@order.billing_firstname} #{@order.billing_lastname}", { id: "name_on_card_#{payment_method.id}", autocomplete: "cc-name" ,class: "required form-control mt-2 mb-4"} %>
 
-<% if @order.bill_address %>
+      </div>
+      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="payment_credit_text_b">Expiry Date</div>
+        <ul class="payment_ul_credit">
+          <%= text_field_tag "#{param_prefix}[expiry]", '', id: 'card_expiry', class: "required cardExpiry form-control mt-2 mb-4 d-inline-block inputclass", placeholder: "MM / YY", type: "tel" %>
+
+        </ul>
+
+      </div>
+      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="payment_credit_text_b">CVV</div>
+        <ul class="payment_ul_credit">
+          <%= text_field_tag "#{param_prefix}[verification_value]", '', {id: 'card_code', class: 'required cardCode form-control mt-2 mb-4 d-inline-block inputclass', size: 5, type: "tel", autocomplete: "off"} %>
+          
+
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <% if @order.bill_address %>
   <%= fields_for "#{param_prefix}[address_attributes]", @order.bill_address do |f| %>
-    <%= render partial: 'spree/address/form_hidden', locals: { form: f } %>
+  <%= render partial: 'spree/address/form_hidden', locals: { form: f } %>
   <% end %>
-<% end %>
+  <% end %>
 
-<%= hidden_field_tag "#{param_prefix}[cc_type]", '', id: "cc_type", class: 'ccType' %>
+  <%= hidden_field_tag "#{param_prefix}[cc_type]", '', id: "cc_type", class: 'ccType' %>
+
+  <div class="mt-5 text-center">
+   <%= submit_tag Spree.t(:save_and_continue), class: 'continue btn btn-white products_button btn-lg  products_bu_details orange_bg' %>
+   
+ </div>
