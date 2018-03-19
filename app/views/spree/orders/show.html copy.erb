@@ -10,7 +10,10 @@
     <br class="clear" />
 
     <p data-hook="links">
-      <%= link_to Spree.t(:back_to_store), spree.root_path, class: "button" %>
+       <%= button_tag 'กลับสู่หน้าแรก',
+      class: "continue btn btn-white products_button btn-md products_bu_details orange_bg text_body" %>
+      </div>
+     
       <% unless order_just_completed?(@order) %>
         <% if try_spree_current_user && respond_to?(:account_path) %>
           <%= link_to Spree.t(:my_account), spree.account_path, class: "button" %>

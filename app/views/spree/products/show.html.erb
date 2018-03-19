@@ -257,8 +257,9 @@
                   <div class=" product_title_recommender text-center mb-3">RECOMMENDER PRODUCTS</div>
                   <% Spree::Product.available.order('position ASC').limit(4).each_with_index do |s, index| %>
                   <div class="product_recommender text-center d-block">
+                    <%= link_to s.name do %>
                    <%= image_tag s.display_image.attachment(:product) , :class => "img-fluid product_img_recommender mouse_img_small"%>
-                   
+                   <% end %>
                   
                   <div class="product_text_recommender">  <%= link_to s.name, product_path(s) %> <div class="product_price_recommender d-inline">฿  <%= s.price %></div></div>
                 </div>

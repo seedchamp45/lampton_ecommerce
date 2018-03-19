@@ -18,7 +18,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag 'spree/frontend/all' %>
-  <%= stylesheet_link_tag "spree/frontend/all" %>
+  
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "index" %>
 </head>
@@ -49,7 +49,7 @@
                     <div class="content-details-eff fadeIn-bottom">
                       <h3 class="smart_home_content_title mb-0">OUR SMART HOME</h3>
                       <h3 class="smart_home_content_title">PRODUCT</h3>
-                      <button class="btn btn-warning products_button  bu_orange  smart_home_button ">ORDER NOW</button>
+                         <a href="/products"><button class="btn btn-warning products_button  bu_orange  smart_home_button ">ORDER NOW</button></a>
                     </div>
                   </a>
                 </div>
@@ -109,7 +109,7 @@
                         <h3 class="smart_home_content_title mb-0">FAMILY</h3>
                         <p>Lorem ipsum dolor sit amet,</p>
                         <p>consectetur adipiscing elit.</p>
-                        <button class="btn  smart_home_button bu_orange mt-1"> MORE DETAILS</button>
+                           <a href="/products"><button class="btn  smart_home_button bu_orange mt-1"> MORE DETAILS</button></a>
                       </div>
                     </a>
                   </div>
@@ -126,7 +126,7 @@
                   <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <div class="card no_border ">
                       <div class="text-center">
-                        <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img" %>
+                           <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img" %></a>
                       </div>
                       <div class="card-body smart_home_card_padding ">
                         <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
@@ -145,7 +145,7 @@
                   <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <div class="card no_border ">
                       <div class="text-center">
-                        <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img" %>
+                           <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img" %></a>
                       </div>
                       <div class="card-body smart_home_card_padding ">
                         <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
@@ -178,7 +178,7 @@
                             <p>Lorem ipsum dolor sit amet,</p>
                             <p>consectetur adipiscing elit.</p>
                           </li>
-                          <li><button class="btn smart_home_button bu_white smart_home_bu2"> MORE DETAILS</button></li>
+                          <li>   <a href="/products"><button class="btn smart_home_button bu_white smart_home_bu2"> MORE DETAILS</button></a></li>
                         </ul>
                         
                       </div>
@@ -201,7 +201,7 @@
                           <p>Lorem ipsum dolor sit amet,</p>
                           <p>consectetur adipiscing elit.</p>
                           <p>Ut ut malesuada orci.</p>
-                          <button class="btn  smart_home_button bu_orange mt-1"> MORE DETAILS</button>
+                             <a href="/products"><button class="btn  smart_home_button bu_orange mt-1"> MORE DETAILS</a></button>
                         </div>
                       </a>
                     </div>
@@ -245,7 +245,7 @@
 
         <div class="carousel-item col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 smart_home_padding_h_p active">
           <div class="card about_card no_padding">
-            <%= image_tag s.display_image.attachment(:product) , :class => "card-img-top i_cn_lampton_diy_img"%>
+               <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product) , :class => "card-img-top i_cn_lampton_diy_img"%></a>
 
             <div class="card-body about_card_body">
               <p class="card-text i_highlight_txt d-flex justify-content-center">
