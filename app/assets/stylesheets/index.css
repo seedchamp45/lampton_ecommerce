@@ -1217,7 +1217,7 @@
 
 	/*checkbox radio*/
 	input[type="checkbox"] {
-    	display:none;
+    	display:block;
 	}
 
 	input[type="checkbox"] + label {
@@ -2871,7 +2871,7 @@
 	
 	/*checkbox radio*/
 	input[type="checkbox"] {
-    	display:none;
+    	display:block;
 	}
 
 	input[type="checkbox"] + label {
@@ -4356,7 +4356,7 @@
 	/*cart*/
 	/*checkbox radio*/
 	input[type="checkbox"] {
-    	display:none;
+    	display:block;
 	}
 
 	input[type="checkbox"] + label {
@@ -5876,7 +5876,7 @@
 
 	/*checkbox radio*/
 		input[type="checkbox"] {
-	    	display:none;
+	    	display:block;
 		}
 
 		input[type="checkbox"] + label {
@@ -7873,7 +7873,7 @@
 
 	/*checkbox radio*/
 	input[type="checkbox"] {
-    	display:none;
+    	display:block;
 	}
 
 	input[type="checkbox"] + label {
