@@ -11,6 +11,7 @@ Spree.config do |config|
   config.mails_from = "kittipol.idas@gmail.com"
 
 
+  config.admin_interface_logo = "logo/logo_lampton.png"
 
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
