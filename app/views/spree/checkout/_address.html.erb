@@ -5,9 +5,10 @@
       <!--line-->
       <div class="line_full"></div>
       <!--line-->
+ 
       <div class="body_choose">
         <div class="row"> 
-         <% Spree::Address.where(:id => spree_current_user.id).limit(5).each_with_index do |s, index| %>
+         <% Spree::Address.where(:id => current_ability.user.ship_address_id).limit(5).each_with_index do |s, index| %>
          <div class="col col-sm-12 col-md-6 col-lg-6 col-xl-6">
            <table>
             <tr>
@@ -134,7 +135,7 @@
         <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address? %>
         <%= label_tag :order_use_billing, Spree.t(:use_billing_address), id: 'use_billing' %>
       </p>
-      <%= render partial: 'spree/address/form', locals: { form: ship_form, address_type: 'shipping', address: @order.ship_address } ,style: "display:block;"%>
+      <%= render partial: 'spree/address/form', locals: { form: ship_form, address_type: 'shipping', address: @order.ship_address } %>
     <% end %>
   </fieldset>
 </div>

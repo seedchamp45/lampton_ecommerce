@@ -9,9 +9,7 @@
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item">DECORATION</li>
-            <li class="breadcrumb-item">AMERICAN VINTAGE</li>
-            <li class="breadcrumb-item" aria-current="page">LED Vintage Globe</li>
+        
           </ol>
         </nav>
       </div>
@@ -124,10 +122,8 @@
 
 
 
-                          <p class="sale_pop">
-                            <%= image_tag("products/bg_sale_pop.png", :alt => "logo", :class => "img-sale-product") %>
-                          </p>
-                          <p class="text_sale">20%</p>
+                          
+                         
                         </td>
                         <!--img big center-->
                       </tr>
@@ -234,7 +230,7 @@
 
                       </div>
                       <div class="d-md-none d-block "> 
-                        <button type="button" class="btn  btn-lg btn-block orange_bg">ADD TO CART</button>
+                        <button type="button" class="btn  btn-lg btn-block orange_bg"  data-toggle="modal" data-target="#modalCart">ADD TO CART</button>
                       </div>
                     </div>
 
@@ -263,10 +259,7 @@
                   <div class="product_recommender text-center d-block">
                    <%= image_tag s.display_image.attachment(:product) , :class => "img-fluid product_img_recommender mouse_img_small"%>
                    
-                   <p class="sale_pop_detail">
-                    <%= image_tag("products/bg_sale_pop.png", :alt => "logo", :class => "img-sale-detail-product") %>
-                  </p>
-                  <p class="text_sale_detail">20%</p>
+                  
                   <div class="product_text_recommender">  <%= link_to s.name, product_path(s) %> <div class="product_price_recommender d-inline">฿  <%= s.price %></div></div>
                 </div>
                 <% end %>
@@ -389,10 +382,7 @@
                 <div class="card_product ml-lg-1 product_card">
                   <img class="card-img-top i_cn_lampton_diy_img img-fluid" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" alt="Card image cap">
                   <div class="card-body products_card_body card_details">
-                    <p class="sale_pop">
-                      <%= image_tag("products/bg_sale_pop.png", :alt => "logo", :class => "img-sale-product") %>
-                    </p>
-                    <p class="text_sale">20%</p>
+                   
                     <p class="card-title about_txt products_detail_title_re_text">LED Ultra Slim Circle</p>
                     <p class="card-text products_detail_re_text_body">ชุดโคมไฟ LED อัจฉริยะ เป็นได้ทั้งโคมไฟเพื่อตกแต่งให้แสงสว่างและไฟฉุกเฉิน</p>
                     <ul class="nav">
@@ -431,17 +421,104 @@
             <div class="modal-body product_modal_body">
               <div class="d-flex justify-content-center">
                 <ul class="product_ul_model">
-                  <li class="w-25 p-3">
+                  <li class="w-50 d-block d-md-none d-lg-block">
                     <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "d-block w-100") %>
 
                   </li>
-                  <li class="w-75">
+                  <li class="w-50 d-block d-md-none d-lg-block" style="margin-left: 1em;">
                     <table class="product_tabel_model mt-2">
                       <tr>
                         <td colspan="2">
                           <div class="text_orange">
-                            <%= image_tag("true.png", :alt => "logo", :class => "d-inline img_model_true mr-2") %>
-                            <div class="product_model_title d-inline">ALREADY ADD TO YOUR CART</div></div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="mt-md-0 mt-lg-3">
+                              <div class="product_model_title"><%= @product.name %></div>
+                            </div>
+                          </td>
+                          <td class="text-right "> 
+                            <div class="text_bold mt-md-0mt-lg-3">฿ <%= @product.price %> </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="2"> <div class="line_top_t1_b1"></div></td>
+                        </tr>
+                        <tr >
+                          <td><div class="product_model_title">Sub Total</div></td>
+                          <td class="text-right text_orange text_bold" id="allprice">฿ </td>
+                        </tr>
+                        <tr>
+                          <td class="text-right mt-2" colspan="2">
+                            <div class="mt-4">
+                              <div id="cart-form" data-hook="cart_form">
+                                <%= form_for :order, url: populate_orders_path do |f| %>
+                                <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                  <% if @product.variants_and_option_values_for(current_pricing_options).any? %>
+                                  <div id="product-variants" class="columns five alpha">
+                                    <h6 class="product-section-title"><%= Spree.t(:variants) %></h6>
+                                    <ul>
+                                      <% @product.variants_and_option_values_for(current_pricing_options).each_with_index do |variant, index| %>
+                                      <li>
+                                        <%= radio_button_tag "variant_id", variant.id, index == 0, 'data-price' => variant.price_for(current_pricing_options)  %>
+                                        <%= label_tag "variant_id_#{ variant.id }" do %>
+                                        <span class="variant-description">
+                                          <%= variant_options variant %>
+                                        </span>
+                                        <% if variant_price variant %>
+                                        <span class="price diff"><%= variant_price variant %></span>
+                                        <% end %>
+
+                                        <% unless variant.can_supply? %>
+                                        <span class="out-of-stock"><%= Spree.t(:out_of_stock) %></span>
+                                        <% end %>
+                                        <% end %>
+                                      </li>
+                                      <% end%>
+                                    </ul>
+                                  </div>
+                                  <% else %>
+                                  <%= hidden_field_tag "variant_id", @product.master.id %>
+                                  <% end %>
+
+                                  <% if @product.price_for(current_pricing_options) and !@product.price.nil? %>
+                                  <div data-hook="product_price" class="columns five <%= !@product.has_variants? ? 'alpha' : 'omega' %>">
+                                    <div style="display: none;">
+                                    <%= number_field_tag :quantity,  1 , class: 'title', min: 1 ,id: "qty_p" %>
+                                    </div>
+                                    <div class="add-to-cart">
+
+                                      <%= button_tag class: 'large primary', id: 'add-to-cart-button', type: :submit do %>Check out
+
+                                      <% end %>
+                                    </div>
+                                  </div>
+                                  <% else %>
+                                  <div id="product-price">
+                                    <br>
+                                    <div><span class="price selling" itemprop="price"><%= Spree.t('product_not_available_in_this_currency') %></span></div>
+                                  </div>
+                                  <% end %>
+                                </div>
+                                <% end %>
+
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </li>
+
+                     <li class="d-none d-md-block d-lg-none">
+                    <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "d-block w-100") %>
+
+                  </li>
+                  <li class="d-none d-md-block d-lg-none">
+                    <table class="product_tabel_model mt-2">
+                      <tr>
+                        <td colspan="2">
+                          <div class="text_orange">
                           </td>
                         </tr>
                         <tr>
@@ -523,13 +600,13 @@
                     </li>
                   </ul>
                 </div>
-                <div class="line_top_t1_b1 d-block"></div>
-                <div class="product_model_title mb-3 product_model_title_left">You may also like</div>
-                <div class="d-flex justify-content-center">
+                <div class="line_top_t1_b1 d-block d-none d-sm-block"></div>
+                <div class="product_model_title mb-3 product_model_title_left d-none d-sm-none   d-md-none d-lg-block">You may also like</div>
+                <div class="d-flex justify-content-center d-block d-sm-none   d-none  d-md-none d-lg-block">
                   <div class="align-self-center"></div>
                   <ul class="product_ul_model2">
                     <li>
-                      <ul class="products_ul_add_tocart nav">
+                      <ul class="products_ul_add_tocart nav ">
                         <% Spree::Product.available.order('position ASC').limit(4).each_with_index do |s, index| %>
                         <li>
                              <%= image_tag s.display_image.attachment(:product) , :class => "img-fluid product_img_recommender mouse_img_small"%>
@@ -572,8 +649,8 @@
             <div class="modal-body product_modal_body">
               <div class="d-flex justify-content-center">
                 <ul class="product_ul_model">
-                  <li class="w-25 p-3">
-                    <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "d-block w-100") %>
+                  <li class="p-3">
+                    <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "d-block w-100" ) %>
 
                   </li>
                   <li class="w-75">

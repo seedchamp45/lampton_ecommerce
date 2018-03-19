@@ -66,15 +66,25 @@
             </div>
           </div>
           <div class="pop_menu_txt p-3">
-           <a href="/account" style="color:white;"> Login  |  Register </a>
+           Login  |  Register
            <div class="line_popup"></div>
          </div>
        </div>
        <div class="overlay-content pl-2 pr-2" id="head_body_mobile" >
         <div id="accordion">
           <!--1-->
-          <div class="menu_2">
-            <div class="pop_menu_txt p-2"><a href="http://www.lamptan.co.th" style="color:white;" rel="external nofollow">HOME</a></div>
+          <div class="menu_1">
+            <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-1" aria-expanded="false" aria-controls="sub-pop-1">About</div>
+
+            <div id="sub-pop-1" aria-labelledby="sub-pop-1"  class="panel-collapse collapse" data-parent="#accordion">
+              <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                <li>Company Profile</li>
+                <li>Vision & Mission</li>
+                <li>Certificate</li>
+                <li>Awards</li>
+              </ul>
+              <div class="line_popup2 p2"></div>
+            </div>
           </div>
           <!--1-->
 
@@ -83,35 +93,109 @@
             <div class="pop_menu_txt p-2"><a href="/smarthome" style="color:white;">Smart Home</a></div>
           </div>
           <!--2-->
-          <div class="menu_2">
-            <div class="pop_menu_txt p-2"><a href="/products" style="color:white;">Products</a></div>
-          </div>
+
           <!--3-->
-          
+          <div class="menu_3">
+            <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-2" aria-expanded="false">Lighting</div>
+
+            <div id="sub-pop-2" class=" collapse" data-parent="#accordion" aria-labelledby="lighting-pop" >
+              <ul class="pop_li_disc" style="margin-bottom: 0px;">
+                <li>Smart Function </li>
+                <li> 
+                  <div class="l_sub1_pop select_sub s_icon" id="menu_3_1">Place</div> 
+                </li>
+                <li class="list_menu_sub_pop">
+                  <div class="l_sub1_pop select_sub s_icon" id="menu_3_2">แยกตามชนิด</div>
+                </li>
+                <li class="list_menu_sub_pop">
+                  <div class="l_sub1_pop select_sub s_icon" id="menu_3_3">ขั้ว</div>
+                </li>
+                <li >ip</li>
+              </ul>
+              <div class="line_popup2 p2"></div>
+            </div>
+          </div>
           <!--3-->
 
           <!--4-->
-         
+          <div class="menu_4">
+           <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-4" >Lamp-Decoration</div>
+
+           <div id="sub-pop-4" class="collapse" data-parent="#accordion">
+            <ul class="pop_li_disc" style="margin-bottom: 0px;">
+              <li>Lamptan Bright Studio</li>
+              <li>Modern</li>
+              <li>Loft</li>
+              <li>American Vintage</li>
+              <li>Chinese Modren</li>
+              <li>Outdoor</li>
+              <li>Style guide</li>
+            </ul>
+            <div class="line_popup2 p2"></div>
+          </div>
+        </div>
         <!--4-->
 
         <!--5-->
-        
+        <div class="menu_5">
+          <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-5"  >News & Media</div>
+
+          <div id="sub-pop-5" class="collapse" data-parent="#accordion">
+            <ul class="pop_li_disc" style="margin-bottom: 0px;">
+              <li>News</li>
+              <li>
+                <div class="l_sub1_pop select_sub s_icon" id="menu_5_1"> Media</div> 
+              </li>
+              <li>CSR</li>
+            </ul>
+            <div class="line_popup2 p2"></div>
+          </div>
+        </div>
         <!--5-->
 
         <!--6-->
-       
+        <div class="menu_6">
+          <div class="pop_menu_txt p-2">Blog</div>
+        </div>
         <!--6-->
 
         <!--7-->
-        
+        <div class="menu_7">
+          <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-7" >Contact us</div>
+
+          <div id="sub-pop-7" class="collapse" data-parent="#accordion">
+            <ul class="pop_li_disc" style="margin-bottom: 0px;">
+              <li>Head office</li>
+              <li>Our Client</li>
+              <li>Agent</li>
+            </ul>
+            <div class="line_popup2 p2"></div>
+          </div>
+        </div>
         <!--7-->
 
         <!--8-->
-        
+        <div class="menu_8">
+          <div class="list_menu_pop pop_menu_txt p-2 collapsed" data-toggle="collapse" data-target="#sub-pop-8">Support</div>
+          <div id="sub-pop-8" class="collapse" data-parent="#accordion">
+            <ul class="pop_li_disc" style="margin-bottom: 0px;">
+              <li>FAQ</li>
+              <li>DIY</li>
+              <li>Catalog</li>
+              <li>Manual</li>
+              <li>Lampton Style guide</li>
+            </ul>
+          </div>
+        </div>
         <!--8-->
       </div>
     </div>
-    
+    <div class="footer pl-3" id="head_footer_mobile">
+      <div class="line_popup p2"></div>
+      <div class="pop_menu_txt pt-2">
+        th  |  en
+      </div>
+    </div>
   </div>
 </div>
 <!--menu mobile-->
@@ -186,14 +270,26 @@
   <div class="container-fluid  pt-3 no_padding d-none d-md-block">
     <ul class="nav justify-content-center menu_bar">
       <li class="nav-item down_down_head">
-        <a class="nav-link active d-flex justify-content-center h_text_menu " href="http://www.lamptan.co.th"  rel="external nofollow">HOME</a>
+        <a class="nav-link active d-flex justify-content-center h_text_menu " id="1"  href="/companyptofile" >About</a>
       </li>
       <li class="nav-item d-flex justify-content-center ">
         <a class="nav-link h_text_menu " href="/smarthome">Smart Home</a>
       </li>
       <li class="nav-item down_down_head">
-       <a class="nav-link h_text_menu" href="/products">Products</a>
+       <a class="nav-link h_text_menu" href="/products">Lighting</a>
      </li>
+     <li class="nav-item">
+      <a class="nav-link h_text_menu" href="/products">Lamp-Decoration</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link h_text_menu down_down_head" href="/companyptofile" id="4"> News & Media</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link h_text_menu down_down_head" href="/companyptofile" id="5">Contact us</a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link h_text_menu down_down_head" href="/companyptofile"  id="6" >Support</a>
+    </li>
   </ul>
 </div>
 </section>
