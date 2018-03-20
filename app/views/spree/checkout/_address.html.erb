@@ -46,14 +46,14 @@
          </table> 
        </div> 
        <% end %>
-       <div class="col col-sm-12 col-md-6 col-lg-6 col-xl-6" style="border: 1px solid #dee2e6">
-
+       <div class="col col-sm-12 col-md-6 col-lg-6 col-xl-6"  style="border: 1px solid #dee2e6">
+        <button id="btnStats">
           <p class="check_out_add">
               <%= image_tag("add.png", :alt => "logo", :class => "img-close2") %> 
           
                 <div class="check_text_add">เพิ่มที่อยู่จัดส่ง</div>
               </p>
-  
+    </button>
        </div>
    </div>
          
@@ -132,25 +132,35 @@
         <fieldset id="billing" data-hook>
           <%= form.fields_for :bill_address do |bill_form| %>
           <legend align="center"><%= Spree.t(:billing_address) %></legend>
+          <div class="ml-5 mr-5">
+    <div>  
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"> <div class="check_text_title">Reciept / Tax invoice adress - Tick and Fill in to request for official Tax invoice</div>
+    </div>
+    <div class="line_full"></div>
+    <ul class="nav  ml-5 mt-5 mb-4">
+      <li class="mr-5 ml-3"><div class="check_text_body">Reciept / Tax invoice Adress</div></li>
+      <li class="ml-5 ml-3"><div class="check_text_body">Thailand  |  <div class="text_orange d-inline">International</div></div></li>
+    </ul>
           <%= render partial: 'spree/address/form', locals: { form: bill_form, address_type: 'billing', address: @order.bill_address } %>
           <% end %>
         </fieldset>
       </div>
     </div>
   </div>
+  </div>
 </div>
 
 <div class="columns omega six" data-hook="shipping_fieldset_wrapper">
-  <fieldset id="shipping" data-hook>
+
     <%= form.fields_for :ship_address do |ship_form| %>
       <legend align="center"><%= Spree.t(:shipping_address) %></legend>
       <p class="field checkbox" data-hook="use_billing">
         <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address? %>
         <%= label_tag :order_use_billing, Spree.t(:use_billing_address), id: 'use_billing' %>
       </p>
-      <%= render partial: 'spree/address/form', locals: { form: ship_form, address_type: 'shipping', address: @order.ship_address } %>
+      <%= render partial: 'spree/address/form', locals: { form: ship_form, address_type: 'shipping', address: @order.ship_address } , :id =>"shipping" %>
     <% end %>
-  </fieldset>
+
 </div>
 
 <div class="form-buttons" data-hook="buttons">
@@ -166,7 +176,12 @@
 
 
 
+<script type="text/javascript">
+  $("#btnStats").on("click",function(){
 
+    $("#shipping").css("display","block")
+});
+</script>
 
 
 
