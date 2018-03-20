@@ -16,7 +16,7 @@ gem 'searchkick'
 gem 'solidus_wishlist', github: 'boomerdigital/solidus_wishlist', branch: 'master'
 gem 'omise'
 gem 'deface', github: 'spree/deface'
-
+gem 'solidus_email_to_friend', github: 'boomerdigital/solidus_email_to_friend', branch: 'master'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
