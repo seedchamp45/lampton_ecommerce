@@ -1,2 +1,138 @@
-<h1>Certificate#certificate</h1>
-<p>Find me in app/views/certificate/certificate.html.erb</p>
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+<html>
+<head data-hook="inside_head">
+
+  <%= favicon_link_tag 'favicon.ico' %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Bootstrap CSS -->
+  <meta name="description" content="My custom spree store">
+  <title><%= content_for?(:title) ? yield(:title) : "My title" %></title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'spree/frontend/all' %>
+ 
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <%= stylesheet_link_tag "index" %>
+
+</head>
+
+<body>
+  <%= render partial: 'header/header' %>
+
+
+  <div class="bg_details_products">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="bg_white1">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-12">
+                  <div class="text-center i_txt_title">MY ORDER <hr></div>
+                </div>
+                
+                
+              </div>
+              <div class="row">
+                <div class="col-12  col-sm-12 col-md-3 col-lg-3 col-xl-3 ">
+                
+                  <ul class="account_menu_left" style="list-style-type: none;">
+                    <li class="border-bottom ">
+                      <div class="d-inline text_body text_bold  "><%= Spree::User.where(:id => spree_current_user.id).first.email   %></div>
+                    </li>
+                    <li class=" border-bottom ">
+                      <a href="/companyptofile" class="">
+                        <div class="d-inline ml-2">
+                           <%= image_tag("my_account.png", :alt => "logo", :class => "img-fluid") %>
+         
+                        </div>
+                        <div class="d-inline text_body pl-sm-2 pl-xl-3 ">My Account</div>
+                      </a>
+                    </li>
+                    <li class="border-bottom">
+                      <a href="/certificate" class="">
+                        <div class="d-inline ml-2">
+                          <%= image_tag("my_wishlist.png", :alt => "logo", :class => "img-fluid") %>
+                    
+                        </div>
+                        <div class="d-inline text_body pl-sm-2 pl-xl-3 ">My Wishlist</div>
+                      </a>
+                    </li>
+                   
+                    <li class="border-bottom">
+                      <a href="/certificate" class="">
+                        <div class="d-inline ml-2">
+                                  <%= image_tag("my_order.png", :alt => "logo", :class => "img-fluid") %>
+                      
+                        </div>
+                        <div class="d-inline text_body pl-sm-2 pl-xl-3 text_orange">My Order</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+
+                  
+                
+                	
+								<div class="col-12  col-sm-12 col-md-9 col-lg-9 col-xl-9">
+									
+									
+							       
+							    <div id="profile_my_order">
+							       	<table class="table w-100 table_border_bottom">
+									  	<thead>
+										    <tr>
+										      <th scope="col">Date</th>
+										      <th scope="col">Order No.</th>
+										      <th scope="col">Price</th>
+										      <th scope="col">Status</th>
+										      <th scope="col"></th>
+										    </tr>
+									  	</thead>
+										<tbody>
+											    <% Spree::Order.where(:email => spree_current_user.email).each do |order| %>
+										    <tr >
+										     	<th scope="row" class="text_body"><%= l order.completed_at.to_date %></th>
+										      	<td class="text_body"><%= order.number%></td>
+										      	<td class="text_body"><%= order.display_total %></td>
+										      	<td class="text_body"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
+										      	<td class="text_body"><a href="/orders/<%= order.number%>">
+											      	<button class="btn  btn-md i_button i_button  p-1  orange_bg">
+														<div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
+												
+															<div class="align-middle d-inline  text_small ">VIEW DETAILS</div>
+														</div>
+													</button></a>
+												</td>
+										    </tr>
+										  	<% end %>
+										</tbody>
+									</table>
+							       </div>
+								</div>
+                     
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    
+    </div>
+
+
+
+ <%= render partial: 'footer/footer' %>
+<%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
+</body>
+</html>
