@@ -1,0 +1,71 @@
+
+
+
+<% variant = line_item_2.variant -%>
+<%= order_form.fields_for :line_items, line_item_2 do |item_form| -%>
+<tr>
+  <td class="w-35 align-middle">
+    <% if variant.images.length == 0 %>
+    <%= link_to image_tag(variant.product.display_image.attachment(:small)), variant.product , :class => "img-fluid no_padding" %>
+    <% else %>
+    <%= link_to image_tag(variant.images.first.attachment.url(:small)), variant.product, :class => "img-fluid no_padding"  %>
+    <% end %>
+  </td>
+  <td class="w-65 pl-3">
+
+    <div class="text-right">
+ 
+    </div>
+
+
+    <ul class="cart_ul_product">
+
+      <li>
+        <div class="cart_title_text cart_title_text_p_b text_title text_bold"><%= link_to line_item_2.name, product_path(variant.product) %></div>
+      </li>
+
+
+      <li>
+        <div class="cart_title_text_in_stock cart_title_text_in_stock_padding text_orange"> In Stock</div>
+      </li>
+
+      <li>
+        <% if spree_current_user %>
+
+        <%= form_for Spree::WishedProduct.new do |f| %>
+        <%= f.hidden_field :variant_id, value: variant.product.master.id %>
+        <%= f.hidden_field :quantity %>
+
+        <div class="cart_title_text_move_w">  <button type="submit" class="btn"> MOVE TO WISHLIST </div>
+
+      </button>
+      <% end %>
+
+      <% end %>
+    </li>
+
+  </ul>
+
+  <ul class="nav w-100 mb-2">
+    <li class="w-100">
+      <div class="d-inline-flex w-100">
+        <div class="text-left w-50 align-middle mt-2">
+          <div class="text_body text_bold ">฿ 560</div>
+        </div>
+        <div class="text-right w-50 ">
+          <%= item_form.number_field :quantity, min: 0, class: "line_item_quantity", size: 5 %> 
+        </div>
+      </div>
+    </li>
+
+  </ul>
+
+
+</td>
+
+</tr>
+
+
+
+<% end -%>
+
