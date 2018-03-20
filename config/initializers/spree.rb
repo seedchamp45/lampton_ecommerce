@@ -13,7 +13,6 @@ Spree.config do |config|
 
   config.admin_interface_logo = "logo/logo_lampton.png"
 
-  Spree::Auth::Config[:confirmable] = true
 
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
