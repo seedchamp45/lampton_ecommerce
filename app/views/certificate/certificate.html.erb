@@ -27,6 +27,7 @@
 
 <body>
   <%= render partial: 'header/header' %>
+<% if spree_current_user %>
 
 
   <div class="bg_details_products">
@@ -129,7 +130,8 @@
       <br>
     
     </div>
-
+<% else %>
+<% end %>
 
 
  <%= render partial: 'footer/footer' %>
