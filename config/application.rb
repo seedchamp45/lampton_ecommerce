@@ -40,6 +40,7 @@ module LamptonEcommerce
       :authentication => "plain",
       :enable_starttls_auto => true
     }
+    config.action_mailer.perform_deliveries = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
