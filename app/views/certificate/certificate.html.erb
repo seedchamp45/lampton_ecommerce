@@ -101,7 +101,7 @@
 										<tbody>
 											    <% Spree::Order.where(:email => spree_current_user.email).each do |order| %>
 										    <tr >
-										     	<th scope="row" class="text_body"><%= l order.completed_at.to_date %></th>
+										     	<th scope="row" class="text_body"><%= l order.completed_at %></th>
 										      	<td class="text_body"><%= order.number%></td>
 										      	<td class="text_body"><%= order.display_total %></td>
 										      	<td class="text_body"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
