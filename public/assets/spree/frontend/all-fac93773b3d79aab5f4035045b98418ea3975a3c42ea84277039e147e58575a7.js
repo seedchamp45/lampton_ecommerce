@@ -12415,7 +12415,7 @@ Spree.getJSON = function(url, data, success) {
       });
       update_shipping_form_state = function(order_use_billing) {
         if (order_use_billing.is(':checked')) {
-          $('#shipping .inner').show();
+          $('#shipping .inner').hide();
           return $('#shipping .inner input, #shipping .inner select').prop('disabled', true);
         } else {
           $('#shipping .inner').show();

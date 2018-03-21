@@ -26,7 +26,7 @@
         <div class="col-md-12 col-xl-12 col-lg-12 bg_products_white">
           <div class="row">
             <div class="col-md-12 col-xl-12 col-lg-12  d-flex justify-content-center">
-              <div class="d-none d-sm-block">
+              <div >
               <table class="cart_table">
                 <thead>
                   <tr>
@@ -56,20 +56,7 @@
                 </table>
                 </div>
 
-                <div class="d-block d-sm-none">
-                    <table class="cart_table">
-                      <tr class="">
-                          <td scope="col" class="w-30 " colspan="2" >
-                            <div class="text_title text_bold">My Shopping Cart</div>
-                          </td>
-                        
-                      </tr>
-                  
-                        <%= render partial: 'spree/orders/line_item_2', collection: order.line_items, locals: { order_form: order_form } %>
-                  
-                      </table>
-             
-              </div>
+               
             </div>
             <div class="row d-none d-sm-block">
               <div class="col-md-12 col-xl-12 col-lg-12  d-flex justify-content-center">
