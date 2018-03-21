@@ -35016,7 +35016,7 @@ Spree.Views.Order.CustomerDetails = Backbone.View.extend({
       .prop("checked", !!user_id)
       .prop("disabled", !user_id);
 
-    this.$('#shipping').toggleClass("hidden", !!this.model.get("use_billing"));
+    this.$('#shipping').toggleClass("show", !!this.model.get("use_billing"));
     this.$('#order_email').val(this.model.get("email"))
   }
 })

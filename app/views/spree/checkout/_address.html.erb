@@ -13,7 +13,7 @@
            <table>
             <tr>
               <td class="align-top">
-                <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address? %>
+               
               </td>
               <td>
                 <ul class="ul_check_out">
@@ -46,15 +46,20 @@
          </table> 
        </div> 
        <% end %>
+      
        <div class="col col-sm-12 col-md-6 col-lg-6 col-xl-6"  style="border: 1px solid #dee2e6">
-        <button id="btnStats">
+       <a href="#whoweare" id = "whoweares">
           <p class="check_out_add">
               <%= image_tag("add.png", :alt => "logo", :class => "img-close2") %> 
           
                 <div class="check_text_add">เพิ่มที่อยู่จัดส่ง</div>
               </p>
-    </button>
+    
+    
+            </a>
+
        </div>
+    
    </div>
          
      </div>
@@ -151,16 +156,18 @@
 </div>
 
 <div class="columns omega six" data-hook="shipping_fieldset_wrapper">
-
+<div id="whoweare">
+   <fieldset id="shipping" data-hook>
     <%= form.fields_for :ship_address do |ship_form| %>
       <legend align="center"><%= Spree.t(:shipping_address) %></legend>
       <p class="field checkbox" data-hook="use_billing">
-        <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address? %>
+        <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address? ,:id=>"checkb"%>
         <%= label_tag :order_use_billing, Spree.t(:use_billing_address), id: 'use_billing' %>
       </p>
-      <%= render partial: 'spree/address/form', locals: { form: ship_form, address_type: 'shipping', address: @order.ship_address } , :id =>"shipping" %>
+      <%= render partial: 'spree/address/form', locals: { form: ship_form, address_type: 'shipping', address: @order.ship_address } , :id =>"shipping", :style => "display:block !importa"%>
     <% end %>
-
+      </fieldset>
+</div>
 </div>
 
 <div class="form-buttons" data-hook="buttons">
@@ -174,14 +181,12 @@
   <% end %>
 </div>
 
-
-
 <script type="text/javascript">
-  $("#btnStats").on("click",function(){
-
-    $("#shipping").css("display","block")
+$("#whoweares").click(function(){
+    $("#checkb").prop( "checked", true );
 });
 </script>
+
 
 
 
