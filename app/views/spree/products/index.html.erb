@@ -13,7 +13,7 @@
       <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item">LIGHTING</li>
+            <li class="breadcrumb-item">SMART HOME</li>
                 <!--<li class="breadcrumb-item"><a href="#">Library</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Data</li>-->
               </ol>
@@ -72,104 +72,7 @@
         <div class="row d-none d-md-block">
 
           <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-end ">
-            <ul class="nav d-flex justify-content-end w-50">
-              <li class="w-50">
-                <div class="dropdown w-100 text-center">
-                  <!--หัวข้อหลัก-->
-                  <div class="dropdown-toggle w-100"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <%= image_tag("products/filter.png", :class => "img-fluid mr-2 product_icon_head") %>
-                    <div class="product_text_head">
-                      FILTER</div>
-                    </div>
-                    <!--หัวข้อหลัก-->
-                    <div class="dropdown-menu w-100 text-center" aria-labelledby="dropdownMenuLink">
-                      <div id="accordion">
-                        <div class="filter_1">
-                          <!--หัวข้อ-->
-                          <div id="heading_filter_1">
-                            <div class="product_sub_title_bar collapsed product_text_head_sub" data-toggle="collapse" data-target="#collapse_filter_1" aria-expanded="false" aria-controls="collapse_filter_1">WATT</div>
-                          </div>
-                          <!--หัวข้อ-->
-                          <!--หัวข้อย่อย-->
-                          <div id="collapse_filter_1" class="collapse" aria-labelledby="heading_filter_1" data-parent="#accordion">
-                            <div class="product_list_sub_sub">
-                              <ul class=" text-left ">
-                                <li class="product_text_head_sub"><a href="/products" >xxxx</a></li>
-                                <li class="product_text_head_sub"><a href="/products" >xxxx</a></li>
-                                <li class="product_text_head_sub"><a href="/products" >xxxx</a></li>
-                                <li class="product_text_head_sub"><a href="/products" >xxxx</a></li>
-                                <li class="product_text_head_sub"><a href="/products" >xxxx</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                          <!--หัวข้อย่อย-->
-                          <div class="line_filter"></div>
-                        </div>
-                        <div class="filter_2">
-                          <!--หัวข้อ-->
-                          <div class="product_sub_title_bar  collapsed collapse_filter_2 product_text_head_sub" data-toggle="collapse" data-target="#collapse_filter_2" aria-expanded="false" aria-controls="collapse_filter_2">ขั้ว</div>
-                          <!--หัวข้อ-->
-                          <!--หัวข้อย่อย-->
-                          <div id="collapse_filter_2" class="collapse" aria-labelledby="heading_filter_2" data-parent="#accordion">
-                            <div class="product_list_sub_sub">
-                              <ul class=" text-left">
-                                <li class="product_text_head_sub"><a href="/products" >F27<a></li>
-                                <li class="product_text_head_sub"><a href="/products" >E14</a></li>
-                                <li class="product_text_head_sub"><a href="/products" >GU5.3</a></li>
-                                <li class="product_text_head_sub"><a href="/products" >E40</a></li>
-                                <li class="product_text_head_sub"><a href="/products" >ต่อไฟตรง</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                          <!--หัวข้อย่อย-->
-                          <div class="line_filter"></div>
-                        </div>
-                        
-                        <div class="filter_3">
-
-                          <div class="product_sub_title_bar  collapsed product_text_head_sub" data-toggle="collapse" data-target="#collapse_filter_3" aria-expanded="false" aria-controls="collapse_filter_3">PLACE</div>
-                          <!--หัวข้อย่อย-->
-                          <div id="collapse_filter_3" class="collapse" aria-labelledby="heading_filter_3" data-parent="#accordion">
-                            <div class="product_list_sub_sub">
-                              <ul class=" text-left">
-                                <li class="product_text_head_sub"><a href="/products" >Residence</a></li>
-                                <li class="product_text_head_sub"><a href="/products" >Office</a></li>
-                                <li class="product_text_head_sub"><a href="/products" >Industrial</a></li>
-                                <li class="product_text_head_sub"><a href="/products" >Outdoor</a></li>
-                              </ul>
-                            </div>
-                          </div>
-                          <!--หัวข้อย่อย-->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="w-30">
-                  <div class="dropdown w-100 text-right">
-                    <!--หัวข้อหลัก-->
-                    <div class="dropdown-toggle w-100" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       <%= image_tag("products/sort.png", :class => "img-fluid mr-2 product_icon_head") %>
-                      <div class="product_text_head">
-                        SORT</div>
-                        <!--หัวข้อหลัก-->
-                      </div>
-                      <div class="dropdown-menu w-100 text-center" aria-labelledby="dropdownMenuLink1">
-                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/products">BEST SELLER</a>
-                        <div class="line_filter"></div>
-                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/products">RECOMMEND</a>
-                        <div class="line_filter"></div>
-                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/products">RELEVANCE</a>
-                        <div class="line_filter"></div>
-                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" hhref="/products">PRICE:LOW-HIGH</a>
-                        <div class="line_filter"></div>
-                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/products">PRICE:HIGH-LOW</a>
-                        <div class="line_filter"></div>
-                        <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/products">DISCOUNT</a>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
+            
 
               </div>
             </div>
@@ -201,14 +104,16 @@
                   <div data-aos="fade-up" data-aos-duration="600" class="aos-init aos-animate">
                     <div class="card_product ml-lg-1 product_card" >
                       <div class="item_img">
-                        <%= link_to image_tag(product.display_image.attachment(:product), itemprop: "image"), url, itemprop: 'url' %>
+                        <%= link_to url do %>
+                        <%= image_tag(product.display_image.attachment(:product), :class => "img-fluid zoom" )%>
+                        <% end %>
                       </div>
                       <div class="card-body products_card_body" >
                         <div data-aos="zoom-in" data-aos-duration="300" data-aos-delay="100" class="aos-init">
                          <p class="card-title about_txt products_card_title_txt">
                           <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
                         </p>
-                        <p class="card-text products_text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p class="card-text products_text"><%= product.description %></p>
 
                         <ul class="nav">
                           <li class="nav-item products_card_footer1 products_text_price no_padding  d-flex align-items-center">
