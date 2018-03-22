@@ -13,14 +13,24 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <!-- Bootstrap CSS -->
+
   <meta name="description" content="My custom spree store">
   <title><%= content_for?(:title) ? yield(:title) : "My title" %></title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'spree/frontend/all' %>
+
   
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "index" %>
+    <%= javascript_include_tag "aos" %>
+
+   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Avenir">
+
+  <style>
+     body{
+      font-family: 'Avenir', serif !important;
+     }
+</style>
 </head>
 
 <body>
@@ -42,6 +52,7 @@
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <div class="container_hover">
+                 <div data-aos="fade-up" data-aos-duration="600">
                 <div class="content_eff">
                   <a href="" target="_blank">
                     <div class="content-overlay bg_white"></div>
@@ -52,18 +63,22 @@
                          <a href="/products"><button class="btn btn-warning products_button  bu_orange  smart_home_button ">ORDER NOW</button></a>
                     </div>
                   </a>
+                    </div>
                 </div>
               </div>
             </div>
           </div>  
         <div class="row smart_home_top">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <div data-aos="fade-up" data-aos-duration="600">
             <div class="row">
               <% Spree::Product.available.where(:name => "test2").order('position ASC').each_with_index do |s, index| %>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <div class="card no_border ">
                     <div class="text-center">
-                      <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img" %>
+                         <div class="item_img">
+                      <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %>
+                         </div>
                     </div>
                       <div class="card-body smart_home_card_padding ">
                         <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
@@ -80,8 +95,8 @@
               <% Spree::Product.available.where(:name => "test1").order('position ASC').each_with_index do |s, index| %>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <div class="card no_border ">
-                    <div class="text-center">
-                      <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img" %>
+                    <div class="item_img">
+                      <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %>
                     </div>
                       <div class="card-body smart_home_card_padding ">
                         <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
@@ -96,11 +111,13 @@
                 </div>
               <% end %>
             </div>
+          </div>
           </div> 
         <div class="row smart_home_top">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  ">
             <div class="container_hover">
               <div class="content_eff">
+                    <div data-aos="zoom-out">
                 <a href="" target="_blank">
                   <div class="content-overlay"></div>
                     <%= image_tag("smart_home/Family-01-Photo.jpg", :alt => "logo", :class => "content-image") %>
@@ -114,11 +131,13 @@
                     </a>
                   </div>
                 </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+           <div data-aos="fade-up" data-aos-duration="600">
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <div class="row">
@@ -126,7 +145,9 @@
                   <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <div class="card no_border ">
                       <div class="text-center">
-                           <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img" %></a>
+                          <div class="item_img">
+                           <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
+                         </div>
                       </div>
                       <div class="card-body smart_home_card_padding ">
                         <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
@@ -144,8 +165,8 @@
                 <% Spree::Product.available.where(:name => "test4").order('position ASC').each_with_index do |s, index| %>
                   <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                     <div class="card no_border ">
-                      <div class="text-center">
-                           <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img" %></a>
+                      <div class="item_img">
+                           <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
                       </div>
                       <div class="card-body smart_home_card_padding ">
                         <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
@@ -161,9 +182,11 @@
                   <% end %>
                 </div>
               </div>
+              </div>
              </div>  
             <div class="row smart_home_top">
               <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+                      <div data-aos="fade-up" data-aos-duration="600">
                  <div class="container_hover">
         
                   <div class="content_eff">
@@ -185,16 +208,17 @@
                     </a>
                   </div>
                 </div>
+                </div>
               </div>
             </div> 
             <div class="row smart_home_top">
               <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-
+                 <div data-aos="fade-up" data-aos-duration="600">
                   <div class="container_hover">
                     <div class="content_eff">
                       <a href="" target="_blank">
                         <div class="content-overlay"></div>
-                        <%= image_tag("smart_home/Switch-Photo.jpg", :alt => "logo", :class => "img-fluid blur") %>
+                        <%= image_tag("smart_home/smart_home_app.jpg", :alt => "logo", :class => "content-image") %>
                         <div class="content-details-eff fadeIn-left text-right">
                           <h3 class="smart_home_content_title mb-0">SMART HOME</h3>
                           <h3 class="smart_home_content_title">Application</h3>
@@ -206,7 +230,7 @@
                       </a>
                     </div>
                   </div>
-
+                </div>
                  
               </div>
             </div>
@@ -269,5 +293,75 @@
 </section>
 <%= render partial: 'footer/footer' %>
 <%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        
+          var page =1;  
+          var set_img = 2;
+
+          if ($(window).width() > 768) {
+            set_img=4;
+          }
+          var count_img= $('#slide_highlight li').length;
+          var count_page = parseInt(count_img/set_img);
+
+          $('#back_highlight').hide();
+
+          if(count_page <=1){
+            $('#next_highlight').hide();
+          }
+      
+          for(var i = set_img+1 ; i <= count_img ; i++){
+            $('#hproduct_'+i).hide();
+          }
+
+          if(count_img % set_img > 0){
+            count_page+=1;
+          }
+
+          $('#next_highlight').click(function(e) {
+              for(var i = page-(set_img-1) ; i <= page*set_img ; i++){
+                $('#hproduct_'+i).hide();
+              }
+              for(var i = (page*set_img)+1 ; i <= (page+1)*set_img ; i++){
+                if(i <=count_img){
+                   $('#hproduct_'+i).show();
+                }
+              }
+              page+=1;
+              
+              if(page ==count_page){
+                 $('#next_highlight').hide();
+                 $('#back_highlight').show();
+              }else{
+                 $('#back_highlight').show();
+                $('#next_highlight').show();
+              }
+          });
+
+
+          $('#back_highlight').click(function(e) {
+              //alert("==1 "+page);
+              for(var i = page*set_img ; i > (page*set_img) -(set_img)  ; i--){
+               //alert(i);
+                $('#hproduct_'+i).hide();
+              }
+
+              page-=1;
+              for(var i = (page*set_img)-(set_img-1) ; i <= page*set_img ; i++){
+                $('#hproduct_'+i).show();
+              }
+
+              if(page == 1){
+                $('#next_highlight').show();
+                $('#back_highlight').hide();
+              }else{
+                $('#back_highlight').show();
+              }
+              
+          });
+        });
+  
+   </script>
 </body>
 </html>
