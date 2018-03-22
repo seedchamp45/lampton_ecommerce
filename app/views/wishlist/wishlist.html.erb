@@ -99,7 +99,7 @@
 
  <% Spree::WishedProduct.where(:wishlist_id => Spree::Wishlist.where(:user_id =>  spree_current_user.id)).each do |wish| variant = wish.variant
         product = variant.product %>
-
+        				 <%= product.present? %>
 										<!--1-->
 										 <div class="col-6 col-sm-6  col-md-4 col-lg-4 col-xl-4 no_padding_sm_l" >
 							           
@@ -140,7 +140,7 @@
 							              </div>
 							       
 							            <!--1-->
-
+							              <% end %>
 							            <% end %>
 
 							            <!--2-->
