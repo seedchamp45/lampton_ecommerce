@@ -77,7 +77,7 @@
                   <div class="card no_border ">
                     <div class="text-center">
                      <div class="item_img">
-                      <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %>
+                     <a href="/products/<%= s.name %>"> <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %> </a>
                     </div>
                   </div>
                   <div class="card-body smart_home_card_padding ">
@@ -96,7 +96,7 @@
               <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <div class="card no_border ">
                   <div class="item_img">
-                    <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %>
+                   <a href="/products/<%= s.name %>"> <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
                   </div>
                   <div class="card-body smart_home_card_padding ">
                     <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
@@ -299,8 +299,11 @@
           var page =1;  
           var set_img = 2;
           
-          if ($(window).width() > 768) {
+         if ($(window).width() > 768) {
             set_img=4;
+            $(".carousel_li_p" ).addClass( "w-25" );
+          }else{
+            $(".carousel_li_p" ).addClass( "w-50" );
           }
 
           
