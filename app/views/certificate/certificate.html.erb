@@ -116,8 +116,12 @@
 										      	<td class="text_body"><%= order.number%></td>
 										      	<td class="text_body"><%= order.display_total %></td>
 										      	<td class="text_body"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
-										      	<td class="text_body"><a href="/orders/<%= order.number%>">
-											      	<button class="btn  btn-md i_button i_button  p-1  orange_bg">
+										      	<td class="text_body">
+                             
+                              <button type="button" class="btn  btn-md i_button i_button  p-1  orange_bg " data-toggle="modal"  data-status="<%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %>" style="display:none;">
+                           
+                             <button type="button" class="btn  btn-md i_button i_button  p-1  orange_bg " data-toggle="modal" data-target="#modalCart2" data-id="<%= order.number%>"  data-status="<%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %>">
+											      
 														<div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
 												
 															<div class="align-middle d-inline  text_small ">VIEW DETAILS</div>
@@ -143,6 +147,184 @@
 
 <% else %>
 <% end %>
+
+
+
+
+ <div class="modal fade" id="modalCart2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header product_modal_header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body product_modal_body">
+
+
+
+
+<div class="bg_details_products">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="bg_white1">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <div class="text-center i_txt_title">ORDER DETAILS<hr></div>
+                </div>
+                
+                
+              </div>
+              <div class="row">
+
+             
+                
+                <div class="col-12  col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  
+                  <div id="order_details" class="row">
+                    
+                    <div class="col-12  col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                     
+                          <%= image_tag("profile/order_status_1.png", :alt => "logo", :id => "order" ,:class => "img-fluid") %>
+                          <%= image_tag("profile/order_status_2.png", :alt => "logo", :id => "process", :class => "img-fluid") %>
+                          <%= image_tag("profile/order_status_3.png", :alt => "logo", :id => "shipped", :class => "img-fluid") %>
+                          <%= image_tag("profile/order_status_4.png", :alt => "logo", :id => "delivered", :class => "img-fluid") %>
+                      <div class="text-center mt-4">
+                        <button class="btn btn-outline-orange btn-lg i_button text_bold bg_transparent">
+                          <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
+                            <div class="d-inline  text_body pl-lg-2 pr-lg-2">DOWNLOAD TAX INVOICE</div>
+                          </div>
+                        </button> 
+                      </div>
+                      <div>
+                        <div class="mt-4 text_title text_bold mb-3">Order Information</div>
+                        <table class="w-100">
+                          <tr>
+                            <td class="w-50">
+                              <div class="text_body">Order No.</div>
+                            </td>
+                            <td class="w-50">
+                              <div class="text_body"> <input type="text" name="bookId" id="bookId" value=""/></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="text_body">Date</div>
+                            </td>
+                            <td> 
+                              <div class="text_body"><%= DateTime.now.to_date %></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="text_body">Status</div>
+                            </td>
+                            <td>
+                              <div class="text_body"><input type="text" name="bookstatus" id="bookstatus" value=""/></div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <div class="text_body">Payment</div>
+                            </td>
+                            <td>
+                              <div class="text_body">Omise Credit Transaction</div>
+                            </td>
+                          </tr>
+                        </table>
+                        <div class="border_bottom_100 mt-4"></div>
+                        <div class="text_title text_bold mb-4 mt-3">Shipping Address</div>
+
+                        <div class="text_body mb-4"><%= Spree::Address.where(:id => spree_current_user.id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.id).first.lastname   %></div>
+
+                        <div class="text_body"><%= Spree::Address.where(:id => spree_current_user.id).first.address1   %> </div>
+                        
+
+                        <div class="text_body ">Phone: <%= Spree::Address.where(:id => spree_current_user.id).first.phone   %> </div>
+                      
+                      </div>
+                    </div>
+
+
+                          
+                          
+                         
+
+                          
+
+
+                          
+                          
+                  </div>
+
+                     
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    
+    </div>
+
+
+
+
+
+
+
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+$(document).on("click", ".orange_bg", function () {
+     var myBookId = $(this).data('id');
+     var myBookstatus = $(this).data('status');
+     $(".modal-body #bookId").val( myBookId );
+      $(".modal-body #bookstatus").val( myBookstatus );
+
+      if (myBookstatus === "Pending") {
+          $("#order").hide();
+          $("#process").show();
+          $("#shipped").hide();
+          $("#delivered").hide();
+      }
+      else if (myBookstatus === "Ready") {
+          $("#order").hide();
+          $("#process").hide();
+          $("#shipped").show();
+          $("#delivered").hide();
+      }
+      else if (myBookstatus === "Shipped") {
+          $("#order").hide();
+          $("#process").hide();
+          $("#shipped").hide();
+          $("#delivered").show();
+      }
+      else
+      {
+         $("#order").show();
+          $("#process").hide();
+          $("#shipped").hide();
+          $("#delivered").hide();
+      }
+     // As pointed out in comments, 
+     // it is superfluous to have to manually call the modal.
+     // $('#addBookDialog').modal('show');
+});
+
+</script>
+
+
+
+
+
 
 
  <%= render partial: 'footer/footer' %>
