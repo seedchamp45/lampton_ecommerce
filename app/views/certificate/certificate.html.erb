@@ -280,14 +280,44 @@
 
 <script type="text/javascript">
 
-</script>
+$(document).on("click", ".orange_bg", function () {
+     var myBookId = $(this).data('id');
+     var myBookstatus = $(this).data('status');
+     $(".modal-body #bookId").val( myBookId );
+      $(".modal-body #bookstatus").val( myBookstatus );
 
+      if (myBookstatus === "Pending") {
+          $("#order").hide();
+          $("#process").show();
+          $("#shipped").hide();
+          $("#delivered").hide();
+      }
+      else if (myBookstatus === "Ready") {
+          $("#order").hide();
+          $("#process").hide();
+          $("#shipped").show();
+          $("#delivered").hide();
+      }
+      else if (myBookstatus === "Shipped") {
+          $("#order").hide();
+          $("#process").hide();
+          $("#shipped").hide();
+          $("#delivered").show();
+      }
+      else
+      {
+         $("#order").show();
+          $("#process").hide();
+          $("#shipped").hide();
+          $("#delivered").hide();
+      }
+   
+});
+</script>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384
-
-
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
 
  <%= render partial: 'footer/footer' %>
