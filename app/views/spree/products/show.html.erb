@@ -86,7 +86,8 @@
                               <ul class="products-img-small h-100 " id="img_small">
                                <li class="product_arrow"><div class="arrow_top mouse_click" id="arrow_top">&#708;</div></li>
                                <li id="img_small_1" >
-                                <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "product_de_img_small mouse_img_small") %>
+
+                                <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "product_de_img_small mouse_img_small zoom") %>
                                 
                               </li>
                               <li id="img_small_2" >
@@ -202,7 +203,7 @@
                          <li>
                           <% if spree_current_user %>
 
-                          <%= form_for Spree::WishedProduct.new do |f| %>
+                          <%= form_for Spree::WishedProduct.new  do |f| %>
                           <%= f.hidden_field :variant_id, value: @product.master.id %>
                           <%= f.hidden_field :quantity %>
 
@@ -333,8 +334,9 @@
                 <div class="product_details collapsed" data-toggle="collapse" data-target="#product_details_2" aria-expanded="false" id="brochure"> Brochure<i class="chevron fa fa-fw" id="brochure"></i></div>
                 <div class="collapse" id="product_details_2" data-parent="#product_menu">
                   <div class="products_details_body text-center">
+                
                     <%= image_tag("products/brochure.jpg", :alt => "logo", :class => "img-30 mr-4") %>
-
+          
 
                   </div>
                 </div>
@@ -645,109 +647,109 @@
               </button>
             </div>
             <div class="modal-body product_modal_body">
-              <div class="d-flex justify-content-center">
-                <ul class="product_ul_model">
-                  <li class="p-3">
-                    <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "d-block w-100" ) %>
-
-                  </li>
-                  <li class="w-75">
-                    <table class="product_tabel_model mt-2">
-                      <tr>
-                        <td colspan="2">
-                          <div class="text_orange">
-                            
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="mt-md-0 mt-lg-3">
-                              <div class="product_model_title"><%= @product.name %></div>
-                            </div>
-                          </td>
-                          <td class="text-right "> 
-                            <div class="text_bold mt-md-0mt-lg-3">฿ <%= @product.price %> </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td colspan="2"> <div class="line_top_t1_b1"></div></td>
-                        </tr>
-                        <tr >
-                           <td><div class="product_model_title"><%= @product.description %> </div></td>
-                        </tr>
-                        <tr>
-                          <td class="text-right mt-2" colspan="2">
-                            <div class="mt-4">
-                             
-                           
-
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      </table>
-                    </li>
-                  </ul>
+            <div class="bg_details_products">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="bg_white1">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                  <div class="text-center i_txt_title">COMPARE PORDUCTS <hr></div>
                 </div>
-                <div class="line_top_t1_b1 d-block"></div>
                 
-
-
-
-
-
-
-
-
-                <% Spree::Product.available.sample(1).each_with_index do |s| %>
-
-
-                <div class="d-flex justify-content-center">
-                <ul class="product_ul_model">
-                  <li class="w-25 p-3">
-                    <%= image_tag( s.display_image.attachment(:product), :alt => "logo", :class => "d-block w-100") %>
-
-                  </li>
-                  <li class="w-75">
-                    <table class="product_tabel_model mt-2">
-                      <tr>
-                        <td colspan="2">
-                         
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <div class="mt-md-0 mt-lg-3">
-                              <div class="product_model_title"><%= s.name %></div>
-                            </div>
-                          </td>
-                          <td class="text-right "> 
-                            <div class="text_bold mt-md-0mt-lg-3">฿ <%= s.price %> </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td colspan="2"> <div class="line_top_t1_b1"></div></td>
-                        </tr>
-                        <tr >
-                          <td><div class="product_model_title"><%= s.description %> </div></td>
-                         
-                        </tr>
-                        <tr>
-                          <td class="text-right mt-2" colspan="2">
-                            <div class="mt-4">
-                              
-
+                
+              </div>
+              <div class="row">
+                <!--left-->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center">
+                  <div class="w-75">
+                    <div>
+                      <!--img-->
+                      <div class="item_img">
+                         <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "img-fluid zoom" ) %>
+                        
+                                </div>
+                                <!--img-->
+                                <!--close-->
+                                <p class="check_out_exit " style="top: 0.3em;">
+                  
+                      </p>
+                      <!--close-->
+                                <div class="ml-2">
+                                  <div class="text-left text_body text_bold"><%= @product.name %></div>
+                                  <div class="w-100 mt-2">
+                                    <ul class="nav">
+                                      <li class="w-50 text-left"><div class="d-inline  text_title text_bold text_orange ">฿ <%= @product.price %></div></li>
+                                      <li class="w-50 text-right"><button class="btn btn-outline-orange i_button p-1 i_button  bg_transparent">
+                              <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
+                          
+                                <div class="align-middle d-inline  text_small "><a href="/products/<%= @product.name %>">VIEW DETAILS</a></div>
+                              </div>
+                            </button></li>
+                                    </ul>
+                                  </div>
+                               </div>
+                               <div class="border_bottom_100 mt-4 mb-3"></div>
+                              <div class="specification text-left">
+                                <div class="ml-2 text_body text_bold">Specification</div>
+                                <%= image_tag("products/specification.jpg", :alt => "logo", :class => "img-fluid") %>
+                               
                               </div>
                             </div>
-                          </td>
-                        </tr>
-                      </table>
-                    </li>
-                  </ul>
+                          </div>
+
                 </div>
+                <!--left-->
+                  <% Spree::Product.available.sample(1).each_with_index do |s| %>
+                <!--right-->
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center">
+                  <div class="d-none d-md-block">
+                  <div class="h-100 vl" style=" position:  absolute; left: 0;"></div>
+                  </div>
+                  <div class="w-75 ">
+                    <div>
+                      <div class="item_img">
+                         <%= image_tag( s.display_image.attachment(:product), :alt => "logo", :class => "img-fluid zoom") %>
 
-
-   <% end %>
+                    
+                                </div>
+                                <p class="check_out_exit " style="top: 0.3em;">
+                  
+                      </p>
+                                <div class="ml-2">
+                                  <div class="text-left text_body text_bold"><%= s.name %></div>
+                                  <div class="w-100 mt-2">
+                                    <ul class="nav">
+                                      <li class="w-50 text-left"><div class="d-inline  text_title text_bold text_orange ">฿ <%= s.price %></div></li>
+                                      <li class="w-50 text-right"><button class="btn btn-outline-orange i_button p-1 i_button  bg_transparent">
+                              <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
+                          
+                                <div class="align-middle d-inline  text_small "><a href="/products/<%= s.name %>">VIEW DETAILS</a></div>
+                              </div>
+                            </button></li>
+                                    </ul>
+                                  </div>
+                               </div>
+                               <div class="border_bottom_100 mt-4 mb-3"></div>
+                              <div class="specification text-left">
+                                <div class="ml-2 text_body text_bold">Specification</div>
+                                 <%= image_tag("products/specification.jpg", :alt => "logo", :class => "img-fluid") %>
+                              </div>
+                            </div>
+                          </div>
+                </div>
+                <% end %>
+                  <!--right-->   
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    
+    </div>
+    
 
 
             </div>
@@ -758,6 +760,9 @@
     </div>
   </div>
 </div>
+
+
+
 
 
 

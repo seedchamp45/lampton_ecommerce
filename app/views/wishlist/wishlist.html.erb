@@ -47,7 +47,7 @@
             <div class="bg_white1">
               <div class="row">
                 <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-12">
-                  <div class="text-center i_txt_title">MY ORDER <hr></div>
+                  <div class="text-center i_txt_title">MY Wishlist <hr></div>
                 </div>
                 
                 
@@ -74,7 +74,7 @@
                           <%= image_tag("my_wishlist.png", :alt => "logo", :class => "img-fluid") %>
                     
                         </div>
-                        <div class="d-inline text_body pl-sm-2 pl-xl-3 ">My Wishlist</div>
+                        <div class="d-inline text_body pl-sm-2 pl-xl-3 text_orange">My Wishlist</div>
                       </a>
                     </li>
                    
@@ -84,60 +84,82 @@
                                   <%= image_tag("my_order.png", :alt => "logo", :class => "img-fluid") %>
                       
                         </div>
-                        <div class="d-inline text_body pl-sm-2 pl-xl-3 text_orange">My Order</div>
+                        <div class="d-inline text_body pl-sm-2 pl-xl-3 ">My Order</div>
                       </a>
                     </li>
                   </ul>
                 </div>
+               
 
 
-                  
-                
-                	
-								<div class="col-12  col-sm-12 col-md-9 col-lg-9 col-xl-9">
+                  				<div class="col-12  col-sm-12 col-md-9 col-lg-9 col-xl-9">
 									
-									
+									<div id="profile_my_lishlist" class="row">
+										
+
+ <% Spree::WishedProduct.where(:wishlist_id => Spree::Wishlist.where(:user_id =>  spree_current_user.id)).each do |wish| variant = wish.variant
+        product = variant.product %>
+
+										<!--1-->
+										 <div class="col-6 col-sm-6  col-md-4 col-lg-4 col-xl-4 no_padding_sm_l" >
+							           
+							                <div class="card_product ml-lg-1 product_card" >
+							                  <!--รูป-->
+							                  <div class="item_img">
+							                  	 <%= image_tag variant.images.first.attachment.url(:small) ,:class =>"img-fluid"%>
+							                  </div>
+							                   <!--รูป-->
+							                  <div class="card-body products_card_body" >
+
+							                    <!--ลดเปอร์เซ็นต์ 
+							                    <p class="sale_pop">
+							                    <img class="img-sale-product" src="assets/images/products/bg_sale_pop.png"></p>
+							                    <p class="text_sale">20%</p>-->
+							                
+							                      <!--name--> 
+							                      <p class="card-title about_txt products_card_title_txt"> <%= product.name %></p>
+							                      <!--name --> 
+							                      <!--detail-->
+							                      <p class="card-text text_small"><%= product.description %></p>
+							                      <!--detail-->
+							                      <!-- price button-->
+							                      <ul class="nav">
+							                        <!--price-->
+							                        <li class="nav-item products_card_footer1 products_text_price no_padding  d-flex align-items-center">฿ <%= product.price %></li>
+							                        <!--price-->
+							                        <!--button-->
+							                        <li class="nav-item products_card_footer2 no_padding d-flex align-items-center"><a href="/products/<%= product.name %>"><button type="button" class="btn btn-white products_button  btn-lg btn-block">ADD TO CART</button></a></li>
+							                        <!--button-->
+							                      </ul>
+							                      <!-- price button-->
+							                    <!-- price-->
+							                    </div>
+							                    
+							              
+							                </div>
+							              </div>
 							       
-							    <div id="profile_my_order">
-							       	<table class="table w-100 table_border_bottom">
-									  	<thead>
-										    <tr>
-							
-										      <th scope="col">Order No.</th>
-										      <th scope="col">Price</th>
-										      <th scope="col">Status</th>
-										      <th scope="col"></th>
-										    </tr>
-									  	</thead>
-										<tbody>
-											    <% Spree::Order.where(:email => spree_current_user.email).each do |order| %>
-										    <tr >
-										     	
-										      	<td class="text_body"><%= order.number%></td>
-										      	<td class="text_body"><%= order.display_total %></td>
-										      	<td class="text_body"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
-										      	<td class="text_body"><a href="/orders/<%= order.number%>">
-											      	<button class="btn  btn-md i_button i_button  p-1  orange_bg">
-														<div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
-												
-															<div class="align-middle d-inline  text_small ">VIEW DETAILS</div>
-														</div>
-													</button></a>
-												</td>
-										    </tr>
-										  	<% end %>
-										</tbody>
-									</table>
-							       </div>
-								</div>
-                     
-                 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
+							            <!--1-->
+
+							            <% end %>
+
+							            <!--2-->
+							            
+							            <!--9-->
+							            
+									</div>
+
+							       
+							  
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+		
+		</div>
+		
     	     <%= link_to Spree.t(:logout), spree.logout_path %>
     </div>
 

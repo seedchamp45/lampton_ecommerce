@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+
+   get '/wishlist' => 'wishlist#wishlist'
+
   get '/smarthome' => 'smarthome#smarthome'
 
   get '/vission_mission' => 'vissionmission#vissionmission'
