@@ -366,32 +366,23 @@
                 <div class=" product_title_recommender text-center mb-3">RECOMMENDER PRODUCTS</div>
               </div>
               <div class="col-12 col-md-12 col-xl-12 col-lg-12 d-flex justify-content-around">
-
+                <% Spree::Product.available.order('position ASC').limit(2).each_with_index do |s, index| %>
                 <div class="card_product ml-lg-1 product_card">
-                  <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "card-img-top i_cn_lampton_diy_img img-fluid") %>
+                   <%= image_tag s.display_image.attachment(:product) , :class => "card-img-top i_cn_lampton_diy_img img-fluid"%>
+
+                 
 
                   <div class="card-body products_card_body">
-                    <p class="card-title about_txt products_detail_title_re_text">LED Ultra Slim Circle</p>
-                    <p class="card-text products_detail_re_text_body">ชุดโคมไฟ LED อัจฉริยะ เป็นได้ทั้งโคมไฟเพื่อตกแต่งให้แสงสว่างและไฟฉุกเฉิน</p>
+                    <p class="card-title about_txt products_detail_title_re_text"> <%= link_to s.name, product_path(s) %></p>
+                    <p class="card-text products_detail_re_text_body"><%= s.description %></p>
                     <ul class="nav">
-                      <li class="nav-item  products_text_price no_padding  d-flex align-items-center">฿ 300</li>
+                      <li class="nav-item  products_text_price no_padding  d-flex align-items-center">฿ <%= s.price %></li>
 
                     </ul>
                   </div>
                 </div>
+                <% end %>
                 
-                <div class="card_product ml-lg-1 product_card">
-                  <img class="card-img-top i_cn_lampton_diy_img img-fluid" src="assets/images/products/LED Smart Emergency_10w_MT.jpg" alt="Card image cap">
-                  <div class="card-body products_card_body card_details">
-                   
-                    <p class="card-title about_txt products_detail_title_re_text">LED Ultra Slim Circle</p>
-                    <p class="card-text products_detail_re_text_body">ชุดโคมไฟ LED อัจฉริยะ เป็นได้ทั้งโคมไฟเพื่อตกแต่งให้แสงสว่างและไฟฉุกเฉิน</p>
-                    <ul class="nav">
-                      <li class="nav-item products_text_price no_padding  d-flex align-items-center">฿ 300<sub class="products_price_full">฿ 540 </sub></li>
-
-                    </ul>
-                  </div>
-                </div>
 
               </div>
             </div>
