@@ -1,5 +1,4 @@
 
-<!DOCTYPE html>
 <!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
@@ -283,41 +282,6 @@
 </div>
 
 <script type="text/javascript">
-$(document).on("click", ".orange_bg", function () {
-     var myBookId = $(this).data('id');
-     var myBookstatus = $(this).data('status');
-     $(".modal-body #bookId").val( myBookId );
-      $(".modal-body #bookstatus").val( myBookstatus );
-
-      if (myBookstatus === "Pending") {
-          $("#order").hide();
-          $("#process").show();
-          $("#shipped").hide();
-          $("#delivered").hide();
-      }
-      else if (myBookstatus === "Ready") {
-          $("#order").hide();
-          $("#process").hide();
-          $("#shipped").show();
-          $("#delivered").hide();
-      }
-      else if (myBookstatus === "Shipped") {
-          $("#order").hide();
-          $("#process").hide();
-          $("#shipped").hide();
-          $("#delivered").show();
-      }
-      else
-      {
-         $("#order").show();
-          $("#process").hide();
-          $("#shipped").hide();
-          $("#delivered").hide();
-      }
-     // As pointed out in comments, 
-     // it is superfluous to have to manually call the modal.
-     // $('#addBookDialog').modal('show');
-});
 
 </script>
 
