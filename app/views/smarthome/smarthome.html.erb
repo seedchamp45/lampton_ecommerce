@@ -22,7 +22,7 @@
   
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "index" %>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Avenir">
 
@@ -254,13 +254,13 @@
   </div>
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      <a class="carousel-control-prev arror" href="#carouselExample" role="button" data-slide="prev" id="back_highlight"> 
+      <a class="carousel-control-prev arror"  role="button" data-slide="prev" id="back_highlight"> 
       </a>
       <ul class="nav" id="slide_highlight">
         <% Spree::Product.available.order('position ASC').limit(8).each_with_index do |s, index| %>
 
 
-        <li class="carousel_li_p" id="hproduct_4">
+        <li class="carousel_li_p" id="hproduct_<%= index + 1 %>">
           <div class="card no_border ">
             <div class="text-center">
              <div class="item_img">
@@ -281,7 +281,7 @@
       <% end %>
     </ul>
     <!--products-->
-    <div><a class="carousel-control-next text-faded arror" href="#carouselExample" role="button" data-slide="next" id="next_highlight">
+    <div><a class="carousel-control-next text-faded arror"  role="button" data-slide="next" id="next_highlight">
     </a></div>
   </div>
 
@@ -294,8 +294,9 @@
 </section>
 <%= render partial: 'footer/footer' %>
 
-<script type="text/javascript">
-jQuery(document).ready(function($){
+
+<script>
+$(document).ready(function(){
 
   var page =1;  
   var set_img = 2;
@@ -305,7 +306,7 @@ jQuery(document).ready(function($){
   }
   var count_img= $('#slide_highlight li').length;
   var count_page = parseInt(count_img/set_img);
-
+  $('#next_highlight').show();
   $('#back_highlight').hide();
 
   if(count_page <=1){
