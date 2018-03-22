@@ -22,15 +22,15 @@
   
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "index" %>
-    <%= javascript_include_tag "aos" %>
+  <%= javascript_include_tag "aos" %>
 
-   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Avenir">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Avenir">
 
   <style>
-     body{
-      font-family: 'Avenir', serif !important;
-     }
-</style>
+  body{
+    font-family: 'Avenir', serif !important;
+  }
+  </style>
 </head>
 
 <body>
@@ -52,204 +52,204 @@
           <div class="row">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
               <div class="container_hover">
-                 <div data-aos="fade-up" data-aos-duration="600">
+               <div data-aos="fade-up" data-aos-duration="600">
                 <div class="content_eff">
                   <a href="" target="_blank">
                     <div class="content-overlay bg_white"></div>
-                      <%= image_tag("smart_home/Switch-Photo.jpg", :alt => "logo", :class => "img-fluid blur") %>
+                    <%= image_tag("smart_home/Switch-Photo.jpg", :alt => "logo", :class => "img-fluid blur") %>
                     <div class="content-details-eff fadeIn-bottom">
                       <h3 class="smart_home_content_title mb-0">OUR SMART HOME</h3>
                       <h3 class="smart_home_content_title">PRODUCT</h3>
-                         <a href="/products"><button class="btn btn-warning products_button  bu_orange  smart_home_button ">ORDER NOW</button></a>
+                      <a href="/products"><button class="btn btn-warning products_button  bu_orange  smart_home_button ">ORDER NOW</button></a>
                     </div>
                   </a>
-                    </div>
                 </div>
               </div>
             </div>
-          </div>  
+          </div>
+        </div>  
         <div class="row smart_home_top">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                  <div data-aos="fade-up" data-aos-duration="600">
-            <div class="row">
-              <% Spree::Product.available.where(:name => "test2").order('position ASC').each_with_index do |s, index| %>
+            <div data-aos="fade-up" data-aos-duration="600">
+              <div class="row">
+                <% Spree::Product.available.where(:name => "test2").order('position ASC').each_with_index do |s, index| %>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <div class="card no_border ">
                     <div class="text-center">
-                         <div class="item_img">
+                     <div class="item_img">
                       <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %>
-                         </div>
                     </div>
-                      <div class="card-body smart_home_card_padding ">
-                        <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
-                        <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
-                          <div class="card-footers d-flex justify-content-center">
-                            <button class="btn btn-outline-dark smart_home_cart_bu ">
-                              <a href="/products/<%= s.name %>"> ADD TO CART</a>
-                            </button>
-                          </div>
-                      </div>
+                  </div>
+                  <div class="card-body smart_home_card_padding ">
+                    <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
+                    <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
+                    <div class="card-footers d-flex justify-content-center">
+                      <button class="btn btn-outline-dark smart_home_cart_bu ">
+                        <a href="/products/<%= s.name %>"> ADD TO CART</a>
+                      </button>
+                    </div>
                   </div>
                 </div>
+              </div>
               <% end %>
               <% Spree::Product.available.where(:name => "test1").order('position ASC').each_with_index do |s, index| %>
-                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                  <div class="card no_border ">
-                    <div class="item_img">
-                      <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %>
+              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <div class="card no_border ">
+                  <div class="item_img">
+                    <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %>
+                  </div>
+                  <div class="card-body smart_home_card_padding ">
+                    <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
+                    <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
+                    <div class="card-footers d-flex justify-content-center">
+                      <button class="btn btn-outline-dark smart_home_cart_bu ">
+                        <a href="/products/<%= s.name %>"> ADD TO CART</a>
+                      </button>
                     </div>
-                      <div class="card-body smart_home_card_padding ">
-                        <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
-                        <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
-                          <div class="card-footers d-flex justify-content-center">
-                            <button class="btn btn-outline-dark smart_home_cart_bu ">
-                              <a href="/products/<%= s.name %>"> ADD TO CART</a>
-                            </button>
-                          </div>
-                      </div>
                   </div>
                 </div>
+              </div>
               <% end %>
             </div>
           </div>
-          </div> 
+        </div> 
         <div class="row smart_home_top">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12  ">
             <div class="container_hover">
               <div class="content_eff">
-                    <div data-aos="zoom-out">
-                <a href="" target="_blank">
-                  <div class="content-overlay"></div>
+                <div data-aos="zoom-out">
+                  <a href="" target="_blank">
+                    <div class="content-overlay"></div>
                     <%= image_tag("smart_home/Family-01-Photo.jpg", :alt => "logo", :class => "content-image") %>
-                      <div class="content-details-eff fadeIn-right text-left">
-                        <h3 class="smart_home_content_title mb-0">SMART HOME</h3>
-                        <h3 class="smart_home_content_title mb-0">FAMILY</h3>
-                        <p>Lorem ipsum dolor sit amet,</p>
-                        <p>consectetur adipiscing elit.</p>
-                           <a href="/products"><button class="btn  smart_home_button bu_orange mt-1"> MORE DETAILS</button></a>
-                      </div>
-                    </a>
-                  </div>
-                </div>
+                    <div class="content-details-eff fadeIn-right text-left">
+                      <h3 class="smart_home_content_title mb-0">SMART HOME</h3>
+                      <h3 class="smart_home_content_title mb-0">FAMILY</h3>
+                      <p>Lorem ipsum dolor sit amet,</p>
+                      <p>consectetur adipiscing elit.</p>
+                      <a href="/products"><button class="btn  smart_home_button bu_orange mt-1"> MORE DETAILS</button></a>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-           <div data-aos="fade-up" data-aos-duration="600">
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+     <div data-aos="fade-up" data-aos-duration="600">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
           <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-              <div class="row">
-                <% Spree::Product.available.where(:name => "test3").order('position ASC').each_with_index do |s, index| %>
-                  <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <div class="card no_border ">
-                      <div class="text-center">
-                          <div class="item_img">
-                           <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
-                         </div>
-                      </div>
-                      <div class="card-body smart_home_card_padding ">
-                        <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
-                        <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
-                          <div class="card-footers d-flex justify-content-center">
-                            <button class="btn btn-outline-dark smart_home_cart_bu ">
-                              <a href="/products/<%= s.name %>"> ADD TO CART</a>
-                            </button>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-
-                <% Spree::Product.available.where(:name => "test4").order('position ASC').each_with_index do |s, index| %>
-                  <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                    <div class="card no_border ">
-                      <div class="item_img">
-                           <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
-                      </div>
-                      <div class="card-body smart_home_card_padding ">
-                        <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
-                        <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
-                          <div class="card-footers d-flex justify-content-center">
-                            <button class="btn btn-outline-dark smart_home_cart_bu ">
-                              <a href="/products/<%= s.name %>"> ADD TO CART</a>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  <% end %>
+            <% Spree::Product.available.where(:name => "test3").order('position ASC').each_with_index do |s, index| %>
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+              <div class="card no_border ">
+                <div class="text-center">
+                  <div class="item_img">
+                   <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
+                 </div>
+               </div>
+               <div class="card-body smart_home_card_padding ">
+                <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
+                <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
+                <div class="card-footers d-flex justify-content-center">
+                  <button class="btn btn-outline-dark smart_home_cart_bu ">
+                    <a href="/products/<%= s.name %>"> ADD TO CART</a>
+                  </button>
                 </div>
-              </div>
-              </div>
-             </div>  
-            <div class="row smart_home_top">
-              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-                      <div data-aos="fade-up" data-aos-duration="600">
-                 <div class="container_hover">
-        
-                  <div class="content_eff">
-                    <a href="" target="_blank">
-                      <div class="content-overlay bg_orange"></div>
-                      <%= image_tag("smart_home/what_is.jpg", :alt => "logo", :class => "content-image") %>
-                      <div class="content-details-eff fadeIn-top txt-left">
-                        <ul class="nav">
-                          <li>
-                            <h3 class="smart_home_content_title mb-0">WHAT IS </h3>
-                            <h3 class="smart_home_content_title">SMART HOME ?</h3>
-                            <p>Lorem ipsum dolor sit amet,</p>
-                            <p>consectetur adipiscing elit.</p>
-                          </li>
-                          <li>   <a href="/products"><button class="btn smart_home_button bu_white smart_home_bu2"> MORE DETAILS</button></a></li>
-                        </ul>
-                        
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                </div>
-              </div>
-            </div> 
-            <div class="row smart_home_top">
-              <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-                 <div data-aos="fade-up" data-aos-duration="600">
-                  <div class="container_hover">
-                    <div class="content_eff">
-                      <a href="" target="_blank">
-                        <div class="content-overlay"></div>
-                        <%= image_tag("smart_home/smart_home_app.jpg", :alt => "logo", :class => "content-image") %>
-                        <div class="content-details-eff fadeIn-left text-right">
-                          <h3 class="smart_home_content_title mb-0">SMART HOME</h3>
-                          <h3 class="smart_home_content_title">Application</h3>
-                          <p>Lorem ipsum dolor sit amet,</p>
-                          <p>consectetur adipiscing elit.</p>
-                          <p>Ut ut malesuada orci.</p>
-                             <a href="/products"><button class="btn  smart_home_button bu_orange mt-1"> MORE DETAILS</a></button>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                 
               </div>
             </div>
           </div>
+          <% end %>
 
+          <% Spree::Product.available.where(:name => "test4").order('position ASC').each_with_index do |s, index| %>
+          <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="card no_border ">
+              <div class="item_img">
+               <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
+             </div>
+             <div class="card-body smart_home_card_padding ">
+              <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
+              <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
+              <div class="card-footers d-flex justify-content-center">
+                <button class="btn btn-outline-dark smart_home_cart_bu ">
+                  <a href="/products/<%= s.name %>"> ADD TO CART</a>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>  
+<div class="row smart_home_top">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+    <div data-aos="fade-up" data-aos-duration="600">
+     <div class="container_hover">
 
-                  
+      <div class="content_eff">
+        <a href="" target="_blank">
+          <div class="content-overlay bg_orange"></div>
+          <%= image_tag("smart_home/what_is.jpg", :alt => "logo", :class => "content-image") %>
+          <div class="content-details-eff fadeIn-top txt-left">
+            <ul class="nav">
+              <li>
+                <h3 class="smart_home_content_title mb-0">WHAT IS </h3>
+                <h3 class="smart_home_content_title">SMART HOME ?</h3>
+                <p>Lorem ipsum dolor sit amet,</p>
+                <p>consectetur adipiscing elit.</p>
+              </li>
+              <li>   <a href="/products"><button class="btn smart_home_button bu_white smart_home_bu2"> MORE DETAILS</button></a></li>
+            </ul>
 
-
-
-
-
- 
-    <!--right -->
-
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</div> 
+<div class="row smart_home_top">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+   <div data-aos="fade-up" data-aos-duration="600">
+    <div class="container_hover">
+      <div class="content_eff">
+        <a href="" target="_blank">
+          <div class="content-overlay"></div>
+          <%= image_tag("smart_home/smart_home_app.jpg", :alt => "logo", :class => "content-image") %>
+          <div class="content-details-eff fadeIn-left text-right">
+            <h3 class="smart_home_content_title mb-0">SMART HOME</h3>
+            <h3 class="smart_home_content_title">Application</h3>
+            <p>Lorem ipsum dolor sit amet,</p>
+            <p>consectetur adipiscing elit.</p>
+            <p>Ut ut malesuada orci.</p>
+            <a href="/products"><button class="btn  smart_home_button bu_orange mt-1"> MORE DETAILS</a></button>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 
+</div>
+</div>
+</div>
 
+</div>
+
+
+
+
+
+
+
+
+<!--right -->
+
+</div>
+
+<div data-aos="zoom-in" data-aos-duration="400">  
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
       <div class="about_txt_title text-uppercase">
@@ -260,108 +260,115 @@
   </div>
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-     <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
-      <div class="carousel-inner row w-100 mx-auto" role="listbox">
-        <% Spree::Product.available.order('position ASC').limit(4).each_with_index do |s, index| %>
+      <a class="carousel-control-prev arror" href="#carouselExample" role="button" data-slide="prev" id="back_highlight"> 
+      </a>
+      <ul class="nav" id="slide_highlight">
+        <% Spree::Product.available.order('position ASC').limit(8).each_with_index do |s, index| %>
 
 
+        <li class="carousel_li_p" id="hproduct_4">
+          <div class="card no_border ">
+            <div class="text-center">
+             <div class="item_img">
+              <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product) , :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom"%></a>
+            </div>
+          </div>
+          <div class="card-body smart_home_card_padding ">
+            <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
+            <p class="smart_home_card_txt_price d-flex justify-content-center"><%= s.price %></p>
+            <div class="card-footers d-flex justify-content-center"><a href="/products/<%= s.name %>"><button class="btn btn-outline-dark smart_home_cart_bu "> ADD TO CART</button></a></div>
+          </div>
+        </div>
+      </li>
+
+      
 
 
-        <div class="carousel-item col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 smart_home_padding_h_p active">
-          <div class="card about_card no_padding">
-               <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product) , :class => "card-img-top i_cn_lampton_diy_img"%></a>
+      <% end %>
+    </ul>
+    <!--products-->
+    <div><a class="carousel-control-next text-faded arror" href="#carouselExample" role="button" data-slide="next" id="next_highlight">>
+    </a></div>
+  </div>
 
-            <div class="card-body about_card_body">
-              <p class="card-text i_highlight_txt d-flex justify-content-center">
-                <a href="/products/<%= s.name %>">
-                 <%= s.name %>
-               </a>
-
-             </div>
-           </div>
-         </div>
-
-
-         <% end %>
-       </div>
-     </div>
-   </div>
-
- </div>
+</div>
+</div>
+<!--update 21/03/2018--> 
+</div>
 
 
 </section>
 <%= render partial: 'footer/footer' %>
 <%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        
-          var page =1;  
-          var set_img = 2;
+<script type="text/javascript">
+$(document).ready(function(){
 
-          if ($(window).width() > 768) {
-            set_img=4;
-          }
-          var count_img= $('#slide_highlight li').length;
-          var count_page = parseInt(count_img/set_img);
+  var page =1;  
+  var set_img = 2;
 
-          $('#back_highlight').hide();
+  if ($(window).width() > 768) {
+    set_img=4;
+  }
+  var count_img= $('#slide_highlight li').length;
+  var count_page = parseInt(count_img/set_img);
 
-          if(count_page <=1){
-            $('#next_highlight').hide();
-          }
-      
-          for(var i = set_img+1 ; i <= count_img ; i++){
-            $('#hproduct_'+i).hide();
-          }
+  $('#back_highlight').hide();
 
-          if(count_img % set_img > 0){
-            count_page+=1;
-          }
+  if(count_page <=1){
+    $('#next_highlight').hide();
+  }
 
-          $('#next_highlight').click(function(e) {
-              for(var i = page-(set_img-1) ; i <= page*set_img ; i++){
-                $('#hproduct_'+i).hide();
-              }
-              for(var i = (page*set_img)+1 ; i <= (page+1)*set_img ; i++){
-                if(i <=count_img){
-                   $('#hproduct_'+i).show();
-                }
-              }
-              page+=1;
-              
-              if(page ==count_page){
-                 $('#next_highlight').hide();
-                 $('#back_highlight').show();
-              }else{
-                 $('#back_highlight').show();
-                $('#next_highlight').show();
-              }
-          });
+  for(var i = set_img+1 ; i <= count_img ; i++){
+    $('#hproduct_'+i).hide();
+  }
+
+  if(count_img % set_img > 0){
+    count_page+=1;
+  }
+
+  $('#next_highlight').click(function(e) {
+    for(var i = page-(set_img-1) ; i <= page*set_img ; i++){
+      $('#hproduct_'+i).hide();
+    }
+    for(var i = (page*set_img)+1 ; i <= (page+1)*set_img ; i++){
+      if(i <=count_img){
+       $('#hproduct_'+i).show();
+     }
+   }
+   page+=1;
+
+   if(page ==count_page){
+     $('#next_highlight').hide();
+     $('#back_highlight').show();
+   }else{
+     $('#back_highlight').show();
+     $('#next_highlight').show();
+   }
+ });
 
 
-          $('#back_highlight').click(function(e) {
+  $('#back_highlight').click(function(e) {
               //alert("==1 "+page);
               for(var i = page*set_img ; i > (page*set_img) -(set_img)  ; i--){
                //alert(i);
-                $('#hproduct_'+i).hide();
-              }
+               $('#hproduct_'+i).hide();
+             }
 
-              page-=1;
-              for(var i = (page*set_img)-(set_img-1) ; i <= page*set_img ; i++){
-                $('#hproduct_'+i).show();
-              }
+             page-=1;
+             for(var i = (page*set_img)-(set_img-1) ; i <= page*set_img ; i++){
+              $('#hproduct_'+i).show();
+            }
 
-              if(page == 1){
-                $('#next_highlight').show();
-                $('#back_highlight').hide();
-              }else{
-                $('#back_highlight').show();
-              }
-              
+            if(page == 1){
+              $('#next_highlight').show();
+              $('#back_highlight').hide();
+            }else{
+              $('#back_highlight').show();
+            }
+
           });
-        });
-  
-   </script>
+});
+
+</script>
 </body>
 </html>
