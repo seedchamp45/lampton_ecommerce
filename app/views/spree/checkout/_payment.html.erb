@@ -52,7 +52,7 @@
                   </div>
                   <!--select payment-->
                    <% @order.available_payment_methods.each_with_index do |method, index| %>
-                  <%= method.id %>
+        
                   <% if index === 0 %>
 
                   <div class="payment_body_text"  id="payment_method_<%= method.id %>">
@@ -242,13 +242,13 @@ function submitHandler(event) {
 
  $('input[type=radio]').change(function() {
   close();
-  if (this.value == '18') {
+  if (this.value == '41') {
     $("#direct_bank").show();
     $("#credits").hide();
     $("#paypal").hide();
     $("#ch_bank").attr("src","assets/images/direct bank_2.png");
   }
-  else if (this.value == '20') {
+  else if (this.value == '42') {
     $("#credits").show();
     $("#paypal").hide();
     $("#direct_bank").hide();
