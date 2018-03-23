@@ -1,3 +1,28 @@
+<style>
+
+.omise-checkout-button , .omise-checkout-button:hover
+{
+  color: #ffffff !important;
+    background-color: #f7941d!important;
+    border-color: #f7941d!important;
+}
+.omise-checkout-button 
+{
+
+padding: 1rem 2rem !important; 
+    font-size: 1em;
+    color: #000000;
+      border-top-left-radius: calc(1.5rem - 1px)!important;
+      border-top-right-radius: calc(1.5rem - 1px)!important;
+      border-bottom-right-radius: calc(1.5rem - 1px)!important;
+      border-bottom-left-radius: calc(1.5rem - 1px)!important;
+      margin: auto;
+position:absolute;
+left:25%;
+    padding: 10px;
+}
+</style>
+
 <div >
   <fieldset id="payment" data-hook>
  
@@ -52,7 +77,7 @@
                   </div>
                   <!--select payment-->
                    <% @order.available_payment_methods.each_with_index do |method, index| %>
-          <%= method.id %>
+
                   <% if index === 0 %>
 
                   <div class="payment_body_text"  id="payment_method_<%= method.id %>">
@@ -71,26 +96,22 @@
                    <% else %>
                     <div id="credits" id="payment_method_<%= method.id %>">
                        <fieldset>
-                      <%= render partial: "spree/checkout/payment/#{method.partial_name}", locals: { payment_method: @order.available_payment_methods.first } %>
-                            </fieldset>
+                     
 
-                      <form class="checkout-form" name="checkoutForm" method="POST" action="wishlist_controller.rb">
+                      <form class="checkout-form btn btn-white products_button btn-lg  products_bu_details orange_bg" name="checkoutForm" method="POST" action="wishlist_controller.rb">
   <script type="text/javascript" src="https://cdn.omise.co/omise.js"
           data-key="pkey_test_5bdalw73ga3q9b2txnv"
           data-frame-label="LAMPTAN"
           data-frame-description="LAMPTAN"
           data-default-payment-method="credit_card"
           data-other-payment-methods="credit_card"
-          data-amount="100000"
+          data-amount=<%= @order.display_order_total_after_store_credit.money * 100 %>
           data-currency="thb"
-          data-button-label="OMISE">
+          data-button-label="Click to pay">
   </script>
 </form>
 
- <div class="form-buttons" data-hook="buttons">
-      <%= submit_tag Spree.t(:save_and_continue), class: 'continue btn btn-white products_button btn-lg  products_bu_details orange_bg', :id => "checkout" %>
-      <script>Spree.disableSaveOnClick();</script>
-    </div>
+
                         
 
                     </div>
@@ -277,6 +298,12 @@ function submitHandler(event) {
     $("#ch_bank").attr("src","assets/images/direct bank_2.png");
   }
   else if (this.value == '42') {
+    $("#credits").show();
+    $("#paypal").hide();
+    $("#direct_bank").hide();
+    $("#ch_credit").attr("src","assets/images/credit_2.png");
+  } 
+    else if (this.value == '43') {
     $("#credits").show();
     $("#paypal").hide();
     $("#direct_bank").hide();
