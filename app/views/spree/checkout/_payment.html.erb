@@ -52,14 +52,14 @@
                   </div>
                   <!--select payment-->
                    <% @order.available_payment_methods.each_with_index do |method, index| %>
-        
+          <%= method.id %>
                   <% if index === 0 %>
 
                   <div class="payment_body_text"  id="payment_method_<%= method.id %>">
                     <!-- direct_bank -->
                     <div id="direct_bank">
                             <fieldset>
-                      <%= render partial: "spree/checkout/payment/check", locals: { payment_method: @order.available_payment_methods.first } %>
+                      <%= render partial: "spree/checkout/payment/#{method.partial_name}", locals: { payment_method: @order.available_payment_methods.first } %>
                             </fieldset>
 
                              <div class="form-buttons" data-hook="buttons">
@@ -70,6 +70,10 @@
                     </div> 
                    <% else %>
                     <div id="credits" id="payment_method_<%= method.id %>">
+                       <fieldset>
+                      <%= render partial: "spree/checkout/payment/#{method.partial_name}", locals: { payment_method: @order.available_payment_methods.first } %>
+                            </fieldset>
+
                       <form class="checkout-form" name="checkoutForm" method="POST" action="wishlist_controller.rb">
   <script type="text/javascript" src="https://cdn.omise.co/omise.js"
           data-key="pkey_test_5bdalw73ga3q9b2txnv"
@@ -82,6 +86,11 @@
           data-button-label="OMISE">
   </script>
 </form>
+
+ <div class="form-buttons" data-hook="buttons">
+      <%= submit_tag Spree.t(:save_and_continue), class: 'continue btn btn-white products_button btn-lg  products_bu_details orange_bg', :id => "checkout" %>
+      <script>Spree.disableSaveOnClick();</script>
+    </div>
                         
 
                     </div>
@@ -185,7 +194,7 @@
  <script>
 
 // Set your Omise public key to authenticate against Omise API. This allows card information to be sent directly to Omise.
-Omise.setPublicKey('pkey_test_5b9rzvv9ndcn138q6hy');
+Omise.setPublicKey('pkey_test_5bdalw73ga3q9b2txnv');
 
 var checkoutForm = document.getElementById('checkout-form')
     checkoutForm.addEventListener('submit', submitHandler, false);
@@ -213,6 +222,7 @@ function submitHandler(event) {
 
       // Then, perform a form submit action.
       checkoutForm.submit();
+      alert('eiei');
     }
     else {
       // Error: display an error message. Note that `response.message` contains
@@ -249,6 +259,12 @@ function submitHandler(event) {
     $("#ch_bank").attr("src","assets/images/direct bank_2.png");
   }
   else if (this.value == '20') {
+    $("#credits").show();
+    $("#paypal").hide();
+    $("#direct_bank").hide();
+    $("#ch_credit").attr("src","assets/images/credit_2.png");
+  } 
+  else if (this.value == '24') {
     $("#credits").show();
     $("#paypal").hide();
     $("#direct_bank").hide();
