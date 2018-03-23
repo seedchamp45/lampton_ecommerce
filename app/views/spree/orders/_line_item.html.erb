@@ -55,13 +55,27 @@
     <div class="cart_txt_price">฿ <%= line_item.price %></div>
   </td>
   <td class="cart_c_4"> 
-    <ul class="pagination pagination-md ">
-           <%= item_form.number_field :quantity, min: 0, class: "line_item_quantity", size: 5 %>
+    <ul class="pagination pagination-md " data-hook="cart_item_quantity">
+           <%= item_form.number_field :quantity, min: 0, class: "line_item_quantity", size: 5 , id: "qty-line"%>
       </ul>
     </td>
-    <td class="cart_c_5">
-       <%= link_to image_tag("close.png", :alt => "logo", :class => "id-inline cart_img_true mr-2" , id: "delete_#{dom_id(line_item)}") %>
+    <td class="cart_c_5" data-hook="cart_item_delete">
+
+  <%= link_to image_tag("close.png"), '#', class: 'delete id-inline cart_img_true mr-2 mouse_click', id: "delete_#{dom_id(line_item)}" %>
+
+       
+    
     </td>
   </tr>
-  <% end -%>
+  <% end %>
+
+<script type="text/javascript">
+
+
+$('.mouse_click').click(function() {
+    $('#qty-line').val(0);
+});
+
+
+</script>
 

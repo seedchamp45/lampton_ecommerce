@@ -1,84 +1,8 @@
-<div style= "display: none;">
+<div >
   <fieldset id="payment" data-hook>
-    <legend align="center"><%= Spree.t(:payment_information) %></legend>
+ 
     <div data-hook="checkout_payment_step">
-      <% if @wallet_payment_sources.present? %>
-      <div class="card_options">
-        <%= radio_button_tag 'use_existing_card', 'yes', true %>
-        <label for="use_existing_card_yes">
-          <%= Spree.t(:use_existing_cc) %>
-        </label>
-        <br/>
-        <%= radio_button_tag 'use_existing_card', 'no' %>
-        <label for="use_existing_card_no">
-          <%= Spree.t(:use_new_cc_or_payment_method) %>
-        </label>
-      </div>
-
-      <div id="existing_cards">
-        <p class="field" data-hook="existing_cards">
-          <table class="existing-credit-card-list">
-            <tbody>
-              <% @wallet_payment_sources.each do |wallet_payment_source| %>
-              <%=
-              render(
-                partial: "spree/checkout/existing_payment/#{wallet_payment_source.payment_source.payment_method.partial_name}",
-                locals: {
-                  wallet_payment_source: wallet_payment_source,
-                  default: wallet_payment_source == @default_wallet_payment_source,
-                }
-                )
-                %>
-                <% end %>
-              </tbody>
-            </table>
-          </p>
-        </div>
-        <% end %>
-
-        <div id="payment-method-fields" data-hook>
-          <% @order.available_payment_methods.each do |method| %>
-          <p>
-            <label>
-              <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
-              <%= Spree.t(method.name, scope: :payment_methods, default: method.name) %>
-            </label>
-          </p>
-          <% end %>
-        </div>
-
-        <ul id="payment-methods" data-hook>
-          <% @order.available_payment_methods.each do |method| %>
-          <li id="payment_method_<%= method.id %>" class="<%= 'last' if method == @order.available_payment_methods.last %>" data-hook>
-            <fieldset>
-              <%= render partial: "spree/checkout/payment/#{method.partial_name}", locals: { payment_method: method } %>
-            </fieldset>
-          </li>
-          <% end %>
-        </ul>
-        <br style="clear:both;" />
-        <p class='field' data-hook='coupon_code'>
-          <%= form.label :coupon_code %><br />
-          <%= form.text_field :coupon_code %>
-          <button type="button" class="button" id="coupon-code-apply-button">
-            <%= Spree.t(:apply_code) %>
-          </button>
-
-        </p>
-        <div id='coupon_status'></div>
-
-      </div>
-    </fieldset>
-
-    <br class="space" />
-
-    <div class="form-buttons" data-hook="buttons">
-      <%= submit_tag Spree.t(:save_and_continue), class: 'continue button primary' %>
-      <script>Spree.disableSaveOnClick();</script>
-    </div>
-
-  </div>
-
+   
 
   <div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -90,51 +14,84 @@
             <div class="line_full"></div>
             <div class="payment_body_choose">
               <!--select payment-->
-              <div > 
+              <div id="payment-method-fields" data-hook> 
                 <ul class="payment_option">
+
+                   <% @order.available_payment_methods.each_with_index do |method, index| %>
+
+                   <% if index === 0 %>
+                     
+                   
+                
+       
                   <li class="payment_input_option register no-margin">
-                    <input type="radio" id="r1" name="payment" value="1" checked/>
+                       <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first%>
+                   
                     <label for="r1"><span></span></label>
 
                   </li>
-
+           
                   <li> 
 
                     <%= image_tag("payment/direct_bank.png", :alt => "logo", :class => "img-fluid payment_option_img") %></li>
                     <li><div class="payment_text_option text_bold">Direct Bank <br>Transfer</div></li>
-
+                           <% else %>
                     <li class="payment_input_option register no-margin"> 
-                      <input type="radio" id="r2" name="payment"  value="2" />
+                      
+                 <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
+                   
                       <label for="r2"><span></span>
                       </li>
 
                       <li><%= image_tag("payment/credit.png", :alt => "logo", :class => "img-fluid payment_option_img") %></li>
                       <li><div class="payment_text_option text_bold">Credit or <br>Debit Card</div></li>
-
-
+                          <% end %>
+                         <% end %>
 
                     </ul>
                   </div>
                   <!--select payment-->
+                   <% @order.available_payment_methods.each_with_index do |method, index| %>
                   
+                  <% if index === 0 %>
 
-                  <div class="payment_body_text" >
+                  <div class="payment_body_text"  id="payment_method_<%= method.id %>">
                     <!-- direct_bank -->
                     <div id="direct_bank">
-
+                            <fieldset>
                       <%= render partial: "spree/checkout/payment/check", locals: { payment_method: @order.available_payment_methods.first } %>
+                            </fieldset>
 
+                             <div class="form-buttons" data-hook="buttons">
+      <%= submit_tag Spree.t(:save_and_continue), class: 'continue btn btn-white products_button btn-lg  products_bu_details orange_bg' %>
+      <script>Spree.disableSaveOnClick();</script>
+    </div>
 
                     </div> 
-                   
-                    <div id="credits">
-
-
-                      <%= render partial: "spree/checkout/payment/gateway", locals: { payment_method: @order.available_payment_methods.last } %>
-
+                   <% else %>
+                    <div id="credits" id="payment_method_<%= method.id %>">
+                      <form class="checkout-form" name="checkoutForm" method="POST" action="wishlist_controller.rb">
+  <script type="text/javascript" src="https://cdn.omise.co/omise.js"
+          data-key="pkey_test_5b9rzvv9ndcn138q6hy"
+          data-frame-label="LAMPTAN"
+          data-frame-description="LAMPTAN"
+          data-default-payment-method="credit_card"
+          data-other-payment-methods="credit_card"
+          data-amount="100000"
+          data-currency="thb"
+          data-button-label="OMISE">
+  </script>
+</form>
+                        
 
                     </div>
                   </div>
+                  <%  end %> 
+                   <%  end %> 
+                                   
+
+                     
+
                   <!--credit  (credit.html)--> 
 
                   <!--paypal-->
@@ -187,11 +144,12 @@
                     <!--2 :name, qty ,price -->
 
                     <!--Subtotal-->
-
+                    <% @order.shipments.group_by { |s| s.selected_shipping_rate.name }.each do |name, shipments| %>
                     <tr class="mt-4">
-                     <td colspan="2" class="line_top payment_text_middle"><div class="text_bold">Subtotal </div><div>Minimum order free</div></td>
-                     <td class="text-right line_top"><%= @order.display_item_total %></td>
+                     <td colspan="2" class="line_top payment_text_middle"><div class="text_bold">Shipping </div><div> </div></td>
+                     <td class="text-right line_top"><%= Spree::Money.new(shipments.sum(&:total_before_tax), currency: @order.currency).to_html %></td>
                    </tr>
+                   <% end %>
                    <!--Subtotal-->
                    <!--Shipping-->
 
@@ -199,7 +157,7 @@
                    <!--Total-->
                    <tr class=" sum">
                      <td class="payment_text_middle"><div class="text_bold">Grand Total</div><div>Now</div></td>
-                     <td colspan="2" class="text-right payment_text_big orange text_bold"><%= @order.display_item_total %></td>
+                     <td colspan="2" class="text-right payment_text_big orange text_bold"><%= @order.display_order_total_after_store_credit.money %></td>
                    </tr>
                    <!--Total-->
                  </table>
@@ -213,8 +171,63 @@
      </div>
    </div>
  </div>
+</fieldset>
+
+    <br class="space" />
+
+   
+
+  </div>
+ 
 
  <!--body-->
+
+ <script>
+
+// Set your Omise public key to authenticate against Omise API. This allows card information to be sent directly to Omise.
+Omise.setPublicKey('pkey_test_5b9rzvv9ndcn138q6hy');
+
+var checkoutForm = document.getElementById('checkout-form')
+    checkoutForm.addEventListener('submit', submitHandler, false);
+
+// Submit handler for checkout form.
+function submitHandler(event) {
+  event.preventDefault();
+
+  /*
+  NOTE: Using `data-name` to prevent sending credit card information fields to the backend server via HTTP Post
+  (according to the security best practice https://www.omise.co/security-best-practices#never-send-card-data-through-your-servers).
+  */
+  var cardObject = {
+    name:             document.querySelector('[data-name="nameOnCard"]').value,
+    number:           document.querySelector('[data-name="cardNumber"]').value,
+    expiration_month: document.querySelector('[data-name="expiryMonth"]').value,
+    expiration_year:  document.querySelector('[data-name="expiryYear"]').value,
+    security_code:    document.querySelector('[data-name="securityCode"]').value
+  };
+
+  Omise.createToken('card', cardObject, function(statusCode, response) {
+    if (statusCode === 200) {
+      // Success: assign Omise token back to your checkout form.
+      checkoutForm.omiseToken.value = response.id;
+
+      // Then, perform a form submit action.
+      checkoutForm.submit();
+    }
+    else {
+      // Error: display an error message. Note that `response.message` contains
+      // a preformatted error message. Also note that `response.code` will be
+      // "invalid_card" in case of validation error on the card.
+
+      console.log(response.message);
+    }
+  });
+}
+
+
+
+</script>
+
  <!-- script -->
  
  <!-- script -->
@@ -227,15 +240,15 @@
     $("#ch_bank").attr("src","assets/images/direct bank_2.png");
 });
 
- $('input[type=radio][name=payment]').change(function() {
+ $('input[type=radio]').change(function() {
   close();
-  if (this.value == '1') {
+  if (this.value == '18') {
     $("#direct_bank").show();
     $("#credits").hide();
     $("#paypal").hide();
     $("#ch_bank").attr("src","assets/images/direct bank_2.png");
   }
-  else if (this.value == '2') {
+  else if (this.value == '20') {
     $("#credits").show();
     $("#paypal").hide();
     $("#direct_bank").hide();

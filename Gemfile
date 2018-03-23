@@ -11,6 +11,7 @@ gem "puma_worker_killer"
 gem 'bootstrap', '~> 4.0.0'
 gem 'solidus'
 gem 'solidus_auth_devise'
+gem "solidus_gateway"
 gem 'solidus_slider', github: 'samanmohamadi/solidus_slider'
 gem 'searchkick'
 gem 'solidus_wishlist', github: 'boomerdigital/solidus_wishlist', branch: 'master'

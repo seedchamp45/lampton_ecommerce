@@ -65,7 +65,9 @@
                         
                       </tr>
                           <tbody id="line_items" data-hook>
-                        <%= render partial: 'spree/orders/line_item_2', collection: order.line_items, locals: { order_form: order_form } %>
+                            <% orders = order_form.object %>
+                        <%= render partial: 'spree/orders/line_item_2', collection: orders.line_items, locals: { order_form: order_form } %>
+
                     </tbody>
                       </table>
              
