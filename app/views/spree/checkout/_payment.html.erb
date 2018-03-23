@@ -52,7 +52,7 @@
                   </div>
                   <!--select payment-->
                    <% @order.available_payment_methods.each_with_index do |method, index| %>
-                  
+                  <%= method.id %>
                   <% if index === 0 %>
 
                   <div class="payment_body_text"  id="payment_method_<%= method.id %>">
