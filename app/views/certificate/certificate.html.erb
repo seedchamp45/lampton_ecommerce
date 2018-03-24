@@ -187,9 +187,10 @@
                           <%= image_tag("profile/order_status_4.png", :alt => "logo", :id => "delivered", :class => "img-fluid") %>
                       <div class="text-center mt-4">
                         <button class="btn btn-outline-orange btn-lg i_button text_bold bg_transparent">
-                          <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
-                            <a href="/admin/orders/.pdf?template=invoice"></a>
+                          <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0" id="ref-invoice">
+                            <a  target="_blank">
                             <div class="d-inline  text_body pl-lg-2 pr-lg-2">DOWNLOAD TAX INVOICE</div>
+                            </a>
                           </div>
                         </button> 
                       </div>
@@ -286,6 +287,8 @@ $(document).on("click", ".orange_bg", function () {
      var myBookstatus = $(this).data('status');
      $(".modal-body #bookId").val( myBookId );
       $(".modal-body #bookstatus").val( myBookstatus );
+      $("#ref-invoice a").attr("href","/admin/orders/"+myBookId+".pdf?template=invoice");
+
 
       if (myBookstatus === "Pending") {
           $("#order").hide();
