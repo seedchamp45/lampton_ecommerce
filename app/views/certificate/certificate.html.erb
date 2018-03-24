@@ -133,7 +133,7 @@
 
 
 
-                     <button type="button" class="btn  btn-md i_button i_button  p-1  orange_bg2 " data-toggle="modal" data-target="#modalCart3" data-id-slip="<%= order.number%>" >
+                     <button type="button" class="btn  btn-md i_button i_button  p-1  orange_bg2 " data-toggle="modal" data-target="#modalCart3" data-slip="<%= order.number%>" >
 
                       <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
 
@@ -195,8 +195,37 @@
 
 
                     <div class="col-12  col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                   <div style="display:none;">   <%= @photo = Photo.new %> </div>
+    <%= form_for @photo, html: { multipart: true } do |f| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= "#{pluralize(@photo.errors.count, "error")} prohibited this photo from being saved:" %>
+      </h2>
+      <ul>
+        <% Photo.new.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+          <% end %>
+      </ul>
+    </div>
+  <% end %>
 
- 
+  <div class="form-group" style="display: none;">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' , :id => "slip-title"  %>
+  </div>
+
+  <div class="form-group">
+
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+        <%= f.submit 'Upload Photo', class: 'btn-default btn  btn-md i_button i_button  p-1  orange_bg' ,style:'width: 50%; position: absolute; left: 25%;'%>
+    </div>
+<% end %>
 
 
                     </div>
@@ -354,7 +383,8 @@
 
             $(document).on("click", ".orange_bg2", function () {
 
-
+               var myBookId = $(this).data('slip');
+               $(".modal-body #slip-title").val( myBookId );
 
             });
 

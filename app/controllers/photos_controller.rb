@@ -12,9 +12,10 @@ class PhotosController < ApplicationController
 
  #Create action ensures that submitted photo gets created if it meets the requirements
  def create
-  @photo = Photo.new(photo_params)
+  @photo = Photo.new( params.require(:photo).permit(:title, :image))
   if @photo.save
    flash[:notice] = "Successfully added new photo!"
+   redirect_to '/certificate'
   else
    flash[:alert] = "Error adding new photo!"
    render :new
