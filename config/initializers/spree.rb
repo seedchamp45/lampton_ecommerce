@@ -1,6 +1,6 @@
 # Configure Solidus Preferences
 # See http://docs.solidus.io/Spree/AppConfiguration.html for details
-
+Spree::PrintInvoice::Config.set(print_invoice_logo_path: "logo/logo_lampton.png")
 Spree.config do |config|
   # Core:
 

@@ -19,6 +19,7 @@ gem 'omise'
 gem 'deface', github: 'spree/deface'
 gem 'solidus_email_to_friend', github: 'boomerdigital/solidus_email_to_friend', branch: 'master'
 gem 'solidus_social'
+gem 'solidus_print_invoice' , github: 'solidusio-contrib/solidus_print_invoice'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record

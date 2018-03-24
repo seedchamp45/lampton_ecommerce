@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/companyptofile' => 'company_profile#companyptofile'
 
   get '/certificate' => 'certificate#certificate'
+  
 
 
   get 'about/certificate'
