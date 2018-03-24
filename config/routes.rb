@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get '/agent' => 'agent#agent'
+
    get '/wishlist' => 'wishlist#wishlist'
 
   get '/smarthome' => 'smarthome#smarthome'
