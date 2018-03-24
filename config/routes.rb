@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   get '/certificate' => 'certificate#certificate'
   
 
+  
+
+
+get '/photos', to: 'photos#index'
+resources :photos
 
   get 'about/certificate'
 
