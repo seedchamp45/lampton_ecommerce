@@ -264,7 +264,7 @@
           <div class="card no_border ">
             <div class="text-center">
              <div class="item_img">
-              <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product) , :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom"%></a>
+                <%= link_to s.name , product_path(s) do %><%= image_tag s.display_image.attachment(:product) , :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom"%><% end %>
             </div>
           </div>
           <div class="card-body smart_home_card_padding ">
