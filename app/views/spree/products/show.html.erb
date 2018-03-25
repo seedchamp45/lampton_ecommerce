@@ -241,8 +241,8 @@
                   <div class=" product_title_recommender text-center mb-3">RECOMMENDER PRODUCTS</div>
                   <% Spree::Product.available.order('position ASC').limit(4).each_with_index do |s, index| %>
                   <div class="product_recommender text-center d-block">
-                    <%= link_to s.name , product_path(s) do %>
-                   <%= link_to image_tag s.display_image.attachment(:product) , :class => "img-fluid product_img_recommender mouse_img_small"%>
+                    <%= link_to   product_path(s) do %>
+                   <%= image_tag s.display_image.attachment(:product) , :class => "img-fluid product_img_recommender mouse_img_small"%>
                    <% end %>
                   
                   <div class="product_text_recommender">  <%= link_to s.name, product_path(s) %> <div class="product_price_recommender d-inline">฿  <%= s.price %></div></div>
@@ -370,7 +370,7 @@
               <div class="col-12 col-md-12 col-xl-12 col-lg-12 d-flex justify-content-around">
                 <% Spree::Product.available.order('position ASC').limit(2).each_with_index do |s, index| %>
                 <div class="card_product ml-lg-1 product_card">
-                    <%= link_to s.name , product_path(s) do %>
+                    <%= link_to product_path(s) do %>
                    <%= image_tag s.display_image.attachment(:product) , :class => "card-img-top i_cn_lampton_diy_img img-fluid"%>
                    <% end %>
                  
