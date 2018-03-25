@@ -8,7 +8,7 @@ Spree.config do |config|
   config.currency = "THB"
 
   # from address for transactional emails
-  config.override_actionmailer_config = true  
+  
   config.mails_from = "kittipol.idas@gmail.com"
 
 

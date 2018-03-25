@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+<html>
+<head data-hook="inside_head">
+
+  <%= favicon_link_tag 'favicon.ico' %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Bootstrap CSS -->
+  <meta name="description" content="My custom spree store">
+  <title><%= content_for?(:title) ? yield(:title) : "My title" %></title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+
+ 
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Avenir">
+
+  <style>
+  body{
+    font-family: 'Avenir', serif !important;
+  }
+  </style>
+  <%= stylesheet_link_tag "index" %>
+
+</head>
+
+<body>
+  <%= render partial: 'header/header' %>
+
+<% if spree_current_user %>
+  <div class="bg_details_products">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="bg_white1">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-12">
+                  <div class="text-center i_txt_title">MY ACCOUNT <hr></div>
+                </div>
+                
+                
+              </div>
+              <div class="row">
+                <div class="col-12  col-sm-12 col-md-3 col-lg-3 col-xl-3 ">
+                
+                  <ul class="account_menu_left" style="list-style-type: none;">
+                    <li class="border-bottom ">
+                      <div class="d-inline text_body text_bold  "> <%= Spree::Address.where(:id => spree_current_user.id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.id).first.lastname   %></div>
+                    </li>
+                    <li class=" border-bottom ">
+                      <a href="/companyptofile" class="">
+                        <div class="d-inline ml-2">
+                           <%= image_tag("my_account_1.png", :alt => "logo", :class => "img-fluid") %>
+         
+                        </div>
+                        <div class="d-inline text_body pl-sm-2 pl-xl-3 text_orange">My Account</div>
+                      </a>
+                    </li>
+                    <li class="border-bottom">
+                      <a href="/wishlist" class="">
+                        <div class="d-inline ml-2">
+                          <%= image_tag("my_wishlist.png", :alt => "logo", :class => "img-fluid") %>
+                    
+                        </div>
+                        <div class="d-inline text_body pl-sm-2 pl-xl-3 ">My Wishlist</div>
+                      </a>
+                    </li>
+                   
+                    <li class="border-bottom">
+                      <a href="/certificate" class="">
+                        <div class="d-inline ml-2">
+                                  <%= image_tag("my_order.png", :alt => "logo", :class => "img-fluid") %>
+                      
+                        </div>
+                        <div class="d-inline text_body pl-sm-2 pl-xl-3">My Order</div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+
+               
+                
+                <div class="col-12  col-sm-12 col-md-9 col-lg-9 col-xl-9 d-flex align-items-center">
+                    <div id="profile_my_account" class="ml-5 pl-2 mr-auto w-50 mt-2">
+                    <div class="form-group w-100">
+                       <label class="my-1 ml-3 text_title text_bold" >Email *</label>
+                        <input type="text" id="name" class="form-control mx-sm-3" placeholder=" <%= Spree::User.where(:id => spree_current_user.id).first.email   %>">
+                    </div>
+                    <div class="form-group w-100">
+                       <label class="my-1 ml-3 text_title text_bold" >Name *</label>
+                        <input type="text" id="name" class="form-control mx-sm-3" placeholder="   <%= Spree::Address.where(:id => spree_current_user.id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.id).first.lastname   %>">
+                    </div>
+                  
+                    <div class="input-tag">
+                      <div class="my-1 ml-3 text_title text_bold mb-2">Birthday *</div>
+                      <div class="my-1 ml-3">
+                        <select class="form-control w-32" id="">
+                          <option>Date</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                          <option>13</option>
+                          <option>14</option>
+                          <option>15</option>
+                          <option>16</option>
+                          <option>17</option>
+                          <option>18</option>
+                          <option>19</option>
+                          <option>20</option>
+                          <option>21</option>
+                          <option>22</option>
+                          <option>23</option>
+                          <option>24</option>
+                          <option>25</option>
+                          <option>26</option>
+                          <option>27</option>
+                          <option>28</option>
+                          <option>29</option>
+                          <option>30</option>
+                          <option>31</option>
+                        </select>
+                        <select class="form-control w-32" id="">
+                          <option>Month</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                          <option>9</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                        </select>
+                        <select class="form-control w-32" id="">
+                          <option>Year</option>
+                          <option>1</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="input-tag1 my-1 ml-3">
+                      <div class="d-inline ">
+                        <ul class="nav">
+                          <li class="mr-3">
+                            <div class="text_title text_bold">Gender</div>
+                          </li>
+                          <li class="ml-4 register">
+                            <input type="radio" id="r1" name="gender" />
+                            <label for="r1"><span></span>Male</label>
+                          </li>
+                          <li class="ml-4">
+                            <input type="radio"  id="r2" name="gender"  />
+                            <label for="r2"><span></span>Female</label>
+                          </li>
+                          
+                        </ul>
+                      </div>
+                    </div>
+                          
+                    <div class="input-tag w-100 my-1 ml-3">
+                      <div class="text_title text_bold">Mobile Number *</div>
+                      <input type="text" name="name" class="form-control mt-2 " placeholder="<%= Spree::Address.where(:id => spree_current_user.id).first.phone   %>">
+                     
+                    </div>
+                    <div class="input-tag w-100 mt-5 text-center">
+                      <button class="btn  btn-lg i_button i_button  text_bold orange_bg">
+                        <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
+                    
+                          <div class="align-middle d-inline  text_body pl-2 pr-2">SAVE</div>
+                        </div>
+                      </button>
+                    </div>
+                    
+                  </div>
+                  
+                     
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+       <%= link_to Spree.t(:logout), spree.logout_path %>
+    </div>
+
+<% else %>
+<div class="container">
+  <%= form_for Spree::User.new, :as => :spree_user, :url => spree.create_new_session_path do |f| %>
+  <div id="password-credentials">
+    <p>
+      <%= f.label :email, Spree.t(:email) %>
+      <%= f.email_field :email, :class => 'form-control', :tabindex => 1, autofocus: true %>
+    </p>
+    <p>
+      <%= f.label :password, Spree.t(:password) %>
+      <%= f.password_field :password, :class => 'form-control', :tabindex => 2 %>
+    </p>
+  </div>
+  <p>
+    <%= f.check_box :remember_me, :tabindex => 3 %>
+    <%= f.label :remember_me, Spree.t(:remember_me) %>
+  </p>
+
+  <p><%= f.submit Spree.t(:login), :class => 'btn btn-lg btn-success btn-block', :tabindex => 4 %></p>
+
+  <div class="text-center">
+            <%= Spree.t(:or) %> 
+                <%= link_to Spree.t(:create_a_new_account), spree.signup_path %> |
+                <%= link_to Spree.t(:forgot_password), spree.recover_password_path %>
+          </div>
+<% end %>
+</div>
+<% end %>
+
+
+
+
+ <%= render partial: 'footer/footer' %>
+<%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
+</body>
+</html>

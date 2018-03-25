@@ -1,0 +1,229 @@
+        <!--carousel_banner-->
+        <div class="parent d-none d-md-block">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <% if Spree::Slide.published.count > 0 %>
+              <% Spree::Slide.published.location("home_banner").order('position ASC').each_with_index do |s, index| %>
+              <% if index == 0 %>
+              <div class="carousel-item active">
+                <%= image_tag(s.image, :alt => "logo", :class => "d-block w-100") %>
+              </div>
+              <% else %>
+              <div class="carousel-item">
+                <%= image_tag(s.image, :alt => "logo", :class => "d-block w-100") %>
+              </div>
+              <% end %>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+          <!--sub 1-->
+     
+      <!--sub 2-->
+
+      
+
+
+
+
+      
+    </div>
+    <!--carousel_banner-->
+
+    <!--smarthome-->
+    <section id="smart_home">
+      <div class="container i_cn_smarthome" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <%= link_to "smarthome", @smarthome do %>
+            <%= image_tag("smart_home.JPG", :alt => "logo", :class => "img-fluid") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--Lighting  Lamp-->
+    <section id="decoration_lighting">
+     <div class="container i_cn_li_lamp">
+      <div class="row ">
+        <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 ">
+     
+          <a href="/products">
+          <%= image_tag("decoration_mobile.JPG", :alt => "logo", :class => "img-fluid d-lg-none  w-100", :id => "decoration_mobile") %>
+          <%= image_tag("decoration.JPG", :alt => "logo", :class => "img-fluid d-none d-lg-block" , :id => "decoration_img") %>
+        </a>
+     
+        </div>
+             
+         <a href="/products">
+        <div class="col-6 col-sm-6 col-md-6 col-lg-8 col-xl-8 ">
+          <%= image_tag("lighting_mobile.JPG", :alt => "logo", :class => "img-fluid d-none w-100", :id =>"decoration_mobile") %>
+          <%= image_tag("lighting.JPG", :alt => "logo", :class => "img-fluid d-none d-lg-block", :id => "decoration_img") %>
+        </a>
+    
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Lighting  Lamp-->
+
+  <section id="highlight" data-aos="zoom-in">
+    <div class="container">
+      <div class="i_txt_title d-flex justify-content-center">Highlight</div>
+      <div class="container-fluid">
+        <div class=" row i_buttom w-100 mx-auto" role="listbox">
+          <!--web-->
+          <div class="col-md-12 col-lg-12 col-xl-12 d-none d-md-block">
+
+            <div class="row ">
+              <% Spree::Product.available.order('position ASC').limit(4).each_with_index do |s, index| %>
+              <div class=" col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                <div class="card about_card no_padding">
+                  <%= image_tag s.display_image.attachment(:product), itemprop: "card-img-top i_cn_lampton_diy_img smart_home_card_img" , :class => "card-img-top i_cn_lampton_diy_img zoom"%>
+                  <div class="card-body about_card_body">
+                    <p class="card-text i_highlight_txt d-flex justify-content-center"><%= link_to s.name, product_path(s) %></p>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            <a class="carousel-control-prev arror_highlight arrow_prev" href="#carousel_slide" role="button" data-slide="prev"> </a>
+            <a class="carousel-control-next arror_highlight arrow_next" href="#carousel_slide" role="button" data-slide="next"> </a>
+          </div>
+          <!--web-->
+          <!--mobile-->
+          <div class="col-md-12 col-lg-12 col-xl-12 d-md-none">
+
+            <div class="row ">
+              
+               <% Spree::Product.available.order('position ASC').limit(4).each_with_index do |s, index| %>
+               <div class="col-6 col-sm-6">
+                <div class="card about_card no_padding">
+                  <%= image_tag s.display_image.attachment(:product), itemprop: "card-img-top i_cn_lampton_diy_img smart_home_card_img" , :class => "card-img-top i_cn_lampton_diy_img"%>
+                  <div class="card-body about_card_body">
+                    <p class="card-text i_highlight_txt d-flex justify-content-center"><%= link_to s.name, product_path(s) %></p>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+              <a class="carousel-control-prev arror_highlight arrow_prev" href="#carousel_slide" role="button" data-slide="prev"> </a>
+              <a class="carousel-control-next arror_highlight arrow_next" href="#carousel_slide" role="button" data-slide="next">> </a>
+            </div>
+
+          </div>
+          <!--mobile-->
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <!--carousel_banner_2-->
+    <section id="carousel_banner_2">
+      <div class="container d-flex align-items-center justify-content-center">
+        <div class="row">
+         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+           <a href="/products">
+           <%= image_tag("lamptan_bright_studio.JPG", :alt => "logo", :class => "img-fluid") %>
+         </a>
+         </div> 
+       </div>
+     </div>
+   </section>
+
+
+   <section id="your_self" data-aos="zoom-in">
+    <div class="container i_cn_lampton_diy">
+      <div class="row ">
+
+
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> 
+          <div class="i_txt_title d-flex justify-content-center">do it yourself</div>
+        </div>
+        <div class="container-fluid">
+          <div class=" row i_buttom w-100 mx-auto" role="listbox">
+            <!--web-->
+            <div class="col-md-12 col-lg-12 col-xl-12 d-none d-md-block">
+
+              <div class="row ">
+
+                <% if Spree::Slide.published.count > 0 %>
+                <% Spree::Slide.published.location("do_it_yourself") .order('position ASC').each_with_index do |s, index| %>
+                <div class=" col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+
+                  <div class="card about_card no_padding">
+                    <%= image_tag(s.image, :alt => "logo", :class => "card-img-top i_cn_lampton_diy_img") %>
+
+                    <div class="card-body about_card_body">
+                      <div class="do_text_title"><% s.slide_caption %></div>
+                      <p class="card-text do_text_body"><% s.slide_caption %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+                <% end %>
+
+
+              </div>
+              <a class="carousel-control-prev arror_highlight arrow_prev" href="#carousel_slide" role="button" data-slide="prev"> </a>
+              <a class="carousel-control-next arror_highlight arrow_next" href="#carousel_slide" role="button" data-slide="next">> </a>
+            </div>
+            <!--web-->
+            <!--mobile-->
+            <div class="col-md-12 col-lg-12 col-xl-12 d-md-none">
+
+              <div class="row ">
+
+               <% if Spree::Slide.published.count > 0 %>
+               <% Spree::Slide.published.location("do_it_yourself") .order('position ASC').each_with_index do |s, index| %>
+               <div class=" col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+
+                <div class="card about_card no_padding">
+                  <%= image_tag(s.image, :alt => "logo", :class => "card-img-top i_cn_lampton_diy_img") %>
+
+                  <div class="card-body about_card_body">
+                    <div class="do_text_title"><% s.slide_caption %></div>
+                    <p class="card-text do_text_body"><% s.slide_caption %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+              <% end %>
+
+
+            
+          <a class="carousel-control-prev arror_highlight arrow_prev" href="#carousel_slide" role="button" data-slide="prev"> </a>
+          <a class="carousel-control-next arror_highlight arrow_next" href="#carousel_slide" role="button" data-slide="next"> </a>
+        </div>
+
+      </div>
+      <!--mobile-->
+    </div>
+  </div>
+
+
+</div>
+
+</div>
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center "><button type="button" class="btn btn-outline-dark about_button btn-md strong btn_tb"><a href="/products">LOAD MORE</a></button></div>
+</div>
+</div>
+</section>
+
+
+<script type="text/javascript">
+window.location.href = '/smarthome';
+</script>
+

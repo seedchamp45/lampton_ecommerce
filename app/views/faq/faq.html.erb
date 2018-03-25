@@ -1,0 +1,115 @@
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+<html>
+<head data-hook="inside_head">
+
+  <%= favicon_link_tag 'favicon.ico' %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Bootstrap CSS -->
+  <meta name="description" content="My custom spree store">
+  <title><%= content_for?(:title) ? yield(:title) : "My title" %></title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'spree/frontend/all' %>
+ 
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <%= stylesheet_link_tag "index" %>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Avenir">
+
+  <style>
+  body{
+    font-family: 'Avenir', serif !important;
+  }
+  </style>
+
+</head>
+
+<body>
+  <%= render partial: 'header/header' %>
+
+
+		<div class="container ">
+
+	        <div class="row">
+	            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+	              <div class="about_txt_title text-uppercase  ">
+	                FAQ
+	              <hr/>
+	              </div>
+	            </div>
+	        </div>
+
+
+	        <div class="row">
+	            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+	              <div class="about_txt_title text-uppercase  ">
+	                Smart Cube
+	              <hr/>
+	              </div>
+	            </div>
+	        </div>
+	        
+	        <div class="row mt-5">
+ 				<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+					<ul class="ul_faq text_body" id="faq">
+	
+						<li>
+							<div class="pointer product_details text_bold head_faq collapsed" id="mfaq_5" data-toggle="collapse" data-target="#subfaq_5" aria-expanded="false" id="brochure">LED Smart Speaker Ceiling Lamp Galaxy เชื่อมต่อกับ Application อย่างไร ?<i class="chevron fa fa-fw" id="brochure"></i></div>
+							<div class="mt-lg-3 mb-lg-5  mb-sm-4  collapse" id="subfaq_5"  class="collapse" data-parent="#faq">
+							<p class="mb-0">Vivamus vestibulum varius malesuada. Aliquam erat volutpat. Aliquam quis elementum ante, pretium luctus tellus. Nunc quis ante metus. Praesent porta, leo nec ornare imperdiet, tortor lacus egestas turpis, eget lobortis turpis lorem vitae nunc. Suspendisse mattis, magna ut suscipit dignissim, orci risus accumsan leo, quis interdum ex dui non purus. Nunc vel orci pretium, placerat quam at, eleifend tortor. </div>
+						</li>
+
+						<li>
+							<div class="pointer product_details text_bold head_faq collapsed" id="mfaq_6" data-toggle="collapse" data-target="#subfaq_6" aria-expanded="false" id="brochure">LED Smart Speaker Ceiling Lamp Galaxy เชื่อมต่อกับ Application อย่างไร ?<i class="chevron fa fa-fw" id="brochure"></i></div>
+							<div class="mt-lg-3 mb-lg-5  mb-sm-4  collapse" id="subfaq_6"  class="collapse" data-parent="#faq">
+							<p class="mb-0">Vivamus vestibulum varius malesuada. Aliquam erat volutpat. Aliquam quis elementum ante, pretium luctus tellus. Nunc quis ante metus. Praesent porta, leo nec ornare imperdiet, tortor lacus egestas turpis, eget lobortis turpis lorem vitae nunc. Suspendisse mattis, magna ut suscipit dignissim, orci risus accumsan leo, quis interdum ex dui non purus. Nunc vel orci pretium, placerat quam at, eleifend tortor. </div>
+						</li>
+
+						<li class="li_faq_bottom">
+							<div class="pointer product_details text_bold head_faq collapsed" id="mfaq_7" data-toggle="collapse" data-target="#subfaq_7" aria-expanded="false" id="brochure">LED Smart Speaker Ceiling Lamp Galaxy เชื่อมต่อกับ Application อย่างไร ?<i class="chevron fa fa-fw" id="brochure"></i></div>
+							<div class="mt-lg-3 mb-lg-5  mb-sm-4  collapse" id="subfaq_7"  class="collapse" data-parent="#faq">
+							<p class="mb-0">Vivamus vestibulum varius malesuada. Aliquam erat volutpat. Aliquam quis elementum ante, pretium luctus tellus. Nunc quis ante metus. Praesent porta, leo nec ornare imperdiet, tortor lacus egestas turpis, eget lobortis turpis lorem vitae nunc. Suspendisse mattis, magna ut suscipit dignissim, orci risus accumsan leo, quis interdum ex dui non purus. Nunc vel orci pretium, placerat quam at, eleifend tortor. </div>
+						</li>
+					
+					</ul>
+ 				</div>
+	        </div>
+					
+		</div>
+			
+		
+
+		
+		<!--body-->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+		<script type="text/javascript">
+			var oldId;
+
+			$('.head_faq').click(function() {
+				$('#'+oldId).removeClass("text_orange");
+				$('#'+this.id).addClass("text_orange");
+				oldId = this.id;
+			});
+		</script>
+			<link rel="stylesheet" href="assets/css/index.css">
+			<script type="text/javascript">
+				
+			</script>
+
+   <%= render partial: 'footer/footer' %>
+<%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
+</body>
+</html>

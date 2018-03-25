@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   
 
+  get '/myaccount' => 'myaccount#myaccount'
+
+  get '/faq' => 'faq#faq'
+
   get '/agent' => 'agent#agent'
 
    get '/wishlist' => 'wishlist#wishlist'
