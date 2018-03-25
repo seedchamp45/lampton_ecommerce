@@ -72,12 +72,13 @@
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div data-aos="fade-up" data-aos-duration="600">
               <div class="row">
-                <% Spree::Product.available.where(:name => "test2").order('position ASC').each_with_index do |s, index| %>
+                <% Spree::Product.available.order('position ASC').each_with_index do |s, index| %>
+                   <% if index == 2 %>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <div class="card no_border ">
                     <div class="text-center">
                      <div class="item_img">
-                     <a href="/products/<%= s.name %>"> <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %> </a>
+                     <a href="/products/<%= s.slug %>"> <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %> </a>
                     </div>
                   </div>
                   <div class="card-body smart_home_card_padding ">
@@ -85,30 +86,33 @@
                     <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
                     <div class="card-footers d-flex justify-content-center">
                       <button class="btn btn-outline-dark smart_home_cart_bu ">
-                        <a href="/products/<%= s.name %>"> ADD TO CART</a>
+                        <a href="/products/<%= s.slug %>"> ADD TO CART</a>
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
               <% end %>
-              <% Spree::Product.available.where(:name => "test1").order('position ASC').each_with_index do |s, index| %>
+              <% end %>
+              <% Spree::Product.available.order('position ASC').each_with_index do |s, index| %>
+                  <% if index == 1 %>
               <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <div class="card no_border ">
                   <div class="item_img">
-                   <a href="/products/<%= s.name %>"> <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
+                   <a href="/products/<%= s.slug %>"> <%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
                   </div>
                   <div class="card-body smart_home_card_padding ">
                     <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
                     <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
                     <div class="card-footers d-flex justify-content-center">
                       <button class="btn btn-outline-dark smart_home_cart_bu ">
-                        <a href="/products/<%= s.name %>"> ADD TO CART</a>
+                        <a href="/products/<%= s.slug %>"> ADD TO CART</a>
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
+                 <% end %>
               <% end %>
             </div>
           </div>
@@ -141,12 +145,13 @@
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
           <div class="row">
-            <% Spree::Product.available.where(:name => "test3").order('position ASC').each_with_index do |s, index| %>
+            <% Spree::Product.available.order('position ASC').each_with_index do |s, index| %>
+                 <% if index == 3 %>
             <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
               <div class="card no_border ">
                 <div class="text-center">
                   <div class="item_img">
-                   <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
+                   <a href="/products/<%= s.slug %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
                  </div>
                </div>
                <div class="card-body smart_home_card_padding ">
@@ -154,31 +159,35 @@
                 <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
                 <div class="card-footers d-flex justify-content-center">
                   <button class="btn btn-outline-dark smart_home_cart_bu ">
-                    <a href="/products/<%= s.name %>"> ADD TO CART</a>
+                    <a href="/products/<%= s.slug %>"> ADD TO CART</a>
                   </button>
                 </div>
               </div>
             </div>
           </div>
           <% end %>
+          <% end %>
 
-          <% Spree::Product.available.where(:name => "test4").order('position ASC').each_with_index do |s, index| %>
+          <% Spree::Product.available.order('position ASC').each_with_index do |s, index| %>
+          <% if index == 4 %>
+     
           <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
             <div class="card no_border ">
               <div class="item_img">
-               <a href="/products/<%= s.name %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
+               <a href="/products/<%= s.slug %>"><%= image_tag s.display_image.attachment(:product), :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom" %></a>
              </div>
              <div class="card-body smart_home_card_padding ">
               <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
               <p class="smart_home_card_txt_price d-flex justify-content-center">฿ <%= s.price %></p>
               <div class="card-footers d-flex justify-content-center">
                 <button class="btn btn-outline-dark smart_home_cart_bu ">
-                  <a href="/products/<%= s.name %>"> ADD TO CART</a>
+                  <a href="/products/<%= s.slug %>"> ADD TO CART</a>
                 </button>
               </div>
             </div>
           </div>
         </div>
+        <% end %>
         <% end %>
       </div>
     </div>
@@ -264,15 +273,15 @@
           <div class="card no_border ">
             <div class="text-center">
              <div class="item_img">
-                <%= link_to  product_path(s) do %>
-                <%= image_tag s.display_image.attachment(:product) , :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom"%>
-                <% end %>
+         
+              <%= image_tag s.display_image.attachment(:product) , :class => "card-img-top i_cn_lampton_diy_img smart_home_card_img zoom"%>
+  
             </div>
           </div>
           <div class="card-body smart_home_card_padding ">
             <p class="card-title smart_home_txt_title_card  d-flex justify-content-center"><%= s.name %></p>
             <p class="smart_home_card_txt_price d-flex justify-content-center"><%= s.price %></p>
-            <div class="card-footers d-flex justify-content-center"><a href="/products/<%= s.name %>"><button class="btn btn-outline-dark smart_home_cart_bu "> ADD TO CART</button></a></div>
+            <div class="card-footers d-flex justify-content-center"><button class="btn btn-outline-dark smart_home_cart_bu "> ADD TO CART</button></div>
           </div>
         </div>
       </li>
