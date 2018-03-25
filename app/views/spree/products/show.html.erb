@@ -6,8 +6,7 @@
   display: none;
 }
 </style>
-
-   
+ 
 <div class="bar_menu_de">
   <div class="container">
     <div class="row">
@@ -46,22 +45,25 @@
 
 
                   </div>
-                  <div class="carousel-item  ">
-                    <%= image_tag("products/LED_A60.jpg", :alt => "logo", :class => "d-block w-100") %>
+                     <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "product_de_img_small mouse_img_small zoom") %>
+                                
+                              </li>
+                               <% @product.variant_images.each_with_index do |j, index| %>
+                              <% if j.alt != "mn" &&  j.alt != "sp" && j.alt != "br" %>
+                              
+                              <div class="carousel-item  ">
+
+                  
+                    <%= image_tag(j.attachment(:product), :class => "d-block w-100") %>
 
                   </div>
-                  <div class="carousel-item ">
-                    <%= image_tag("products/LED_Dewy_ora.jpg", :alt => "logo", :class => "d-block w-100") %>
 
-                  </div>
-                  <div class="carousel-item ">
-                    <%= image_tag("products/LED_Mercury.jpg", :alt => "logo", :class => "d-block w-100") %>
+                              
+                              <% else %>
+                              <% end %>
+                              <% end %>
 
-                  </div>
-                  <div class="carousel-item ">
-                    <%= image_tag("products/LED_Smart_Emergency_10w_MT33.jpg", :alt => "logo", :class => "d-block w-100") %>
-
-                  </div>
+                 
                 </div>
                         <!--<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -90,29 +92,17 @@
                                 <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "product_de_img_small mouse_img_small zoom") %>
                                 
                               </li>
-                              <li id="img_small_2" >
-                                <%= image_tag("products/LED_A60.jpg", :alt => "logo", :class => "product_de_img_small") %>
-                              </li>
-                              <li id="img_small_3">
-                                <%= image_tag("products/LED_Dewy_ora.jpg", :alt => "logo", :class => "product_de_img_small") %>
-
-                              </li>
-                              <li id="img_small_4">
-                                <%= image_tag("products/LED_Mercury.jpg", :alt => "logo", :class => "product_de_img_small") %>
-
-                              </li>
-                              <li id="img_small_5">
-                                <%= image_tag("products/LED_Smart_Emergency_10w_MT.jpg", :alt => "logo", :class => "product_de_img_small") %>
-
-                              </li>
-                              <li id="img_small_6">
-                               <%= image_tag("products/LED_A60.jpg", :alt => "logo", :class => "product_de_img_small") %>
-
-                             </li>
-                             <li id="img_small_7">
-                               <%= image_tag("products/LED_Dewy_ora.jpg", :alt => "logo", :class => "product_de_img_small") %>
-
-                             </li>
+                                
+                              <% @product.variant_images.each_with_index do |j, index| %>
+                               <% index_p = index + 2 %>
+                              <% if j.alt != "mn" &&  j.alt != "sp" && j.alt != "br" %>
+                               
+                                  <li id="img_small_<%= index_p %>" >
+                                    <%= image_tag(j.attachment(:product), :class => "product_de_img_small") %>
+                                  </li>
+                                <% else %>
+                                <% end %>
+                              <% end %>
                              <li class="product_arrow">
                               <div class="arrow_top mouse_click" id="arrow_bottom">&#709;</div>
                             </li>
@@ -245,15 +235,7 @@
                   <!--desktop-->
                   <div class="d-none d-md-block  row">
                     <div class="col-md-12 col-xl-12 col-lg-12 d-flex justify-content-around">
-                      <div class="arrow_left mouse_click_details d-flex align-items-center" id="arrow_top"></div>
-                      
-                      <%= image_tag("products/product_detail_img_1.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1"  , :size => "100x100") %>
-                      <%= image_tag("products/product_detail_img_2.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1" , :size => "100x100") %>
-                      <%= image_tag("products/product_detail_img_3.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1" , :size => "100x100") %>
-                      <%= image_tag("products/product_detail_img_4.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1", :size => "100x100") %>
-                      <%= image_tag("products/product_detail_img_5.png", :alt => "logo", :class => "product_img_details_gallery img-fluid" , :id => "img_1", :size => "100x100") %>
-
-                      <div class="arrow_right mouse_click_details d-flex align-items-center" id="arrow_top">></div>
+                     
                     </div>
                   </div>
                   <!--desktop-->
@@ -287,13 +269,7 @@
           <div class="container" id>
             <div class="row">
               <div class="col-12 col-md-12 col-xl-12 col-lg-12 d-flex justify-content-around">
-                <div class="arrow_left mouse_click_details d-flex align-items-center" id="arrow_top"></div>
-                <%= image_tag("products/product_detail_img_1.png", :alt => "logo", :class => "img-fluid product_img_details_gallery") %>
-                <%= image_tag("products/product_detail_img_2.png", :alt => "logo", :class => "img-fluid product_img_details_gallery") %>
-                <%= image_tag("products/product_detail_img_3.png", :alt => "logo", :class => "img-fluid product_img_details_gallery") %>
-                <%= image_tag("products/product_detail_img_4.png", :alt => "logo", :class => "img-fluid product_img_details_gallery") %>
-                <%= image_tag("products/product_detail_img_5.png", :alt => "logo", :class => "img-fluid product_img_details_gallery") %>
-                <div class="arrow_right mouse_click_details d-flex align-items-center" id="arrow_top">></div>
+                
               </div>
             </div>
           </div>
@@ -318,7 +294,11 @@
               <div class="col-md-12 col-xl-12 col-lg-12">
                 <div class="products_details_title">Specification</div>
                 <div class="products_details_body text-center">
-                  <%= image_tag("products/specification.jpg", :alt => "logo", :class => "img-70") %>
+                      <% if @product.variant_images.find{ |w| w.alt == "sp" }.present? %>
+
+                         <%=  image_tag(@product.variant_images.find{ |w| w.alt == "sp" }.attachment(:product), :class => "img-70" )%>
+                      <% end %>
+               
 
                 </div>
               </div>
@@ -334,8 +314,12 @@
                 <div class="product_details collapsed" data-toggle="collapse" data-target="#product_details_2" aria-expanded="false" id="brochure"> Brochure<i class="chevron fa fa-fw" id="brochure"></i></div>
                 <div class="collapse" id="product_details_2" data-parent="#product_menu">
                   <div class="products_details_body text-center">
-                
-                    <%= image_tag("products/brochure.jpg", :alt => "logo", :class => "img-30 mr-4") %>
+                      <% if @product.variant_images.find{ |w| w.alt == "br" }.present? %>
+
+                         <%=  image_tag(@product.variant_images.find{ |w| w.alt == "br" }.attachment(:product), :class => "img-30 mr-4" )%>
+                      <% end %>
+            
+     
           
 
                   </div>
@@ -355,8 +339,10 @@
                 <div class="product_details collapsed" data-toggle="collapse" data-target="#product_details_1" aria-expanded="false"  id="manual_guide"> Manual guide<i class="chevron fa fa-fw" ></i></div>
                 <div class="collapse" id="product_details_1" data-parent="#product_menu">
                   <div class="products_details_body text-center">
-                    <%= image_tag("products/manual-guide-1.jpg", :alt => "logo", :class => "img-30 mr-4") %>
-                    <%= image_tag("products/manual-guide-2.jpg", :alt => "logo", :class => "img-30 mr-4") %>
+                    <% if @product.variant_images.find{ |w| w.alt == "mn" }.present? %>
+                           <%=  image_tag(@product.variant_images.find{ |w| w.alt == "mn" }.attachment(:product), :class => "img-30 mr-4" )%>
+                    <% end %>
+                 
 
                   </div>
                 </div>
