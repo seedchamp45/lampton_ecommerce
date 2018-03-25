@@ -606,7 +606,7 @@
 
 	.smart_home_button {
 		font-size: 0.7em;
-		color: #FFFFFF;
+		color: grey;
 		border-top-left-radius: calc(1.5rem - 1px)!important;
 		border-top-right-radius: calc(1.5rem - 1px)!important;
 		border-bottom-right-radius: calc(1.5rem - 1px)!important;

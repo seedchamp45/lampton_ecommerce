@@ -37,9 +37,29 @@
   <%= render partial: 'header/header' %>
 
   <section id="smart_home_ct">
-    <%= link_to "smarthome", @smarthome do %>
-    <%= image_tag("banner_l.jpg", :alt => "logo", :class => "img-fluid carousel-head-img") %>
-    <% end %>
+      <div class="parent d-none d-md-block">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <% if Spree::Slide.published.count > 0 %>
+              <% Spree::Slide.published.location("home_banner").order('position ASC').each_with_index do |s, index| %>
+              <% if index == 0 %>
+              <div class="carousel-item active">
+                <%= image_tag(s.image, :alt => "logo", :class => "d-block w-100") %>
+              </div>
+              <% else %>
+              <div class="carousel-item">
+                <%= image_tag(s.image, :alt => "logo", :class => "d-block w-100") %>
+              </div>
+              <% end %>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
   </section>
 
 
