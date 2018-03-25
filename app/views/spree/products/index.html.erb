@@ -6,6 +6,46 @@
 
 <!--menu bar web-->
 
+<style>
+
+.pagination
+{
+  padding-left:20%;
+}
+
+.page:hover
+{
+  color: #ffffff !important;
+    background-color: #f7941d!important;
+    border-color: #f7941d!important;
+}
+
+.page
+{
+padding: 1rem 1rem !important; 
+    font-size: 1em;
+    color: #000000;
+      border-top-left-radius: calc(1.5rem - 2px)!important;
+      border-top-right-radius: calc(1.5rem - 2px)!important;
+      border-bottom-right-radius: calc(1.5rem - 2px)!important;
+      border-bottom-left-radius: calc(1.5rem - 2px)!important;
+      margin: auto;
+
+    padding: 20px;
+}
+
+
+
+.next
+{
+  display: none;
+}
+.last
+{
+  display: none;
+}
+
+</style>
 
 <div class="bar_menu_2">
   <div class="container">
@@ -29,15 +69,7 @@
       <div class="row">
         <div class="d-md-none  col-sm-12 col-md-12 col-lg-6 col-xl-8">
           <ul class="nav d-flex justify-content-end w-100">
-            <li class="w-50 text-center">
-              <%= image_tag("products/filter.png", :class => "img-fluid mr-2 product_icon_head") %>
-              
-              <div class="product_text_head">FILTER</div>
-            </li>
-            <li class="w-50 text-center">
-              <%= image_tag("products/sort.png", :class => "img-fluid mr-2 product_icon_head") %>
-              <div class="product_text_head">SORT</div>
-            </li>
+            
           </ul>
         </div>
       </div>
@@ -78,7 +110,16 @@
             </div>
             <!--menu right  -->
             <div class="row mt-4">
-              
+              <%
+  paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+  paginated_products ||= @products
+%>
+
+<% content_for :head do %>
+  <% if paginated_products.respond_to?(:total_pages) %>
+    <%= rel_next_prev_link_tags paginated_products %>
+  <% end %>
+<% end %>
 
 
               <% if params[:keywords] %>
@@ -143,7 +184,9 @@
           </div>
           <% end %>
         </div>
-
+        <% if paginated_products.respond_to?(:total_pages) %>
+  <%= paginate paginated_products %>
+<% end %>
 
 
         <!--products-->
