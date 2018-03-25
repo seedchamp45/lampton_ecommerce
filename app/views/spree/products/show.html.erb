@@ -40,12 +40,12 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "product_de_img_small mouse_img_small") %>
+                    <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "d-block w-100 ") %>
 
 
 
                   </div>
-                     <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "product_de_img_small mouse_img_small zoom") %>
+                    
                                 
                               </li>
                                <% @product.variant_images.each_with_index do |j, index| %>
@@ -87,18 +87,14 @@
 
                               <ul class="products-img-small h-100 " id="img_small">
                                <li class="product_arrow"><div class="arrow_top mouse_click" id="arrow_top">&#708;</div></li>
-                               <li id="img_small_1" >
-
-                                <%= image_tag( @product.display_image.attachment(:product), :alt => "logo", :class => "product_de_img_small mouse_img_small zoom") %>
-                                
-                              </li>
+                              
                                 
                               <% @product.variant_images.each_with_index do |j, index| %>
-                               <% index_p = index + 2 %>
+                               <% index_p = index + 1 %>
                               <% if j.alt != "mn" &&  j.alt != "sp" && j.alt != "br" %>
                                
                                   <li id="img_small_<%= index_p %>" >
-                                    <%= image_tag(j.attachment(:product), :class => "product_de_img_small") %>
+                                    <%= image_tag(j.attachment(:product), :class => "product_de_img_small mouse_img_small zoom") %>
                                   </li>
                                 <% else %>
                                 <% end %>
