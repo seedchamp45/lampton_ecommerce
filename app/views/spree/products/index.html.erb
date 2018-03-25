@@ -154,7 +154,7 @@ padding: 1rem 1rem !important;
                          <p class="card-title about_txt products_card_title_txt">
                           <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
                         </p>
-                        <p class="card-text products_text"><%= product.description %></p>
+                     
 
                         <ul class="nav">
                           <li class="nav-item products_card_footer1 products_text_price no_padding  d-flex align-items-center">
@@ -163,7 +163,7 @@ padding: 1rem 1rem !important;
                           <!--price-->
                           <!--button-->
                            
-                          <li class="nav-item products_card_footer2 no_padding d-flex align-items-center"><button type="button" class="btn btn-white products_button  btn-lg btn-block"><%= link_to url do %>ADD TO CART <% end %></button></li>
+                          <li class="nav-item products_card_footer2 no_padding d-flex align-items-center"><button type="button" class="btn btn-white products_button  btn-lg btn-block" style=""><%= link_to url do %>ADD TO CART <% end %></button></li>
                           
                           <!--button-->
                         </ul>
