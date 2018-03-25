@@ -290,10 +290,15 @@
               <div class="col-md-12 col-xl-12 col-lg-12">
                 <div class="products_details_title">Specification</div>
                 <div class="products_details_body text-center">
-                      <% if @product.variant_images.find{ |w| w.alt == "sp" }.present? %>
 
-                         <%=  image_tag(@product.variant_images.find{ |w| w.alt == "sp" }.attachment(:product), :class => "img-70" )%>
+                  <% if @product.variant_images.find{ |w| w.alt == "sp" }.present? %>
+                      <% @product.variant_images.each_with_index do |j, index| %>
+                          <% if j.alt == "sp" %>
+                         <%=  image_tag(j.attachment(:product), :class => "img-70" )%>
+                         <% end %>
+                         <% end %>
                       <% end %>
+                  
                
 
                 </div>
@@ -311,8 +316,11 @@
                 <div class="collapse" id="product_details_2" data-parent="#product_menu">
                   <div class="products_details_body text-center">
                       <% if @product.variant_images.find{ |w| w.alt == "br" }.present? %>
-
-                         <%=  image_tag(@product.variant_images.find{ |w| w.alt == "br" }.attachment(:product), :class => "img-30 mr-4" )%>
+                      <% @product.variant_images.each_with_index do |j, index| %>
+                          <% if j.alt == "br" %>
+                         <%=  image_tag(j.attachment(:product), :class => "img-30 mr-4" )%>
+                         <% end %>
+                         <% end %>
                       <% end %>
             
      
@@ -335,10 +343,15 @@
                 <div class="product_details collapsed" data-toggle="collapse" data-target="#product_details_1" aria-expanded="false"  id="manual_guide"> Manual guide<i class="chevron fa fa-fw" ></i></div>
                 <div class="collapse" id="product_details_1" data-parent="#product_menu">
                   <div class="products_details_body text-center">
-                    <% if @product.variant_images.find{ |w| w.alt == "mn" }.present? %>
-                           <%=  image_tag(@product.variant_images.find{ |w| w.alt == "mn" }.attachment(:product), :class => "img-30 mr-4" )%>
-                    <% end %>
-                 
+
+                      <% if @product.variant_images.find{ |w| w.alt == "mn" }.present? %>
+                      <% @product.variant_images.each_with_index do |j, index| %>
+                          <% if j.alt == "mn" %>
+                         <%=  image_tag(j.attachment(:product), :class => "img-30 mr-4" )%>
+                         <% end %>
+                         <% end %>
+                      <% end %>
+                  
 
                   </div>
                 </div>
