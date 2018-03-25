@@ -40,9 +40,15 @@
       <div class="parent d-none d-md-block">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
+              <% if Spree::Slide.published.count > 0 %>
+              <% Spree::Slide.published.location("home_banner").order('position ASC').each_with_index do |s, index| %>
+              <% if index == 0 %>
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <% else %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="<% index %>"></li>
+                    <% end %>
+                          <% end %>
+                          <% end %>
             </ol>
             <div class="carousel-inner">
               <% if Spree::Slide.published.count > 0 %>
