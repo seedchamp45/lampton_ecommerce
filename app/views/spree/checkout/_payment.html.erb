@@ -114,7 +114,7 @@ left:21%;
                        <fieldset>
                      
 
-                      <form class="checkout-form btn btn-white products_button btn-lg  products_bu_details orange_bg" name="checkoutForm" method="POST" action="wishlist_controller.rb">
+                      <form class="checkout-form btn btn-white products_button btn-lg  products_bu_details orange_bg" name="checkoutForm" method="POST" id="checkout-form">
   <script type="text/javascript" src="https://cdn.omise.co/omise.js"
           data-key="pkey_5beag0y4qutu2xde6wl"
           data-frame-label="LAMPTAN"
@@ -127,13 +127,16 @@ left:21%;
   </script>
 </form>
 
+
+
+
+
 <br>
 <br>
 <br>
 
 <a target="_blank" href="/termandcondition" class="term-con">Term and condition</a>
-
-                        
+  
 
                     </div>
                   </div>
@@ -264,9 +267,10 @@ function submitHandler(event) {
 
       // Then, perform a form submit action.
       checkoutForm.submit();
-      alert('eiei');
+      
     }
     else {
+      alert(response.message);
       // Error: display an error message. Note that `response.message` contains
       // a preformatted error message. Also note that `response.code` will be
       // "invalid_card" in case of validation error on the card.

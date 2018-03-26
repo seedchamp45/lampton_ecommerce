@@ -19,8 +19,11 @@ gem 'omise'
 gem 'deface', github: 'spree/deface'
 gem 'solidus_email_to_friend', github: 'boomerdigital/solidus_email_to_friend', branch: 'master'
 gem 'solidus_social'
-gem 'solidus_print_invoice' , github: 'solidusio-contrib/solidus_print_invoice'
+gem 'solidus_print_invoice' , path: './solidus_print_invoice-master'
 gem 'magnific-popup-rails', '~> 1.1.0'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record

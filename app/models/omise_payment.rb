@@ -1,0 +1,2 @@
+class OmisePayment < ApplicationRecord
+end
