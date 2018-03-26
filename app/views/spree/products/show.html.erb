@@ -271,8 +271,32 @@
                   
                           </ul>
                         </div>
-
+                       
                         <div class="d-inline product_details_right"><button type="button" class="btn btn-white products_button btn-lg  products_bu_details orange_bg " data-toggle="modal" data-target="#modalCart">ADD TO CART</button></div>
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                       </div>
                       <div class="d-block "> 
                         <ul class="products_details_ul_bu">
@@ -954,6 +978,13 @@ var icount=0;
 var count_img=5;
 
 $(document).ready(function(){
+
+
+  $('#add-to-cart').submit(function(event) {
+    event.preventDefault();
+    $(this).submit();
+    }); 
+});
 
   var numberss = "<%= @product.price %>"
   $('#allprice').text("฿" + numberss);
