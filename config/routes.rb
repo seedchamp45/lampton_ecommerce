@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get '/catalogue' => 'catalogue#catalogue'
+
   get '/support' => 'support#support'
 
   get '/termandcondition' => 'termandcondition#termandcondition'

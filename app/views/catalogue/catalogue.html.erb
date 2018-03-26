@@ -1,0 +1,193 @@
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+<html>
+<head data-hook="inside_head">
+
+  <%= favicon_link_tag 'favicon.ico' %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Bootstrap CSS -->
+  <meta name="description" content="My custom spree store">
+  <title><%= content_for?(:title) ? yield(:title) : "My title" %></title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+
+ 
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
+      <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Avenir' %>
+
+  <style>
+  
+@font-face {
+        font-family: 'Avenir';
+        src:url('Avenir/AvenirLTStd-Book.otf');
+       
+        }
+  body{
+    font-family: 'Avenir', serif !important;
+  }
+  </style>
+  <%= stylesheet_link_tag "index" %>
+
+</head>
+
+<body>
+  <%= render partial: 'header/header' %>
+
+     <div class="container">
+        <!--about_certificate-->
+        <section id="about_certificate">
+	        <div class="row">
+	            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+	              <div class="about_txt_title text-uppercase  ">
+	                catalog
+	              <hr/>
+	              </div>
+	            </div>
+	        </div>
+         	
+         	<div class="row mt-4 ">
+            <!--1 product-->
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 no_padding_sm_r p-3 p-md-4 p-lg-4 p-xl-4" >
+              <div data-aos="fade-up" data-aos-duration="600" class="aos-init aos-animate">
+                <div class="card_product ml-lg-1 " >
+                  <!--รูป-->
+                   <div class="item_img">
+                   	 <%= image_tag("catalogue/c1.png", :alt => "logo", :class => "card-img-top i_cn_lampton_diy_img img-fluid zoom") %>
+              
+                  </div>
+                  <!--รูป-->
+
+                  <div class="card-body products_card_body">
+                    
+                      <!--detail-->
+                    
+                      <!--detail-->
+                      <!--button-->
+                      <div class="text-center mt-lg-4">
+                        <button class="btn btn-outline-orange i_button p-1 i_button  bg_transparent text_orange border_orange">
+                          <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
+                            <div class="align-middle d-inline  text_body pl-2 pr-2">DOWNLOAD</div>
+                          </div>
+                        </button>
+                      </div>
+                      <!--  button-->
+              
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--1 product-->
+
+             <!--2 product-->
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 no_padding_sm_r p-3 p-md-4 p-lg-4 p-xl-4" >
+              <div data-aos="fade-up" data-aos-duration="600" class="aos-init aos-animate">
+                <div class="card_product ml-lg-1 " >
+                  <!--รูป-->
+                   <div class="item_img">
+                   	 <%= image_tag("catalogue/c1.png", :alt => "logo", :class => "card-img-top i_cn_lampton_diy_img img-fluid zoom") %>
+              
+                  </div>
+                  <!--รูป-->
+
+                  <div class="card-body products_card_body">
+                   
+                      <!--detail-->
+                      <!--button-->
+                      <div class="text-center mt-lg-4">
+                        <button class="btn btn-outline-orange i_button p-1 i_button  bg_transparent text_orange border_orange">
+                          <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
+                            <div class="align-middle d-inline  text_body pl-2 pr-2">DOWNLOAD</div>
+                          </div>
+                        </button>
+                      </div>
+                      <!--  button-->
+             
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--2 product-->
+
+             <!--3 product-->
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 no_padding_sm_r p-3 p-md-4 p-lg-4 p-xl-4" >
+              <div data-aos="fade-up" data-aos-duration="600" class="aos-init aos-animate">
+                <div class="card_product ml-lg-1 " >
+                  <!--รูป-->
+                   <div class="item_img">
+                   	 <%= image_tag("catalogue/c1.png", :alt => "logo", :class => "card-img-top i_cn_lampton_diy_img img-fluid zoom") %>
+              
+                  </div>
+                  <!--รูป-->
+
+                  <div class="card-body products_card_body">
+                    
+                      <!--button-->
+                      <div class="text-center mt-lg-4">
+                        <button class="btn btn-outline-orange i_button p-1 i_button  bg_transparent text_orange border_orange">
+                          <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
+                            <div class="align-middle d-inline  text_body pl-2 pr-2">DOWNLOAD</div>
+                          </div>
+                        </button>
+                      </div>
+                      <!--  button-->
+                
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--3 product-->
+             <!--4 product-->
+                     <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 no_padding_sm_r p-3 p-md-4 p-lg-4 p-xl-4" >
+              <div data-aos="fade-up" data-aos-duration="600" class="aos-init aos-animate">
+                <div class="card_product ml-lg-1 " >
+                  <!--รูป-->
+                   <div class="item_img">
+                   	 <%= image_tag("catalogue/c1.png", :alt => "logo", :class => "card-img-top i_cn_lampton_diy_img img-fluid zoom") %>
+              
+                  </div>
+                  <!--รูป-->
+
+                  <div class="card-body products_card_body">
+                  
+                      <!--detail-->
+                      <!--button-->
+                      <div class="text-center mt-lg-4">
+                        <button class="btn btn-outline-orange i_button p-1 i_button  bg_transparent text_orange border_orange">
+                          <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
+                            <div class="align-middle d-inline  text_body pl-2 pr-2">DOWNLOAD</div>
+                          </div>
+                        </button>
+                      </div>
+                      <!--  button-->
+                    </div>
+
+             
+                </div>
+              </div>
+            </div>
+            <!--4 product-->
+
+				
+			
+				
+				
+          </div>
+
+
+	       
+        </section>
+    </div>
+
+
+ <%= render partial: 'footer/footer' %>
+<%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
+</body>
+</html>

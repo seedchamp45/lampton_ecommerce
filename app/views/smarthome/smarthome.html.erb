@@ -106,7 +106,7 @@
           <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div data-aos="fade-up" data-aos-duration="600">
               <div class="row">
-                <% Spree::Product.available.order('position ASC').each_with_index do |s, index| %>
+                <% Spree::Product.available.where(:promotionable => true).order('position ASC').each_with_index do |s, index| %>
                    <% if index == 2 %>
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <div class="card no_border ">
@@ -128,7 +128,7 @@
               </div>
               <% end %>
               <% end %>
-              <% Spree::Product.available.order('position ASC').each_with_index do |s, index| %>
+              <% Spree::Product.available.where(:promotionable => true).order('position ASC').each_with_index do |s, index| %>
                   <% if index == 1 %>
               <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <div class="card no_border ">
@@ -179,7 +179,7 @@
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
           <div class="row">
-            <% Spree::Product.available.order('position ASC').each_with_index do |s, index| %>
+            <% Spree::Product.available.where(:promotionable => true).order('position ASC').each_with_index do |s, index| %>
                  <% if index == 3 %>
             <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
               <div class="card no_border ">
@@ -202,7 +202,7 @@
           <% end %>
           <% end %>
 
-          <% Spree::Product.available.order('position ASC').each_with_index do |s, index| %>
+          <% Spree::Product.available.where(:promotionable => true).order('position ASC').each_with_index do |s, index| %>
           <% if index == 4 %>
      
           <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -338,7 +338,7 @@
 
 </section>
 <%= render partial: 'footer/footer' %>
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.0.min.js"></script>
 
 <script>
 $(document).ready(function(){
