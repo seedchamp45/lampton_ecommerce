@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get '/termandcondition' => 'termandcondition#termandcondition'
+
   get '/myaccount' => 'myaccount#myaccount'
 
   get '/faq' => 'faq#faq'

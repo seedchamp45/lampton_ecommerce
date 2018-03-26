@@ -1,0 +1,2 @@
+module TermandconditionHelper
+end
