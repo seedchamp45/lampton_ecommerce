@@ -114,7 +114,9 @@
                     <div id="profile_my_account" class="ml-5 pl-2 mr-auto w-50 mt-2">
                     <div class="form-group w-100">
                        <label class="my-1 ml-3 text_title text_bold" >Email *</label>
+                       
                         <input type="text" id="email" class="form-control mx-sm-3" value=" <%= Spree::User.where(:id => spree_current_user.id).first.email   %>">
+                        <% end %>
                     </div>
                     <div class="form-group w-100">
                        <label class="my-1 ml-3 text_title text_bold" >Name *</label>

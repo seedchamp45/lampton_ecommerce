@@ -3,25 +3,22 @@ require "omise"
 
 
 class CompanyProfileController < ApplicationController
-  def new
+	def new
+		Omise.secret_api_key = "skey_5bef85o624z06dzj3e1"
+		 @amount = (@order.display_order_total_after_store_credit.money * 100).to_i
 
+		charge = Omise::Charge.create({
+			amount: @amount,
+			currency: "thb",
 
-Omise.secret_api_key = "skey_test_4xs8breq3htbkj03d2x"
-
-charge = Omise::Charge.create({
-  amount: 100000,
-  currency: "thb",
-  card: "tokn_test_4xs9408a642a1htto8z"
-})
-
-
-
-if charge.paid
-  # handle success
-  puts "thanks"
-else
-  # handle failure
-  raise charge.failure_code
-end
-  end
+			card: params[:omise_token]
+			})
+		if charge.paid
+  			# handle success
+  			puts "thanks"
+		else
+  		# handle failure
+  		raise charge.failure_code
+		end
+	end
 end

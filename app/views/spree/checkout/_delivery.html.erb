@@ -16,27 +16,30 @@
             <td></td>
             <td>
                 <%= form.fields_for :shipments do |ship_form| %>
-                      <% ship_form.object.shipping_rates.each do |rate| %>
-                         <% if rate.name == 'ไปรษณีย์ไทย' %>
+                      <% ship_form.object.shipping_rates.each_with_index do |rate, index| %>
+                     
+                         <% if index == 0 %>
               <ul class="ul_check_out2 mt-4 mb-5">
                 <li>
                   <div class="d-inline-block align-top">
+
                     <%= ship_form.radio_button :selected_shipping_rate_id, rate.id %>
                    
                   </div>
-                  
+                
+                    
                   <div class="d-inline-block">
                     <p class="check_out_text">ส่งแบบลงทะเบียน: ฿0.00</p>
                     
                   </div>
                 </li>
+                  <% else %>
                 <li>
+
                   <div class="d-inline-block align-top">
                     
                         <%= ship_form.radio_button :selected_shipping_rate_id, rate.id %>
-                        <% end %> 
-    <% end %>
-    <% end %>
+                        
                     
                   </div>
                   <div class="d-inline-block">
@@ -45,7 +48,9 @@
                   </div>
                 </li>
               </ul>
-
+<% end %> 
+    <% end %>
+    <% end %>
             </td>
           </tr>
           <!--left shipping ( ไปรษณีย์ไทย)-->

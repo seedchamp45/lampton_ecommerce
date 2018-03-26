@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+
+
   get '/catalogue' => 'catalogue#catalogue'
 
   get '/support' => 'support#support'
@@ -19,16 +21,24 @@ Rails.application.routes.draw do
 
   get '/vission_mission' => 'vissionmission#vissionmission'
 
-  get '/companyptofile' => 'company_profile#companyptofile'
+
 
   get '/certificate' => 'certificate#certificate'
   
+   post '/companyptofile/:order', to: 'companyptofile#new'
 
   
 
 
 get '/photos', to: 'photos#index'
 resources :photos
+
+  get '/payment', to: 'payment#index'
+resources :payments
+
+
+
+ 
 
   get 'about/certificate'
 
