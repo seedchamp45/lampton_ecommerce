@@ -16,6 +16,6 @@
 //= require turbolinks
 //= require rails-ujs
 //= require jquery_ujs
- //= require magnific-popup
+
 //= require_tree .
 //= require bootstrap

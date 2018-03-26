@@ -38,13 +38,15 @@
                 <li class="w-25 line_dashed_left">
                   <div class=" mr-md-2 ml-md-2 ml-lg-5 mr-lg-5">
                     <div class="text_small ">Total :</div>
-                    <div class="text_body text_bold">฿ 624</div>
+                    <div class="text_body text_bold"><%= order.display_order_total_after_store_credit.to_html %></div>
                   </div>
                 </li>
                 <li class="w-25"> 
                   <div class="mr-md-2 ml-md-2 ml-lg-4 mr-lg-4 ml-xl-5 mr-xl-5">
                     <div class="text_small  ">Payment Mathod :</div>
-                    <div class="text_body text_bold">Direct Bank transfer</div>
+                    <div class="text_body text_bold"><% order.payments.valid.each do |payment| %>
+          <%= render payment %><br/>
+        <% end %></div>
                   </div>
                 </li>
               </ul>
