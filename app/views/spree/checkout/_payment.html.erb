@@ -98,7 +98,7 @@ left:21%;
 
                   <% if index === 0 %>
 
-                  <div class="payment_body_text"  id="payment_method_">
+                  <div class="payment_body_text"  id="payment_method_<%= method.id %>">
                     <!-- direct_bank -->
                     <div id="direct_bank">
                             <fieldset>
@@ -114,7 +114,7 @@ left:21%;
                    <% else %>
                  </filedset>
                </form>
-                    <div id="credits" id="payment_method_">
+                    <div id="credits" id="payment_method_<%= method.id %>">
                       
                       
     <%= form_for Payment.new, html: { multipart: true } do |f| %>
