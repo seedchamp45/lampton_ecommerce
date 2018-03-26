@@ -6,9 +6,12 @@
 <!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
 <head data-hook="inside_head">
   <%= render partial: 'spree/shared/head' %>
-   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Avenir">
-   
+
+
+    <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Avenir' %>
   <style>
+
+
      body{
       font-family: 'Avenir', serif !important;
      }
