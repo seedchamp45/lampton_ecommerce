@@ -245,7 +245,7 @@
       <a class="carousel-control-prev arror"  role="button" data-slide="prev" id="back_highlight"> <
       </a>
       <ul class="nav" id="slide_highlight">
-        <% Spree::Product.available.order('position ASC').limit(8).each_with_index do |s, index| %>
+        <% Spree::Product.available.where(:promotionable => true).order('position ASC').limit(8).each_with_index do |s, index| %>
 
 
         <li class="carousel_li_p" id="hproduct_<%= index + 1 %>">
