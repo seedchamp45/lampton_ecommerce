@@ -15,7 +15,7 @@
 .myImg:hover {opacity: 0.7;}
 
 /* The Modal (background) */
-.modal {
+.modals {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -30,7 +30,7 @@
 }
 
 /* Modal Content (Image) */
-.modal-content {
+.modal-contents {
     margin: auto;
     display: block;
     width: 80%;
@@ -50,7 +50,7 @@
 }
 
 /* Add Animation - Zoom in the Modal */
-.modal-content, #caption { 
+.modal-contents, #caption { 
     animation-name: zoom;
     animation-duration: 0.6s;
 }
@@ -411,13 +411,13 @@
                           <% if brCount == 0 %>
                          <%=  image_tag(j.attachment(:large), :class => "img-30 mr-4 myImgs",:id => "myImgBr" )%>
 
-                         <div id="myModalBr" class="modal">
+                         <div id="myModalBr" class="modals">
 
   <!-- The Close Button -->
   <span class="close" id="closeBr">&times;</span>
 
   <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="imgBr">
+  <img class="modal-contents" id="imgBr">
 
   <!-- Modal Caption (Image Text) -->
 </div>
@@ -447,13 +447,13 @@ span.onclick = function() {
 <% else %>
         <%=  image_tag(j.attachment(:large), :class => "img-30 mr-4 myImgs",:id => "myImgBr2" )%>
 
-                         <div id="myModalBr2" class="modal">
+                         <div id="myModalBr2" class="modals">
 
   <!-- The Close Button -->
   <span class="close1" id="closeBr2">&times;</span>
 
   <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="imgBr2">
+  <img class="modal-contents" id="imgBr2">
 
   <!-- Modal Caption (Image Text) -->
 </div>
