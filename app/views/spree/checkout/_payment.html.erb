@@ -61,7 +61,7 @@ left:21%;
                    <% @order.available_payment_methods.each_with_index do |method, index| %>
                    
                    
-                
+                  <%= method.id %>
                    <% if index === 0 %>
                      
                    
@@ -117,72 +117,7 @@ left:21%;
                     <div id="credits" id="payment_method_<%= method.id %>">
                       
                       
-    <%= form_for Payment.new, html: { multipart: true } do |f| %>
-
-    <!-- This is a hidden field you must add, to input omise token -->
-     <%= f.text_field :amount, class: 'form-control'  ,:value => @order.display_order_total_after_store_credit.money.to_i * 100,:style => "display:none;"%>
-
-    <%= f.text_field :desc, class: 'form-control'  ,:value => @order.number ,:style => "display:none;"%>
-
-    <%= f.text_field :omise_token, class: 'form-control'  ,:id => "omiseToken" ,:style => "display:none;"%>
-
-    <!-- This is card information fields that we required for tokenization -->
-    <div>
-      <label>Card Number</label>
-      <input type="text" data-name="cardNumber" placeholder="••••••••••••••••" />
-    </div>
-
-    <div>
-      <label>Name on card</label>
-      <input type="text" data-name="nameOnCard" placeholder="Full Name" />
-    </div>
-
-    <div>
-      <label>Expiry date</label>
-      <select data-name="expiryMonth">
-        <option value="">MM</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="9">10</option>
-        <option value="9">11</option>
-
-        <!-- ... -->
-        <option value="12">12</option>
-      </select>
-
-      <select data-name="expiryYear">
-        <option value="">YYYY</option>
-        <option value="2017">2017</option>
-        <option value="2018">2018</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
-        <option value="2022">2023</option>
-        <option value="2022">2024</option>
-        <!-- ... -->
-        <option value="2025">2025</option>
-        <option value="2025">2026</option>
-      </select>
-    </div>
-
-    <div>
-      <label>Security code</label>
-      <input type="text" data-name="securityCode" placeholder="123" />
-    </div>
-
-    <div>
-      <%= f.submit 'Checkout', :class => "check-omise" %>
-     
-    </div>
-<% end %>
+ 
 
   <!-- Include omise.js. -->
 
