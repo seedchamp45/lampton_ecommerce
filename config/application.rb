@@ -43,7 +43,7 @@ module LamptonEcommerce
     }
     config.action_mailer.perform_deliveries = true
 
-     Omise.api_key = "skey_5beag0y52034ejxif5n"
+     Omise.api_key = "skey_5beatz1mdssinganu0e"
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
