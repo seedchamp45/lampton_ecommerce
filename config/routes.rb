@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 get '/photos', to: 'photos#index'
 resources :photos
 
-  get '/payments', to: 'payments#index'
+  get '/payment', to: 'payment#index'
 resources :payments
 
 
