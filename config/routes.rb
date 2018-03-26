@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  get '/support' => 'support#support'
+
   get '/termandcondition' => 'termandcondition#termandcondition'
 
   get '/myaccount' => 'myaccount#myaccount'

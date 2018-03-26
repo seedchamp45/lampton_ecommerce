@@ -1,0 +1,78 @@
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+<html>
+<head data-hook="inside_head">
+
+  <%= favicon_link_tag 'favicon.ico' %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Bootstrap CSS -->
+  <meta name="description" content="My custom spree store">
+  <title><%= content_for?(:title) ? yield(:title) : "My title" %></title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'spree/frontend/all' %>
+ 
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  <%= stylesheet_link_tag "index" %>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Avenir">
+
+  <style>
+  body{
+    font-family: 'Avenir', serif !important;
+  }
+  </style>
+
+</head>
+
+<body>
+  <%= render partial: 'header/header' %>
+
+       <div class="container">
+        <!--about_certificate-->
+        <section id="about_certificate">
+	        <div class="row">
+	            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+	              <div class="about_txt_title text-uppercase  ">
+	                Support
+	              <hr/>
+	              </div>
+	            </div>
+	        </div>
+         	
+         	<div class="row mt-4 pt-4">
+         		<!--1-->
+            	<div class=" col-12 col-sm-12  col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center mb-3" >
+	                <div class="text-center">
+	                	<a href="/faq">
+	                	<%= image_tag("support/faq_icon.png", :alt => "logo", :class => "img-fluid w-50") %> 
+	           
+	                	<div class="text-center text_title text_bold">FAQ</div></a>
+	                </div>
+	                <div class="text-center">
+	                	<%= image_tag("support/catalog_icon.png", :alt => "logo", :class => "img-fluid w-50") %> 
+	                	
+	                	<div class="text-center text_title text_bold">Catalog</div>
+	                </div>
+				</div>
+
+				<!--2-->
+			
+				
+				
+            </div>
+
+
+	       
+        </section>
+    </div>
+    
+
+     <%= render partial: 'footer/footer' %>
+<%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
+</body>
+</html>
