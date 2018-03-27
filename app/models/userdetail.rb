@@ -1,0 +1,2 @@
+class Userdetail < ApplicationRecord
+end

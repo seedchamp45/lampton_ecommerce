@@ -1,0 +1,3 @@
+class Udetailupdate < ApplicationRecord
+	
+end

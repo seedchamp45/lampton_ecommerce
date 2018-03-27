@@ -1,0 +1,2 @@
+class Myacc < ApplicationRecord
+end

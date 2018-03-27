@@ -1,0 +1,2 @@
+module MyaccHelper
+end
