@@ -1,9 +1,10 @@
 require "omise"
 
 class PaymentsController < ApplicationController
-
+    protect_from_forgery prepend: true
+   
  def index
-  @payment = Payment.order('created_at')
+  @payment = Payment.new
  end
   def new
     puts "==========> go to this function"
@@ -46,3 +47,4 @@ class PaymentsController < ApplicationController
   	params.require(:photo).permit(:title, :image)
  end
 end
+

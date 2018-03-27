@@ -33,12 +33,10 @@ Rails.application.routes.draw do
 get '/photos', to: 'photos#index'
 resources :photos
 
-  get '/payment', to: 'payment#index'
-resources :payments
 
 
-
- 
+post "payments/create"
+  resources :payments 
 
   get 'about/certificate'
 

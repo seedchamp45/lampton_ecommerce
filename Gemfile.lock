@@ -17,6 +17,13 @@ GIT
       solidus_support
 
 GIT
+  remote: https://github.com/collectiveidea/audited.git
+  revision: c48893a680f23d27f7e255dfec2af91e7a00e350
+  specs:
+    audited (4.7.0)
+      activerecord (>= 4.0, < 5.2)
+
+GIT
   remote: https://github.com/samanmohamadi/solidus_slider.git
   revision: 6ff2161d49f0c4f120278580fc3f054b7477d695
   specs:
@@ -492,6 +499,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  audited!
   aws-sdk (< 2.0)
   bootstrap (~> 4.0.0)
   byebug

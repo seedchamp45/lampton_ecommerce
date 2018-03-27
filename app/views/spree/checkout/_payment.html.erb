@@ -114,8 +114,8 @@ left:21%;
                </form>
                     <div id="credits" id="payment_method_<%= method.id %>">
                       
-                    
-    <%= form_for Payment.new, html: { multipart: true } do |f| %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= form_for Payment.new,  url: "/payments" ,html: { remote: true } do |f| %>
 
     <!-- This is a hidden field you must add, to input omise token -->
      <%= f.text_field :amount, class: 'form-control'  ,:value => @order.display_order_total_after_store_credit.money.to_i * 100,:style => "display:none;"%>
@@ -353,7 +353,7 @@ Omise.setPublicKey('pkey_5beag0y4qutu2xde6wl');
 
   Omise.createToken('card', cardObject, function(statusCode, response) {
     if (statusCode === 200) {
-        alert(response.id);
+   
       // Success: assign Omise token back to your checkout form.
         $("#omiseToken").val(response.id);
 
@@ -428,7 +428,7 @@ Omise.setPublicKey('pkey_5beag0y4qutu2xde6wl');
 
   Omise.createToken('card', cardObject, function(statusCode, response) {
     if (statusCode === 200) {
-        alert(response.id);
+        
       // Success: assign Omise token back to your checkout form.
         $("#omiseToken").val(response.id);
 
