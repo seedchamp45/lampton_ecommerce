@@ -1,4 +1,4 @@
-Spree::Admin::OrdersController.class_eval do
+Spree::OrdersController.class_eval do
   respond_to :pdf
 
   def show
@@ -11,9 +11,13 @@ Spree::Admin::OrdersController.class_eval do
           @order.invoice_date = Date.today
           @order.save!
         end
-        render :layout => false , :template => "spree/admin/orders/#{template}.pdf.prawn"
+        render :layout => false , :template => "spree/orders/#{template}.pdf.prawn"
       end
     end
+  end
+
+  def load_order
+    @order = Spree::Order.includes(:adjustments).find_by!(number: params[:id])
   end
 
 end

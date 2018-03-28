@@ -410,7 +410,7 @@
              var myBookstatus = $(this).data('status');
              $(".modal-body #bookId").val( myBookId );
              $(".modal-body #bookstatus").val( myBookstatus );
-             $("#ref-invoice a").attr("href","/admin/orders/"+myBookId+".pdf?template=invoice");
+             $("#ref-invoice a").attr("href","/orders/"+myBookId+".pdf?template=invoice");
 
 
              if (myBookstatus === "Pending") {
