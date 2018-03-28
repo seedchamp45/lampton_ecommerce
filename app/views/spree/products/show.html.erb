@@ -533,7 +533,7 @@ span.onclick = function() {
                 <div class=" product_title_recommender text-center mb-3">RECOMMENDER PRODUCTS</div>
               </div>
               <div class="col-12 col-md-12 col-xl-12 col-lg-12 d-flex justify-content-around">
-                <% Spree::Product.available.order('position ASC').limit(2).each_with_index do |s, index| %>
+                <% Spree::Product.available.where(:promotionable => true).order('position ASC').limit(2).each_with_index do |s, index| %>
                 <div class="card_product ml-lg-1 product_card">
                     <%= link_to product_path(s) do %>
                    <%= image_tag s.display_image.attachment(:large) , :class => "card-img-top i_cn_lampton_diy_img img-fluid"%>
@@ -768,7 +768,7 @@ span.onclick = function() {
                   <ul class="product_ul_model2 d-none d-sm-none d-md-none d-lg-block">
                     <li>
                       <ul class="products_ul_add_tocart nav ">
-                        <% Spree::Product.available.order('position ASC').limit(4).each_with_index do |s, index| %>
+                        <% Spree::Product.available.where(:promotionable => true).order('position ASC').limit(4).each_with_index do |s, index| %>
                         <li>
                              <%= image_tag s.display_image.attachment(:large) , :class => "img-fluid product_img_recommender mouse_img_small"%>
 
@@ -864,7 +864,7 @@ span.onclick = function() {
 
                 </div>
                 <!--left-->
-                  <% Spree::Product.available.sample(1).each_with_index do |s| %>
+                  <% Spree::Product.available.where(:promotionable => true).sample(1).each_with_index do |s| %>
                 <!--right-->
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center">
                   <div class="d-none d-md-block">
