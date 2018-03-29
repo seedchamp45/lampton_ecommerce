@@ -125,61 +125,50 @@ left:21%;
     <%= f.text_field :omise_token, class: 'form-control'  ,:id => "omiseToken" ,:style => "display:none;"%>
 
     <!-- This is card information fields that we required for tokenization -->
-    <div>
-      <label>Card Number</label>
-      <input type="text" data-name="cardNumber" placeholder="••••••••••••••••" />
+  <div class="row">
+    <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+      <div class="payment_credit_text_b">Card Number</div>
+        <input type="text" class="form-control mt-2 mb-4" data-name="cardNumber">
+      </div>
+
+      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="payment_credit_text_b">Name on card</div>
+          <input type="text" class="form-control mt-2 mb-4" data-name="nameOnCard">
+      </div>
+
+      <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+      <div class="payment_credit_text_b">Expiry Date</div>
+      <ul class="payment_ul_credit">
+        <li><input type="text" class="form-control mt-2 mb-4 d-inline-block inputclass" data-name="expiryMonth" placeholder="MM"></li>
+        <li><input type="text" class="form-control mt-2 mb-4 d-inline-block inputclass" data-name="expiryYear" placeholder="YY"></li>
+      </ul>
+      
     </div>
 
-    <div>
-      <label>Name on card</label>
-      <input type="text" data-name="nameOnCard" placeholder="Full Name" />
+    <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="payment_credit_text_b">Security code</div>
+          <input type="text" class="form-control mt-2 mb-4" data-name="securityCode">
+      </div>
+
+    
+    <div class="col col-sm-6 col-md-6 col-lg-6 col-xl-6 align-self-center">
+
+      <div class="payment_terms"> <a target="_blank" href="/termandcondition">Term and condition</a></div>
     </div>
 
-    <div>
-      <label>Expiry date</label>
-      <select data-name="expiryMonth">
-        <option value="">MM</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="9">10</option>
-        <option value="9">11</option>
-
-        <!-- ... -->
-        <option value="12">12</option>
-      </select>
-
-      <select data-name="expiryYear">
-        <option value="">YYYY</option>
-
-        <option value="2018">2018</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-        <option value="2022">2022</option>
-        <option value="2022">2023</option>
-        <option value="2022">2024</option>
-        <!-- ... -->
-        <option value="2025">2025</option>
-        <option value="2025">2026</option>
-      </select>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <ul class="payment_ul_credit">
+        <li class="mr-2"><input type="checkbox" aria-label="Checkbox for following text input d-inline-block mt-2"></li>
+        <li><div class="payment_text_middle  d-inline-block">   Do not save this card for future use</div></li>
+      </ul>
+       
     </div>
 
-    <div>
-      <label>Security code</label>
-      <input type="text" data-name="securityCode" placeholder="123" />
-    </div>
-
-    <div>
-      <%= f.submit 'Checkout', :class => "check-omise" %>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+      <%= f.submit 'PLACE YOU ORDER', :class => "check-omise btn btn-white products_button btn-lg  products_bu_details orange_bg mt-3" %>
      
     </div>
+  </div>
 <% end %>
 
   <!-- Include omise.js. -->
@@ -193,7 +182,7 @@ left:21%;
 <br>
 <br>
 
-<a target="_blank" href="/termandcondition" class="term-con">Term and condition</a>
+
   
 
                     </div>
