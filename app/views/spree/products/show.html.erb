@@ -331,7 +331,7 @@
                 <!--desktop: right image -->
                 <div class="d-none d-md-block col-md-2 col-xl-2 col-lg-2">
                   <div class=" product_title_recommender text-center mb-3">RECOMMENDER PRODUCTS</div>
-                  <% Spree::Product.available.order('position ASC').limit(4).each_with_index do |s, index| %>
+                  <% Spree::Product.available.where(:promotionable => true).order('position ASC').limit(4).each_with_index do |s, index| %>
                   <div class="product_recommender text-center d-block">
                     <%= link_to   product_path(s) do %>
                    <%= image_tag s.display_image.attachment(:large) , :class => "img-fluid product_img_recommender mouse_img_small"%>
