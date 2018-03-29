@@ -36,8 +36,8 @@ module LamptonEcommerce
       :address => "smtp.gmail.com",
       :port => 587,
       :domain => "gmail.com",
-      :user_name => "kittipol.idas@gmail.com",
-      :password => "Champpseedd4785",
+      :user_name => "lamptan.info@gmail.com",
+      :password => "lamptan1234",
       :authentication => "plain",
       :enable_starttls_auto => true
     }
