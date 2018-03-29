@@ -54,6 +54,13 @@ GIT
       mimemagic (= 0.3.0)
 
 PATH
+  remote: solidus_trackers-master
+  specs:
+    solidus_trackers (1.1.0)
+      solidus_core (>= 2.1.0.alpha, < 3)
+      solidus_support
+
+PATH
   remote: solidus_print_invoice-master
   specs:
     solidus_print_invoice (1.0.2)
@@ -525,6 +532,7 @@ DEPENDENCIES
   solidus_print_invoice!
   solidus_slider!
   solidus_social
+  solidus_trackers!
   solidus_wishlist!
   spring
   spring-watcher-listen (~> 2.0.0)
