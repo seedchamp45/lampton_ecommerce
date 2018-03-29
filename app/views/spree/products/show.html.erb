@@ -272,7 +272,7 @@
                           </ul>
                         </div>
 
-                        <div class="d-inline product_details_right"><button type="button" class="btn btn-white products_button btn-lg  products_bu_details orange_bg " data-toggle="modal" data-target="#modalCart">ADD TO CART</button></div>
+                        <div class="d-inline product_details_right"><button type="button" id="fb-tracker-1" class="btn btn-white products_button btn-lg  products_bu_details orange_bg " data-toggle="modal" data-target="#modalCart">ADD TO CART</button></div>
                       </div>
                       <div class="d-block "> 
                         <ul class="products_details_ul_bu">
@@ -314,7 +314,7 @@
 
                       </div>
                       <div class="d-md-none d-block "> 
-                        <button type="button" class="btn  btn-lg btn-block orange_bg"  data-toggle="modal" data-target="#modalCart">ADD TO CART</button>
+                        <button type="button" class="btn  btn-lg btn-block orange_bg" id="fb-tracker-2" data-toggle="modal" data-target="#modalCart">ADD TO CART</button>
                       </div>
                     </div>
 
@@ -957,7 +957,25 @@ var c_img_small ;
 var icount=0;
 var count_img=5;
 
+$('#add-to-cart-button').click(function(e) {
+  FB.AppEvents.logEvent("proceed-to-checkout");
+});
+
+$('#fb-tracker-1').click(function(e) {
+  FB.AppEvents.logEvent("add-to-cart");
+});
+
+$('#fb-tracker-2').click(function(e) {
+  FB.AppEvents.logEvent("add-to-cart");
+});
+
+
+
+
 $(document).ready(function(){
+
+
+
 
   var numberss = "<%= @product.price %>"
   $('#allprice').text("฿" + numberss);
