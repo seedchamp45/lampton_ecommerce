@@ -28,7 +28,7 @@ module LamptonEcommerce
     config.assets.precompile += ['.css', '.js'] 
     config.serve_static_assets = true
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
-    config.force_ssl = true
+ 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
