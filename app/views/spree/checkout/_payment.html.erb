@@ -57,9 +57,10 @@ left:21%;
               <!--select payment-->
               <div id="payment-method-fields" data-hook> 
                 <ul class="payment_option">
-
+      
                    <% @order.available_payment_methods.each_with_index do |method, index| %>
-                 
+               
+                  
                    <% if index === 0 %>
                      
                    
@@ -75,11 +76,12 @@ left:21%;
                   <li> 
 
                     <%= image_tag("payment/direct_bank.png", :alt => "logo", :class => "img-fluid payment_option_img") %></li>
-                    <li><div class="payment_text_option text_bold">Direct Bank <br>Transfer</div></li>
+                    <li><div class="payment_text_option text_bold">Direct Bank <br>Transfer </div></li>
                            <% else %>
+
                     <li class="payment_input_option register no-margin"> 
                       
-                 <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
+                 <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.last %>
                    
                       <label for="r2"><span></span>
                       </li>
@@ -110,10 +112,11 @@ left:21%;
 
                     </div> 
                    <% else %>
-                 </filedset>
-               </form>
+                 
+               
                     <div id="credits" id="payment_method_<%= method.id %>">
-                      
+</filedset>
+                      </form>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <%= form_for Payment.new,  url: "/payments" ,html: { remote: true } do |f| %>
 
@@ -307,7 +310,7 @@ Omise.setPublicKey('pkey_5beag0y4qutu2xde6wl');
  $('input[type=radio]').change(function() {
   close();
   if (this.value == '18') {
-     $('.continue').click(function(){return true;});
+
     $("#direct_bank").show();
     $("#credits").hide();
     $("#paypal").hide();

@@ -29,19 +29,19 @@ class PaymentsController < ApplicationController
       description: params[:payment][:desc],
 			card:  params[:payment][:omise_token]
 			})
-    respond_to do |format|
+
 		if charge.paid
   			# handle success
   			puts "thanks"
-         format.html { redirect_to '/checkout/confirm'}
+          redirect_to '/checkout/confirm' , notice: "Transfer successful" 
     
 		else
   		# handle failure
        puts charge.failure_code.to_s
-       format.html { redirect_to '/checkout/payment', notice: charge.failure_code.to_s }
+    redirect_to '/checkout/payment', notice: charge.failure_code.to_s 
   	   
 		end
-  end
+
 
   end
 

@@ -61,7 +61,7 @@
                 
                   <ul class="account_menu_left" style="list-style-type: none;">
                     <li class="border-bottom ">
-                      <div class="d-inline text_body text_bold  "><%= Spree::Address.where(:id => spree_current_user.id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.id).first.lastname   %></div>
+                      <div class="d-inline text_body text_bold  ">  <% if spree_current_user.ship_address_id.present? %><%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.lastname   %><% end %></div>
                     </li>
                     <li class=" border-bottom ">
                       <a href="/myaccount" class="">

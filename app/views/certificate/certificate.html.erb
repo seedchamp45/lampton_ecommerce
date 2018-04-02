@@ -61,7 +61,12 @@
 
                 <ul class="account_menu_left" style="list-style-type: none;">
                   <li class="border-bottom ">
-                    <div class="d-inline text_body text_bold  "><%= Spree::Address.where(:id => spree_current_user.id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.id).first.lastname   %></div>
+                    <div class="d-inline text_body text_bold  ">
+                         <% if spree_current_user.ship_address_id.present? %>
+                      <%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.id).first.lastname   %>
+                      <% end %>
+
+                    </div>
                   </li>
                   <li class=" border-bottom ">
                     <a href="/myaccount" class="">
@@ -347,15 +352,16 @@
                                           </table>
                                           <div class="border_bottom_100 mt-4"></div>
                                           <div class="text_title text_bold mb-4 mt-3">Shipping Address</div>
+                                             <% if spree_current_user.ship_address_id.present? %>
+                                          <div class="text_body mb-4"><%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.lastname   %></div>
 
-                                          <div class="text_body mb-4"><%= Spree::Address.where(:id => spree_current_user.id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.id).first.lastname   %></div>
-
-                                          <div class="text_body"><%= Spree::Address.where(:id => spree_current_user.id).first.address1   %> </div>
+                                          <div class="text_body"><%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.address1   %> </div>
 
 
-                                          <div class="text_body ">Phone: <%= Spree::Address.where(:id => spree_current_user.id).first.phone   %> </div>
+                                          <div class="text_body ">Phone: <%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.phone   %> </div>
 
                                         </div>
+                                        <% end %>
                                       </div>
 
 

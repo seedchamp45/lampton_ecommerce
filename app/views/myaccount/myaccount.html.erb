@@ -68,7 +68,8 @@
                 
                   <ul class="account_menu_left" style="list-style-type: none;">
                     <li class="border-bottom ">
-                      <div class="d-inline text_body text_bold  "> <%= Spree::Address.where(:id => spree_current_user.id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.id).first.lastname   %></div>
+                      <div class="d-inline text_body text_bold  "> <% if spree_current_user.ship_address_id.present? %>
+                        <%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.lastname   %><% end %></div>
                     </li>
                     <li class=" border-bottom ">
                       <a href="/companyptofile" class="">
@@ -133,8 +134,12 @@
                            <%= f.text_field :firstname, class: 'form-control' , :value => Myacc.where(:iduser => spree_current_user.id).last.firstname   %>
 
                         <% else %>
-                       
-                        <%= f.text_field :firstname, class: 'form-control' , :value => Spree::Address.where(:id => spree_current_user.id).last.firstname    %>
+                       <% if spree_current_user.ship_address_id.present? %>
+                        <%= f.text_field :firstname, class: 'form-control' , :value => Spree::Address.where(:id => spree_current_user.ship_address_id).last.firstname    %>
+                        <% else %>
+                        <%= f.text_field :firstname, class: 'form-control' , :value => ""   %>
+                        <% end %>
+
                         <% end %>
                         
                     </div>
@@ -149,7 +154,11 @@
 
                         <% else %>
                        
-                        <%= f.text_field :lastname, class: 'form-control' , :value => Spree::Address.where(:id => spree_current_user.id).last.lastname    %>
+                        <% if spree_current_user.ship_address_id.present? %>
+                        <%= f.text_field :firstname, class: 'form-control' , :value => Spree::Address.where(:id => spree_current_user.ship_address_id).last.lastname    %>
+                        <% else %>
+                        <%= f.text_field :firstname, class: 'form-control' , :value => ""   %>
+                        <% end %>
                         <% end %>
 
 
