@@ -112,10 +112,10 @@ left:21%;
 
                     </div> 
                    <% else %>
-                 
+           
                
                     <div id="credits" id="payment_method_<%= method.id %>">
-</filedset>
+   </filedset>   
                       </form>
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <%= form_for Payment.new,  url: "/payments" ,html: { remote: true } do |f| %>
@@ -289,7 +289,7 @@ left:21%;
 <script>
 
 // Set your Omise public key to authenticate against Omise API. This allows card information to be sent directly to Omise.
-Omise.setPublicKey('pkey_5beag0y4qutu2xde6wl');
+Omise.setPublicKey('pkey_test_5bdalw73ga3q9b2txnv');
 //pkey_test_5bdalw73ga3q9b2txnv
 
 //pkey_5beag0y4qutu2xde6wl
