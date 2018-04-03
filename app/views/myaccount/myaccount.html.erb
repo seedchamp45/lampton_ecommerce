@@ -155,9 +155,9 @@
                         <% else %>
                        
                         <% if spree_current_user.ship_address_id.present? %>
-                        <%= f.text_field :firstname, class: 'form-control' , :value => Spree::Address.where(:id => spree_current_user.ship_address_id).last.lastname    %>
+                        <%= f.text_field :lastname, class: 'form-control' , :value => Spree::Address.where(:id => spree_current_user.ship_address_id).last.lastname    %>
                         <% else %>
-                        <%= f.text_field :firstname, class: 'form-control' , :value => ""   %>
+                        <%= f.text_field :lastname, class: 'form-control' , :value => ""   %>
                         <% end %>
                         <% end %>
 
@@ -439,7 +439,13 @@
 
                       <% else %>
 
-                      <%= f.text_field :mobilenumber, class: 'form-control' , :value => Spree::Address.where(:id => spree_current_user.id).first.phone   %>
+  
+                        <% if spree_current_user.ship_address_id.present? %>
+                        <%= f.text_field :mobilenumber, class: 'form-control' , :value => Spree::Address.where(:id => spree_current_user.ship_address_id).last.phone    %>
+                        <% else %>
+                        <%= f.text_field :mobilenumber, class: 'form-control' , :value => ""   %>
+                        <% end %>
+                     
                      <% end %>
                      
                     </div>
