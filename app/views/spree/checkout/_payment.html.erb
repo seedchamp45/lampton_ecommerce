@@ -52,7 +52,7 @@ left:21%;
           <!--left CHOOSE PAYMENT OPTION  --> 
           <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
             <div class="check_text_title">CHOOSE PAYMENT OPTION</div>
-             <p id="notice">    <%= flash_messages %></p> 
+             <p id="notice" style="color: red;" class="check_text_title">    </p> 
             <div class="line_full"></div>
             <div class="payment_body_choose">
               <!--select payment-->
@@ -289,7 +289,7 @@ left:21%;
 <script>
 
 // Set your Omise public key to authenticate against Omise API. This allows card information to be sent directly to Omise.
-Omise.setPublicKey('pkey_test_5bdalw73ga3q9b2txnv');
+Omise.setPublicKey('pkey_5beag0y4qutu2xde6wl');
 //pkey_test_5bdalw73ga3q9b2txnv
 
 //pkey_5beag0y4qutu2xde6wl
@@ -309,11 +309,13 @@ Omise.setPublicKey('pkey_test_5bdalw73ga3q9b2txnv');
       var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
     
       if (hash ==="error"){
+            $("#notice").text('เกิดข้อผิดพลาด กรุณาลองใหม่อีกรอบ (ระบบยังไม่ทำการตัดเงิน)');
           alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกรอบ (ระบบยังไม่ทำการตัดเงิน)');
         }
-        else
+        else if (hash ==="success")
         {
           alert ("ระบบทำการตัดเงินเรียบร้อย กรุณารอสักครู่");
+          $("#notice").text('ระบบทำการตัดเงินเรียบร้อย กรุณารอสักครู่');
            $(".continue").click();
             
         }

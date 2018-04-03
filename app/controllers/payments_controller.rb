@@ -14,8 +14,8 @@ class PaymentsController < ApplicationController
 
    def create
         puts "==========> go to this function"
-        Omise.secret_api_key = "skey_test_5b9rzvva6bgfn7zh1tz"
-   	#Omise.secret_api_key = "skey_5bef85o624z06dzj3e1"
+        #Omise.secret_api_key = "skey_test_5b9rzvva6bgfn7zh1tz"
+   	Omise.secret_api_key = "skey_5bef85o624z06dzj3e1"
     #skey_test_5b9rzvva6bgfn7zh1tz
 		@payment = Payment.new(params.require(:payment).permit(:omise_token, :amount, :desc))
      
