@@ -34,7 +34,7 @@ class PaymentsController < ApplicationController
 		if charge.paid
   			# handle success
   			puts "thanks"
-        redirect_to '/checkout/confirm' , notice: "Transfer successful" 
+        redirect_to '/checkout/payment#success' 
     
 		else
   		# handle failure

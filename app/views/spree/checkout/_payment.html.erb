@@ -293,11 +293,6 @@ Omise.setPublicKey('pkey_test_5bdalw73ga3q9b2txnv');
 //pkey_test_5bdalw73ga3q9b2txnv
 
 //pkey_5beag0y4qutu2xde6wl
-$(window).bind('hashchange', function() {
-     //code
-      alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกรอบ (ระบบยังไม่ทำการตัดเงิน)');
-
-});
 
 
  $(document).ready(function(){
@@ -311,11 +306,21 @@ $(window).bind('hashchange', function() {
                      }
 
     if(window.location.hash) {
-      alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกรอบ (ระบบยังไม่ทำการตัดเงิน)');
-  // Fragment exists
-} else {
+      var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+    
+      if (hash ==="error"){
+          alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกรอบ (ระบบยังไม่ทำการตัดเงิน)');
+        }
+        else
+        {
+          alert ("ระบบทำการตัดเงินเรียบร้อย กรุณารอสักครู่");
+           $(".continue").click();
+            
+        }
+      // Fragment exists
+    } else {
   // Fragment doesn't exist
-}
+      }
    
 });
 
