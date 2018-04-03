@@ -34,13 +34,14 @@ class PaymentsController < ApplicationController
 		if charge.paid
   			# handle success
   			puts "thanks"
-          redirect_to '/checkout/confirm' , notice: "Transfer successful" 
+        redirect_to '/checkout/confirm' , notice: "Transfer successful" 
     
 		else
   		# handle failure
        puts charge.failure_code.to_s
-       flash.now[:alert] = 'Error while sending message!'
-    #redirect_to '/checkout/payment', notice: charge.failure_code.to_s 
+       flash[:error] = "เกิดข้อผิดพลาด กรุณาลองใหม่อีกรอบ (ระบบยังไม่ทำการตัดเงิน)"
+       #match '/checkout/payment' => redirect_to{ |p,req| req.flash[:alert] = "เกิดข้อผิดพลาด กรุณาลองใหม่อีกรอบ (ระบบยังไม่ทำการตัดเงิน)"; "/"}
+       redirect_to '/checkout/payment#error'
   	   
 		end
 

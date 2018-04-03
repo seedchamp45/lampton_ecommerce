@@ -81,6 +81,10 @@ $(document).ready(function(){
             window.location.href = "/wishlist";
           }
 
+         if (pathname.startsWith("/checkout/payment#error")) {
+            alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกรอบ (ระบบยังไม่ทำการตัดเงิน)');
+          }
+
 
 
             $('.slideshow_image').magnificPopup({
