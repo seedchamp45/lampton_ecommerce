@@ -13,8 +13,24 @@ Spree::SocialConfig.configure do |config|
 
   config.providers = {
     facebook: {
-      api_key: ENV['1620076268100083'],
+      api_key: ENV['e263d645ccf185e2c3f783ef0c65fa36'],
       api_secret: ENV['2a75ffd10172df3109a189cff0e05824'],
+    },
+    twitter: {
+      api_key: ENV['TWITTER_API_KEY'],
+      api_secret: ENV['TWITTER_API_SECRET'],
+    },
+    github: {
+      api_key: ENV['GITHUB_API_KEY'],
+      api_secret: ENV['GITHUB_API_SECRET'],
+    },
+    google_oauth2: {
+      api_key: ENV['GOOGLE_OAUTH2_API_KEY'],
+      api_secret: ENV['GOOGLE_OAUTH2_API_SECRET'],
+    },
+    amazon: {
+      api_key: ENV['AMAZON_API_KEY'],
+      api_secret: ENV['AMAZON_API_SECRET'],
     }
   }
 end
