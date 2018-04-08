@@ -5,11 +5,11 @@ Spree::SocialConfig.configure do |config|
   # The default is /user/auth/:provider
   #
   # for /member/auth/:provider
-  # config.path_prefix = 'member'
+   config.path_prefix = 'member'
   # for /profile/auth/:provider
-  # config.path_prefix = 'profile'
+   config.path_prefix = 'profile'
   # for /auth/:provider
-  # config.path_prefix = ''
+   config.path_prefix = 'facebook'
 
   config.providers = {
     facebook: {
