@@ -111,6 +111,7 @@
   }
 }
 </style>
+
 <div class="bar_menu_de">
   <div class="container">
     <div class="row">
@@ -859,10 +860,11 @@
 
                     </div>
                     <!--left-->
-                 
+                    <% if @product.taxons.count > 0 %>
+                  
                     <% Spree::Product.in_taxons(@product.taxons.first.id).sample(1).each_with_index do |s, index| %>
 
-                    <% if index == 0 %>
+                
                     <!--right-->
                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center">
                       <div class="d-none d-md-block">
@@ -901,7 +903,55 @@
                       </div>
                     </div>
                   </div>
-                  <% end %>
+                      <% end %>
+                  <% else %>
+                  <% Spree::Product.available.where(:promotionable => true).sample(1).each_with_index do |s| %>
+
+      
+
+       
+                    <!--right-->
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex justify-content-center">
+                      <div class="d-none d-md-block">
+                        <div class="h-100 vl" style=" position:  absolute; left: 0;"></div>
+                      </div>
+                      <div class="w-75 ">
+                        <div>
+                          <div class="item_img">
+                           <%= image_tag( s.display_image.attachment(:large), :alt => "logo", :class => "img-fluid zoom") %>
+
+
+                         </div>
+                         <p class="check_out_exit " style="top: 0.3em;">
+
+                         </p>
+                         <div class="ml-2">
+                          <div class="text-left text_body text_bold"><%= s.name %></div>
+                          <div class="w-100 mt-2">
+                            <ul class="nav">
+                              <li class="w-50 text-left"><div class="d-inline  text_title text_bold text_orange ">฿ <%= s.price %></div></li>
+                              <li class="w-50 text-right"><button class="btn btn-outline-orange i_button p-1 i_button  bg_transparent">
+                                <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0">
+
+                                  <div class="align-middle d-inline  text_small "><a href="/products/<%= s.slug %>">VIEW DETAILS</a></div>
+
+                                </div>
+                              </button></li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="border_bottom_100 mt-4 mb-3"></div>
+                        <div class="specification text-left">
+                          <div class="ml-2 text_body text_bold">Specification</div>
+                          <%= image_tag("products/specification.jpg", :alt => "logo", :class => "img-fluid") %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        
+             
+               <% end %>
+              
                   <% end %>
                   <!--right-->   
 
