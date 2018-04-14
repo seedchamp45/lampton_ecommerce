@@ -37,6 +37,27 @@ position:absolute;
 left:21%;
     padding: 10px;
 }
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 </style>
 
 <div >
@@ -68,7 +89,7 @@ left:21%;
                 
        
                   <li class="payment_input_option register no-margin">
-                       <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first%>
+                       <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first ,:class => "tier_#{index}"%>
                    
                     <label for="r1"><span></span></label>
 
@@ -82,7 +103,7 @@ left:21%;
 
                     <li class="payment_input_option register no-margin"> 
                       
-                 <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.last %>
+                 <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.last ,:class => "tier_#{index}"%>
                    
                       <label for="r2"><span></span>
                       </li>
@@ -302,8 +323,7 @@ Omise.setPublicKey('pkey_5beag0y4qutu2xde6wl');
     $("#ch_bank").attr("src","assets/images/direct bank_2.png");
       var pathname = window.location.pathname;
 
-    if (pathname.startsWith("/checkout/payment#error")) {
-                     }
+   
 
     if(window.location.hash) {
       var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
@@ -319,10 +339,10 @@ Omise.setPublicKey('pkey_5beag0y4qutu2xde6wl');
            $(".continue").click();
             
         }
-      // Fragment exists
+      
     } else {
-  // Fragment doesn't exist
-      }
+      $('.tier_0').click();
+    }
    
 });
 
