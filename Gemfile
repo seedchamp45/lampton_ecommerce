@@ -25,6 +25,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem "audited", github: "collectiveidea/audited"
 gem 'solidus_trackers' , path: './solidus_trackers-master'
+gem 'solidus_user_roles' , path: './solidus_user_roles-master'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record

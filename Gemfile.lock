@@ -54,10 +54,10 @@ GIT
       mimemagic (= 0.3.0)
 
 PATH
-  remote: solidus_trackers-master
+  remote: solidus_user_roles-master
   specs:
-    solidus_trackers (1.1.0)
-      solidus_core (>= 2.1.0.alpha, < 3)
+    solidus_user_roles (1.2.1)
+      solidus_core (>= 1.0.0, < 3)
       solidus_support
 
 PATH
@@ -67,6 +67,13 @@ PATH
       deface
       prawn (= 1.0.0)
       solidus (>= 1.0, < 3)
+      solidus_support
+
+PATH
+  remote: solidus_trackers-master
+  specs:
+    solidus_trackers (1.1.0)
+      solidus_core (>= 2.1.0.alpha, < 3)
       solidus_support
 
 GEM
@@ -533,6 +540,7 @@ DEPENDENCIES
   solidus_slider!
   solidus_social
   solidus_trackers!
+  solidus_user_roles!
   solidus_wishlist!
   spring
   spring-watcher-listen (~> 2.0.0)
