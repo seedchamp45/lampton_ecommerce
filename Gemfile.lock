@@ -54,13 +54,6 @@ GIT
       mimemagic (= 0.3.0)
 
 PATH
-  remote: solidus_user_roles-master
-  specs:
-    solidus_user_roles (1.2.1)
-      solidus_core (>= 1.0.0, < 3)
-      solidus_support
-
-PATH
   remote: solidus_print_invoice-master
   specs:
     solidus_print_invoice (1.0.2)
@@ -74,6 +67,13 @@ PATH
   specs:
     solidus_trackers (1.1.0)
       solidus_core (>= 2.1.0.alpha, < 3)
+      solidus_support
+
+PATH
+  remote: solidus_user_roles-master
+  specs:
+    solidus_user_roles (1.2.1)
+      solidus_core (>= 1.0.0, < 3)
       solidus_support
 
 GEM
@@ -298,6 +298,7 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
+    openssl (2.1.0)
     orm_adapter (0.5.0)
     paranoia (2.4.0)
       activerecord (>= 4.0, < 5.2)
@@ -524,6 +525,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   magnific-popup-rails (~> 1.1.0)
   omise
+  openssl
   paperclip!
   pg (~> 0.18)
   puma (~> 3.7)
