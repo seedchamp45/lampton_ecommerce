@@ -356,7 +356,12 @@
                                           <div class="text_title text_bold mb-4 mt-3">Shipping Address</div>
                                         <% if spree_current_user.ship_address_id.present? %>
                                           <div class="text_body mb-4">
-                                            <%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.firstname   %> <%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.lastname   %></div>
+                                            
+                                            <%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.firstname %>
+
+                                            <%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.lastname %>
+
+                                          </div>
 
                                           <div class="text_body"><%= Spree::Address.where(:id => spree_current_user.ship_address_id).first.address1   %> </div>
 
@@ -424,6 +429,7 @@
              $("#process").hide();
              $("#shipped").hide();
              $("#delivered").hide();
+             $('#ref-invoice').hide();
            }
 
          });
