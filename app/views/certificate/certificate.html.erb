@@ -308,7 +308,7 @@
                                         <%= image_tag("profile/order_status_3.png", :alt => "logo", :id => "shipped", :class => "img-fluid") %>
                                         <%= image_tag("profile/order_status_4.png", :alt => "logo", :id => "delivered", :class => "img-fluid") %>
                                         <div class="text-center mt-4">
-                                          <button class="btn btn-outline-orange btn-lg i_button text_bold bg_transparent">
+                                          <button class="btn btn-outline-orange btn-lg i_button text_bold bg_transparent ref-invoice-button">
                                             <div class="ml-lg-3 mr-lg-3 ml-md-0 mr-md-0" id="ref-invoice">
                                               <a  target="_blank">
                                                 <div class="d-inline  text_body pl-lg-2 pr-lg-2">DOWNLOAD TAX INVOICE</div>
@@ -412,14 +412,17 @@
               $("#delivered").hide();
               $('#ref-invoice').hide();
              $('#ref-invoice a').hide();
+             $('.ref-invoice-button').hide();
             }
             else if (myBookstatus === "Ready") {
               $("#order").hide();
               $("#process").hide();
               $("#shipped").show();
               $("#delivered").hide();
-              $('#ref-invoice').hide();
-             $('#ref-invoice a').hide();
+              $('#ref-invoice').show();
+             $('#ref-invoice a').show();
+             $('.ref-invoice-button').show();
+              $("#ref-invoice a").attr("href","/orders/"+myBookId+".pdf?template=invoice");
             }
             else if (myBookstatus === "Shipped") {
               $("#order").hide();
@@ -428,6 +431,7 @@
               $("#delivered").show();
               $('#ref-invoice').show();
              $('#ref-invoice a').show();
+             $('.ref-invoice-button').show();
               $("#ref-invoice a").attr("href","/orders/"+myBookId+".pdf?template=invoice");
             }
             else
@@ -438,6 +442,7 @@
              $("#delivered").hide();
              $('#ref-invoice').hide();
              $('#ref-invoice a').hide();
+             $('.ref-invoice-button').hide();
            }
 
          });
