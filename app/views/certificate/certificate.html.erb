@@ -402,7 +402,7 @@
              var myBookstatus = $(this).data('status');
              $(".modal-body #bookId").val( myBookId );
              $(".modal-body #bookstatus").val( myBookstatus );
-             $("#ref-invoice a").attr("href","/orders/"+myBookId+".pdf?template=invoice");
+             
 
 
              if (myBookstatus === "Pending") {
@@ -410,18 +410,25 @@
               $("#process").show();
               $("#shipped").hide();
               $("#delivered").hide();
+              $('#ref-invoice').hide();
+             $('#ref-invoice a').hide();
             }
             else if (myBookstatus === "Ready") {
               $("#order").hide();
               $("#process").hide();
               $("#shipped").show();
               $("#delivered").hide();
+              $('#ref-invoice').hide();
+             $('#ref-invoice a').hide();
             }
             else if (myBookstatus === "Shipped") {
               $("#order").hide();
               $("#process").hide();
               $("#shipped").hide();
               $("#delivered").show();
+              $('#ref-invoice').show();
+             $('#ref-invoice a').show();
+              $("#ref-invoice a").attr("href","/orders/"+myBookId+".pdf?template=invoice");
             }
             else
             {
@@ -430,6 +437,7 @@
              $("#shipped").hide();
              $("#delivered").hide();
              $('#ref-invoice').hide();
+             $('#ref-invoice a').hide();
            }
 
          });
