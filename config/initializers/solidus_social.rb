@@ -9,7 +9,7 @@ Spree::SocialConfig.configure do |config|
   # for /profile/auth/:provider
    #config.path_prefix = 'profile'
   # for /auth/:provider
-  # config.path_prefix = 'facebook'
+  config.path_prefix = 'facebook'
 
   config.providers = {
     facebook: {
