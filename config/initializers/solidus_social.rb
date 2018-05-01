@@ -1,5 +1,5 @@
 Spree::SocialConfig.configure do |config|
-  config.use_static_preferences!
+  #config.use_static_preferences!
 
   # Configure the Path prefix for OAuth paths
   # The default is /user/auth/:provider
