@@ -38,7 +38,7 @@ module LamptonEcommerce
       :port => 587,
       :domain => "gmail.com",
       :user_name => "lamptan.info@gmail.com",
-      :password => "lamptan1234",
+      :password => "lamptan2018",
       :authentication => "plain",
       :enable_starttls_auto => true
     }
