@@ -1,0 +1,2 @@
+module NewsandmediaadminHelper
+end

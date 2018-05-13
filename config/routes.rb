@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
 
 
+  get 'newsandmediaadmin/new'
+
+  get 'newsandmediaadmin/index'
+
   get '/diy'  => 'diy#diy'
 
   get '/newsandmedia' => 'newsandmedia#newsandmedia'
