@@ -14,3 +14,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( index.css )
 Rails.application.config.assets.precompile += %w( index.js )
+
+Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'html')
+Rails.application.config.assets.register_mime_type('text/html', '.html')
