@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  
-
-
-
-  get 'newsandmediaadmin/new'
-
-  get 'newsandmediaadmin/index'
 
   get '/diy'  => 'diy#diy'
 
@@ -29,23 +22,20 @@ Rails.application.routes.draw do
 
   get '/vission_mission' => 'vissionmission#vissionmission'
 
-
-
   get '/certificate' => 'certificate#certificate'
   
-   post '/companyptofile/:order', to: 'companyptofile#new'
+  post '/companyptofile/:order', to: 'companyptofile#new'
 
-  
+  get '/photos', to: 'photos#index'
+  resources :photos
 
+  get '/myaccs', to: 'myaccs#index'
+  resources :myaccs
 
-get '/photos', to: 'photos#index'
-resources :photos
+  get '/newsandmediaadmin', to: 'newsandmediaadmin#index'
+  resources :newsandmediaadmin
 
-get '/myaccs', to: 'myaccs#index'
-resources :myaccs
-
-
-post "payments/create"
+  post "payments/create"
   resources :payments 
 
   get 'about/certificate'
