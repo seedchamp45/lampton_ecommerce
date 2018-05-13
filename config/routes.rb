@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
 
 
+  get '/diy'  => 'diy#diy'
+
+  get '/newsandmedia' => 'newsandmedia#newsandmedia'
+
   get '/catalogue' => 'catalogue#catalogue'
 
   get '/support' => 'support#support'

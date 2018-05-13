@@ -74,7 +74,7 @@
         <div id="accordion">
           <!--1-->
           <div class="menu_2">
-            <div class="pop_menu_txt p-2"><a href="http://www.lamptan.co.th" style="color:white;" rel="external nofollow">HOME</a></div>
+            <div class="pop_menu_txt p-2"><%= link_to Spree.t(:home), spree.root_path, style: "color:white;" %></div>
           </div>
           <!--1-->
 
@@ -85,6 +85,9 @@
           <!--2-->
           <div class="menu_2">
             <div class="pop_menu_txt p-2"><a href="/products" style="color:white;">Products</a></div>
+          </div>
+          <div class="menu_2">
+            <div class="pop_menu_txt p-2"><a href="/newsandmedia" style="color:white;">News & Media</a></div>
           </div>
           <div class="menu_2">
             <div class="pop_menu_txt p-2"><a href="/agent" style="color:white;">Contact us</a></div>
@@ -189,13 +192,16 @@
   <div class="container-fluid  pt-3 no_padding d-none d-md-block">
     <ul class="nav justify-content-center menu_bar">
       <li class="nav-item down_down_head">
-        <a class="nav-link active d-flex justify-content-center h_text_menu " href="http://www.lamptan.co.th"  rel="external nofollow">HOME</a>
+        <%= link_to Spree.t(:home), spree.root_path , class: "nav-link h_text_menu"  %>
       </li>
       <li class="nav-item d-flex justify-content-center ">
         <a class="nav-link h_text_menu " href="/smarthome">Smart Home</a>
       </li>
       <li class="nav-item down_down_head">
        <a class="nav-link h_text_menu" href="/products">Products</a>
+     </li>
+     <li class="nav-item down_down_head">
+       <a class="nav-link h_text_menu" href="/newsandmedia">News & Media</a>
      </li>
      <li class="nav-item down_down_head">
        <a class="nav-link h_text_menu" href="/agent">Contact us</a>
