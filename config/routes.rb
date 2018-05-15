@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get '/diy'  => 'diy#diy'
 
   get '/newsandmedia' => 'newsandmedia#newsandmedia'
@@ -32,8 +33,11 @@ Rails.application.routes.draw do
   get '/myaccs', to: 'myaccs#index'
   resources :myaccs
 
-  get '/newsandmediaadmin', to: 'newsandmediaadmin#index'
-  resources :newsandmediaadmin
+  get '/newsandmediaadmins', to: 'newsandmediaadmins#index'
+  resources :newsandmediaadmins
+
+  post '/medias', to: 'medias#index'
+  resources :medias
 
   post "payments/create"
   resources :payments 

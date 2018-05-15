@@ -1,0 +1,75 @@
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+ 
+  <!-- Include Editor style. -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+ 
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.5.1//js/froala_editor.pkgd.min.js"></script>
+
+<div class = "container" style="margin: 3em;">
+<div class="page-header"><h1>Upload Photo</h1></div>
+
+<%= form_for @medias, html: { multipart: true } do |f| %>
+  <% if @medias.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= "#{pluralize(@photo.errors.count, "error")} prohibited this photo from being saved:" %>
+      </h2>
+      <ul>
+        <% @medias.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+          <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title ,class: 'form-control' %>
+  </div>
+
+  <div class="sample">
+  <%= f.label :description %>
+
+      <%= f.text_area :description, class: 'form-control', id: 'edit' %>
+
+  </div>
+<!--     <div class="form-group">
+    
+    
+  </div> -->
+  <br>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="form-group">
+        <%= f.submit 'Upload Photo', class: 'btn btn-default' %>
+    </div>
+<% end %>
+</div>
+
+
+  <script>
+    $(function() {
+      $('#edit').froalaEditor({
+        // Set the image upload URL.
+        imageUploadURL: '/upload_image',
+ 
+        imageUploadParams: {
+          id: 'my_editor'
+        }
+      })
+    });
+  </script>

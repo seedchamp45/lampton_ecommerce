@@ -1,0 +1,22 @@
+<style>
+.media-object{
+	width: 500px;
+}
+
+</style>
+<div style="margin: 3em;">
+<div class="page-header"><h1>Upload Photo</h1></div>
+
+<div class="media">
+  <% @medias.each do |photo| %>
+    <div class="media-left">
+      <!-- Renders image -->
+      <%= link_to image_tag(photo.image.url, class: 'media-object'), photo.image.url, target: '_blank' %>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading"><%= photo.title %></h4>
+     <%=raw photo.description %>
+    </div>
+  <% end %>
+</div>
+</div>
