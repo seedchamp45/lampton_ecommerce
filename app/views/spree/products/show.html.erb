@@ -644,7 +644,10 @@
                                                             <%= number_field_tag :quantity,  1 , class: 'title', min: 1 ,id: "qty_p" %>
                                                           </div>
                                                           <div class="add-to-cart">
-                                                            <div class="mr-2 d-inline product_model_text_small"><a href="/products">CONTINUE SHOPPING</a></div>
+                                                            <%= button_tag class: 'products_modal_bu', id: 'add-to-cart-button-con', type: :submit do %>CONTINUE SHOPPING
+                                                            
+                                                            <% end %>
+                                                           
 
                                                             <%= button_tag class: 'lbtn btn-white  btn-lg  products_modal_bu orange_bg d-inline', id: 'add-to-cart-button', type: :submit do %>Check out
 
@@ -1097,6 +1100,18 @@ $('.minus').click(function(e) {
 
  }       
 });
+
+$('#add-to-cart-button-con').click(function(e) {
+  event.preventDefault();
+  $.wait(5000).then(  window.location.href = '/products';   );
+  
+});
+
+$.wait = function(ms) {
+    var defer = $.Deferred();
+    setTimeout(function() { defer.resolve(); }, ms);
+    return defer;
+};
 
 
 $(".modal").on("hidden.bs.modal", function(){

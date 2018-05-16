@@ -28,6 +28,8 @@ gem 'solidus_trackers' , path: './solidus_trackers-master'
 gem 'solidus_user_roles' , path: './solidus_user_roles-master'
 gem 'openssl'
 gem 'omniauth-facebook'
+gem 'blot'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
