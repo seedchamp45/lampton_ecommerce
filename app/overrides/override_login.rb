@@ -1,8 +1,25 @@
+Deface::Override.new(virtual_path: 'spree/user_registrations/new',
+                     name: 'remove_new_customer_if_sessionomniauth',
+                     replace: 'div#new-customer h6',
+                     text: '',
+                     disabled: false)
 
+Deface::Override.new(virtual_path: 'spree/user_sessions/new',
+                     name: 'add_socials_to_login_extras',
+                     insert_before: '[data-hook="login_extras"]',
+                     text: '
+                     <br>
+                     <br>
+                     <p>OR</p>
+                     <a href="/users/auth/facebook" class="btn btn-lg btn-success" style="background-color: #3B5998;">Log in with facebook</a>
+                     <br>
+                     <br>
+                     <p>OR</p>',
+                     disabled: false)
 
 
 Deface::Override.new(:virtual_path => "spree/admin/orders/_shipment",
-                     :name => "override_email",
+                     :name => "override_shipment",
                      :insert_top => ".shipment-number",
                      :text => "
    
@@ -37,14 +54,14 @@ Deface::Override.new(:virtual_path => "spree/order_mailer/confirm_email",
       <p>
         <%= t(".order_summary") %>
       </p>
-                     <% @order.line_items.each do |item| %>
+                      <p><% @order.line_items.each do |item| %> </p>
                      
-          <%= item.variant.sku %>
+           <p><%= item.variant.sku %> </p>
        
-              <%= item.variant.product.name %>
-              <%= item.variant.options_text -%>
+              <p> <%= item.variant.product.name %>  </p>
+               <p><%= item.variant.options_text -%>  </p>
         
-          (<%=item.quantity%>) @ <%= item.single_money %> = <%= item.display_amount %>
+           <p>(<%=item.quantity%>) @ <%= item.single_money %> = <%= item.display_amount %> </p>
       <br>
         <% end %>
         <%= t(".subtotal") %>
