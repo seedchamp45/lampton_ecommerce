@@ -29,7 +29,7 @@ gem 'solidus_user_roles' , path: './solidus_user_roles-master'
 gem 'openssl'
 gem 'omniauth-facebook'
 gem 'blot'
-
+gem "actionmailer_inline_css"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
