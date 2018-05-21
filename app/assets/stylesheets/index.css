@@ -9349,13 +9349,190 @@ a , a:hover{
 #message-body{
 	padding: 10px 10px;
 }
+/*21/03/2018*/
 
-#smart_home_ct
-{
-	width: 100%;
+
+/*23/03/2018*/
+
+
+.btn-outline-white{
+	background-color: #ffffff!important;
+	border-color: transparent!important;
 }
 
-.carousel-head-img
-{
+
+
+.border_top_100{
 	width: 100%;
+    border-top: 1px solid rgb(222, 226, 230);
 }
+
+.agent_li li{
+	width: 20%;
+}
+
+.border_orange{
+	color: #f7941d;
+}
+/*23/03/2018*/
+/*25/03/2018*/
+.ul_faq li{
+ 	list-style-type: none;
+	border-top: 1px solid #f7941d;
+	padding: 2rem 2rem;
+}
+
+.li_faq_bottom{
+	border-bottom: 1px solid #f7941d;
+}
+
+.ul_faq{
+	padding-left :0rem;
+}
+
+.line-orange{
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #f7941d;
+    width: 30px;
+    padding: 0;
+    display: block;
+}
+
+.head_faq .chevron:after {
+	content: "-";   
+	float: right;
+	color: #f7941d;		
+}
+
+.head_faq:after {
+	color: #f7941d;
+}
+
+.head_faq.collapsed .chevron:after {
+	content: "+";
+	float: right; 
+	color: #f7941d;
+}  
+
+.pointer{
+	cursor: pointer;
+}
+/*25/03/2018*/
+/*26/03/2018*/
+.border_orange{
+	border-color: #f7941d!important;
+}
+
+.text_small .text_body{
+	color: #737373!important;
+}
+.btn-outline-orange{
+    background-color: transparent;
+	border-color: #737373!important;
+}
+/*26/03/2018*/
+/*29/03/2018*/
+.product_details .chevron:after {
+	content: "-";   
+	float: right;
+	color: #f7941d;
+}
+
+.product_details:after {
+	color: #f7941d;
+}
+
+.product_details.collapsed .chevron:after {
+	content: "+";
+	float: right; 
+	color: #f7941d;
+}
+/*29/03/2018*/  
+/*
+.text_indent1{
+	text-indent: 2.5em;
+}
+.text_indent2{
+	text-indent: 3.5em;
+}
+.text_indent3{
+	text-indent: 4.5em;
+}
+
+.text_indent4{
+	text-indent: 5.5em;
+}
+
+.text_indent5{
+	text-indent: 6.5em;
+}
+
+.text_indent6{
+	text-indent: 7em;
+}
+
+.text_indent7{
+	text-indent: 7.5em;
+}
+
+.text_indent8{
+	text-indent: 8.5em;
+}
+
+.text_indent9{
+	text-indent: 9em;
+}
+*/
+/*31/03/2018*/
+.text_indent1{
+	text-indent: 7%;
+}
+.text_indent2{
+	text-indent: 8%;
+}
+.text_indent3{
+	text-indent: 9%;
+}
+
+.text_indent4{
+	text-indent: 10%;
+}
+
+.text_indent5{
+	text-indent: 11%;
+}
+
+.text_indent6{
+	text-indent: 12%;
+}
+
+.text_indent7{
+	text-indent: 13%;
+}
+
+.text_indent8{
+	text-indent: 14%;
+}
+
+.text_indent9{
+	text-indent: 15%;
+}
+/*31/03/2018*/
+/*20/05/2018*/
+.bu_read_more_white{
+	border-color: #feffff;
+    background-color: #32313100;
+    color: #fbfbfb;
+}
+
+.bu_transparent{
+    background-color: transparent;
+    border-color: #8c8787;
+}
+
+.dashed1
+{
+	border-color: #f7941d;		
+	border-style: dashed;
+}/*20/05/2018*/

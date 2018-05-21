@@ -33,7 +33,65 @@
 <body>
   <%= render partial: 'header/header' %>
 
-
+ <div class="container">
+      <!--about_awards-->
+      <section id="about_awards">
+        <div class="row">
+          
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+            <div class="about_txt_title text-uppercase  ">
+              media
+              <hr/>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <!--1-->
+          <% Content.where(content: 'news', status: 'yes').each_with_index do |s, index| %>
+            
+            <!--9-->
+            <div class="col-12  col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2" >
+              
+              <div class="ml-lg-1 about_card" >
+                <div data-aos="fade-up" data-aos-duration="600">
+                  <div class="container_hover">
+                    <div class="content_eff" >
+                      <div data-aos="zoom-out">
+                        <a href="" target="_blank">
+                          <div class="content-overlay"></div>
+                             <%= image_tag(s.image, :alt => "logo", :class => "content-image") %>
+                     
+                          
+                          <div class="content-details-eff fadeIn-bottom">
+                            <div class="ml-md-0 mr-md-0 ">
+                            
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body pl-0 pr-0">
+                    <p class="card-text about_txt_title mt-0 pl-1 pr-1"><%= s.title %></p>
+                   
+                  </div>
+                </div>
+                  </div>
+                <% end %>
+                <!--<div data-aos="zoom-in" data-aos-duration="300" data-aos-delay="500" >-->
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+          <button type="button"  class="btn btn-outline-dark about_button btn-md strong btn_tb">LOAD MORE</button>
+        </div>
+      </section>
+    </div>
+    
 
 
 
@@ -44,5 +102,14 @@
 
  <%= render partial: 'footer/footer' %>
 <%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
+<%= javascript_include_tag "aos", "data-turbolinks-track" => true  %>
+<script>
+AOS.init({
+  offset: 200,
+  duration: 1600,
+  easing: 'ease-in-sine',
+  delay: 300,
+});
+</script>
 </body>
 </html>
