@@ -1,0 +1,142 @@
+  <div class="bar_menu_2">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <% @taxon.permalink.split("/").each_with_index do |taxon, index| %>
+                      <%= taxon  %> 
+                      <% if index != @taxon.permalink.split("/").count - 1 %>
+                       ->
+                    <% end %>
+                  <% end %>
+                </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="d-md-none  col-sm-12 col-md-12 col-lg-6 col-xl-8">
+        <ul class="nav d-flex justify-content-end w-100">
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="d-none d-md-block col-sm-3 col-md-3 col-lg-3 col-xl-3">
+        LIGHTING
+        <div id="product_menu">
+          <div class="menu_left">
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
+         <div class="row ">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex-2 justify-content-end-2 ">
+              <ul class="nav d-flex-2 justify-content-end-2 product_menu_filter">
+                <li class="w-50">
+                  <div class="dropdown w-100 text-center">
+                    <div class="dropdown-toggle w-100"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <%= image_tag("products/filter.png", :class => "img-fluid mr-2 product_icon_head") %>
+                      <div class="product_text_head">
+                      FILTER</div>
+                    </div>
+                    <div class="dropdown-menu w-100 text-center" aria-labelledby="dropdownMenuLink">
+                      <div id="accordion">
+                        <div class="filter_1">
+                          <!--หัวข้อ-->
+                          <div id="heading_filter_1">
+                            <div class="product_sub_title_bar collapsed product_text_head_sub" data-toggle="collapse" data-target="#collapse_filter_1" aria-expanded="false" aria-controls="collapse_filter_1">WATT</div>
+                          </div>
+                          <!--หัวข้อ-->
+                          <!--หัวข้อย่อย-->
+                          <div id="collapse_filter_1" class="collapse" aria-labelledby="heading_filter_1" data-parent="#accordion">
+                            <div class="product_list_sub_sub">
+                              <ul class=" text-left ">
+                                <li class="product_text_head_sub">xxxx</li>
+                                <li class="product_text_head_sub">xxxx</li>
+                                <li class="product_text_head_sub">xxxx</li>
+                                <li class="product_text_head_sub">xxxx</li>
+                                <li class="product_text_head_sub">xxxx</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <!--หัวข้อย่อย-->
+                          <div class="line_filter"></div>
+                        </div>
+                        <div class="filter_2">
+                          <!--หัวข้อ-->
+                          <div class="product_sub_title_bar  collapsed collapse_filter_2 product_text_head_sub" data-toggle="collapse" data-target="#collapse_filter_2" aria-expanded="false" aria-controls="collapse_filter_2">ขั้ว</div>
+                          <!--หัวข้อ-->
+                          <!--หัวข้อย่อย-->
+                          <div id="collapse_filter_2" class="collapse" aria-labelledby="heading_filter_2" data-parent="#accordion">
+                            <div class="product_list_sub_sub">
+                              <ul class=" text-left">
+                                <li class="product_text_head_sub">F27</li>
+                                <li class="product_text_head_sub">E14</li>
+                                <li class="product_text_head_sub">GU5.3</li>
+                                <li class="product_text_head_sub">E40</li>
+                                <li class="product_text_head_sub">ต่อไฟตรง</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <!--หัวข้อย่อย-->
+                          <div class="line_filter"></div>
+                        </div>
+                        
+                        <div class="filter_3">
+
+                          <div class="product_sub_title_bar  collapsed product_text_head_sub" data-toggle="collapse" data-target="#collapse_filter_3" aria-expanded="false" aria-controls="collapse_filter_3">PLACE</div>
+                          <!--หัวข้อย่อย-->
+                          <div id="collapse_filter_3" class="collapse" aria-labelledby="heading_filter_3" data-parent="#accordion">
+                            <div class="product_list_sub_sub">
+                              <ul class=" text-left">
+                                <li class="product_text_head_sub">Residence</li>
+                                <li class="product_text_head_sub">Office</li>
+                                <li class="product_text_head_sub">Industrial</li>
+                                <li class="product_text_head_sub">Outdoor</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <!--หัวข้อย่อย-->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="w-50-2">
+                  <div class="dropdown w-100 text-right text-center_2">
+                    <!--หัวข้อหลัก-->
+                    <div class="dropdown-toggle w-100" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       <%= image_tag("products/sort.png", :class => "img-fluid mr-2 product_icon_head") %>
+                    
+                      <div class="product_text_head">
+                      SORT</div>
+                      <!--หัวข้อหลัก-->
+                    </div>
+                    <div class="dropdown-menu w-100 text-center" aria-labelledby="dropdownMenuLink1">
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/smarthome/recommend">BEST SELLER</a>
+                      <div class="line_filter"></div>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/smarthome/recommend">RECOMMEND</a>
+                      <div class="line_filter"></div>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/smarthome/<%=@taxon.name%>?price_low">PRICE:LOW-HIGH</a>
+                      <div class="line_filter"></div>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/smarthome/<%=@taxon.name%>?price_high">PRICE:HIGH-LOW</a>
+                      <div class="line_filter"></div>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="#">DISCOUNT</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              
+            </div>
+          </div>

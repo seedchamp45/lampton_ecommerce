@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
 
 
+  get 'styleguide/index'
 
+  get 'styleguide/show'
 
+  get '/diy' => 'diy#index'
 
-  get '/diy'  => 'diy#diy'
+  get '/diy/:id' => 'diy#show'
 
-  get '/newsandmedia' => 'newsandmedia#newsandmedia'
+  get '/styleguide' => 'styleguide#index'
+
+  get '/styleguide/:id' => 'styleguide#show'
+
+  get '/newsandmedia' => 'newsandmedia#index'
+
+  get '/newsandmedia/:id' => 'newsandmedia#show'
 
   get '/catalogue' => 'catalogue#catalogue'
 
@@ -53,6 +62,7 @@ Rails.application.routes.draw do
   #
   # We ask that you don't use the :as option here, as Solidus relies on it being the default of "spree"
   mount Spree::Core::Engine, at: '/'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

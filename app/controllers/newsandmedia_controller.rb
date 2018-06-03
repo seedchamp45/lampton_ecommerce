@@ -1,4 +1,8 @@
 class NewsandmediaController < ApplicationController
-  def newsandmedia
+  def index
+  end
+
+  def show
+  	 @id = params[:id]
   end
 end

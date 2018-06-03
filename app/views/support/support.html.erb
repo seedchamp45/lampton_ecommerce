@@ -11,7 +11,6 @@
   <title><%= content_for?(:title) ? yield(:title) : "My title" %></title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'spree/frontend/all' %>
  
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -50,22 +49,41 @@
 	            </div>
 	        </div>
          	
-         	<div class="row mt-4 pt-4">
-         		<!--1-->
-            	<div class=" col-12 col-sm-12  col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center mb-3" >
-	                <div class="text-center">
-	                	<a href="/faq">
-	                	<%= image_tag("support/faq_icon.png", :alt => "logo", :class => "img-fluid w-50") %> 
-	           
-	                	<div class="text-center text_title text_bold">FAQ</div></a>
-	                </div>
-	                <div class="text-center">
-                      <a href="/catalogue">
-	                	<%= image_tag("support/catalog_icon.png", :alt => "logo", :class => "img-fluid w-50") %> 
-	                	
-	                	<div class="text-center text_title text_bold">Catalogue</div></a>
-	                </div>
-				</div>
+    
+
+
+        <div class="row mt-4 pt-4">
+              <div class=" col-12 col-sm-12  col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center mb-4" >
+                  <div class="text-center">
+                       <a href="/diy">
+                      <%= image_tag("support/diy_icon.png", :alt => "logo", :class => "img-fluid w-50") %> 
+                    <div class="text-center text_title text_bold">DIY</div></a>
+                  </div>
+                  <div class="text-center">
+                      <a href="/faq">
+                    <%= image_tag("support/faq_icon.png", :alt => "logo", :class => "img-fluid w-50") %> 
+                    <div class="text-center text_title text_bold">FAQ</div>
+                  </a>
+                  </div>
+                  
+                  <div class="text-center">
+                      <a href="/styleguide">
+                    <%= image_tag("support/lamptan_bright.png", :alt => "logo", :class => "img-fluid w-50") %> 
+                    <div class="text-center text_title text_bold">Lamptan Bright <br>Style Guide</div></a>
+                  </div>
+              </div>
+              <div class="col-8 col-sm-8  col-md-8 col-lg-8 col-xl-12 d-flex justify-content-center mb-3" >
+                  <div class="text-center">
+                    <%= image_tag("support/manual.png", :alt => "logo", :class => "img-fluid w-50") %> 
+                    <div class="text-center text_title text_bold">Manual</div>
+                  </div>
+                  <div class="text-center">
+                     <a href="/catalogue">
+                    <%= image_tag("support/catalog_icon.png", :alt => "logo", :class => "img-fluid w-50") %> 
+                    <div class="text-center text_title text_bold">Catalog</div>
+                  </a>
+                  </div>
+              </div>
 
 				<!--2-->
 			
@@ -80,6 +98,10 @@
     
 
      <%= render partial: 'footer/footer' %>
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script> 
 <%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
+<%= javascript_include_tag "aos", "data-turbolinks-track" => true  %>
 </body>
 </html>

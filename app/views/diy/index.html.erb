@@ -1,0 +1,109 @@
+<html>
+<head data-hook="inside_head">
+
+  <%= favicon_link_tag 'favicon.ico' %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Bootstrap CSS -->
+  <meta name="description" content="My custom spree store">
+  <title><%= content_for?(:title) ? yield(:title) : "My title" %></title>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
+    <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Avenir' %>
+  <style>
+
+@font-face {
+        font-family: 'Avenir';
+        src:url('Avenir/AvenirLTStd-Book.otf');
+  
+        }
+  body{
+    font-family: 'Avenir', serif !important;
+  }
+  </style>
+  <%= stylesheet_link_tag "index" %>
+</head>
+
+<body>
+  <%= render partial: 'header/header' %>
+
+
+<div class="container">
+			<!--about_awards-->
+			<section id="about_awards">
+				<div class="row">
+					
+				</div>
+				<div class="row">
+					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+						<div class="about_txt_title text-uppercase  ">
+							DIY
+							<hr/>
+						</div>
+					</div>
+
+					<% Content.where(content: 'diy').each_with_index do |s, index| %>
+					<div class="row mt-4">
+						<div class=" col-12 col-sm-12  col-md-12 col-lg-12 col-xl-12 mb-12" >
+							<div class="about_card">
+								<div data-aos="fade-up" data-aos-duration="600">
+									<div class="container_hover">
+										<div class="content_eff" >
+											<div data-aos="zoom-out">
+												<a href="/diy/<%= s.id %>" target="_blank">
+													<div class="content-overlay"></div>
+													<%= image_tag(s.image, :alt => "logo", :class => "content-image") %>
+													<div class="content-details-eff fadeIn-bottom">
+													<button class="mt-lg-3 btn  btn-lg i_button bu_read_more_white  pt-1 pb-2">
+														<div class="ml-md-0 mr-md-0 ">
+															<div class="align-top d-inline text_small">READ MORE</div>
+														</div>
+													</button>
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="card-body about_card_body">
+										<p class="card-text about_txt"><%= s.title %></p>
+										<p class="card-text about_txt" style="color: white;">asdfghjkl;;'asdfghjkl;;;;;'asdfghjkl;'asdfghjkl;'</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<% end %>
+
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+					<button type="button" class="btn btn-outline-dark about_button btn-md strong btn_tb">LOAD MORE</button>
+				</div>
+			</section>
+		</div>
+		
+
+    
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+
+ <%= render partial: 'footer/footer' %>
+<%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
+<%= javascript_include_tag "aos", "data-turbolinks-track" => true  %>
+<script>
+AOS.init({
+  offset: 200,
+  duration: 1600,
+  easing: 'ease-in-sine',
+  delay: 300,
+});
+</script>
+</body>
+</html>

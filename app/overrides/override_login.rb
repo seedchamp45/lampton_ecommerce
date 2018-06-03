@@ -24,4 +24,17 @@ Deface::Override.new(:virtual_path => "spree/admin/orders/_shipment",
                      :disabled => false)
 
 
+Deface::Override.new(
+  virtual_path:  'spree/admin/shared/_menu',
+  name:          'add_content_menu_links',
+  insert_bottom: "[data-hook='admin_tabs']"
+) do
+  <<-HTML
+      <li class="tab-with-icon">
+      <%= link_to "/contents/new", target: :_blank do %>
+         <span class="text">Content</span>
+      <% end %>
+      </li>
+  HTML
+end
 

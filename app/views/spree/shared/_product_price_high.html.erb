@@ -1,3 +1,4 @@
+
 <style>
 
 .pagination
@@ -36,7 +37,6 @@
 }
 
 </style>
-
 <%
   paginated_products = @searcher.retrieve_products if params.key?(:keywords)
   paginated_products ||= products
@@ -62,11 +62,12 @@
 
 <% if products.any? %>
 
-
-    <% products.each do |product| %>
+    <% products.available.select('spree_products.*, spree_prices.amount').reorder('').send(:descend_by_master_price).each do |product| %>
       <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
+  
+  
         <% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
-         <div class="col-6 col-sm-6  col-md-4 col-lg-4 col-xl-4 no_padding_sm_l" >
+        <div class="col-6 col-sm-6  col-md-4 col-lg-4 col-xl-4 no_padding_sm_l" >
                         <div data-aos="fade-up" data-aos-duration="600" class="aos-init aos-animate">
                           <div class="card_product ml-lg-1 product_card" >
                             <div class="item_img">
@@ -96,7 +97,8 @@
 
 
         <% end %>
- 
+
+    
     <% end %>
     <% reset_cycle("classes") %>
 

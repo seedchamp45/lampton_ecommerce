@@ -1,3 +1,4 @@
+
 class ContentsController < ApplicationController
 
 	 #Index action, photos gets listed in the order at which they were created

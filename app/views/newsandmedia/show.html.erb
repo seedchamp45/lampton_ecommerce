@@ -1,0 +1,115 @@
+<%= favicon_link_tag 'favicon.ico' %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Bootstrap CSS -->
+  <meta name="description" content="My custom spree store">
+  <title><%= content_for?(:title) ? yield(:title) : "My title" %></title>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
+    <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Avenir' %>
+  <style>
+
+@font-face {
+        font-family: 'Avenir';
+        src:url('Avenir/AvenirLTStd-Book.otf');
+  
+        }
+  body{
+    font-family: 'Avenir', serif !important;
+  }
+  </style>
+  <%= stylesheet_link_tag "index" %>
+</head>
+
+<body>
+  <%= render partial: 'header/header' %>
+
+ <div class="container">
+
+
+<div class="container">
+			<!--about_news-->
+			    <% Content.where(content: 'news', status: 'yes', id: @id).each_with_index do |s, index| %>
+			<section id="about_news">
+				
+				<div class="row">
+					<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+						<div class="about_txt_title text-uppercase  ">
+							news
+							<hr/>
+						</div>
+					</div>
+				</div>
+				
+				<!--certificate-->
+				<div class="row">
+					<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+						<%= image_tag(s.image, :alt => "logo", :class => "img-fluid") %>
+						
+					</div>
+				</div>
+				
+				<div class="row ">
+					<div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 ">
+						<div class="about_txt_title text-uppercase  d-flex justify-content-start">
+							<%= s.title %>
+							
+						</div>
+						<div class="border_orange "><%= s.updated_at %></div>
+					</div>
+					<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 ">
+						<div class=" about_txt_title text-uppercase  d-flex justify-content-end">
+						
+						
+							
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+						<div class="line_dashed_p1"></div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+						<div class="about_txt about_new_text_mt_mb ">
+							<%= raw s.body %>
+						</div>
+					</div>
+					
+					
+				</div>
+				
+			</section>
+		</div>
+
+   </div>
+    <% end %>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+
+ <%= render partial: 'footer/footer' %>
+<%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
+<%= javascript_include_tag "aos", "data-turbolinks-track" => true  %>
+<script>
+AOS.init({
+  offset: 200,
+  duration: 1600,
+  easing: 'ease-in-sine',
+  delay: 300,
+});
+</script>
+</body>
+</html>
