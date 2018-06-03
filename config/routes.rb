@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'styleguide/index'
-
-  get 'styleguide/show'
-
   get '/diy' => 'diy#index'
 
   get '/diy/:id' => 'diy#show'
