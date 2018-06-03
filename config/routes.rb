@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   get '/diy' => 'diy#index'
 
   get '/diy/:id' => 'diy#show'

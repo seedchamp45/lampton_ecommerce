@@ -88,16 +88,7 @@
                 <% taxonomy.root.children.map.with_index do |taxon, index| %>
                   <ul class="root_0_<%=index_main%>">
                     <li class="root_1x_<%=index%>"><%=  link_to(taxon.name, seo_url(taxon))%></li>
-                      <% taxon.children.map.with_index do |taxon2, index2| %>
-                        <ul class="root_2_<%=index2%>">
-                          <li class="root_2x_<%=index2%>"><%=  link_to(taxon2.name, seo_url(taxon2)) %></li>
-                            <% taxon2.children.map.with_index do |taxon3, index3| %>
-                              <ul class="root_3">
-                            <li class="root_3x_<%=index3%>"><%=  link_to(taxon3.name, seo_url(taxon3)) %></li>
-                          </ul>
-                        <% end %>
-                      </ul>
-                    <% end %>
+                      
                   </ul>
                 <% end %>
               </div>

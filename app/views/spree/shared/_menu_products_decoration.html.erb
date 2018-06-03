@@ -31,29 +31,27 @@
   <div class="container">
     <div class="row">
       <div class="d-none d-md-block col-sm-3 col-md-3 col-lg-3 col-xl-3">
-        LIGHTING
+        DECORATION
         <div id="product_menu">
           <div class="menu_left">
              <br>
             <% @taxonomies.each_with_index do |taxonomy, index_main| %>
-            <input id="taxon_value" value="<%= @taxonomies.count %>" style="display:none;">
-            <% cache [I18n.locale, taxonomy, 2] do %>
-            <% if taxonomy.name.start_with? 'SMART' %>
-              <a href="/t/smarthome" class="taxon-title" style="font-size: 1rem;"><h6 data-toggle="collapse" data-target="#toggle-taxons-<%=index_main%>" class="taxon-title"><%= taxonomy.name %></h6></a>
-              <div class="line_menu_product"></div>
-            <% elsif taxonomy.name.start_with? 'DECOR' %>
+              <input id="taxon_value" value="<%= @taxonomies.count %>" style="display:none;">
+                <% cache [I18n.locale, taxonomy, 2] do %>
+                  <% if taxonomy.name.start_with? 'DECORATION' %>
+                    <% taxonomy.root.children.map.with_index do |taxon, index| %>
+                      <% if taxon.name =='RECOMMEND' or taxon.name == 'BEST SELLER' or taxon.name == 'DISCOUNT'  %>
+                        
+                      <% else %>
+                        <a href="/t/smarthome" class="taxon-title" style="font-size: 1rem;"><h6 data-toggle="collapse" data-target="#toggle-taxons-<%=index_main%>" class="taxon-title" style="margin-top: 0.5rem;"><%= taxon.name %></h6></a>
+                      <% end %>
+                    <% end %>
+                  <div class="line_menu_product"></div>
+           
+            <% elsif taxonomy.name.start_with? 'SMART' %>
               
             <% else %>
-              <h6 data-toggle="collapse" data-target="#toggle-taxons-<%=index_main%>" class="taxon-title" style="margin-top: 0.5rem;"><%= taxonomy.name %></h6>
-              <div id="toggle-taxons-<%=index_main%>" class="collapse">
-                <% taxonomy.root.children.map.with_index do |taxon, index| %>
-                  <ul class="root_0_<%=index_main%>">
-                    <li class="root_1x_<%=index%>"><%=  link_to(taxon.name, seo_url(taxon))%></li>
-                      
-                  </ul>
-                <% end %>
-              </div>
-            <div class="line_menu_product"></div>
+              
             <% end %>
             <% end %>
             <% end %>
@@ -146,7 +144,7 @@
                       <!--หัวข้อหลัก-->
                     </div>
                     <div class="dropdown-menu w-100 text-center" aria-labelledby="dropdownMenuLink1">
-                      <% if @taxon.permalink.split("/").count > 2 %>
+                      <% if @taxon.permalink.split("/").count > 1 %>
                         <% @taxon.permalink.split("/").each_with_index do |taxon, index| %>
                        
                           <% if index == @taxon.permalink.split("/").count - 1 %>
