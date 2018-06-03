@@ -72,19 +72,14 @@
        </div>
        <div class="overlay-content pl-2 pr-2" id="head_body_mobile" >
         <div id="accordion">
-          <!--1-->
           <div class="menu_2">
             <div class="pop_menu_txt p-2"><%= link_to Spree.t(:home), spree.root_path, style: "color:white;" %></div>
           </div>
-          <!--1-->
-
-          <!--2-->
           <div class="menu_2">
             <div class="pop_menu_txt p-2"><a href="/smarthome" style="color:white;">Smart Home</a></div>
           </div>
-          <!--2-->
           <div class="menu_2">
-            <div class="pop_menu_txt p-2"><a href="/products" style="color:white;">Products</a></div>
+            <div class="pop_menu_txt p-2"><a href="/products" style="color:white;">LIGHTING</a></div>
           </div>
           <div class="menu_2">
             <div class="pop_menu_txt p-2"><a href="/newsandmedia" style="color:white;">News & Media</a></div>
@@ -95,29 +90,6 @@
            <div class="menu_2">
             <div class="pop_menu_txt p-2"><a href="/support" style="color:white;">Support</a></div>
           </div>
-          <!--3-->
-          
-          <!--3-->
-
-          <!--4-->
-         
-        <!--4-->
-
-        <!--5-->
-        
-        <!--5-->
-
-        <!--6-->
-       
-        <!--6-->
-
-        <!--7-->
-        
-        <!--7-->
-
-        <!--8-->
-        
-        <!--8-->
       </div>
     </div>
     
@@ -170,11 +142,8 @@
           </li>
           
           <li id="search-bar" data-hook>
-
-    </li>
-          <!-- <li class="nav-item  head_bar_between m_i_lr_1 d-flex align-items-center">
-           <input type="text" class="form-control form-control-sm in_search" id="colFormLabelSm">
-         </li> -->
+            <%= render partial: 'spree/shared/search' %>
+          </li>
          <li class="nav-item head_bar_between d-flex align-items-center h_text">
   
         </li>
@@ -198,7 +167,10 @@
         <a class="nav-link h_text_menu " href="/smarthome">Smart Home</a>
       </li>
       <li class="nav-item down_down_head">
-       <a class="nav-link h_text_menu" href="/products">Products</a>
+       <a class="nav-link h_text_menu" href="/products">LIGHTING</a>
+     </li>
+     <li class="nav-item down_down_head">
+       <a class="nav-link h_text_menu" href="/t/decoration">LAMP-DECORATION</a>
      </li>
      <li class="nav-item down_down_head">
        <a class="nav-link h_text_menu" href="/newsandmedia">News & Media</a>

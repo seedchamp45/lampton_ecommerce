@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class DiyControllerTest < ActionDispatch::IntegrationTest
-  test "should get diy" do
-    get diy_diy_url
+  test "should get index" do
+    get diy_index_url
+    assert_response :success
+  end
+
+  test "should get show" do
+    get diy_show_url
     assert_response :success
   end
 

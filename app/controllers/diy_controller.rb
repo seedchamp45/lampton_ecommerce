@@ -1,4 +1,8 @@
 class DiyController < ApplicationController
-  def diy
+  def index
+  end
+
+  def show
+  		 @id = params[:id]
   end
 end

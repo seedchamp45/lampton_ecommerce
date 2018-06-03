@@ -1,0 +1,178 @@
+ <html>
+<head data-hook="inside_head">
+
+  <%= favicon_link_tag 'favicon.ico' %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Bootstrap CSS -->
+  <meta name="description" content="My custom spree store">
+  <title><%= content_for?(:title) ? yield(:title) : "My title" %></title>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+
+    <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Avenir' %>
+  <style>
+
+@font-face {
+        font-family: 'Avenir';
+        src:url('Avenir/AvenirLTStd-Book.otf');
+  
+        }
+  body{
+    font-family: 'Avenir', serif !important;
+  }
+
+  .twoline-text {
+
+    line-height: 1.5em; /* Sets line height to 1.5 times text size */
+    height: 3em; /* Sets the div height to 2x line-height (3 times text size) */
+    width: 100%; /* Use whatever width you want */
+    white-space: normal; /* Wrap lines of text */
+    overflow: hidden; /* Hide text that goes beyond the boundaries of the div */
+    text-overflow: ellipsis; /* Ellipses (cross-browser) */
+    -o-text-overflow: ellipsis; /* Ellipses (cross-browser) */
+}
+  </style>
+  <%= stylesheet_link_tag "index" %>
+</head>
+
+<body>
+  <%= render partial: 'header/header' %>
+
+ <div class="container-fluid">
+        <section id="smart_home_ct">
+      <div class="parent d-none d-md-block">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <% if Spree::Slide.published.count > 0 %>
+              <% Spree::Slide.published.location("home_banner").order('position ASC').each_with_index do |s, index| %>
+              <% if index == 0 %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <% else %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>"></li>
+                <% end %>
+                <% end %>
+                <% end %>
+            </ol>
+            <div class="carousel-inner">
+              <% if Spree::Slide.published.count > 0 %>
+              <% Spree::Slide.published.location("home_banner").order('position ASC').each_with_index do |s, index| %>
+              <% if index == 0 %>
+              <div class="carousel-item active">
+                <%= image_tag(s.image, :alt => "logo", :class => "d-block w-100") %>
+              </div>
+              <% else %>
+              <div class="carousel-item">
+                <%= image_tag(s.image, :alt => "logo", :class => "d-block w-100") %>
+              </div>
+              <% end %>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+          </div>
+  </section>
+
+    <div class="container">
+      <!--about_awards-->
+      <section id="about_awards">
+        
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+            <div class="about_txt_title text-uppercase  ">
+              STYLE GIUDE
+              <hr/>
+            </div>
+          </div>
+         
+       
+            <!--1-->
+             <% Content.where(content: 'style', status: 'yes').each_with_index do |s, index| %>
+            
+
+   <div class="col-12  col-sm-6 col-md-4 col-lg-4 col-xl-4 mb-2" >
+              
+              <div class="ml-lg-1 about_card" >
+                <div data-aos="fade-up" data-aos-duration="600">
+                  <div class="container_hover">
+                    <div class="content_eff" >
+                      <div data-aos="zoom-out">
+                        <a href="/styleguide/<%= s.id %>" target="_blank">
+                          <div class="content-overlay"></div>
+                          
+                          <%= image_tag(s.image, :alt => "logo", :class => "content-image") %>
+                          
+                          <div class="content-details-eff fadeIn-bottom">
+                            <button class="mt-lg-3 btn  btn-lg i_button bu_read_more_white  pt-1 pb-2">
+                            <div class="ml-md-0 mr-md-0 ">
+                              <div class="align-top d-inline text_small  ">READ MORE</div>
+                            </div>
+                            </button>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body pl-0 pr-0">
+                    <p class="card-text about_txt_title mt-0"><%= s.title %></p>
+                    <p class="card-text text_small  mb-0 twoline-text" style="color: white;">Different places need different lighting. Learn more about light bulb shapes and fittings and how to find the right fit.</p>
+                  </div>
+                </div>
+                <!--<div data-aos="zoom-in" data-aos-duration="300" data-aos-delay="500" >-->
+                
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+              <% end %>
+                <!--<div data-aos="zoom-in" data-aos-duration="300" data-aos-delay="500" >-->
+                
+           
+            </div>
+       
+
+                   </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center">
+          <button type="button"  class="btn btn-outline-dark about_button btn-md strong btn_tb">LOAD MORE</button>
+        </div>
+      </section>
+    </div>
+    
+    <!--about_awards-->
+    
+    
+    
+    
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+
+ <%= render partial: 'footer/footer' %>
+<%= javascript_include_tag "index", "data-turbolinks-track" => true  %>
+<%= javascript_include_tag "aos", "data-turbolinks-track" => true  %>
+<script>
+AOS.init({
+  offset: 200,
+  duration: 1600,
+  easing: 'ease-in-sine',
+  delay: 300,
+});
+</script>
+</body>
+</html>

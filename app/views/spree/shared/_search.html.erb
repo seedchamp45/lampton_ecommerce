@@ -1,3 +1,22 @@
+<style>
+	#search-text
+	{
+		border-radius: 25px;
+    	text-align: center;
+	}
+	#submit-search
+	{
+		background: url("/assets/search.png");
+	background-size: 20px;
+    cursor:pointer;
+    border:none;
+    width:20px;
+    height:20px;
+    color: rgba(0, 0, 0, 0);
+
+	}
+</style>
+
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
 
  <%= form_tag spree.products_path, method: :get do %>
@@ -7,6 +26,7 @@
                                 @taxons.map {|t| [t.name, t.id]},
                                 @taxon ? @taxon.id : params[:taxon]), 'aria-label' => 'Taxon' %> -->
    <% end %> 
-   <%= search_field_tag :keywords, params[:keywords], placeholder: Spree.t(:search), class: 'typeahead'%>
-  <%= submit_tag Spree.t(:search), name: nil %> 
+   <%= search_field_tag :keywords, params[:keywords], placeholder: Spree.t(:search), class: 'typeahead' ,id: 'search-text'%>
+  <%= submit_tag Spree.t(:search), name: nil ,id: 'submit-search'%> 
 <% end %>
+

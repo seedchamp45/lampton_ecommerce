@@ -1,20 +1,27 @@
-<h1 class="taxon-title"><%= @taxon.name %></h1>
+<% if @taxon.permalink.split("/")[0] == "smarthome" %>
+   <%= render partial: 'spree/shared/menu_products_smart_home' , locals: {  taxon: @taxon } %>
+          <div class="row mt-4">
+            <% if params.has_key?(:price_low) %>
+              <%= render partial: 'spree/shared/product_price_low', locals: { products: @products, taxon: @taxon } %>
+            <% elsif params.has_key?(:price_high) %>
+              <%= render partial: 'spree/shared/product_price_high', locals: { products: @products, taxon: @taxon } %>
+            <% else %>
+              <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+            <% end %>
+          <div class="row mt-5 mb-5">
+        </div>
+      </div>
+    </div>
 
-<% content_for :sidebar do %>
-  <div data-hook="taxon_sidebar_navigation">
-    <%= render partial: 'spree/shared/taxonomies' %>
-    <%= render partial: 'spree/shared/filters' if @taxon.children.empty? %>
   </div>
-<% end %>
-
-<div data-hook="taxon_products">
-  <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
 </div>
 
-<% unless params[:keywords].present? %>
-  <div data-hook="taxon_children">
-    <% cache [I18n.locale, @taxon] do %>
-      <%= render partial: 'taxon', collection: @taxon.children %>
-    <% end %>
-  </div>
+  <% unless params[:keywords].present? %>
+    <div data-hook="taxon_children">
+      <% cache [I18n.locale, @taxon] do %>
+        <%= render partial: 'taxon', collection: @taxon.children %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
+

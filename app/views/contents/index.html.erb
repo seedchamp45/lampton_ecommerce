@@ -1,0 +1,16 @@
+
+
+<div class="page-header"><h1>Upload Photo</h1></div>
+
+<div class="media">
+  <% @content.each do |content| %>
+    <div class="media-left">
+      <!-- Renders image -->
+      <%= link_to image_tag(content.image.url, class: 'media-object'), content.image.url, target: '_blank' %>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading"><%= content.title %></h4>
+      <p> <%=raw content.body %></p>
+    </div>
+  <% end %>
+</div>

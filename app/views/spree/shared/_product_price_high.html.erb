@@ -1,0 +1,108 @@
+
+<style>
+
+.pagination
+{
+  padding-left:20%;
+}
+
+.page:hover
+{
+  color: #ffffff !important;
+    background-color: #f7941d!important;
+    border-color: #f7941d!important;
+}
+
+.page
+{
+  padding: 1rem 1rem !important; 
+  font-size: 1em;
+  color: #000000;
+  border-top-left-radius: calc(1.5rem - 2px)!important;
+  border-top-right-radius: calc(1.5rem - 2px)!important;
+      border-bottom-right-radius: calc(1.5rem - 2px)!important;
+      border-bottom-left-radius: calc(1.5rem - 2px)!important;
+      margin: auto;
+
+    padding: 20px;
+}
+
+.next
+{
+  display: none;
+}
+.last
+{
+  display: none;
+}
+
+</style>
+<%
+  paginated_products = @searcher.retrieve_products if params.key?(:keywords)
+  paginated_products ||= products
+%>
+
+<% content_for :head do %>
+  <% if paginated_products.respond_to?(:total_pages) %>
+    <%= rel_next_prev_link_tags paginated_products %>
+  <% end %>
+<% end %>
+
+<div data-hook="products_search_results_heading">
+  <% if products.empty? %>
+    <div data-hook="products_search_results_heading_no_results_found">
+      <%= Spree.t(:no_products_found) %>
+    </div>
+  <% elsif params.key?(:keywords) %>
+    <div data-hook="products_search_results_heading_results_found">
+      <h6 class="search-results-title"><%= Spree.t(:search_results, keywords: h(params[:keywords])) %></h6>
+    </div>
+  <% end %>
+</div>
+
+<% if products.any? %>
+
+    <% products.available.select('spree_products.*, spree_prices.amount').reorder('').send(:descend_by_master_price).each do |product| %>
+      <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
+  
+  
+        <% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
+        <div class="col-6 col-sm-6  col-md-4 col-lg-4 col-xl-4 no_padding_sm_l" >
+                        <div data-aos="fade-up" data-aos-duration="600" class="aos-init aos-animate">
+                          <div class="card_product ml-lg-1 product_card" >
+                            <div class="item_img">
+                              <%= link_to url do %>
+                                <%= image_tag(product.display_image.attachment(:product), :class => "img-fluid zoom" )%>
+                              <% end %>
+                            </div>
+                          <div class="card-body products_card_body" >
+                            <div data-aos="zoom-in" data-aos-duration="300" data-aos-delay="100" class="aos-init">
+                              <p class="card-title about_txt products_card_title_txt">
+                                <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
+                              </p>
+                              <ul class="nav">
+                              <li class="nav-item products_card_footer1 products_text_price no_padding  d-flex align-items-center">
+                                <%= display_price(product) %>
+                              </li> 
+                              <li class="nav-item products_card_footer2 no_padding d-flex align-items-center"><button type="button" class="btn btn-white products_button  btn-lg btn-block" style=""><%= link_to url do %>ADD TO CART <% end %></button></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+
+        <% end %>
+
+    
+    <% end %>
+    <% reset_cycle("classes") %>
+
+
+
+<% end %>
+
