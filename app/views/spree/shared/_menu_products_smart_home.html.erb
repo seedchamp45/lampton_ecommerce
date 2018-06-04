@@ -162,7 +162,7 @@
                           <% end %>
                         <% end %>
                       <% elsif  @taxon.name.start_with? 'RECOMMEND' or @taxon.name.start_with? 'BEST'  or @taxon.name.start_with? 'DISCOUNT' %>
-                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/bestseller">BEST SELLER</a>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/best-seller">BEST SELLER</a>
                       <div class="line_filter"></div>
                       <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/recommend">RECOMMEND</a>
                       <div class="line_filter"></div>
@@ -174,7 +174,7 @@
            
                       <% else %>
 
-                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/<%=@taxon.permalink%>/bestseller">BEST SELLER</a>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/<%=@taxon.permalink%>/best-seller">BEST SELLER</a>
                       <div class="line_filter"></div>
                       <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/<%=@taxon.permalink%>/recommend">RECOMMEND</a>
                       <div class="line_filter"></div>
