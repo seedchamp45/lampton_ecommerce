@@ -43,7 +43,7 @@
                       <% if taxon.name =='RECOMMEND' or taxon.name == 'BEST SELLER' or taxon.name == 'DISCOUNT'  %>
                         
                       <% else %>
-                        <a href="/t/smarthome" class="taxon-title" style="font-size: 1rem;"><h6 data-toggle="collapse" data-target="#toggle-taxons-<%=index_main%>" class="taxon-title" style="margin-top: 0.5rem;"><%= taxon.name %></h6></a>
+                        <a href="/<%= taxon.permalink %>" class="taxon-title" style="font-size: 1rem;"><h6 data-toggle="collapse" data-target="#toggle-taxons-<%=index_main%>" class="taxon-title" style="margin-top: 0.5rem;"><%= taxon.name %></h6></a>
                       <% end %>
                     <% end %>
                   <div class="line_menu_product"></div>
