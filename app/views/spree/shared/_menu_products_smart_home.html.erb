@@ -150,7 +150,7 @@
                         <% @taxon.permalink.split("/").each_with_index do |taxon, index| %>
                        
                           <% if index == @taxon.permalink.split("/").count - 1 %>
-                              <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/<%= @taxon.permalink.split("/")[0] %>/<%= @taxon.permalink.split("/")[1] %>/bestseller">BEST SELLER</a>
+                              <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/<%= @taxon.permalink.split("/")[0] %>/<%= @taxon.permalink.split("/")[1] %>/best-seller">BEST SELLER</a>
                             <div class="line_filter"></div>
                               <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/<%= @taxon.permalink.split("/")[0] %>/<%= @taxon.permalink.split("/")[1] %>/recommend">RECOMMEND</a>
                             <div class="line_filter"></div>
@@ -161,6 +161,17 @@
                               <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/<%= @taxon.permalink.split("/")[0] %>/<%= @taxon.permalink.split("/")[1] %>/discount">DISCOUNT</a>
                           <% end %>
                         <% end %>
+                      <% elsif taxonomy.name.start_with? 'DECOR' or taxonomy.name.start_with? 'RECOMMEND' or taxonomy.name.start_with? 'BEST'  or taxonomy.name.start_with? 'DISCOUNT' %>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/bestseller">BEST SELLER</a>
+                      <div class="line_filter"></div>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/recommend">RECOMMEND</a>
+                      <div class="line_filter"></div>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/<%=@taxon.permalink%>?price_low">PRICE:LOW-HIGH</a>
+                      <div class="line_filter"></div>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/<%=@taxon.permalink%>?price_high">PRICE:HIGH-LOW</a>
+                      <div class="line_filter"></div>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/discount">DISCOUNT</a>
+           
                       <% else %>
 
                       <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/<%=@taxon.permalink%>/bestseller">BEST SELLER</a>
