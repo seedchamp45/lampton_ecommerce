@@ -48,7 +48,7 @@
 						</div>
 					</div>
 
-					<% Content.where(content: 'diy').each_with_index do |s, index| %>
+					<% Content.where(content: 'diy' ,status: 'yes').each_with_index do |s, index| %>
 					<div class="row mt-4">
 						<div class=" col-12 col-sm-12  col-md-12 col-lg-12 col-xl-12 mb-12" >
 							<div class="about_card">
