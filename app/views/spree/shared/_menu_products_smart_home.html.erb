@@ -161,7 +161,7 @@
                               <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/<%= @taxon.permalink.split("/")[0] %>/<%= @taxon.permalink.split("/")[1] %>/discount">DISCOUNT</a>
                           <% end %>
                         <% end %>
-                      <% elsif taxonomy.name.start_with? 'DECOR' or taxonomy.name.start_with? 'RECOMMEND' or taxonomy.name.start_with? 'BEST'  or taxonomy.name.start_with? 'DISCOUNT' %>
+                      <% elsif  taxonomy.name.start_with? 'RECOMMEND' or taxonomy.name.start_with? 'BEST'  or taxonomy.name.start_with? 'DISCOUNT' %>
                       <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/bestseller">BEST SELLER</a>
                       <div class="line_filter"></div>
                       <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/recommend">RECOMMEND</a>
