@@ -41,7 +41,7 @@
             <% if taxonomy.name.start_with? 'SMART' %>
               <a href="/t/smarthome" class="taxon-title" style="font-size: 1rem;"><h6 data-toggle="collapse" data-target="#toggle-taxons-<%=index_main%>" class="taxon-title"><%= taxonomy.name %></h6></a>
               <div class="line_menu_product"></div>
-            <% elsif taxonomy.name.start_with? 'DECOR' %>
+            <% elsif taxonomy.name.start_with? 'DECOR' or taxonomy.name.start_with? 'RECOMMEND' or taxonomy.name.start_with? 'BEST'  or taxonomy.name.start_with? 'DISCOUNT' %>
               
             <% else %>
               <h6 data-toggle="collapse" data-target="#toggle-taxons-<%=index_main%>" class="taxon-title" style="margin-top: 0.5rem;"><%= taxonomy.name %></h6>
