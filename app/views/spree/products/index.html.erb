@@ -192,15 +192,15 @@
                       <!--หัวข้อหลัก-->
                     </div>
                     <div class="dropdown-menu w-100 text-center" aria-labelledby="dropdownMenuLink1">
-                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="#">BEST SELLER</a>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/bestseller">BEST SELLER</a>
                       <div class="line_filter"></div>
-                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="#">RECOMMEND</a>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/recommend">RECOMMEND</a>
                       <div class="line_filter"></div>
                       <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/products?price_low">PRICE:LOW-HIGH</a>
                       <div class="line_filter"></div>
                       <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/products?price_high">PRICE:HIGH-LOW</a>
                       <div class="line_filter"></div>
-                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="#">DISCOUNT</a>
+                      <a class="dropdown-item product_sub_title_bar2 text-center product_text_head_sub" href="/t/discount">DISCOUNT</a>
                     </div>
                   </div>
                 </li>
@@ -224,13 +224,14 @@
 
 
               <% if params[:keywords] %>
-              <div data-hook="search_results" class="product-listings">
+             
                 <% if @products.empty? %>
                   <h6 class="search-results-title"><%= Spree.t(:no_products_found) %></h6>
+                  <br>
                 <% else %>
                   <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
                 <% end %>
-              </div>
+            
               <% else %>
               <% if @products.any? %>
                 <% if params.has_key?(:price_low) %>
