@@ -1,0 +1,28 @@
+Deface::Override.new(:virtual_path => "spree/order_mailer/confirm_email",
+                     :name => "confirm_email",
+                     :replace => '*',
+                     :text => '  
+                     <div class="form-buttons" data-hook="buttons">
+  <% Spree::Frontend::Config[:require_terms_and_conditions_acceptance].tap do |requires_acceptance| %>
+    <% if requires_acceptance %>
+      <div class="terms_and_conditions" data-hook="terms_and_conditions">
+        <div class="policy"><%= render partial: "spree/checkout/terms_and_conditions" %></div>
+        <%= check_box_tag :accept_terms_and_conditions, "accepted", false %>
+        <%= label_tag :accept_terms_and_conditions, Spree.t(:agree_to_terms_of_service) %>
+      </div>
+    <% end %>
+
+
+
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
+    <%= submit_tag "Confirm",
+      disabled: requires_acceptance,
+      class: "continue btn btn-white products_button btn-md products_bu_details orange_bg text_body #{ "disabled" if requires_acceptance }", id: "clickButtonss" %>
+      </div>
+
+  <% end %>
+
+  <script>Spree.disableSaveOnClick();</script>
+</div>
+
+                     ')

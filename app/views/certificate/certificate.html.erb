@@ -133,7 +133,9 @@
                 <tbody>
                  <% Spree::Order.where(:email => spree_current_user.email).each do |order| %>
                  <tr >
-                  <% if order.present? %>
+
+                  <% if order.present? and order.completed_at? %>
+       
                    <td class="text_body"><%= order.number%></td>
                    <td class="text_body"><%= order.display_total %></td>
                    <td class="text_body"><%= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
@@ -345,10 +347,10 @@
                                             </tr>
                                             <tr>
                                               <td>
-                                                <div class="text_body">Payment</div>
+                                               
                                               </td>
                                               <td>
-                                                <div class="text_body">Omise Credit Transaction</div>
+                                                
                                               </td>
                                             </tr>
                                           </table>

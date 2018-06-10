@@ -525,7 +525,9 @@
                                                 <td class="text-right mt-2" colspan="2">
                                                   <div class="mt-4">
                                                     <div id="cart-form" data-hook="cart_form">
-                                                      <%= form_for :order, url: populate_orders_path do |f| %>
+                                                      <ul style="overflow:hidden; padding-left: 0;">
+                                                      <li  style="display:inline-grid">
+                                                      <%= form_for :order, url: populate_orders_path + "#continue"  do |f| %>
                                                       <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                                                         <% if @product.variants_and_option_values_for(current_pricing_options).any? %>
                                                         <div id="product-variants" class="columns five alpha">
@@ -560,11 +562,12 @@
                                                             <%= number_field_tag :quantity,  1 , class: 'title', min: 1 ,id: "qty_p" %>
                                                           </div>
                                                           <div class="add-to-cart">
-                                                            <div class="mr-2 d-inline product_model_text_small"><a href="/products">CONTINUE SHOPPING</a></div>
-
-                                                            <%= button_tag class: 'lbtn btn-white  btn-lg  products_modal_bu orange_bg d-inline', id: 'add-to-cart-button', type: :submit do %>Check out
+                                                            
+                                                            <%= button_tag class: 'products_modal_bu', id: 'add-to-cart-button-con', type: :submit  do %>CONTINUE SHOPPING
 
                                                             <% end %>
+
+                                                           
                                                           </div>
                                                         </div>
                                                         <% else %>
@@ -575,7 +578,60 @@
                                                         <% end %>
                                                       </div>
                                                       <% end %>
+                                                    </li>
+                                                    <li style="display:inline-grid">
+                                                      <%= form_for :order, url: populate_orders_path   do |f| %>
+                                                      <div id="inside-product-cart-form" data-hook="inside_product_cart_form" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                                        <% if @product.variants_and_option_values_for(current_pricing_options).any? %>
+                                                        <div id="product-variants" class="columns five alpha">
+                                                          <h6 class="product-section-title"><%= Spree.t(:variants) %></h6>
+                                                          <ul>
+                                                            <% @product.variants_and_option_values_for(current_pricing_options).each_with_index do |variant, index| %>
+                                                            <li>
+                                                              <%= radio_button_tag "variant_id", variant.id, index == 0, 'data-price' => variant.price_for(current_pricing_options)  %>
+                                                              <%= label_tag "variant_id_#{ variant.id }" do %>
+                                                              <span class="variant-description">
+                                                                <%= variant_options variant %>
+                                                              </span>
+                                                              <% if variant_price variant %>
+                                                              <span class="price diff"><%= variant_price variant %></span>
+                                                              <% end %>
 
+                                                              <% unless variant.can_supply? %>
+                                                              <span class="out-of-stock"><%= Spree.t(:out_of_stock) %></span>
+                                                              <% end %>
+                                                              <% end %>
+                                                            </li>
+                                                            <% end%>
+                                                          </ul>
+                                                        </div>
+                                                        <% else %>
+                                                        <%= hidden_field_tag "variant_id", @product.master.id %>
+                                                        <% end %>
+
+                                                        <% if @product.price_for(current_pricing_options) and !@product.price.nil? %>
+                                                        <div data-hook="product_price" class="columns five <%= !@product.has_variants? ? 'alpha' : 'omega' %>">
+                                                          <div style="display: none;">
+                                                            <%= number_field_tag :quantity,  1 , class: 'title', min: 1 ,id: "qty_p" %>
+                                                          </div>
+                                                          <div class="add-to-cart">
+                                                             <%= button_tag class: 'lbtn btn-white  btn-lg  products_modal_bu orange_bg d-inline', id: 'add-to-cart-button', type: :submit do %>Check out
+
+                                                            <% end %>
+                                                           
+
+                                                           
+                                                          </div>
+                                                        </div>
+                                                        <% else %>
+                                                        <div id="product-price">
+                                                          <br>
+                                                          <div><span class="price selling" itemprop="price"><%= Spree.t('product_not_available_in_this_currency') %></span></div>
+                                                        </div>
+                                                        <% end %>
+                                                      </div>
+                                                      <% end %>
+                                                    </li>
                                                     </div>
                                                   </div>
                                                 </td>
@@ -768,7 +824,20 @@
                           <div class="border_bottom_100 mt-4 mb-3"></div>
                           <div class="specification text-left">
                             <div class="ml-2 text_body text_bold">  </div>
+                         <% if @product.variant_images.find{ |w| w.alt == "sp" }.present? %>
+                      <% @product.variant_images.each_with_index do |j, index| %>
+                      <% if j.alt == "sp" %>
+                       
                         
+                                <%=  image_tag(j.attachment(:large) )%>
+                             
+                            </div>
+                          </div>
+                        </div>
+
+                      <% end %>
+                      <% end %>
+                      <% end %>
 
                           </div>
                         </div>
@@ -928,11 +997,12 @@ $('#fb-tracker-2').click(function(e) {
   FB.AppEvents.logEvent("add-to-cart");
 });
 
-
+function add_hash() {
+    window.location.href = "#continue";
+}    
 
 
 $(document).ready(function(){
-
 
 
 
@@ -1009,6 +1079,14 @@ $('.minus').click(function(e) {
 
  }       
 });
+
+
+
+$.wait = function(ms) {
+    var defer = $.Deferred();
+    setTimeout(function() { defer.resolve(); }, ms);
+    return defer;
+};
 
 
 $(".modal").on("hidden.bs.modal", function(){
