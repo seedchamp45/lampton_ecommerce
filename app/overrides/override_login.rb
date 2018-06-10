@@ -109,3 +109,12 @@ Deface::Override.new(
   HTML
 end
 
+Deface::Override.new(
+  virtual_path:  'spree/admin/shared/_product_tabs',
+  name:          'add_pdf_product',
+  insert_after: '[data-hook="admin_product_tabs"]'
+) do
+   <<-HTML
+       <a class=" button" href="/products/<%= @product.id %>">ADD PDF</a>
+  HTML
+end

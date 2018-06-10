@@ -26,6 +26,7 @@ gem 'wkhtmltopdf-binary'
 gem "audited", github: "collectiveidea/audited"
 gem 'solidus_trackers' , path: './solidus_trackers-master'
 gem 'solidus_user_roles' , path: './solidus_user_roles-master'
+
 gem 'openssl'
 gem 'omniauth-facebook'
 gem "non-stupid-digest-assets"

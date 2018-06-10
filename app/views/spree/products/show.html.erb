@@ -824,20 +824,7 @@
                           <div class="border_bottom_100 mt-4 mb-3"></div>
                           <div class="specification text-left">
                             <div class="ml-2 text_body text_bold">  </div>
-                         <% if @product.variant_images.find{ |w| w.alt == "sp" }.present? %>
-                      <% @product.variant_images.each_with_index do |j, index| %>
-                      <% if j.alt == "sp" %>
-                       
                         
-                                <%=  image_tag(j.attachment(:large) )%>
-                             
-                            </div>
-                          </div>
-                        </div>
-
-                      <% end %>
-                      <% end %>
-                      <% end %>
 
                           </div>
                         </div>
