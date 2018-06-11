@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   get '/diy' => 'diy#index'
 
   get '/diy/:id' => 'diy#show'
@@ -45,6 +46,9 @@ Rails.application.routes.draw do
 
   post "payments/create"
   resources :payments 
+
+  get '/productpdfs', to: 'productpdfs#index'
+  resources :productpdfs
 
   get 'about/certificate'
 

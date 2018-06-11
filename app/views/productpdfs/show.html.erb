@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @productpdf.filename %>
+</p>
+
+<p>
+  <strong>Content type:</strong>
+  <%= @productpdf.content_type %>
+</p>
+
+<p>
+  <strong>File contents:</strong>
+  <%= @productpdf.file_contents %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @productpdf.title %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @productpdf.status %>
+</p>
+
+<p>
+  <strong>Productid:</strong>
+  <%= @productpdf.productid %>
+</p>
+
+<p>
+  <strong>Topics:</strong>
+  <%= @productpdf.topics %>
+</p>
+
+<%= link_to 'Edit', edit_productpdf_path(@productpdf) %> |
+<%= link_to 'Back', productpdfs_path %>
