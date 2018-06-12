@@ -115,6 +115,6 @@ Deface::Override.new(
   insert_after: '[data-hook="admin_product_tabs"]'
 ) do
    <<-HTML
-       <a class=" button" href="/products/<%= @product.id %>">ADD PDF</a>
+       <a class=" button" href="/productpdfs/new?id=<%= @product.id %>">ADD PDF</a>
   HTML
 end

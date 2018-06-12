@@ -18,6 +18,7 @@ class ProductpdfsController < ApplicationController
   # GET /productpdfs/new
   def new
     @productpdf = Productpdf.new
+    @id = params[:id]
   end
 
   # GET /productpdfs/1/edit

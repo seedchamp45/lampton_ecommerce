@@ -338,9 +338,15 @@
 
                       <% end %>
                       <% end %>
+
+                      <% Productpdf.where(productid: @product.id, topics:"specification").each do |document| %>
+                        <a href = "/productpdfs/<%=document.id %>"> 
+                        <button type="button" class="btn  btn-lg btn-block orange_bg" style="margin-top: 1em;" >DOWNLOAD SPECIFICATION</button>
+                        </a>
                       <% end %>
-
-
+                    
+                      <% end %>
+                      
 
                     </div>
                   </div>
@@ -380,9 +386,17 @@
                                       
 
                                           <% end %>
-                                          <% end %>
-                                          <% end %>
 
+                                          <% end %>
+                                          <br>
+                                          <% Productpdf.where(productid: @product.id, topics:"brochure").each do |document| %>
+                        <a href = "/productpdfs/<%=document.id %>"> 
+                        <button type="button" class="btn  btn-lg btn-block orange_bg" style="margin-top: 1em;" >DOWNLOAD BROUCHURE</button>
+                        </a>
+                      <% end %>
+
+                                          <% end %>
+                      
 
 
 
@@ -427,6 +441,13 @@
                                         
                                           <% end %>
                                           <% end %>
+                                          <br>
+                                          <% Productpdf.where(productid: @product.id, topics:"manual_guide").each do |document| %>
+                        <a href = "/productpdfs/<%=document.id %>"> 
+                        <button type="button" class="btn  btn-lg btn-block orange_bg" style="margin-top: 1em;" >DOWNLOAD MANUAL GUIDE</button>
+                        </a>
+                      <% end %>
+
                                           <% end %>
 
 
