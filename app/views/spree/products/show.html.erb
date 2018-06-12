@@ -466,12 +466,15 @@
                                       <div class=" product_title_recommender text-center mb-3">RECOMMENDED PRODUCTS</div>
                                     </div>
                                     <div class="col-12 col-md-12 col-xl-12 col-lg-12 d-flex justify-content-around">
-                                      <% Spree::Product.available.where(:promotionable => true).order('position ASC').limit(2).each_with_index do |s, index| %>
+                                      <% if @product.taxons.count > 0 %>
+                  
+                    <% Spree::Product.in_taxons(@product.taxons.first.id).sample(4).each_with_index do |s, index| %>
+
                                       <div class="card_product ml-lg-1 product_card">
                                         <%= link_to product_path(s) do %>
                                         <%= image_tag s.display_image.attachment(:large) , :class => "card-img-top i_cn_lampton_diy_img img-fluid"%>
                                         <% end %>
-
+                                        <% end %>
 
                                         <div class="card-body products_card_body">
                                           <p class="card-title about_txt products_detail_title_re_text"> <%= link_to s.name, product_path(s) %></p>
