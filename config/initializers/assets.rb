@@ -17,4 +17,3 @@ Rails.application.config.assets.precompile += %w( index.js )
 
 Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'html')
 Rails.application.config.assets.register_mime_type('text/html', '.html')
-Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf|otf|woff2)\z/
