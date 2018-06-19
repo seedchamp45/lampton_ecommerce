@@ -19,7 +19,7 @@
         }
 
      body{
-      font-family: 'Avenir', serif !important;
+       
      }
 </style>
   <script src="https://cdn.omise.co/omise.js"></script>
@@ -33,7 +33,7 @@
 <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
   <%= render partial: 'header/header' %>
 
-  <div class="container">
+
     <div id="wrapper" class="row" data-hook>
 
       <%= render partial: 'spree/shared/sidebar' if content_for? :sidebar %>
@@ -43,7 +43,7 @@
       </div>
       <%= yield :templates %>
     </div>
-  </div>
+
 
   <%= render partial: 'footer/footer' %>
 

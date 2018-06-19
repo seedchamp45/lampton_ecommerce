@@ -466,8 +466,8 @@
                                       <div class=" product_title_recommender text-center mb-3">RECOMMENDED PRODUCTS</div>
                                     </div>
                                     <div class="col-12 col-md-12 col-xl-12 col-lg-12 d-flex justify-content-around">
-                                      <% if @product.taxons.count > 0 %>
-                  
+                                      <% if @product.taxons.count > 0 and  Spree::Product.in_taxons(@product.taxons.first.id).nil? %>
+                                      
                     <% Spree::Product.in_taxons(@product.taxons.first.id).sample(4).each_with_index do |s, index| %>
 
                                       <div class="card_product ml-lg-1 product_card">
@@ -486,6 +486,7 @@
                                         </div>
                                       </div>
                                       <% end %>
+
 
 
                                     </div>
